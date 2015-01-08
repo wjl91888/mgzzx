@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <script type="text/javascript" language="JavaScript" charset="gb2312">
+    <!--
+        var imgArrowLeft = new Image();
+        var imgArrowRight = new Image();
+
+        imgArrowLeft.src = "../App_Themes/Themes/Image/arrow_left.gif";
+        imgArrowRight.src = "../App_Themes/Themes/Image/arrow_right.gif";
+
+        function changeWin() {
+            if (parent.parent.MainFrame.cols != "18,*") {
+                parent.parent.MainFrame.cols = "18,*";
+                document.getElementById('menuSwitch').src = imgArrowRight.src;
+                document.getElementById('menuSwitch').alt = "显示菜单栏";
+            }
+            else {
+                parent.parent.MainFrame.cols = "200,*";
+                document.getElementById('menuSwitch').src = imgArrowLeft.src;
+                document.getElementById('menuSwitch').alt = "隐藏菜单栏";
+            }
+        }
+    //-->
+    </script>
+    <style type="text/css">
+        BODY.SliderBar
+        {
+            border-right: 0px;
+            padding-right: 0px;
+            border-top: 0px;
+            padding-left: 0px;
+            font-weight: normal;
+            font-size: 9pt;
+            padding-bottom: 0px;
+            margin: 0px;
+            border-left: 0px;
+            color: #000000;
+            padding-top: 0px;
+            border-bottom: 0px;
+            font-style: normal;
+            font-family: 宋体;
+            background-color: #dadada;
+            text-decoration: none;
+            height: 100%;
+        }
+        TABLE.SliderBar
+        {
+            border-right: 2px groove;
+            padding-right: 0px;
+            border-top: 2px groove;
+            padding-left: 0px;
+            padding-bottom: 0px;
+            margin: 0px;
+            border-left: 2px groove;
+            padding-top: 0px;
+            border-bottom: 2px groove;
+        }
+    </style>
+</head>
+<body class="SliderBar">
+    <div id="middleblock" style="float: left; width: 10px; vertical-align: middle; height: 100%"
+        onclick="changeWin();" onmouseover="this.style.cursor='pointer';" onmouseout="this.style.cursor='';">
+        <table border="0" style="height: 100%;">
+            <tr>
+                <td valign="middle">
+                    <img id="menuSwitch" height="12" alt="隐藏树形结构" src="../App_Themes/Themes/Image/arrow_left.gif"
+                        width="8" border="0" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

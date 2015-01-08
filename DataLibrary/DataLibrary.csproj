@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E1D33F7-BE9F-4CBA-94DF-A47A786D5534}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataLibrary</RootNamespace>
+    <AssemblyName>DataLibrary</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/DataLibrary/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=2.9.9.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=2.9.9.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Json50r4\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\IPAddessLibrary.cs" />
+    <Compile Include="Base\LogLibrary.cs" />
+    <Compile Include="Base\LogTypeLibrary.cs" />
+    <Compile Include="Base\PurviewLibrary.cs" />
+    <Compile Include="Base\PurviewTypeLibrary.cs" />
+    <Compile Include="Base\UserGroupLibrary.cs" />
+    <Compile Include="Base\UserGroupPurviewLibrary.cs" />
+    <Compile Include="Base\UserPurviewLibrary.cs" />
+    <Compile Include="DictionaryType\DictionaryTypeApplicationData.cs" />
+    <Compile Include="DictionaryType\DictionaryTypeApplicationLogic.cs" />
+    <Compile Include="DictionaryType\DictionaryTypeApplicationLogicBase.cs" />
+    <Compile Include="DictionaryType\DictionaryTypeBusinessEntity.cs" />
+    <Compile Include="DictionaryType\DictionaryTypeBusinessEntityBase.cs" />
+    <Compile Include="DictionaryType\DictionaryTypeWebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DictionaryType\DictionaryTypeWebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dictionary\DictionaryApplicationData.cs" />
+    <Compile Include="Dictionary\DictionaryApplicationLogic.cs" />
+    <Compile Include="Dictionary\DictionaryApplicationLogicBase.cs" />
+    <Compile Include="Dictionary\DictionaryBusinessEntity.cs" />
+    <Compile Include="Dictionary\DictionaryBusinessEntityBase.cs" />
+    <Compile Include="Dictionary\DictionaryWebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dictionary\DictionaryWebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FilterReport\FilterReportApplicationData.cs" />
+    <Compile Include="FilterReport\FilterReportApplicationLogic.cs" />
+    <Compile Include="FilterReport\FilterReportApplicationLogicBase.cs" />
+    <Compile Include="FilterReport\FilterReportBusinessEntity.cs" />
+    <Compile Include="FilterReport\FilterReportBusinessEntityBase.cs" />
+    <Compile Include="FilterReport\FilterReportWebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FilterReport\FilterReportWebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShortMessage\ShortMessageApplicationData.cs" />
+    <Compile Include="ShortMessage\ShortMessageApplicationLogic.cs" />
+    <Compile Include="ShortMessage\ShortMessageApplicationLogicBase.cs" />
+    <Compile Include="ShortMessage\ShortMessageBusinessEntity.cs" />
+    <Compile Include="ShortMessage\ShortMessageBusinessEntityBase.cs" />
+    <Compile Include="ShortMessage\ShortMessageWebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShortMessage\ShortMessageWebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_BG_0601\T_BG_0601ApplicationData.cs" />
+    <Compile Include="T_BG_0601\T_BG_0601ApplicationLogic.cs" />
+    <Compile Include="T_BG_0601\T_BG_0601ApplicationLogicBase.cs" />
+    <Compile Include="T_BG_0601\T_BG_0601BusinessEntity.cs" />
+    <Compile Include="T_BG_0601\T_BG_0601BusinessEntityBase.cs" />
+    <Compile Include="T_BG_0601\T_BG_0601WebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_BG_0601\T_BG_0601WebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_BG_0602\T_BG_0602ApplicationData.cs" />
+    <Compile Include="T_BG_0602\T_BG_0602ApplicationLogic.cs" />
+    <Compile Include="T_BG_0602\T_BG_0602ApplicationLogicBase.cs" />
+    <Compile Include="T_BG_0602\T_BG_0602BusinessEntity.cs" />
+    <Compile Include="T_BG_0602\T_BG_0602BusinessEntityBase.cs" />
+    <Compile Include="T_BG_0602\T_BG_0602WebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_BG_0602\T_BG_0602WebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_BM_DWXX\T_BM_DWXXApplicationData.cs" />
+    <Compile Include="T_BM_DWXX\T_BM_DWXXApplicationLogic.cs" />
+    <Compile Include="T_BM_DWXX\T_BM_DWXXApplicationLogicBase.cs" />
+    <Compile Include="T_BM_DWXX\T_BM_DWXXBusinessEntity.cs" />
+    <Compile Include="T_BM_DWXX\T_BM_DWXXBusinessEntityBase.cs" />
+    <Compile Include="T_BM_DWXX\T_BM_DWXXWebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_BM_DWXX\T_BM_DWXXWebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoApplicationData.cs" />
+    <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoApplicationLogic.cs" />
+    <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoApplicationLogicBase.cs" />
+    <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoBusinessEntity.cs" />
+    <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoBusinessEntityBase.cs" />
+    <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoWebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoWebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_PM_UserInfo\T_PM_UserInfoApplicationData.cs" />
+    <Compile Include="T_PM_UserInfo\T_PM_UserInfoApplicationLogic.cs" />
+    <Compile Include="T_PM_UserInfo\T_PM_UserInfoApplicationLogicBase.cs" />
+    <Compile Include="T_PM_UserInfo\T_PM_UserInfoBusinessEntity.cs" />
+    <Compile Include="T_PM_UserInfo\T_PM_UserInfoBusinessEntityBase.cs" />
+    <Compile Include="T_PM_UserInfo\T_PM_UserInfoWebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_PM_UserInfo\T_PM_UserInfoWebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\website_org\Common\Common.csproj">
+      <Project>{3F0F291E-6FF0-4580-ADD4-63A107C34FF4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\website_org\DataLibraryBase\DataLibraryBase.csproj">
+      <Project>{53705C01-D554-4539-8B0A-7101BAACB6B3}</Project>
+      <Name>DataLibraryBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

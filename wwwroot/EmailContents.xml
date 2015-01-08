@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EmailContents>
+    <EmailContent name="ValidateUser">
+        <Subject>欢迎使用内蒙古社科联专家管理系统 -- 邮箱验证邮件</Subject>
+        <Message>
+            $UserName$， 欢迎使用内蒙古社科联专家管理系统。
+            &lt;br/&gt;
+            &lt;br/&gt;&lt;a href="$Domain$/Administrator/login.aspx?vcode=$VCode$" target="_blank"&gt;点此连接验证邮箱&gt;&lt;/a&gt;
+            &lt;br/&gt;
+            &lt;br/&gt;- 内蒙古社科联专家管理系统
+        </Message>
+    </EmailContent>
+    <EmailContent name="ChangePassword">
+        <Subject>欢迎使用内蒙古社科联专家管理系统 -- 修改用户密码安全链接邮件</Subject>
+        <Message>
+            $UserName$， 欢迎使用内蒙古社科联专家管理系统。
+            &lt;br/&gt;
+            &lt;br/&gt;&lt;a href="$Domain$/Administrator/ForgetPassword.aspx?vcode=$VCode$" target="_blank"&gt;点此连接修改用户密码&gt;&lt;/a&gt;
+            &lt;br/&gt;
+            &lt;br/&gt;- 内蒙古社科联专家管理系统
+        </Message>
+    </EmailContent>
+</EmailContents>

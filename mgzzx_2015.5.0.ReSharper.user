@@ -1,0 +1,75 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="using" priority="0" />
+      <Item value="string" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="d:Miscellaneous Files/f:Default.aspx.cs/l:E!?MyWork?richsoft?蒙古族中学?DocToSwf?print2flashsdk?Automation?Samples?ASP.NET?Default.aspx.cs" caret="4698" fromTop="37" />
+      <File id="d:Miscellaneous Files/f:Default.aspx/l:E!?MyWork?richsoft?蒙古族中学?DocToSwf?print2flashsdk?Automation?Samples?ASP.NET?Default.aspx" caret="8004" fromTop="36" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Page/f:UplaodFile.aspx" caret="0" fromTop="0" />
+      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/d:Extension/f:StringExtensions.cs" caret="0" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Page/f:UplaodFile.aspx.cs" caret="745" fromTop="15" />
+      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/f:FileUploadLibrary.cs" caret="3708" fromTop="21" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/f:Default.aspx.cs" caret="0" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/f:Default.aspx" caret="54" fromTop="0" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:Base/f:LogLibrary.cs" caret="3115" fromTop="17" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="1675" fromTop="13" />
+      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/d:Utilities/f:PreviewDocumetHelper.cs" caret="1899" fromTop="30" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx" caret="1385" fromTop="25" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUIDetail.aspx" caret="7929" fromTop="8" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="6649" fromTop="20" />
+      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/d:Utilities/f:PreviewDocumetHelper.cs" caret="901" fromTop="14" />
+      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/d:Utilities/f:PreviewDocumetHelper.cs" caret="2683" fromTop="30" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="6649" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="6650" fromTop="36" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx" caret="54" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="4239" fromTop="19" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="4239" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="4239" fromTop="11" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="4239" fromTop="11" />
+      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/d:Utilities/f:PreviewDocumetHelper.cs" caret="111" fromTop="5" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="4239" fromTop="18" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="942" fromTop="10" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="1511" fromTop="22" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="342" fromTop="5" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="342" fromTop="5" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="342" fromTop="5" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="4239" fromTop="15" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="4239" fromTop="27" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:Base/f:LogLibrary.cs" caret="3115" fromTop="17" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx.cs" caret="1675" fromTop="13" />
+      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/d:Utilities/f:PreviewDocumetHelper.cs" caret="1908" fromTop="30" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx" caret="2218" fromTop="6" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx" caret="2218" fromTop="30" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx" caret="2218" fromTop="30" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx" caret="2218" fromTop="3" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx" caret="2218" fromTop="32" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx" caret="826" fromTop="1" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocment/f:PreviewDocument.aspx" caret="1385" fromTop="25" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUIDetail.aspx" caret="8458" fromTop="13" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

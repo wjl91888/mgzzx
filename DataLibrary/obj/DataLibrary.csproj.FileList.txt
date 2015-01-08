@@ -1,0 +1,5 @@
+obj\Debug\ResolveAssemblyReference.cache
+bin\Debug\DataLibrary.dll
+bin\Debug\DataLibrary.pdb
+obj\Debug\DataLibrary.dll
+obj\Debug\DataLibrary.pdb

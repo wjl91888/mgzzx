@@ -1,0 +1,1006 @@
+﻿body
+{
+    margin: 0px;
+    padding: 0px;
+    color: #000;
+    font-size: 12px;
+    background-color: transparent;
+}
+iframe
+{
+    background-color:transparent !important;
+}
+form
+{
+    margin: 0px;
+}
+input
+{
+    color: #000;
+    font-size: 12px;
+}
+select
+{
+    color: #000;
+    font-size: 12px;
+}
+
+BUTTON
+{
+    border-right: #a7a7a7 1px solid;
+    border-top: #a7a7a7 1px solid;
+    font-size: 12px;
+    background: #f0f0f0;
+    border-left: #a7a7a7 1px solid;
+    color: #333333;
+    border-bottom: #a7a7a7 1px solid;
+    text-decoration: none;
+}
+INPUT
+{
+    border-right: #a7a7a7 1px solid;
+    border-top: #a7a7a7 1px solid;
+    font-size: 12px;
+    background: #f0f0f0 !important;
+    border-left: #a7a7a7 1px solid;
+    color: #333333;
+    border-bottom: #a7a7a7 1px solid;
+    text-decoration: none;
+}
+TEXTAREA
+{
+    border-right: #a7a7a7 1px solid;
+    border-top: #a7a7a7 1px solid;
+    font-size: 12px;
+    background: #f0f0f0;
+    border-left: #a7a7a7 1px solid;
+    color: #333333;
+    border-bottom: #a7a7a7 1px solid;
+    text-decoration: none;
+}
+SELECT
+{
+    border-top-width: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    border-left-width: 0px;
+    font-size: 12px;
+    background: #eaeaea;
+    border-bottom-width: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    color: #333333;
+    line-height: 150%;
+    padding-top: 0px;
+    border-right-width: 0px;
+    text-decoration: none;
+}
+
+A:LINK
+{
+    color: #3D362B;
+    text-decoration: none;
+}
+A:VISITED
+{
+    color: #3D362B;
+    text-decoration: none;
+}
+A:HOVER
+{
+    color: #f60;
+    text-decoration: none;
+}
+.AW:LINK
+{
+    color: #3D362B;
+    text-decoration: none;
+}
+.AW:VISITED
+{
+    color: #3D362B;
+    text-decoration: none;
+}
+.AW:HOVER
+{
+    color: #FFF;
+    text-decoration: none;
+}
+.M
+{
+    font-size: 14px;
+    font-weight: bold;
+}
+.MR
+{
+    font-size: 14px;
+    font-weight: bold;
+    color: #cc3300;
+}
+.S
+{
+    font-size: 12px;
+    font-weight: normal;
+}
+.SM
+{
+    font-size: 12px;
+    font-weight: bold;
+}
+.R
+{
+    font-size: 12px;
+    color: #ff0000;
+}
+.O
+{
+    font-size: 12px;
+    color: #fc9603;
+}
+.G
+{
+    font-size: 12px;
+    color: #079807;
+}
+.Gray
+{
+    font-size: 12px;
+    color: #666666;
+    font-weight: normal;
+}
+div.HackBox
+{
+    border-top: 1px solid transparent !important;
+    margin-top: -1px !important;
+    border-top: 0;
+    margin-top: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.title
+{
+    width: 100%;
+    padding: 0px;
+    margin-top: 8px;
+    text-align: left;
+}
+.title div.orangebar
+{
+    float: left;
+    width: 100%;
+    height: 37px;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+.title div.bar
+{
+    float: left;
+    width: 100%;
+    height: 37px;
+    background: #e7e7e7;
+    border-top: #ff7300 3px solid;
+    text-align: left;
+}
+.title div.lefttitle
+{
+    margin-top: 3px;
+    padding-left: 5px;
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+    width: 500px;
+}
+.title div.centertitle
+{
+    margin-top: 3px;
+    padding-left: 5px;
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+.title div.lefttitle1
+{
+    margin-top: 3px;
+    padding-left: 5px;
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+    width: 300px;
+}
+.title div.lefttitle2
+{
+    width: 100%;
+    float: left;
+    padding: 0px;
+    margin-top: 5px;
+    line-height: 180%;
+    font-size: 14px;
+    text-align: left;
+}
+.title div.rightword
+{
+    margin-top: 15px;
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+    width: 80px;
+}
+.title div.img2300
+{
+    float: left;
+    margin-left: 100px;
+    margin-top: 3px;
+    width: 330px;
+}
+
+
+.main
+{
+    width: 100%;
+    padding: 0px;
+}
+.main .input
+{
+    font-size: 12px;
+    white-space: normal;
+    word-break: break-all;
+}
+
+select.input
+{
+    width: 133px;
+}
+
+.list
+{
+    width: 100%;
+    height: 100%;
+}
+.list.table
+{
+    margin-top: 5px;
+    background: #c8c8c8;
+    margin-bottom: 2px;
+    border:0px;
+}
+.table td,.table th
+{
+    font-size: 12px;
+    line-height: 20px;
+    white-space: nowrap;
+    border: 1px white solid;
+    padding:3px !important;
+}
+.list .fieldname
+{
+    background: #dbdad9;
+    color: #333333;
+}
+.list .fieldinput
+{
+    background: #eaeaea;
+}
+.list .grid_fieldname
+{
+    background: #dbdad9;
+    color: #333333;
+    text-align:center !important;
+}
+.list .grid_fieldinput
+{
+    background: #eaeaea;
+    text-align:center !important;
+}
+.list .button
+{
+    color: #3D362B;
+    text-decoration: none;
+}
+
+.print .txt
+{
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px black solid;
+}
+.print .notxt
+{
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+.print .table
+{
+    border-top: 1px black solid;
+    border-left: 1px black solid;
+    border-right: 0px black solid;
+    border-bottom: 0px black solid;
+}
+.print .fieldname
+{
+    border-right: 1px black solid;
+    border-bottom: 1px black solid;
+    border-top: 0px black solid;
+    border-left: 0px black solid;
+    background-color: white;
+}
+.print .fieldinput
+{
+    border-right: 1px black solid;
+    border-bottom: 1px black solid;
+    border-top: 0px black solid;
+    border-left: 0px black solid;
+    background-color: white;
+}
+.print input
+{
+    background-color: white;
+}
+
+
+.content
+{
+    width:230px;
+    padding: 3 0px;
+    margin-top: 8px;
+    float: left;
+}
+.content .fieldname
+{
+    margin-top: 4px;
+    float: left;
+    width: 60px;
+    font-size: 12px;
+    text-align: right;
+    font-weight: bold;
+    
+}
+.content .fieldinput
+{
+    text-align: left;
+    float: left;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.content textarea
+{
+    text-align: left;
+    float: left;
+    font-size: 12px;
+    white-space: nowrap;
+    height: 80px;
+    margin:0px;
+}
+.content .fieldnote
+{
+    float: left;
+    clear:both;
+    text-align: left;
+    font-size: 12px;
+    color: #999999;
+    padding-top: 3px;
+    border: #ffffff 0px solid;
+}
+.redstar
+{
+    margin-top: 4px;
+    float: left;
+    width: 15px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: normal;
+    color: #ff0000;
+    margin-right: 3px;
+}
+
+.contentshow
+{
+    width: 150px;
+    padding: 3 0px;
+    margin-top: 8px;
+    margin-left: 20px;
+    float: left;
+}
+.contentshow .fieldname
+{
+    margin-top: 4px;
+    float: left;
+    width: 118px;
+    font-size: 12px;
+    text-align: left;
+    font-weight: bold;
+    overflow: hidden;
+}
+.contentshow .fieldcheck
+{
+    text-align: left;
+    float: left;
+    font-size: 12px;
+}
+
+.block
+{
+    float: none;
+    clear: both;
+    width: 100%;
+    padding-top: 8px;
+    margin: 0px;
+    height: 28px;
+    border-bottom: #cccccc 1px solid;
+}
+.block ul
+{
+    padding: 5 0px;
+    margin: 0px;
+    list-style: none;
+    text-align: left;
+}
+.block ul li
+{
+    float: left;
+    font-size: 14px;
+    width: 200px;
+    font-weight: bold;
+    color: #666666;
+}
+
+.operation
+{
+    margin-top: 5px;
+    border-top: #cccccc 1px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    text-align: center;
+    clear: both;
+}
+.operation .button
+{
+    width: 70px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 5px;
+    padding-top: 2px;
+}
+.operation .button1
+{
+    width: 120px;
+    text-align: center;
+    font-size: 12px;
+    margin-left: 5px;
+    padding-top: 2px;
+}
+.operation select
+{
+    margin-left: 15px;
+}
+
+.pageinfo
+{
+    border-top: #cccccc 1px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    text-align: right;
+}
+.pageinfo .button
+{
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 5px;
+    padding-top: 2px;
+}
+
+.quicksearch
+{
+    border-top: #cccccc 1px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    text-align: left;
+}
+.quicksearch .button
+{
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 5px;
+    padding-top: 2px;
+}
+
+.congratulation
+{
+    color: blue;
+    filter: glow(color=gray,strength=10);
+    padding-top: 80px;
+    margin-top: 100px;
+    height: 144px;
+    font-size: 35px;
+    background-image: url(../Image/congratulation.gif);
+}
+
+/* 登陆界面样式 */
+#loginpage
+{
+}
+
+#loginpage .bg
+{
+}
+
+#loginpage .title
+{
+}
+
+#loginpage .input
+{
+}
+
+#loginpage .button
+{
+}
+
+/* 框架顶部界面样式 */
+#toppage
+{
+}
+
+#toppage .logo
+{
+}
+
+#toppage .title
+{
+}
+/* 框架左边界面样式 */
+#leftpage
+{
+}
+
+/* 框架左边界面导航样式 */
+#nav
+{
+}
+
+/* 框架左边界面导航父菜单样式 */
+#nav .mainmenu
+{
+}
+
+/* 框架左边界面导航子菜单样式 */
+#nav .submenu
+{
+}
+
+/* 框架右边界面样式 */
+#rightpage
+{
+}
+
+/* 框架右边界面标题样式 */
+#rightpage .title
+{
+}
+
+/* 框架右边界面列表样式 */
+#rightpage .list
+{
+}
+
+#rightpage .list .tabletitle
+{
+}
+
+#rightpage .list .tablecontent
+{
+}
+
+/* 框架右边界面打印样式 */
+#rightpage .fieldname
+{
+}
+
+#rightpage .fieldinput
+{
+}
+
+#rightpage .fieldremark
+{
+}
+
+#rightpage .button
+{
+}
+
+/* 打印界面样式 */
+#printpage
+{
+}
+
+#printpage .title
+{
+}
+
+#printpage .tabletitle
+{
+}
+
+#printpage .tablecontent
+{
+}
+BODY.SliderBar
+{
+    border-right: 0px;
+    padding-right: 0px;
+    border-top: 0px;
+    padding-left: 0px;
+    font-weight: normal;
+    font-size: 9pt;
+    padding-bottom: 0px;
+    margin: 0px;
+    border-left: 0px;
+    color: #000000;
+    padding-top: 0px;
+    border-bottom: 0px;
+    font-style: normal;
+    background-color: #dadada;
+    text-decoration: none;
+}
+TABLE.SliderBar
+{
+    border-right: 2px groove;
+    padding-right: 0px;
+    border-top: 2px groove;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    border-left: 2px groove;
+    padding-top: 0px;
+    border-bottom: 2px groove;
+}
+TD.SliderButton
+{
+    border-right: 1px inset;
+    border-top: 1px inset;
+    border-left: 1px inset;
+    cursor: pointer;
+    border-bottom: 1px inset;
+}
+
+.hback {
+    background-color: #eaeaea !important;
+    border:0px;
+}
+.hback_1 {
+    background-color: #d9d9d9 !important; cursor: pointer;
+    border:0px;
+}
+
+.hand
+{
+    cursor: pointer;
+}
+
+/* 基本样式 */
+.floatleft { float: left;}
+.floatright { float: right;}
+.alignleft { text-align: left;}
+.alignright { text-align: right !important;}
+.clearboth { clear:both; width:100%; float:none;}
+.clearleft { clear:left;}
+.clearright { clear:right;}
+.widthfull { width: 593px !important; }
+.width225 { width: 225px !important; }
+.width240 { width: 240px !important; }
+.width100per { width: 100%;}
+.paddingleft6 { padding-left:6px;}
+/* 页面宽度 */
+.modifypage,.addpage,.statisticpage, .statisticresultpage { width: 700px; background-color: #f7f7f7; }
+.advancesearchpage
+{
+    width: 240px; 
+    background-color: #ffffff; 
+    position: absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    height:100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+.listpage
+{
+    position: absolute;
+    left:250px;
+    top:0;
+    right:0;
+    bottom:0;
+    height:100%;
+    overflow:auto;
+}
+.listpage .toptoolsbar
+{
+    position:fixed;
+    left:250px;
+    top:0;
+    right:0;
+    bottom:0;
+    height:120px;
+    overflow:hidden;
+    background-color:#ffffff;
+}
+
+.addpage .toptoolsbar
+{
+    position:fixed;
+    top:0;
+    bottom:0;
+    height:88px;
+    overflow:hidden;
+    background-color:#ffffff;
+    width:700px;
+    margin:0 auto !important;
+}
+
+.addpage .main
+{
+    padding-top:88px !important;
+}
+
+.listpage .main
+{
+    margin-top: 120px;
+}
+.detailpage { width: 700px; background-color: #ffffff; padding-top:3px; padding-bottom:20px; }
+.CheckBoxListEx
+{
+    max-height:150px !important;
+    height:auto  !important;
+    overflow-x: hidden !important;
+    width:100% !important;
+    height:100% !important;
+}
+
+.modifypage .fieldnote,.addpage .fieldnote,.advancesearchpage .fieldnote,.statisticpage .fieldnote
+{
+    display:none;
+}
+.modifypage .content,.addpage .content,.advancesearchpage .content,.statisticpage .content
+{
+    min-height:34px;
+}
+.CheckBoxListEx table
+{
+
+}
+
+.CheckBoxListEx td
+{
+    width:195px;
+}
+
+.CheckBoxListEx td span
+{
+    width:195px;
+    display:block;
+    overflow-x: hidden;
+    height:20px;
+}
+
+.advancesearchpage .main,.statisticpage .main, .statisticresultpage .print
+{
+    width: 100%;
+    padding: 0px;
+}
+ .statisticresultpage .print
+{
+    padding-bottom:20px;
+}
+.advancesearchpage .main .input,.statisticpage .main .input
+{
+    font-size: 12px;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.advancesearchpage .content,.statisticpage .content
+{
+    min-height:24px;
+}
+.advancesearchpage .content .fieldcheck,.statisticpage .content .fieldcheck
+{
+    text-align: left;
+    float: left;
+    font-size: 12px;
+}
+.advancesearchpage .content .fieldnote,.statisticpage .content .fieldnote
+{
+    display:none;
+}
+.advancesearchpage .main
+{
+    width:225px;
+}
+.advancesearchpage .redstar
+{
+    margin-top: 4px;
+    float: left;
+    width: 15px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: normal;
+    color: #ff0000;
+    margin-right: 3px;
+}
+
+.advancesearchpage .content
+{
+    margin-top: 8px;
+    float: left;
+}
+.advancesearchpage .content .field
+{
+    width: 70px;
+    float: left;
+}
+.advancesearchpage .content .field .fieldname
+{
+    margin-top: 4px;
+    float: left;
+    width: 70px;
+    font-size: 12px;
+    text-align: right;
+    font-weight:bold;
+}
+.advancesearchpage .content .fieldinput
+{
+    float: left;
+    text-align:right;
+    width:145px;
+}
+
+.advancesearchpage .content .fieldinput.clearboth
+{
+    clear:both;
+    text-align:right;
+    width:195px;
+    padding-left:20px;
+}
+
+.advancesearchpage .content input.input 
+{
+    width: 120px !important;
+}
+.advancesearchpage .content select.input 
+{
+    width: 120px !important;
+}
+.advancesearchpage .content table.input 
+{
+    width: 200px !important;
+    text-align:left;
+}
+.advancesearchpage .content .input.widthfull 
+{
+    width: 220px !important;
+}
+
+
+.advancesearchpage .contentshow
+{
+    width: 105px;
+    padding: 0px;
+    margin-top: 4px;
+    margin-left: 5px;
+    float: left;
+}
+.advancesearchpage .contentshow .fieldname
+{
+    margin-top: 4px;
+    float: left;
+    font-size: 12px;
+    text-align: left;
+    font-weight: bold;
+    overflow: hidden;
+}
+.advancesearchpage .contentshow .fieldcheck
+{
+    text-align: left;
+    float: left;
+    font-size: 12px;
+}
+.listpage
+{
+    padding-left:10px !important;
+    padding-right:10px !important;
+    background-color:#ffffff;
+}
+
+.listpage .SearchPageTopToolBar
+{
+    text-align:left;
+}
+.listpage .SearchPageTopToolBar .button
+{
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 5px;
+    padding-top: 2px;
+}
+.listpage .SearchPageTopToolBar .operation select
+{
+    margin-left: 15px;
+}
+
+/* RadTabStrip Style */
+div.tab_table {padding:0px; border:1px solid #96978f; height:100%; }
+
+/* Message Box */
+div.messagebox .messagebody
+{
+    border:1px solid #ffe58a;
+    background:#fff3c8;
+    display:inline-block;
+    width:99.6%;
+    color:#000;
+    margin: 0 0 0 1px;
+/*    position:fixed;
+    _position:absolute;
+    bottom:0px;
+    _bottom:0px;
+    _margin-top:expression(this.style.pixelHeight+document.documentElement.scrollTop);*/
+}
+
+div.messagebox .messagebody div
+{
+    min-height:30px;
+    display:inline-block;
+    background-color: transparent;
+    margin: 15px 0 0px 0;
+    height: auto;
+    width:100%;
+    text-align:center !important;
+    font-weight:bold;
+}
+
+div.messagebox .messagebody div div
+{
+    min-height:18px;
+    margin: 0;
+    text-align:center !important;
+    font-weight:bold;
+    float:left;
+}
+.leftframetable{
+    border: 1px solid #013767;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    background:#E0EEF5;
+}
+
+.leftback {
+    background:#60A3DC;
+}
+
+.topback {
+filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#60A3DC,endcolorstr=#ffffff,gradientType=0);
+ -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#60A3DC,endcolorstr=#ffffff,gradientType=0);/*IE8*/
+ background:#60A3DC; /* 一些不支持背景渐变的浏览器 */ 
+background:-moz-linear-gradient(top, #60A3DC, rgba(255, 255, 255, 0.5)); 
+background:-webkit-gradient(linear, 0 0, 0 bottom, from(#60A3DC), to(rgba(255, 255, 255, 0.5))); 
+}
+
+/* fancy box style */
+#fancybox-outer {background:none !important;}
+.fancybox-bg {display:none;}
+
+.displaynone{display:none;}

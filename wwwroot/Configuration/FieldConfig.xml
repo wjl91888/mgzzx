@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FieldConfig>
+  <Fields name="T_BM_ZJXX">
+    <Field name="XM">
+      <Description>姓名</Description>
+      <ExportFromWord TableIndex="1" RowIndex="1" CellIndex="2" />
+    </Field>
+  </Fields>
+</FieldConfig>
