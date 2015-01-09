@@ -136,6 +136,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 // 初始化传入参数
 
                 // 初始化默认值
+UserStatus.SelectedValue = "02"; 
 
             }
 
@@ -197,8 +198,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         UserStatus.DataTextField = "MC";
         UserStatus.DataValueField = "DM";
               UserStatus.DataBind();
-        UserStatus.Items.Insert(0, new ListItem("请选择用户状态", ""));
-              
+        
     }
 
     //=====================================================================
@@ -461,7 +461,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             boolReturn = validateData.Result;
         }
                 
-        validateData = ValidateUserStatus(UserStatus.SelectedValue, true, false);
+        validateData = ValidateUserStatus(UserStatus.SelectedValue, false, false);
         if (validateData.Result==true)
         {                
             if (validateData.IsNull==false)
@@ -852,7 +852,7 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             boolReturn = validateData.Result;
         }
                 
-        validateData = ValidateUserStatus(UserStatus.SelectedValue, true, false);
+        validateData = ValidateUserStatus(UserStatus.SelectedValue, false, false);
         if (validateData.Result)
         {
             if (!validateData.IsNull)

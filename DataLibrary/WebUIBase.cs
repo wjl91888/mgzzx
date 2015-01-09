@@ -271,7 +271,7 @@ namespace RICH.Common.Base.WebUI
             {
                 strReturn = objValue.ToString();
             }
-            else if (DataValidateManager.ValidateNumberFormat(objValue))
+            else if(Type.GetType("System.String") == objValue.GetType())
             {
                 char[] value = objValue.ToString().ToCharArray();
                 for (int i = 0; i < value.Length; i++)
@@ -279,6 +279,11 @@ namespace RICH.Common.Base.WebUI
                     strDisplayFormat = strDisplayFormat.Replace("{" + i.ToString() + "}", value[i].ToString());
                 }
                 strReturn = strDisplayFormat;
+            }
+            else if (DataValidateManager.ValidateNumberFormat(objValue))
+            {
+                var number = Decimal.Parse(objValue.ToString());
+                strReturn = number.ToString(strDisplayFormat);
             }
             else if (DataValidateManager.ValidateDateFormat(objValue))
             {

@@ -171,7 +171,7 @@
                          </div>
                      </div>
   
-                     <div class="content" id="FSR_Area" runat="server">
+                     <div class="content clearboth" id="FSR_Area" runat="server">
                          <div class="field">
                              <div class="fieldname">
                                           发送人
@@ -180,7 +180,7 @@
                          </div>
                          <div class="fieldinput"><div>
                                 
-                             <asp:TextBox ID="FSR" runat="server" CssClass="input"></asp:TextBox>
+                             <asp:TextBox ID="FSR" runat="server" CssClass="input widthfull"></asp:TextBox>
                                                  
                          </div><div class="fieldnote" id="FSR_Note" runat="server">
                                       
@@ -188,7 +188,7 @@
                          </div>
                      </div>
   
-                     <div class="content" id="FSBM_Area" runat="server">
+                     <div class="content clearboth" id="FSBM_Area" runat="server">
                          <div class="field">
                              <div class="fieldname">
                                           发送部门
@@ -197,7 +197,7 @@
                          </div>
                          <div class="fieldinput"><div>
                                 
-                             <asp:TextBox ID="FSBM" runat="server" CssClass="input"></asp:TextBox>
+                             <asp:TextBox ID="FSBM" runat="server" CssClass="input widthfull"></asp:TextBox>
                                                  
                          </div><div class="fieldnote" id="FSBM_Note" runat="server">
                                       

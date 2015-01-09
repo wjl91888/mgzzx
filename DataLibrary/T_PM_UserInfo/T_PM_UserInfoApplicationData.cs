@@ -650,7 +650,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
                               ,"LastLoginIP"
                               ,"LastLoginDate"
                               ,"LoginTimes"
-                              ,"UserStatus"
                               ,"vcode"
                                 };
 

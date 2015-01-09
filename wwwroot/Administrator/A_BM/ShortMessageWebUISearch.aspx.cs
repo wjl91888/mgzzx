@@ -483,7 +483,7 @@ FSBM_Area.Visible = isDisplay;
             e.Row.Attributes.Add("onmouseover", "overColor(this);");
             e.Row.Attributes.Add("onmouseout", "outColor(this);");
             
-            e.Row.Attributes.Add("ondblclick", "OpenWindow('ShortMessageWebUIAdd.aspx?ObjectID={0}{1}a=v',770,600,window);return false;".FormatInvariantCulture(strObjectID,  AndChar));
+            e.Row.Attributes.Add("ondblclick", "OpenWindow('ShortMessageWebUIDetail.aspx?ObjectID=" + strObjectID + "',770,600,window);return false;");
         }
     }
     protected virtual void FilterReportList_SelectedIndexChanged(object sender, EventArgs e)

@@ -229,25 +229,15 @@ public partial class ShortMessageWebUIDetail : RICH.Common.BM.ShortMessage.Short
                     tcDXXNRContent.Style.Add("text-align", "left");
                     tDetailView.Rows[2].Cells.Add(tcDXXNRContent);
               
-                    // 显示附件标题
-                    TableCell tcDXXFJTitle = new TableCell();
-                    tcDXXFJTitle.Text = "附件";
-                    tcDXXFJTitle.ColumnSpan = 4;
-                    tcDXXFJTitle.RowSpan = 1;
-                    tcDXXFJTitle.CssClass = "fieldname";
-                    tcDXXFJTitle.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
-                    tcDXXFJTitle.Style.Add("border", "1px black solid");
-                    tDetailView.Rows[3].Cells.Add(tcDXXFJTitle);
-                    
                     // 显示附件值
                     TableCell tcDXXFJContent = new TableCell();
                       
                     tcDXXFJContent.Text = ((HtmlContainerControl)hcTemp.FindControl("DXXFJ")).InnerHtml;
                     ((HtmlContainerControl)hcTemp.FindControl("DXXFJ")).InnerHtml = "";
-                    tcDXXFJContent.ColumnSpan = 20;
+                    tcDXXFJContent.ColumnSpan = 24;
                     tcDXXFJContent.RowSpan = 1;
                     tcDXXFJContent.CssClass = "fieldinput";
-                    tcDXXFJContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 20 / intColumn));
+                    tcDXXFJContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 24 / intColumn));
                         
                     tcDXXFJContent.Style.Add("border-top", "1px black solid");
                         
@@ -275,10 +265,10 @@ public partial class ShortMessageWebUIDetail : RICH.Common.BM.ShortMessage.Short
                       
                     tcFSSJContent.Text = ((HtmlContainerControl)hcTemp.FindControl("FSSJ")).InnerHtml;
                     ((HtmlContainerControl)hcTemp.FindControl("FSSJ")).InnerHtml = "";
-                    tcFSSJContent.ColumnSpan = 8;
+                    tcFSSJContent.ColumnSpan = 4;
                     tcFSSJContent.RowSpan = 1;
                     tcFSSJContent.CssClass = "fieldinput";
-                    tcFSSJContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 8 / intColumn));
+                    tcFSSJContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
                         
                     tcFSSJContent.Style.Add("border-top", "1px black solid");
                         
@@ -306,10 +296,10 @@ public partial class ShortMessageWebUIDetail : RICH.Common.BM.ShortMessage.Short
                       
                     tcFSRContent.Text = ((HtmlContainerControl)hcTemp.FindControl("FSR")).InnerHtml;
                     ((HtmlContainerControl)hcTemp.FindControl("FSR")).InnerHtml = "";
-                    tcFSRContent.ColumnSpan = 8;
+                    tcFSRContent.ColumnSpan = 4;
                     tcFSRContent.RowSpan = 1;
                     tcFSRContent.CssClass = "fieldinput";
-                    tcFSRContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 8 / intColumn));
+                    tcFSRContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
                         
                     tcFSRContent.Style.Add("border-top", "1px black solid");
                         
@@ -322,36 +312,36 @@ public partial class ShortMessageWebUIDetail : RICH.Common.BM.ShortMessage.Short
                     tcFSRContent.Style.Add("text-align", "center");
                     tDetailView.Rows[4].Cells.Add(tcFSRContent);
               
-                    // 显示接收人标题
-                    TableCell tcJSRTitle = new TableCell();
-                    tcJSRTitle.Text = "接收人";
-                    tcJSRTitle.ColumnSpan = 4;
-                    tcJSRTitle.RowSpan = 1;
-                    tcJSRTitle.CssClass = "fieldname";
-                    tcJSRTitle.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
-                    tcJSRTitle.Style.Add("border", "1px black solid");
-                    tDetailView.Rows[5].Cells.Add(tcJSRTitle);
+                    // 显示发送部门标题
+                    TableCell tcFSBMTitle = new TableCell();
+                    tcFSBMTitle.Text = "发送部门";
+                    tcFSBMTitle.ColumnSpan = 4;
+                    tcFSBMTitle.RowSpan = 1;
+                    tcFSBMTitle.CssClass = "fieldname";
+                    tcFSBMTitle.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
+                    tcFSBMTitle.Style.Add("border", "1px black solid");
+                    tDetailView.Rows[4].Cells.Add(tcFSBMTitle);
                     
-                    // 显示接收人值
-                    TableCell tcJSRContent = new TableCell();
+                    // 显示发送部门值
+                    TableCell tcFSBMContent = new TableCell();
                       
-                    tcJSRContent.Text = ((HtmlContainerControl)hcTemp.FindControl("JSR")).InnerHtml;
-                    ((HtmlContainerControl)hcTemp.FindControl("JSR")).InnerHtml = "";
-                    tcJSRContent.ColumnSpan = 20;
-                    tcJSRContent.RowSpan = 1;
-                    tcJSRContent.CssClass = "fieldinput";
-                    tcJSRContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 20 / intColumn));
+                    tcFSBMContent.Text = ((HtmlContainerControl)hcTemp.FindControl("FSBM")).InnerHtml;
+                    ((HtmlContainerControl)hcTemp.FindControl("FSBM")).InnerHtml = "";
+                    tcFSBMContent.ColumnSpan = 4;
+                    tcFSBMContent.RowSpan = 1;
+                    tcFSBMContent.CssClass = "fieldinput";
+                    tcFSBMContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
                         
-                    tcJSRContent.Style.Add("border-top", "1px black solid");
+                    tcFSBMContent.Style.Add("border-top", "1px black solid");
                         
-                    tcJSRContent.Style.Add("border-left", "1px black solid");
+                    tcFSBMContent.Style.Add("border-left", "1px black solid");
                         
-                    tcJSRContent.Style.Add("border-bottom", "1px black solid");
+                    tcFSBMContent.Style.Add("border-bottom", "1px black solid");
                         
-                    tcJSRContent.Style.Add("border-right", "1px black solid");
+                    tcFSBMContent.Style.Add("border-right", "1px black solid");
                         
-                    tcJSRContent.Style.Add("text-align", "center");
-                    tDetailView.Rows[5].Cells.Add(tcJSRContent);
+                    tcFSBMContent.Style.Add("text-align", "center");
+                    tDetailView.Rows[4].Cells.Add(tcFSBMContent);
               
                     // 生成一对一相关表表格
             

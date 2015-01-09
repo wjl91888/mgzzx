@@ -160,6 +160,17 @@
     <Compile Include="T_BM_DWXX\T_BM_DWXXWebUIBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="T_BM_GZXX\T_BM_GZXXApplicationData.cs" />
+    <Compile Include="T_BM_GZXX\T_BM_GZXXApplicationLogic.cs" />
+    <Compile Include="T_BM_GZXX\T_BM_GZXXApplicationLogicBase.cs" />
+    <Compile Include="T_BM_GZXX\T_BM_GZXXBusinessEntity.cs" />
+    <Compile Include="T_BM_GZXX\T_BM_GZXXBusinessEntityBase.cs" />
+    <Compile Include="T_BM_GZXX\T_BM_GZXXWebUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="T_BM_GZXX\T_BM_GZXXWebUIBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoApplicationData.cs" />
     <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoApplicationLogic.cs" />
     <Compile Include="T_PM_UserGroupInfo\T_PM_UserGroupInfoApplicationLogicBase.cs" />

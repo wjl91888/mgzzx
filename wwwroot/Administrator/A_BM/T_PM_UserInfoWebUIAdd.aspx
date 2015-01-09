@@ -331,7 +331,7 @@
                              <div class="fieldname">
                                           ÓÃ»§×´Ì¬
                              </div>
-                             <div class="redstar"></div>
+                             <div class="redstar">*</div>
                          </div>
                          <div class="fieldinput"><div>
                                 

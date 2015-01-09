@@ -1,5 +1,5 @@
 /****************************************************** 
-FileName:T_PM_UserGroupPurviewInfoApplicationLogic.cs
+FileName:T_BM_GZXXApplicationLogic.cs
 ******************************************************/
 using System;
 using System.Collections.Generic;
@@ -16,15 +16,15 @@ using RICH.Common.Base.BusinessLogic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.ApplicationLogic;
 
-namespace RICH.Common.BM.T_PM_UserGroupPurviewInfo
+namespace RICH.Common.BM.T_BM_GZXX
 {
     //=========================================================================
-    //  ClassName : T_PM_UserGroupPurviewInfoApplicationLogic
+    //  ClassName : T_BM_GZXXApplicationLogic
     /// <summary>
-    /// T_PM_UserGroupPurviewInfo的扩展应用逻辑类
+    /// T_BM_GZXX的扩展应用逻辑类
     /// </summary>
     //=========================================================================
-    public class T_PM_UserGroupPurviewInfoApplicationLogic : T_PM_UserGroupPurviewInfoApplicationLogicBase
+    public class T_BM_GZXXApplicationLogic : T_BM_GZXXApplicationLogicBase
     {
 
     }

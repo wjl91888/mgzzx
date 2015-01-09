@@ -137,33 +137,14 @@ namespace RICH.Common.BM.T_PM_UserInfo
                 RelatedTableAddBatch();
                 if (appData.ResultCode == ApplicationDataBase.ResultState.Succeed)
                 {
-
-                    // 对成功消息进行处理
-                    strMessageParam[0] = "用户信息";
-                    strMessageParam[1] = "添加";
-                    strMessageInfo = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0015, strMessageParam, strMessageInfo);
-                    MessageContent = strMessageInfo;
-
-                    // 记录日志开始
-                    string strLogTypeID = "A02";
-                    strMessageParam[0] = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME];
-                    strMessageParam[1] = "用户信息";
-                    strMessageParam[2] = appData.UserLoginName.ToString();
-                    strMessageParam[3] = "添加";
-                    string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, strMessageParam);
-                    LogLibrary.LogWrite(strLogTypeID, strLogContent, null, null, null);
-                    // 记录日志结束
-
-                    // 成功后页面跳转
+                    MessageContent = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0015, new string[] {"用户信息", "添加"}, strMessageInfo);
+                    string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, new string[] {(string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], "用户信息", appData.UserLoginName.ToString(), "添加"});
+                    LogLibrary.LogWrite("A02", strLogContent, null, null, null);
                     Page.CloseWindow(true);
                 }
                 else
                 {
-                    // 对失败消息进行处理
-                    strMessageParam[0] = "此编号";
-                    strMessageParam[1] = "用户信息";
-                    strMessageInfo = MessageManager.GetMessageInfo(MessageManager.ERR_MSGID_0013, strMessageParam, strMessageInfo);
-                    MessageContent = strMessageInfo;
+                    MessageContent = MessageManager.GetMessageInfo(MessageManager.ERR_MSGID_0013, new string[] {"此编号", "用户信息"}, strMessageInfo);
                     Session[ConstantsManager.SESSION_MESSAGE_TYPE] = "FaildPre";
                 }
             }
@@ -185,23 +166,9 @@ namespace RICH.Common.BM.T_PM_UserInfo
                 appData = instanceT_PM_UserInfoApplicationLogic.Modify(appData);
                 // 相关表批量修改
                 RelatedTableModifyBatch();
-                // 对成功消息进行处理
-                strMessageParam[0] = "用户信息";
-                strMessageParam[1] = "修改";
-                strMessageInfo = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0015, strMessageParam, strMessageInfo);
-                MessageContent = strMessageInfo;
-
-                // 记录日志开始
-                string strLogTypeID = "A02";
-                strMessageParam[0] = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME];
-                strMessageParam[1] = "用户信息";
-                strMessageParam[2] = appData.UserLoginName.ToString();
-                strMessageParam[3] = "修改";
-                string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, strMessageParam);
-                LogLibrary.LogWrite(strLogTypeID, strLogContent, null, appData.ObjectID.ToString(), null);
-                // 记录日志结束
-
-                // 成功后页面跳转
+                MessageContent = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0015, new string[] {"用户信息", "修改"}, strMessageInfo);
+                string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, new string[] {(string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], "用户信息", appData.UserLoginName.ToString(), "修改"});
+                LogLibrary.LogWrite("A02", strLogContent, null, null, null);
                 Page.CloseWindow(true);
             }
         }
@@ -241,15 +208,8 @@ namespace RICH.Common.BM.T_PM_UserInfo
                 T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                     = (T_PM_UserInfoApplicationLogic)CreateApplicationLogicInstance(typeof(T_PM_UserInfoApplicationLogic));
                 appData = instanceT_PM_UserInfoApplicationLogic.Delete(appData);
-                            // 记录日志开始
-                string strLogTypeID = "A02";
-                strMessageParam[0] = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME];
-                strMessageParam[1] = "用户信息";
-                strMessageParam[2] = (string)appData.ObjectIDBatch;
-                strMessageParam[3] = "删除";
-                string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, strMessageParam);
-                LogLibrary.LogWrite(strLogTypeID, strLogContent, null, null, null);
-                // 记录日志结束
+                string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, new string[] {(string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], "用户信息", (string)appData.ObjectIDBatch, "删除"});
+                LogLibrary.LogWrite("A02", strLogContent, null, null, null);
             }
             else
             {

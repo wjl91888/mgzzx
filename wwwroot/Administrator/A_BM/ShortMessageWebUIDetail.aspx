@@ -96,9 +96,9 @@
                                         
                                            </div>
                                       
-                                            <div id = "JSR" runat = "server" >
+                                            <div id = "FSBM" runat = "server" >
                                         
-                                    <%# DataBinder.Eval(Container.DataItem, "JSR_T_PM_UserInfo_UserNickName") + Convert.ToChar(38).ToString() +"nbsp;"%>
+                                    <%# DataBinder.Eval(Container.DataItem, "FSBM_T_BM_DWXX_DWMC") + Convert.ToChar(38).ToString() +"nbsp;"%>
                                         
                                            </div>
                                       
