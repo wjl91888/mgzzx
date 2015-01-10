@@ -575,15 +575,16 @@
                 <asp:Literal ID="MessageBox" runat="server"></asp:Literal>
                 <div class="quicksearch">
                     <input type="button" id="btnAddItem" runat="server" value="添加" onclick="OpenWindow('T_PM_UserInfoWebUIAdd.aspx?a=a',770,600,window);" class="button" />
-                    <input type="button" id="btnStatisticItem" runat="server" value="统计" onclick="OpenWindow('T_PM_UserInfoWebUIStatistic.aspx',770,600,window);" class="button" />
-                    <input type="button" value="关闭" onclick="CloseWindow();" class="button displaynone" />
-                    <asp:DropDownList runat="server" ID="ddlExportFileFormat">
-                        <asp:ListItem Text="文件类型" Value="xls"></asp:ListItem>
-                        <asp:ListItem Text="EXCEL文件(.xls)" Value="xls"></asp:ListItem>
-                        <asp:ListItem Text="WORD文件(.doc)" Value="doc"></asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:Button runat="server" ID="btnExportAllToFile" Text="导出" CssClass="button" OnClick="btnExportAllToFile_Click" />　
-                </div>
+
+                     <input type="button" id="btnStatisticItem" runat="server" value="统计" onclick="OpenWindow('T_PM_UserInfoWebUIStatistic.aspx',770,600,window);" class="button" />
+                     <input type="button" value="关闭" onclick="CloseWindow();" class="button displaynone" />
+                     <asp:DropDownList runat="server" ID="ddlExportFileFormat">
+                         <asp:ListItem Text="文件类型" Value="xls"></asp:ListItem>
+                         <asp:ListItem Text="EXCEL文件(.xls)" Value="xls"></asp:ListItem>
+                         <asp:ListItem Text="WORD文件(.doc)" Value="doc"></asp:ListItem>
+                     </asp:DropDownList>
+                     <asp:Button runat="server" ID="btnExportAllToFile" Text="导出" CssClass="button" OnClick="btnExportAllToFile_Click" />
+                 </div>
                 <div id="SearchPageTopToolBar" runat="server" class="SearchPageTopToolBar">
                     <table>
                     <tr>

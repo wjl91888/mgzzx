@@ -198,25 +198,15 @@ public partial class ShortMessageWebUIDetail : RICH.Common.BM.ShortMessage.Short
                     tcDXXBTContent.Style.Add("text-align", "center");
                     tDetailView.Rows[1].Cells.Add(tcDXXBTContent);
               
-                    // 显示内容标题
-                    TableCell tcDXXNRTitle = new TableCell();
-                    tcDXXNRTitle.Text = "内容";
-                    tcDXXNRTitle.ColumnSpan = 4;
-                    tcDXXNRTitle.RowSpan = 1;
-                    tcDXXNRTitle.CssClass = "fieldname";
-                    tcDXXNRTitle.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
-                    tcDXXNRTitle.Style.Add("border", "1px black solid");
-                    tDetailView.Rows[2].Cells.Add(tcDXXNRTitle);
-                    
                     // 显示内容值
                     TableCell tcDXXNRContent = new TableCell();
                       
                     tcDXXNRContent.Text = ((HtmlContainerControl)hcTemp.FindControl("DXXNR")).InnerHtml;
                     ((HtmlContainerControl)hcTemp.FindControl("DXXNR")).InnerHtml = "";
-                    tcDXXNRContent.ColumnSpan = 20;
+                    tcDXXNRContent.ColumnSpan = 24;
                     tcDXXNRContent.RowSpan = 1;
                     tcDXXNRContent.CssClass = "fieldinput";
-                    tcDXXNRContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 20 / intColumn));
+                    tcDXXNRContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 24 / intColumn));
                         
                     tcDXXNRContent.Style.Add("border-top", "1px black solid");
                         
@@ -229,15 +219,25 @@ public partial class ShortMessageWebUIDetail : RICH.Common.BM.ShortMessage.Short
                     tcDXXNRContent.Style.Add("text-align", "left");
                     tDetailView.Rows[2].Cells.Add(tcDXXNRContent);
               
+                    // 显示附件标题
+                    TableCell tcDXXFJTitle = new TableCell();
+                    tcDXXFJTitle.Text = "附件";
+                    tcDXXFJTitle.ColumnSpan = 4;
+                    tcDXXFJTitle.RowSpan = 1;
+                    tcDXXFJTitle.CssClass = "fieldname";
+                    tcDXXFJTitle.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
+                    tcDXXFJTitle.Style.Add("border", "1px black solid");
+                    tDetailView.Rows[3].Cells.Add(tcDXXFJTitle);
+                    
                     // 显示附件值
                     TableCell tcDXXFJContent = new TableCell();
                       
                     tcDXXFJContent.Text = ((HtmlContainerControl)hcTemp.FindControl("DXXFJ")).InnerHtml;
                     ((HtmlContainerControl)hcTemp.FindControl("DXXFJ")).InnerHtml = "";
-                    tcDXXFJContent.ColumnSpan = 24;
+                    tcDXXFJContent.ColumnSpan = 20;
                     tcDXXFJContent.RowSpan = 1;
                     tcDXXFJContent.CssClass = "fieldinput";
-                    tcDXXFJContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 24 / intColumn));
+                    tcDXXFJContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 20 / intColumn));
                         
                     tcDXXFJContent.Style.Add("border-top", "1px black solid");
                         

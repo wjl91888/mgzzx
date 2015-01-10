@@ -193,8 +193,14 @@
     <Compile Include="T_PM_UserInfo\T_PM_UserInfoWebUIBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="WebUIBase.Constant.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="WebUIBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUIBase.Designer.cs">
+      <DependentUpon>WebUIBase.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

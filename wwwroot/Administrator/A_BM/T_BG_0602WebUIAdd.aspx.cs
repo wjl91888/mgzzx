@@ -31,25 +31,6 @@ public partial class T_BG_0602WebUIAdd : RICH.Common.BM.T_BG_0602.T_BG_0602WebUI
 
     protected override void Page_Init(object sender, EventArgs e)
     {
-        // »ù±¾SESSION¸³Öµ
-        Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_ADD_FILENAME;
-        if (EditMode)
-        {
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_MODIFY_ACCESS_PURVIEW_ID;
-        }
-        else if (ViewMode)
-        {
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_DETAIL_ACCESS_PURVIEW_ID;
-        }
-        else if (AddMode)
-        {
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_ADD_ACCESS_PURVIEW_ID;
-        }
-        else
-        {
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = NO_ACCESS_PURVIEW_ID;
-        }
-        MessageContent = string.Empty;
         base.Page_Init(sender, e);
     }
 
@@ -644,17 +625,17 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
 			}
             if (ViewMode)
             {
-    ObjectID.ReadOnly = true;
+    ObjectID.Enabled = false;
                 ObjectID_Area.Visible = false;
-      LMH.ReadOnly = true;
-                LMM.ReadOnly = true;
+      LMH.Enabled = false;
+                LMM.Enabled = false;
                 SJLMH.Enabled = false;
-                LMTP.ReadOnly = true;
+                LMTP.Enabled = false;
                 LMNR.ReadOnly = true;
                 LMLBYS.Enabled = false;
                 SFLBLM.Enabled = false;
                 SFWBURL.Enabled = false;
-                WBURL.ReadOnly = true;
+                WBURL.Enabled = false;
                 
       btnAddConfirm.Visible = false;
       btnReset.Visible = false;

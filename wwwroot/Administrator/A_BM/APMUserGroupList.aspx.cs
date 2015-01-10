@@ -145,6 +145,11 @@ public partial class Administrator_A_PM_APMUserGroupList : WebUIBase
         get { return null; }
     }
 
+    public override string OPERATION_IMPORT_DS_PURVIEW_ID
+    {
+        get { return null; }
+    }
+
     protected override void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack == false)

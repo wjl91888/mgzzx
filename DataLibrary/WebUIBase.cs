@@ -13,208 +13,8 @@ using RICH.Common.LM;
 
 namespace RICH.Common.Base.WebUI
 {
-    public abstract class WebUIBase : System.Web.UI.Page, System.Web.UI.ICallbackEventHandler
+    public abstract partial class WebUIBase : System.Web.UI.Page, System.Web.UI.ICallbackEventHandler
     {
-        public const string NO_ACCESS_PURVIEW_ID = "NO_ACCESS_PERMISSON";
-        private T_PM_UserInfoApplicationData currentUserInfo = null;
-        public bool AddMode
-        {
-            get
-            {
-                if (!DataValidateManager.ValidateIsNull(Request.QueryString["a"]))
-                {
-                    return Request.QueryString["a"].Equals("a", StringComparison.OrdinalIgnoreCase);
-                }
-                return false;
-            }
-        }
-        public bool EditMode
-        {
-            get
-            {
-                if (!DataValidateManager.ValidateIsNull(Request.QueryString["a"]))
-                {
-                    return Request.QueryString["a"].Equals("e", StringComparison.OrdinalIgnoreCase);
-                }
-                return false;
-            }
-        }
-        public bool CopyMode
-        {
-            get
-            {
-                if (!DataValidateManager.ValidateIsNull(Request.QueryString["a"]))
-                {
-                    return Request.QueryString["a"].Equals("c", StringComparison.OrdinalIgnoreCase);
-                }
-                return false;
-            }
-        }
-        public bool ViewMode
-        {
-            get
-            {
-                if (!DataValidateManager.ValidateIsNull(Request.QueryString["a"]))
-                {
-                    return Request.QueryString["a"].Equals("v", StringComparison.OrdinalIgnoreCase);
-                }
-                return false;
-            }
-        }
-        public bool AccessPermission { get; set; }
-        private string objectID;
-        public string ObjectID
-        {
-            get
-            {
-                if (DataValidateManager.ValidateUniqueIdentifierFormat(Request.QueryString["ObjectID"]))
-                {
-                    objectID = Request.QueryString["ObjectID"];
-                }
-                return objectID;
-            }
-        }
-        public T_PM_UserInfoApplicationData CurrentUserInfo
-        {
-            get
-            {
-                if (currentUserInfo == null)
-                {
-                    if (!ValidateUserIsLogined())
-                    {
-                        // 未登录处理
-                        Response.Redirect(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + "/Administrator/Login.aspx");
-                    }
-                    currentUserInfo = new T_PM_UserInfoApplicationData()
-                                {
-                                    UserID = (string)Session[ConstantsManager.SESSION_USER_ID],
-                                    UserGroupID = (string)Session[ConstantsManager.SESSION_USER_GROUP_ID],
-                                    UserLoginName = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME],
-                                    UserNickName = (string)Session[ConstantsManager.SESSION_USER_NICK_NAME],
-                                    SubjectID = (string)Session[ConstantsManager.SESSION_SSDW_ID]
-                                };
-                }
-                return currentUserInfo;
-            }
-        }
-        public virtual MasterPage BaseMaster
-        {
-            get
-            {
-                return this.Page.Master as MasterPage;
-            }
-        }
-
-        public virtual Control MainContentPlaceHolder
-        {
-            get
-            {
-                if (BaseMaster != null)
-                {
-                    return BaseMaster.FindControl("MainContentPlaceHolder") as Control;
-                }
-                return null;
-            }
-        }
-
-        public string DomainUrl
-        {
-            get
-            {
-                return "{0}://{1}".FormatInvariantCulture(Request.Url.Scheme, Request.Url.Authority);
-            }
-        }
-
-        public static string MessageContent { get; set; }
-        public static string CurrentPageFileName;
-
-        #region 常量
-        public abstract string FilterReportType { get; }
-        public static string AndChar = "&";
-        public virtual bool NeedLogin
-        {
-            get { return true; }
-        }
-        #endregion
-
-        #region 页面名称定义
-        /// <summary>
-        /// 当前页面所在文件路径
-        /// </summary>
-        public abstract string CURRENT_PATH { get; }
-        /// <summary>
-        /// 编辑页面文件名
-        /// </summary>
-        public abstract string WEBUI_ADD_FILENAME { get; }
-        /// <summary>
-        /// 查询页面文件名
-        /// </summary>
-        public abstract string WEBUI_SEARCH_FILENAME { get; }
-        /// <summary>
-        /// 详情页面文件名
-        /// </summary>
-        public abstract string WEBUI_DETAIL_FILENAME { get; }
-        /// <summary>
-        /// 统计页面文件名
-        /// </summary>
-        public abstract string WEBUI_STATISTIC_FILENAME { get; }
-        #endregion
-
-        #region 权限编号定义
-        /// <summary>
-        /// 添加权限
-        /// </summary>
-        public abstract string WEBUI_ADD_ACCESS_PURVIEW_ID { get; }
-        /// <summary>
-        /// 修改权限
-        /// </summary>
-        public abstract string WEBUI_MODIFY_ACCESS_PURVIEW_ID { get; }
-        /// <summary>
-        /// 浏览权限
-        /// </summary>
-        public abstract string WEBUI_SEARCH_ACCESS_PURVIEW_ID { get; }
-        /// <summary>
-        /// 详情权限
-        /// </summary>
-        public abstract string WEBUI_DETAIL_ACCESS_PURVIEW_ID { get; }
-        /// <summary>
-        /// 统计权限
-        /// </summary>
-        public abstract string WEBUI_STATISTIC_ACCESS_PURVIEW_ID  { get; }
-        /// <summary>
-        /// 删除权限
-        /// </summary>
-        public abstract string OPERATION_DELETE_PURVIEW_ID  { get; }
-        /// <summary>
-        /// 导出权限
-        /// </summary>
-        public abstract string OPERATION_EXPORTALL_PURVIEW_ID { get; }
-        /// <summary>
-        /// 导入权限
-        /// </summary>
-        public abstract string OPERATION_IMPORT_PURVIEW_ID { get; }
-        #endregion
-
-        /// <summary>
-        /// 输入参数HashTable
-        /// </summary>
-        private Hashtable htInputParameter = new Hashtable();
-
-        /// <summary>
-        /// 输出参数HashTable
-        /// </summary>
-        private Hashtable htOutputParameter = new Hashtable();
-
-        /// <summary>
-        /// 用来存储消息信息
-        /// </summary>
-        private string strMessageInfo = string.Empty;
-
-        /// <summary>
-        /// 用来存储消息信息的参数
-        /// </summary>
-        private string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-
         protected ApplicationLogicBase CreateApplicationLogicInstance(Type typeofApplicationLogic)
         {
             ApplicationLogicBase applicationLogic = (ApplicationLogicBase)Activator.CreateInstance(typeofApplicationLogic);
@@ -329,7 +129,36 @@ namespace RICH.Common.Base.WebUI
 
         virtual protected void Page_Init(object sender, EventArgs e)
         {
-            CurrentPageFileName = System.IO.Path.GetFileName(Request.PhysicalPath);
+            CurrentPageFileName = Path.GetFileName(Request.PhysicalPath);
+            if (CurrentPageFileName.Equals(WEBUI_ADD_FILENAME, StringComparison.OrdinalIgnoreCase))
+            {
+                Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_ADD_FILENAME;
+                if (EditMode)
+                {
+                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_MODIFY_ACCESS_PURVIEW_ID;
+                }
+                else if (ViewMode)
+                {
+                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_DETAIL_ACCESS_PURVIEW_ID;
+                }
+                else if (AddMode)
+                {
+                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_ADD_ACCESS_PURVIEW_ID;
+                }
+                else if (ImportDocMode)
+                {
+                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_IMPORT_PURVIEW_ID;
+                }
+                else if (ImportDSMode)
+                {
+                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_IMPORT_DS_PURVIEW_ID;
+                }
+                else
+                {
+                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = NO_ACCESS_PURVIEW_ID;
+                }
+                MessageContent = string.Empty;
+            }
             if (NeedLogin)
             {
                 if (!ValidateUserIsLogined())
@@ -342,24 +171,16 @@ namespace RICH.Common.Base.WebUI
                 //权限验证
                 if (!DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_CURRENT_PURVIEW]))
                 {
-                    if (!ValidateUserPagePurview())
+                    AccessPermission = ValidateUserPagePurview();
+                    if (!AccessPermission)
                     {
                         //记录日志
-                        string strLogTypeID = "A03";
-                        strMessageParam[0] = (string) Session[ConstantsManager.SESSION_USER_LOGIN_NAME];
-                        strMessageParam[1] = (string) Session[ConstantsManager.SESSION_CURRENT_PURVIEW];
-                        string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0004,
-                                                                             strMessageParam);
-                        LogLibrary.LogWrite(strLogTypeID, strLogContent, null, null, null);
+                        string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0004, new string[] { (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], (string)Session[ConstantsManager.SESSION_CURRENT_PURVIEW]});
+                        LogLibrary.LogWrite("A03", strLogContent, null, null, null);
 
                         //对权限验证错误消息进行处理
                         MessageContent = strMessageInfo;
                         Session.Remove(ConstantsManager.SESSION_CURRENT_PURVIEW);
-                        AccessPermission = false;
-                    }
-                    else
-                    {
-                        AccessPermission = true;
                     }
                 }
             }
@@ -459,17 +280,58 @@ namespace RICH.Common.Base.WebUI
                 var btnImportFromDoc = MainContentPlaceHolder.FindControl("btnImportFromDoc");
                 if (btnImportFromDoc != null)
                 {
-                    btnImportFromDoc.Visible = RICH.Common.SystemValidateLibrary.ValidateUserPurview((string)Session[ConstantsManager.SESSION_USER_ID], (string)Session[ConstantsManager.SESSION_USER_GROUP_ID], OPERATION_IMPORT_PURVIEW_ID);
+                    btnImportFromDoc.Visible = SystemValidateLibrary.ValidateUserPurview((string)Session[ConstantsManager.SESSION_USER_ID], (string)Session[ConstantsManager.SESSION_USER_GROUP_ID], OPERATION_IMPORT_PURVIEW_ID);
+                }
+                var btnImportFromDataSet = MainContentPlaceHolder.FindControl("btnImportFromDataSet");
+                if (btnImportFromDataSet != null)
+                {
+                    btnImportFromDataSet.Visible = SystemValidateLibrary.ValidateUserPurview((string)Session[ConstantsManager.SESSION_USER_ID], (string)Session[ConstantsManager.SESSION_USER_GROUP_ID], OPERATION_IMPORT_DS_PURVIEW_ID);
                 }
                 var btnExportAllToFile = MainContentPlaceHolder.FindControl("btnExportAllToFile");
                 var ddlExportFileFormat = MainContentPlaceHolder.FindControl("ddlExportFileFormat");
                 if (btnExportAllToFile != null)
                 {
-                    btnExportAllToFile.Visible = RICH.Common.SystemValidateLibrary.ValidateUserPurview((string)Session[ConstantsManager.SESSION_USER_ID], (string)Session[ConstantsManager.SESSION_USER_GROUP_ID], OPERATION_EXPORTALL_PURVIEW_ID);
+                    btnExportAllToFile.Visible = SystemValidateLibrary.ValidateUserPurview((string)Session[ConstantsManager.SESSION_USER_ID], (string)Session[ConstantsManager.SESSION_USER_GROUP_ID], OPERATION_EXPORTALL_PURVIEW_ID);
                 }
                 if (ddlExportFileFormat != null)
                 {
-                    ddlExportFileFormat.Visible = RICH.Common.SystemValidateLibrary.ValidateUserPurview((string)Session[ConstantsManager.SESSION_USER_ID], (string)Session[ConstantsManager.SESSION_USER_GROUP_ID], OPERATION_EXPORTALL_PURVIEW_ID);
+                    ddlExportFileFormat.Visible = SystemValidateLibrary.ValidateUserPurview((string)Session[ConstantsManager.SESSION_USER_ID], (string)Session[ConstantsManager.SESSION_USER_GROUP_ID], OPERATION_EXPORTALL_PURVIEW_ID);
+                }
+                if (ImportDocMode && SystemValidateLibrary.ValidateUserPurview((string)Session[ConstantsManager.SESSION_USER_ID], (string)Session[ConstantsManager.SESSION_USER_GROUP_ID], OPERATION_IMPORT_PURVIEW_ID))
+                {
+                    var addpage = MainContentPlaceHolder.FindControl("addpage");
+                    if (addpage != null)
+                    {
+                        addpage.Visible = false;
+                    }
+                    var AddFromDoc = MainContentPlaceHolder.FindControl("AddFromDoc");
+                    if (AddFromDoc != null)
+                    {
+                        AddFromDoc.Visible = true;
+                    }
+                    var InfoFromDoc = MainContentPlaceHolder.FindControl("InfoFromDoc") as Button;
+                    if (InfoFromDoc != null)
+                    {
+                        InfoFromDoc.Attributes.Add("onclick", "uploadfile(this);");
+                    }
+                }
+                else if (ImportDSMode && SystemValidateLibrary.ValidateUserPurview((string)Session[ConstantsManager.SESSION_USER_ID], (string)Session[ConstantsManager.SESSION_USER_GROUP_ID], OPERATION_IMPORT_DS_PURVIEW_ID))
+                {
+                    var addpage = MainContentPlaceHolder.FindControl("addpage");
+                    if (addpage != null)
+                    {
+                        addpage.Visible = false;
+                    }
+                    var AddFromDoc = MainContentPlaceHolder.FindControl("AddFromDoc");
+                    if (AddFromDoc != null)
+                    {
+                        AddFromDoc.Visible = true;
+                    }
+                    var InfoFromDoc = MainContentPlaceHolder.FindControl("InfoFromDoc") as Button;
+                    if (InfoFromDoc != null)
+                    {
+                        InfoFromDoc.Attributes.Add("onclick", "uploadfile(this);");
+                    }
                 }
             }
         }
@@ -585,7 +447,7 @@ namespace RICH.Common.Base.WebUI
             return dtTemp;
         }
 
-        private bool ValidateUserIsLogined()
+        protected bool ValidateUserIsLogined()
         {
             if (DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_USER_ID]) == false
                 && DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_USER_GROUP_ID]) == false
@@ -623,10 +485,8 @@ namespace RICH.Common.Base.WebUI
                     SubjectID = (string)Session[ConstantsManager.SESSION_SSDW_ID]
                 };
                 //记录日志开始
-                string strLogTypeID = "A01";
-                strMessageParam[0] = Session[ConstantsManager.SESSION_USER_LOGIN_NAME].ToString();
-                string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0001, strMessageParam);
-                LogLibrary.LogWrite(strLogTypeID, strLogContent, null, null, null);
+                string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0001, new string[] { (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME] });
+                LogLibrary.LogWrite("A01", strLogContent, null, null, null);
                 //记录日志结束
                 return true;
             }

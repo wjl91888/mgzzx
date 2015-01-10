@@ -31,25 +31,6 @@ public partial class T_BG_0601WebUIAdd : RICH.Common.BM.T_BG_0601.T_BG_0601WebUI
 
     protected override void Page_Init(object sender, EventArgs e)
     {
-        // »ù±¾SESSION¸³Öµ
-        Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_ADD_FILENAME;
-        if (EditMode)
-        {
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_MODIFY_ACCESS_PURVIEW_ID;
-        }
-        else if (ViewMode)
-        {
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_DETAIL_ACCESS_PURVIEW_ID;
-        }
-        else if (AddMode)
-        {
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_ADD_ACCESS_PURVIEW_ID;
-        }
-        else
-        {
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = NO_ACCESS_PURVIEW_ID;
-        }
-        MessageContent = string.Empty;
         base.Page_Init(sender, e);
     }
 

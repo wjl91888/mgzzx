@@ -92,6 +92,10 @@ namespace RICH.Common.BM.FilterReport
         /// 导入权限
         /// </summary>
         public override string OPERATION_IMPORT_PURVIEW_ID { get { return "FR09";} }
+        /// <summary>
+        /// 导入数据集权限
+        /// </summary>
+        public override string OPERATION_IMPORT_DS_PURVIEW_ID { get { return "FR10";} }
         #endregion
         #endregion
 

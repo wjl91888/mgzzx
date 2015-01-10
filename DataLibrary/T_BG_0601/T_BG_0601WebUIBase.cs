@@ -92,6 +92,10 @@ namespace RICH.Common.BM.T_BG_0601
         /// 导入权限
         /// </summary>
         public override string OPERATION_IMPORT_PURVIEW_ID { get { return "BG060109";} }
+        /// <summary>
+        /// 导入数据集权限
+        /// </summary>
+        public override string OPERATION_IMPORT_DS_PURVIEW_ID { get { return "BG060110";} }
         #endregion
         #endregion
 
