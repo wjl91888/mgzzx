@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -9,10 +10,15 @@ using RICH.Common.BM.T_PM_UserInfo;
 
 namespace RICH.Common.Base.WebUI
 {
-    public abstract partial class WebUIBase : System.Web.UI.Page
+    public partial class WebUIBase
     {
-        public const string NO_ACCESS_PURVIEW_ID = "NO_ACCESS_PERMISSON";
         private T_PM_UserInfoApplicationData currentUserInfo = null;
+
+        public virtual bool NeedLogin
+        {
+            get { return true; }
+        }
+
         public bool AddMode
         {
             get
@@ -144,7 +150,13 @@ namespace RICH.Common.Base.WebUI
         }
 
         public static string MessageContent { get; set; }
-        public static string CurrentPageFileName;
+        public string CurrentPageFileName
+        {
+            get
+            {
+                return Path.GetFileName(Request.PhysicalPath);
+            }
+        }
 
         /// <summary>
         /// 输入参数HashTable

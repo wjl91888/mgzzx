@@ -435,7 +435,63 @@ UpdateDate.Text = DateTime.Now.ToString();
 
     }
 
+    protected void btnInfoFromDocBatch_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt = GetTemplateColumn(dt);
+        dt = FileLibrary.GetDataFromWordBatch(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + "/" + ConstantsManager.UPLOAD_DOC_DIR + "/" + "T_PM_UserGroupInfo", dt, true, true);
+        T_PM_UserGroupInfoApplicationLogic instanceT_PM_UserGroupInfoApplicationLogic = (T_PM_UserGroupInfoApplicationLogic)CreateApplicationLogicInstance(typeof(T_PM_UserGroupInfoApplicationLogic));
+        foreach (DataRow dr in dt.Rows)
+        {
+            appData = new T_PM_UserGroupInfoApplicationData();
 
+            int i = 0;
+
+            appData = instanceT_PM_UserGroupInfoApplicationLogic.Add(appData);
+        }
+    }
+    protected void btnInfoFromDoc_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt = GetTemplateColumn(dt);
+        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
+        if (dt.Rows.Count > 0)
+        {
+            int i = 0;
+
+        }
+        AddFromDoc.Visible = false;
+        addpage.Visible = true;
+    }
+    protected void btnImportFromDoc_Click(object sender, EventArgs e)
+    {
+        AddFromDoc.Visible = true;
+        addpage.Visible = false;
+    }
+    protected void btnInfoFromDocCancel_Click(object sender, EventArgs e)
+    {
+        AddFromDoc.Visible = false;
+        addpage.Visible = true;
+    }
+    private DataTable GetTemplateColumn(DataTable dt)
+    {
+
+        return dt;
+    }
+
+    protected void btnInfoFromDS_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt = GetTemplateColumn(dt);
+        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
+        if (dt.Rows.Count > 0)
+        {
+            int i = 0;
+
+        }
+        AddFromDoc.Visible = false;
+        addpage.Visible = true;
+    }
 
     public void CheckPermission()
     {

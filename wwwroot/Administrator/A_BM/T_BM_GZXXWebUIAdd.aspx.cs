@@ -1514,7 +1514,62 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
 
     }
 
+    protected void btnInfoFromDocBatch_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt = GetTemplateColumn(dt);
+        dt = FileLibrary.GetDataFromWordBatch(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + "/" + ConstantsManager.UPLOAD_DOC_DIR + "/" + "T_BM_GZXX", dt, true, true);
+        T_BM_GZXXApplicationLogic instanceT_BM_GZXXApplicationLogic = (T_BM_GZXXApplicationLogic)CreateApplicationLogicInstance(typeof(T_BM_GZXXApplicationLogic));
+        foreach (DataRow dr in dt.Rows)
+        {
+            appData = new T_BM_GZXXApplicationData();
 
+            int i = 0;
+
+            appData = instanceT_BM_GZXXApplicationLogic.Add(appData);
+        }
+    }
+    protected void btnInfoFromDoc_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt = GetTemplateColumn(dt);
+        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
+        if (dt.Rows.Count > 0)
+        {
+            int i = 0;
+
+        }
+        AddFromDoc.Visible = false;
+        addpage.Visible = true;
+    }
+    protected void btnImportFromDoc_Click(object sender, EventArgs e)
+    {
+        AddFromDoc.Visible = true;
+        addpage.Visible = false;
+    }
+    protected void btnInfoFromDocCancel_Click(object sender, EventArgs e)
+    {
+        AddFromDoc.Visible = false;
+        addpage.Visible = true;
+    }
+    private DataTable GetTemplateColumn(DataTable dt)
+    {
+
+        return dt;
+    }
+
+    protected void btnInfoFromDS_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt = FileLibrary.GetDataFromDataFile(InfoFromDoc.Text, true);
+        var appDatas = T_BM_GZXXApplicationData.GetCollectionFromDataTable(dt);
+        T_BM_GZXXApplicationLogic instanceT_BM_GZXXApplicationLogic = (T_BM_GZXXApplicationLogic)CreateApplicationLogicInstance(typeof(T_BM_GZXXApplicationLogic));
+        foreach (var app in appDatas)
+        {
+
+            instanceT_BM_GZXXApplicationLogic.Add(app);
+        }
+    }
 
     public void CheckPermission()
     {

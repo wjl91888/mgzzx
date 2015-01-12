@@ -640,7 +640,7 @@
                 <div class="quicksearch">
                     <input type="button" id="btnAddItem" runat="server" value="添加" onclick="OpenWindow('T_BM_GZXXWebUIAdd.aspx?a=a',770,600,window);" class="button" />
 
-                    <input type="button" id="btnImportFromDataSet" runat="server" value="导入" onclick="OpenWindow('T_BM_GZXXWebUIAdd.aspx?a=a',770,600,window);" class="button" />
+                    <input type="button" id="btnImportFromDataSet" runat="server" value="导入数据" onclick="OpenWindow('T_BM_GZXXWebUIAdd.aspx?a=ds',770,600,window);" class="button" />
 
                      <input type="button" id="btnStatisticItem" runat="server" value="统计" onclick="OpenWindow('T_BM_GZXXWebUIStatistic.aspx',770,600,window);" class="button" />
                      <input type="button" value="关闭" onclick="CloseWindow();" class="button displaynone" />

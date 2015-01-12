@@ -951,7 +951,65 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
 
     }
 
+    protected void btnInfoFromDocBatch_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt = GetTemplateColumn(dt);
+        dt = FileLibrary.GetDataFromWordBatch(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + "/" + ConstantsManager.UPLOAD_DOC_DIR + "/" + "T_PM_UserInfo", dt, true, true);
+        T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic = (T_PM_UserInfoApplicationLogic)CreateApplicationLogicInstance(typeof(T_PM_UserInfoApplicationLogic));
+        foreach (DataRow dr in dt.Rows)
+        {
+            appData = new T_PM_UserInfoApplicationData();
 
+            appData.UserID = instanceT_PM_UserInfoApplicationLogic.AutoGenerateUserID(appData);
+                
+            int i = 0;
+
+            appData = instanceT_PM_UserInfoApplicationLogic.Add(appData);
+        }
+    }
+    protected void btnInfoFromDoc_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt = GetTemplateColumn(dt);
+        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
+        if (dt.Rows.Count > 0)
+        {
+            int i = 0;
+
+        }
+        AddFromDoc.Visible = false;
+        addpage.Visible = true;
+    }
+    protected void btnImportFromDoc_Click(object sender, EventArgs e)
+    {
+        AddFromDoc.Visible = true;
+        addpage.Visible = false;
+    }
+    protected void btnInfoFromDocCancel_Click(object sender, EventArgs e)
+    {
+        AddFromDoc.Visible = false;
+        addpage.Visible = true;
+    }
+    private DataTable GetTemplateColumn(DataTable dt)
+    {
+
+        return dt;
+    }
+
+    protected void btnInfoFromDS_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt = GetTemplateColumn(dt);
+        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
+        if (dt.Rows.Count > 0)
+        {
+            int i = 0;
+
+        }
+        AddFromDoc.Visible = false;
+        addpage.Visible = true;
+    }
 
     public void CheckPermission()
     {

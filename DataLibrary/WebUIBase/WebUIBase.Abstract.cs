@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace RICH.Common.Base.WebUI
+﻿namespace RICH.Common.Base.WebUI
 {
-    public abstract partial class WebUIBase : System.Web.UI.Page
+    public abstract partial class WebUIBase
     {
         public abstract string FilterReportType { get; }
-        public static string AndChar = "&";
-        public virtual bool NeedLogin
-        {
-            get { return true; }
-        }
 
         #region 页面名称定义
         /// <summary>
@@ -75,6 +65,5 @@ namespace RICH.Common.Base.WebUI
         /// </summary>
         public abstract string OPERATION_IMPORT_DS_PURVIEW_ID { get; }
         #endregion
-
     }
 }

@@ -16,58 +16,6 @@ namespace RICH.Common.BM.T_BG_0601
     //=========================================================================
     public class T_BG_0601WebUI : T_BG_0601WebUIBase
     {
-        protected override void ProcessUIControlsInit()
-        {
-            if (CurrentUserInfo.UserGroupID.IndexOf("ZJYH") >= 0)
-            {
-                if (CurrentPageFileName.Equals(WEBUI_SEARCH_FILENAME, StringComparison.OrdinalIgnoreCase))
-                {
-                    DropDownList XXZT = (DropDownList)MainContentPlaceHolder.FindControl("XXZT");
-                    if (XXZT != null)
-                    {
-                        XXZT.SelectedValue = "02";
-                        XXZT.Enabled = false;
-                    }
-                }
-            }
-            base.ProcessUIControlsStatus();
-        }
-
-        protected override void ProcessUIControlsStatus()
-        {
-            if (CurrentUserInfo.UserGroupID.IndexOf("ZJYH") >= 0)
-            {
-                if (CurrentPageFileName.Equals(WEBUI_SEARCH_FILENAME, StringComparison.OrdinalIgnoreCase))
-                {
-                    HtmlContainerControl divtree = (HtmlContainerControl)MainContentPlaceHolder.FindControl("divtree");
-                    if (divtree != null)
-                    {
-                        divtree.Visible = false;
-                    }
-                    HtmlContainerControl listpage = (HtmlContainerControl)MainContentPlaceHolder.FindControl("listpage");
-                    if (listpage != null)
-                    {
-                        listpage.Style["left"] = "0";
-                    }
-                    HtmlContainerControl toptoolsbar = (HtmlContainerControl)MainContentPlaceHolder.FindControl("toptoolsbar");
-                    if (toptoolsbar != null)
-                    {
-                        toptoolsbar.Style["left"] = "0";
-                    }
-                    DropDownList XXZT = (DropDownList)MainContentPlaceHolder.FindControl("XXZT");
-                    if (XXZT != null)
-                    {
-                        XXZT.Enabled = false;
-                    }
-                }
-                else if (CurrentPageFileName.Equals(WEBUI_ADD_FILENAME, StringComparison.OrdinalIgnoreCase))
-                {
-                }
-            }
-            base.ProcessUIControlsStatus();
-        }
-
-
         public string GetSubColumn(string strUpColumn)
         {
             string strReturn = strUpColumn;

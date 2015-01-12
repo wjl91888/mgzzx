@@ -82,6 +82,12 @@
     <Compile Include="Base\UserGroupLibrary.cs" />
     <Compile Include="Base\UserGroupPurviewLibrary.cs" />
     <Compile Include="Base\UserPurviewLibrary.cs" />
+    <Compile Include="WebUIBase\WebUIBase.Event.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUIBase\WebUIBase.Abstract.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="DictionaryType\DictionaryTypeApplicationData.cs" />
     <Compile Include="DictionaryType\DictionaryTypeApplicationLogic.cs" />
     <Compile Include="DictionaryType\DictionaryTypeApplicationLogicBase.cs" />
@@ -193,13 +199,13 @@
     <Compile Include="T_PM_UserInfo\T_PM_UserInfoWebUIBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebUIBase.Constant.cs">
+    <Compile Include="WebUIBase\WebUIBase.Constant.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebUIBase.cs">
+    <Compile Include="WebUIBase\WebUIBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebUIBase.Designer.cs">
+    <Compile Include="WebUIBase\WebUIBase.Designer.cs">
       <DependentUpon>WebUIBase.cs</DependentUpon>
     </Compile>
   </ItemGroup>
