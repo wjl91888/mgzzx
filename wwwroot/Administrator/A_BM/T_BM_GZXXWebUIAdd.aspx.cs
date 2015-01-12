@@ -1539,18 +1539,18 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             int i = 0;
 
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     protected void btnImportFromDoc_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = true;
-        addpage.Visible = false;
+        ImportControlContainer.Visible = true;
+        ControlContainer.Visible = false;
     }
     protected void btnInfoFromDocCancel_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     private DataTable GetTemplateColumn(DataTable dt)
     {
@@ -1631,7 +1631,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 GZKKSM.Enabled = false;
                 
       btnAddConfirm.Visible = false;
-      btnReset.Visible = false;
     
             }
             else
@@ -1642,10 +1641,14 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
         else
         {
+            ImportControlContainer.Visible = false;
             ControlContainer.Visible = false;
             btnAddConfirm.Visible = false;
-            btnReset.Visible = false;
         
+            btnInfoFromDS.Visible = false;
+            btnInfoFromDoc.Visible = false;
+            btnInfoFromDocBatch.Visible = false;
+            btnInfoFromDocCancel.Visible = false;
         }
     }
 }

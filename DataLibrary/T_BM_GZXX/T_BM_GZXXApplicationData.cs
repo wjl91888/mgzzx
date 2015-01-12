@@ -4,6 +4,7 @@ FileName:T_BM_GZXXApplicationData.cs
 using System;
 using System.Data;
 using System.Data.Linq;
+using System.Collections.Generic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.DB;
 
@@ -1012,6 +1013,57 @@ namespace RICH.Common.BM.T_BM_GZXX
         public override string[] GetNullableColumn()
         {
             return nullableList;
+        }
+
+        public static IEnumerable<T_BM_GZXXApplicationData> GetCollectionFromDataTable(DataTable dt)
+        {
+            List<T_BM_GZXXApplicationData> collection = new List<T_BM_GZXXApplicationData>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                T_BM_GZXXApplicationData applicationData = new T_BM_GZXXApplicationData()
+                {
+ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
+    XM = dr.ReadString("XM"),
+    XB = dr.ReadString("XB"),
+    SFZH = dr.ReadString("SFZH"),
+    FFGZNY = dr.ReadString("FFGZNY"),
+    JCGZ = dr.ReadDoubleNullable("JCGZ"),
+    JSDJGZ = dr.ReadDoubleNullable("JSDJGZ"),
+    ZWGZ = dr.ReadDoubleNullable("ZWGZ"),
+    JBGZ = dr.ReadDoubleNullable("JBGZ"),
+    JKDQJT = dr.ReadDoubleNullable("JKDQJT"),
+    JKTSGWJT = dr.ReadDoubleNullable("JKTSGWJT"),
+    GLGZ = dr.ReadDoubleNullable("GLGZ"),
+    XJGZ = dr.ReadDoubleNullable("XJGZ"),
+    TGBF = dr.ReadDoubleNullable("TGBF"),
+    DHF = dr.ReadDoubleNullable("DHF"),
+    DSZNF = dr.ReadDoubleNullable("DSZNF"),
+    FNWSHLF = dr.ReadDoubleNullable("FNWSHLF"),
+    HLF = dr.ReadDoubleNullable("HLF"),
+    JJ = dr.ReadDoubleNullable("JJ"),
+    JTF = dr.ReadDoubleNullable("JTF"),
+    JHLGZ = dr.ReadDoubleNullable("JHLGZ"),
+    JT = dr.ReadDoubleNullable("JT"),
+    BF = dr.ReadDoubleNullable("BF"),
+    QTBT = dr.ReadDoubleNullable("QTBT"),
+    DFXJT = dr.ReadDoubleNullable("DFXJT"),
+    YFX = dr.ReadDoubleNullable("YFX"),
+    QTKK = dr.ReadDoubleNullable("QTKK"),
+    SYBX = dr.ReadDoubleNullable("SYBX"),
+    SDNQF = dr.ReadDoubleNullable("SDNQF"),
+    SDS = dr.ReadDoubleNullable("SDS"),
+    YLBX = dr.ReadDoubleNullable("YLBX"),
+    YLIBX = dr.ReadDoubleNullable("YLIBX"),
+    YSSHF = dr.ReadDoubleNullable("YSSHF"),
+    ZFGJJ = dr.ReadDoubleNullable("ZFGJJ"),
+    KFX = dr.ReadDoubleNullable("KFX"),
+    SFGZ = dr.ReadDoubleNullable("SFGZ"),
+    GZKKSM = dr.ReadString("GZKKSM"),
+    
+                };
+                collection.Add(applicationData);
+            }
+            return collection;
         }
 
 		internal static T_BM_GZXXApplicationData FillDataFromDataReader(IDataReader reader)

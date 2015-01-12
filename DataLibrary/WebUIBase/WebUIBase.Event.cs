@@ -137,7 +137,7 @@ namespace RICH.Common.Base.WebUI
                 if (MainContentPlaceHolder.FindControl("ddlOperation") != null)
                 {
                     DropDownList ddlOperation = (DropDownList)MainContentPlaceHolder.FindControl("ddlOperation");
-                    var deletePurview = RICH.Common.SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_DELETE_PURVIEW_ID);
+                    var deletePurview = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_DELETE_PURVIEW_ID);
                     if (!deletePurview)
                     {
                         var item = ddlOperation.Items.FindByValue("remove");
@@ -186,15 +186,15 @@ namespace RICH.Common.Base.WebUI
                 {
                     if (ImportDocMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_PURVIEW_ID))
                     {
-                        var addpage = MainContentPlaceHolder.FindControl("addpage");
-                        if (addpage != null)
+                        var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
+                        if (ControlContainer != null)
                         {
-                            addpage.Visible = false;
+                            ControlContainer.Visible = false;
                         }
-                        var AddFromDoc = MainContentPlaceHolder.FindControl("AddFromDoc");
-                        if (AddFromDoc != null)
+                        var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
+                        if (ImportControlContainer != null)
                         {
-                            AddFromDoc.Visible = true;
+                            ImportControlContainer.Visible = true;
                         }
                         var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
                         if (btnInfoFromDoc != null)
@@ -216,18 +216,36 @@ namespace RICH.Common.Base.WebUI
                         {
                             InfoFromDoc.Attributes.Add("onclick", "uploadfile(this);");
                         }
+                        if (btnEditItem != null)
+                        {
+                            btnEditItem.Visible = false;
+                        }
+                        var btnCopyItem = MainContentPlaceHolder.FindControl("btnCopyItem");
+                        if (btnCopyItem != null)
+                        {
+                            btnCopyItem.Visible = false;
+                        }
+                        var btnAddConfirm = MainContentPlaceHolder.FindControl("btnAddConfirm");
+                        if (btnAddConfirm != null)
+                        {
+                            btnAddConfirm.Visible = false;
+                        }
+                        if (btnImportFromDoc != null)
+                        {
+                            btnImportFromDoc.Visible = false;
+                        }
                     }
                     else if (ImportDSMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_DS_PURVIEW_ID))
                     {
-                        var addpage = MainContentPlaceHolder.FindControl("addpage");
-                        if (addpage != null)
+                        var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
+                        if (ControlContainer != null)
                         {
-                            addpage.Visible = false;
+                            ControlContainer.Visible = false;
                         }
-                        var AddFromDoc = MainContentPlaceHolder.FindControl("AddFromDoc");
-                        if (AddFromDoc != null)
+                        var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
+                        if (ImportControlContainer != null)
                         {
-                            AddFromDoc.Visible = true;
+                            ImportControlContainer.Visible = true;
                         }
                         var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
                         if (btnInfoFromDoc != null)
@@ -254,18 +272,56 @@ namespace RICH.Common.Base.WebUI
                         {
                             InfoFromDoc.Attributes.Add("onclick", "uploadfile(this);");
                         }
+                        if (btnEditItem != null)
+                        {
+                            btnEditItem.Visible = false;
+                        }
+                        var btnCopyItem = MainContentPlaceHolder.FindControl("btnCopyItem");
+                        if (btnCopyItem != null)
+                        {
+                            btnCopyItem.Visible = false;
+                        }
+                        var btnAddConfirm = MainContentPlaceHolder.FindControl("btnAddConfirm");
+                        if (btnAddConfirm != null)
+                        {
+                            btnAddConfirm.Visible = false;
+                        }
+                        if (btnImportFromDoc != null)
+                        {
+                            btnImportFromDoc.Visible = false;
+                        }
                     }
                     else
                     {
-                        var addpage = MainContentPlaceHolder.FindControl("addpage");
-                        if (addpage != null)
+                        var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
+                        if (ControlContainer != null)
                         {
-                            addpage.Visible = true;
+                            ControlContainer.Visible = true;
                         }
-                        var AddFromDoc = MainContentPlaceHolder.FindControl("AddFromDoc");
-                        if (AddFromDoc != null)
+                        var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
+                        if (ImportControlContainer != null)
                         {
-                            AddFromDoc.Visible = false;
+                            ImportControlContainer.Visible = false;
+                        }
+                        var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
+                        if (btnInfoFromDoc != null)
+                        {
+                            btnInfoFromDoc.Visible = false;
+                        }
+                        var btnInfoFromDocBatch = MainContentPlaceHolder.FindControl("btnInfoFromDocBatch");
+                        if (btnInfoFromDocBatch != null)
+                        {
+                            btnInfoFromDocBatch.Visible = false;
+                        }
+                        var btnInfoFromDS = MainContentPlaceHolder.FindControl("btnInfoFromDS");
+                        if (btnInfoFromDS != null)
+                        {
+                            btnInfoFromDS.Visible = false;
+                        }
+                        var btnInfoFromDocCancel = MainContentPlaceHolder.FindControl("btnInfoFromDocCancel");
+                        if (btnInfoFromDocCancel != null)
+                        {
+                            btnInfoFromDocCancel.Visible = false;
                         }
                     }
                 }
