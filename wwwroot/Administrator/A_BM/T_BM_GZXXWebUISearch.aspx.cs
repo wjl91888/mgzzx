@@ -52,32 +52,11 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
     static int intKFXColumnIndex;
     static int intSFGZColumnIndex;
     static int intGZKKSMColumnIndex;
+    static int intTJSJColumnIndex;
     #endregion
 
     protected override void Page_Init(object sender, EventArgs e)
     {
-        // 基本SESSION赋值
-        Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
-        Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_SEARCH_ACCESS_PURVIEW_ID;
-        MessageContent = string.Empty;
-        if (IsPostBack)
-        {
-            if (string.Equals(Request.Params["__EVENTTARGET"], "ctl00$MainContentPlaceHolder$btnOperate", StringComparison.OrdinalIgnoreCase))
-            {
-                switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
-                {
-                    case "remove":
-                        Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_DELETE_PURVIEW_ID;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (string.Equals(Request.Params["__EVENTTARGET"], "ctl00$MainContentPlaceHolder$btnExportAllToFile", StringComparison.OrdinalIgnoreCase))
-            {
-                Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_EXPORTALL_PURVIEW_ID;
-            }
-        }
         base.Page_Init(sender, e);
     }
     
@@ -115,7 +94,8 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
     //=====================================================================
     protected override void Initalize()
     {
-
+    
+        DetailPage = true;
             gvList.Columns[intXMColumnIndex].Visible = chkShowXM.Checked;
             gvList.Columns[intXBColumnIndex].Visible = chkShowXB.Checked;
             gvList.Columns[intSFZHColumnIndex].Visible = chkShowSFZH.Checked;
@@ -152,6 +132,10 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
             gvList.Columns[intKFXColumnIndex].Visible = chkShowKFX.Checked;
             gvList.Columns[intSFGZColumnIndex].Visible = chkShowSFGZ.Checked;
             gvList.Columns[intGZKKSMColumnIndex].Visible = chkShowGZKKSM.Checked;
+            gvList.Columns[intTJSJColumnIndex].Visible = chkShowTJSJ.Checked;TJSJ.Attributes.Add("onclick", "setday(this);");
+      TJSJBegin.Attributes.Add("onclick", "setday(this);");
+        TJSJEnd.Attributes.Add("onclick", "setday(this);");
+      
         // 数据查询
         appData = new T_BM_GZXXApplicationData();
         QueryRecord();
@@ -169,12 +153,13 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
     /// 设定更多查询项显示状态
     /// </summary>
     //=====================================================================
-    protected void SetMoreSearchItemDisplay(bool isDisplay = false)
+    protected override void SetMoreSearchItemDisplay(bool isDisplay = false)
     {
         btnShowAdvanceSearchItem.Visible = !isDisplay;
         btnShowSimpleSearchItem.Visible = isDisplay;
         ShowField_Area.Visible = isDisplay;
-
+TJSJ_Area.Visible = isDisplay;
+      
     }
     //=====================================================================
     //  FunctionName : InitalizeDataBind
@@ -192,89 +177,6 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
             // 一对一相关表
 
     }
-
-    #region InitPageInfo
-    //=====================================================================
-    //  FunctionName : InitPageInfo
-    /// <summary>
-    /// 初始化分页信息栏
-    /// </summary>
-    //=====================================================================
-    private void InitPageInfo()
-    {
-                if ((int)ViewState["PageCount"] == 1)
-                {
-                    btnFirstPage.Enabled = false;
-                    btnPrePage.Enabled = false;
-                    btnNextPage.Enabled = false;
-                    btnLastPage.Enabled = false;
-                }
-                else if ((int)ViewState["CurrentPage"] == (int)ViewState["PageCount"])
-                {
-                    btnFirstPage.Enabled = true;
-                    btnPrePage.Enabled = true;
-                    btnNextPage.Enabled = false;
-                    btnLastPage.Enabled = false;
-                }
-                else if ((int)ViewState["PageCount"] == 0)
-                {
-                    btnFirstPage.Enabled = false;
-                    btnPrePage.Enabled = false;
-                    btnNextPage.Enabled = false;
-                    btnLastPage.Enabled = false;
-                }
-                else if ((int)ViewState["CurrentPage"] == 0)
-                {
-                    btnFirstPage.Enabled = false;
-                    btnPrePage.Enabled = false;
-                    btnNextPage.Enabled = false;
-                    btnLastPage.Enabled = false;
-                }
-                else if ((int)ViewState["CurrentPage"] == 1)
-                {
-                    btnFirstPage.Enabled = false;
-                    btnPrePage.Enabled = false;
-                    btnNextPage.Enabled = true;
-                    btnLastPage.Enabled = true;
-                }
-                else if ((int)ViewState["CurrentPage"] == 2)
-                {
-                    btnFirstPage.Enabled = false;
-                    btnPrePage.Enabled = true;
-                    btnNextPage.Enabled = true;
-                    btnLastPage.Enabled = true;
-                }
-
-                else if ((int)ViewState["CurrentPage"] == (int)ViewState["PageCount"] - 1)
-                {
-                    btnFirstPage.Enabled = true;
-                    btnPrePage.Enabled = true;
-                    btnNextPage.Enabled = true;
-                    btnLastPage.Enabled = false;
-                }
-                else
-                {
-                    btnFirstPage.Enabled = true;
-                    btnPrePage.Enabled = true;
-                    btnNextPage.Enabled = true;
-                    btnLastPage.Enabled = true;
-                }
-                ddlPageCount.Items.Clear();
-                for (int i = 1; i <= ((int)ViewState["PageCount"] <= 100 ? (int)ViewState["PageCount"] : 100); i++)
-                {
-                    ddlPageCount.Items.Add(new ListItem("当前第" + i.ToString() + "页", i.ToString()));
-                }
-                ddlPageSize.Items.Clear();
-                for (int i = 10; i <= 500; i=i+10)
-                {
-                    ddlPageSize.Items.Add(new ListItem("每页" + i.ToString() + "条记录", i.ToString()));
-                }
-                ddlPageCount.SelectedValue = ViewState["CurrentPage"].ToString();
-                ddlPageSize.SelectedValue = ViewState["PageSize"].ToString();
-                lblPageInfo.Text = "共<b>{0}</b>页<b><span id=recordcount>{1}</span></b>条记录。";
-                lblPageInfo.Text = string.Format(lblPageInfo.Text, ViewState["PageCount"], ViewState["RecordCount"]);
-    }
-    #endregion
 
     //=====================================================================
     //  FunctionName : ExportToFile
@@ -327,6 +229,7 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
         gvPrint.Columns[intKFXColumnIndex - 1].Visible = chkShowKFX.Checked;
         gvPrint.Columns[intSFGZColumnIndex - 1].Visible = chkShowSFGZ.Checked;
         gvPrint.Columns[intGZKKSMColumnIndex - 1].Visible = chkShowGZKKSM.Checked;
+        gvPrint.Columns[intTJSJColumnIndex - 1].Visible = chkShowTJSJ.Checked;
         // 创建信息标题
         gvPrint.Caption = GetTableCaption();
         gvPrint.CaptionAlign = TableCaptionAlign.Left;
@@ -362,43 +265,6 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
             default:
                 break;
         }
-    }
-
-    //=====================================================================
-    //  FunctionName : btnShowAdvanceSearchItem_Click
-    /// <summary>
-    /// 高级查询界面按钮控件Click事件
-    /// </summary>
-    //=====================================================================
-    protected void btnShowAdvanceSearchItem_Click(object sender, EventArgs e)
-    {
-        SetMoreSearchItemDisplay(true);
-    }
-    //=====================================================================
-    //  FunctionName : btnShowSimpleSearchItem_Click
-    /// <summary>
-    /// 简单查询界面按钮控件Click事件
-    /// </summary>
-    //=====================================================================
-    protected void btnShowSimpleSearchItem_Click(object sender, EventArgs e)
-    {
-        SetMoreSearchItemDisplay(false);
-    }
-    //=====================================================================
-    //  FunctionName : btnAdvanceSearch_Click
-    /// <summary>
-    /// 高级查询按钮控件Click事件
-    /// </summary>
-    //=====================================================================
-    protected void btnAdvanceSearch_Click(object sender, EventArgs e)
-    {
-            CustomColumnIndex();
-            ViewState.Clear();
-            chkAll.Visible = true;
-            ddlOperation.Visible = true;
-            btnOperate.Visible = true;
-
-            Initalize();
     }
     
     //=====================================================================
@@ -520,6 +386,9 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
             intGZKKSMColumnIndex = 36;
             txtGZKKSMColumnIndex.Text = intGZKKSMColumnIndex.ToString();
             intNext = 36;
+            intTJSJColumnIndex = 37;
+            txtTJSJColumnIndex.Text = intTJSJColumnIndex.ToString();
+            intNext = 37;
             // 初始化一对一对应表显示列序号
         
     }
@@ -530,7 +399,7 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
     /// 自定义显示列位置
     /// </summary>
     //=====================================================================
-    private void CustomColumnIndex()
+    protected override void CustomColumnIndex()
     {
             DataControlFieldCollection dcListColunms = new DataControlFieldCollection();
             dcListColunms = gvList.Columns.CloneFields();
@@ -863,68 +732,20 @@ public partial class T_BM_GZXXWebUISearch : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
                 gvPrint.Columns.Insert(intTempColumnIndex - 1, dcPrintColunms[intGZKKSMColumnIndex - 1]);
                 intGZKKSMColumnIndex = intTempColumnIndex;
             }
+            intTempColumnIndex = Convert.ToInt32(txtTJSJColumnIndex.Text);
+            if(intTempColumnIndex != intTJSJColumnIndex)
+            {
+                gvList.Columns.RemoveAt(intTempColumnIndex);
+                gvList.Columns.Insert(intTempColumnIndex, dcListColunms[intTJSJColumnIndex]);
+                gvPrint.Columns.RemoveAt(intTempColumnIndex - 1);
+                gvPrint.Columns.Insert(intTempColumnIndex - 1, dcPrintColunms[intTJSJColumnIndex - 1]);
+                intTJSJColumnIndex = intTempColumnIndex;
+            }
             // 一对一对应表显示列改变
         
     }
 
-    //=====================================================================
-    //  FunctionName : gvList_RowDataBound
-    /// <summary>
-    /// GridView列表控件RowDataBound事件
-    /// </summary>
-    //=====================================================================
-    protected override void gvList_RowDataBound(object sender, GridViewRowEventArgs e)
-    {
-        // 首先判断是否是Header行
-        if (e.Row.RowType == DataControlRowType.Header)
-        {
-            // 设置操作状态
-            LinkButton btnTemp = new LinkButton();
-            string strSortFieldID = "btnSort" + (string)ViewState["SortField"];
-                for (int i = 0; i < e.Row.Cells.Count; i++)
-            {
-                btnTemp = (LinkButton)e.Row.Cells[i].FindControl(strSortFieldID);
-                if (btnTemp != null)
-                {
-                    if ((Boolean)ViewState["Sort"] == false)
-                    {
-                        btnTemp.Text = "▼";
-                        btnTemp.CommandName = "AscSort";
-                    }
-                    else if ((Boolean)ViewState["Sort"])
-                    {
-                        btnTemp.Text = "▲";
-                        btnTemp.CommandName = "DescSort";
-                    }
-                    break;
-                }
-            }
-        }
-        // 判断是否是数据行
-        if (e.Row.RowType == DataControlRowType.DataRow)
-        {
-            string strObjectID = string.Empty;
-            string strItemMenu = string.Empty;
-                for (int i = 0; i < e.Row.Cells.Count; i++)
-            {
-                Control hcTemp = e.Row.Cells[i].FindControl("ObjectID");
-                if (hcTemp != null)
-                {
-                    strObjectID = ((HtmlInputHidden)hcTemp).Value;
-                }
-                hcTemp = e.Row.Cells[i].FindControl("itemMenu");
-                if (hcTemp != null)
-                {
-                    strItemMenu = ((HtmlContainerControl)hcTemp).ClientID;
-                }
-            }
-            e.Row.Attributes.Add("onmouseover", "overColor(this);");
-            e.Row.Attributes.Add("onmouseout", "outColor(this);");
-            
-            e.Row.Attributes.Add("ondblclick", "OpenWindow('T_BM_GZXXWebUIDetail.aspx?ObjectID=" + strObjectID + "',770,600,window);return false;");
-        }
-    }
-    protected virtual void FilterReportList_SelectedIndexChanged(object sender, EventArgs e)
+    protected override void FilterReportList_SelectedIndexChanged(object sender, EventArgs e)
     {
         appData = new T_BM_GZXXApplicationData();
         FilterReportName.Text = string.Empty;
@@ -947,12 +768,15 @@ XM.Text = GetValue(appData.XM);
       SFGZ.Text = GetValue(appData.SFGZBegin); 
             SFGZ.Text = GetValue(appData.SFGZEnd); 
             SFGZ.Text = GetValue(appData.SFGZ); 
+      TJSJ.Text = GetValue(appData.TJSJBegin); 
+            TJSJ.Text = GetValue(appData.TJSJEnd); 
+            TJSJ.Text = GetValue(appData.TJSJ); 
       
         }
         Initalize();
     }
 
-    protected virtual void btnSaveFilterReport_Click(object sender, EventArgs e)
+    protected override void btnSaveFilterReport_Click(object sender, EventArgs e)
     {
         if (FilterReportName.Text.IsHtmlNullOrWiteSpace())
         {
@@ -997,30 +821,6 @@ XM.Text = GetValue(appData.XM);
         FilterReportList.Items.FindByText(FilterReportName.Text.TrimIfNotNullOrWhiteSpace()).Selected = true;
     }
 
-    protected virtual void btnDeleteFilterReport_Click(object sender, EventArgs e)
-    {
-        FilterReportApplicationLogic filterReportApplicationLogic = (FilterReportApplicationLogic)CreateApplicationLogicInstance(typeof(FilterReportApplicationLogic));
-        FilterReportApplicationData filterReportApplicationData = new FilterReportApplicationData();
-        if (FilterReportList.SelectedIndex <= 0 || !string.Equals(FilterReportName.Text.TrimIfNotNullOrWhiteSpace(), FilterReportList.SelectedItem.Text, StringComparison.OrdinalIgnoreCase))
-        {
-            return;
-        }
-        filterReportApplicationData = FilterReportBusinessEntity.GetDataByObjectID(FilterReportList.SelectedValue);
-        if (filterReportApplicationData.XTBG != "0")
-        {
-            MessageContent += @"<font color=""red"">没有权限删除系统报告。</font>";
-        }
-        else if (!filterReportApplicationData.UserID.Equals((string) Session[ConstantsManager.SESSION_USER_ID]))
-        {
-            MessageContent += @"<font color=""red"">没有权限删除共享报告。</font>";
-        }
-        else
-        {
-            filterReportApplicationLogic.Delete(new FilterReportApplicationData() { ObjectID = filterReportApplicationData.ObjectID, OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID});
-            FilterReportDataBind((string) Session[ConstantsManager.SESSION_USER_ID], FilterReportList);
-            FilterReportList_SelectedIndexChanged(sender, e);
-        }
-    }
     #endregion
 
     //=====================================================================
@@ -1133,6 +933,32 @@ XM.Text = GetValue(appData.XM);
                 if (!validateData.IsNull)
                 {
                     appData.SFGZ = Convert.ToDouble(validateData.Value.ToString());
+                }
+            }
+            
+            validateData = ValidateTJSJBegin(TJSJBegin.Text, true, false);
+            if (validateData.Result)
+            {
+                if (!validateData.IsNull)
+                {
+                    appData.TJSJBegin = Convert.ToDateTime(validateData.Value.ToString());
+                }
+            }
+            validateData = ValidateTJSJEnd(TJSJEnd.Text, true, false);
+            if (validateData.Result)
+            {
+                if (!validateData.IsNull)
+                {
+                    appData.TJSJEnd = Convert.ToDateTime(validateData.Value.ToString());
+                }
+            }
+            
+            validateData = ValidateTJSJ(TJSJ.Text, true, false);
+            if (validateData.Result)
+            {
+                if (!validateData.IsNull)
+                {
+                    appData.TJSJ = Convert.ToDateTime(validateData.Value.ToString());
                 }
             }
             
@@ -1298,6 +1124,27 @@ XM.Text = GetValue(appData.XM);
                sbCaption.Append(@"<div style=""margin-right:10px"">");
                 sbCaption.Append("实发工资结束值：");
                 sbCaption.Append(SFGZEnd.Text);
+               sbCaption.Append(@"</div>");
+            }
+            if (!DataValidateManager.ValidateIsNull(TJSJ.Text))
+            {
+               sbCaption.Append(@"<div style=""margin-right:10px"">");
+                sbCaption.Append("添加时间：");
+                sbCaption.Append(TJSJ.Text);
+               sbCaption.Append(@"</div>");
+            }
+            if (!DataValidateManager.ValidateIsNull(TJSJBegin.Text))
+            {
+               sbCaption.Append(@"<div style=""margin-right:10px"">");
+                sbCaption.Append("添加时间开始值：");
+                sbCaption.Append(TJSJBegin.Text);
+               sbCaption.Append(@"</div>");
+            }
+            if (!DataValidateManager.ValidateIsNull(TJSJEnd.Text))
+            {
+               sbCaption.Append(@"<div style=""margin-right:10px"">");
+                sbCaption.Append("添加时间结束值：");
+                sbCaption.Append(TJSJEnd.Text);
                sbCaption.Append(@"</div>");
             }
             // 一对一相关表

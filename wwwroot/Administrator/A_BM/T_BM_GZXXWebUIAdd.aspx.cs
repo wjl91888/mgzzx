@@ -124,6 +124,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                     KFX.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["KFX"]); 
                     SFGZ.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["SFGZ"]); 
                     GZKKSM.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["GZKKSM"]); 
+                    TJSJ.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["TJSJ"]); 
                     
             }
         }
@@ -786,6 +787,8 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                     
         // 自动生成编号
 
+        appData.TJSJ = DateTime.Now;
+
         return boolReturn;
     }
 
@@ -1440,6 +1443,23 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             boolReturn = validateData.Result;
         }
                 
+        validateData = ValidateTJSJ(TJSJ.Text, true, false);
+        if (validateData.Result)
+        {
+            if (!validateData.IsNull)
+            {
+                appData.TJSJ = Convert.ToDateTime(validateData.Value.ToString());
+                TJSJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
+            }
+            TJSJ.BackColor = System.Drawing.Color.Empty;
+        }
+        else
+        {
+            TJSJ.BackColor = System.Drawing.Color.YellowGreen;
+            MessageContent += @"<font color=""red"">" + validateData.Message + "</font>";
+            boolReturn = validateData.Result;
+        }
+                
         return boolReturn;
     }
 
@@ -1560,14 +1580,21 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
 
     protected void btnInfoFromDS_Click(object sender, EventArgs e)
     {
-        DataTable dt = new DataTable();
-        dt = FileLibrary.GetDataFromDataFile(InfoFromDoc.Text, true);
-        var appDatas = T_BM_GZXXApplicationData.GetCollectionFromDataTable(dt);
-        T_BM_GZXXApplicationLogic instanceT_BM_GZXXApplicationLogic = (T_BM_GZXXApplicationLogic)CreateApplicationLogicInstance(typeof(T_BM_GZXXApplicationLogic));
-        foreach (var app in appDatas)
+        try
         {
-
-            instanceT_BM_GZXXApplicationLogic.Add(app);
+            var appDatas = T_BM_GZXXApplicationData.GetDataFromDataFile<T_BM_GZXXApplicationData>(InfoFromDoc.Text, true);
+            T_BM_GZXXApplicationLogic instanceT_BM_GZXXApplicationLogic = (T_BM_GZXXApplicationLogic)CreateApplicationLogicInstance(typeof(T_BM_GZXXApplicationLogic));
+            foreach (var app in appDatas)
+            {
+    
+            app.TJSJ = DateTime.Now;
+                instanceT_BM_GZXXApplicationLogic.Add(app);
+            }
+            MessageContent += @"<font color=""green"">导入数据{0}条</font>".FormatInvariantCulture(appDatas.Count);
+        }
+        catch (Exception ex)
+        {
+            MessageContent += @"<font color=""red"">导入数据过程出错：{0}</font>".FormatInvariantCulture(ex.Message);
         }
     }
 
@@ -1575,20 +1602,22 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
     {
         if (AccessPermission)
         {
-			if(EditMode)
-			{
-	ObjectID_Area.Visible = false;
-	  XM.Enabled = false;
+            if(EditMode)
+            {
+    ObjectID_Area.Visible = false;
+      XM.Enabled = false;
                 XB.Enabled = false;
                 SFZH.Enabled = false;
                 FFGZNY.Enabled = false;
+                TJSJ.Enabled = false;
                 
-			}
-			else if(AddMode || CopyMode)
-			{
-	ObjectID_Area.Visible = false;
-	  
-			}
+            }
+            else if(AddMode || CopyMode)
+            {
+    ObjectID_Area.Visible = false;
+      TJSJ_Area.Visible = false;
+      
+            }
             if (ViewMode)
             {
     ObjectID.Enabled = false;
@@ -1629,7 +1658,9 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 KFX.Enabled = false;
                 SFGZ.Enabled = false;
                 GZKKSM.Enabled = false;
-                
+                TJSJ.Enabled = false;
+                TJSJ_Area.Visible = false;
+      
       btnAddConfirm.Visible = false;
     
             }

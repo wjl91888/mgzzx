@@ -4,6 +4,7 @@ FileName:T_BG_0601ApplicationData.cs
 using System;
 using System.Data;
 using System.Data.Linq;
+using System.Collections.Generic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.DB;
 
@@ -643,7 +644,41 @@ namespace RICH.Common.BM.T_BG_0601
             return nullableList;
         }
 
-		internal static T_BG_0601ApplicationData FillDataFromDataReader(IDataReader reader)
+        public static IEnumerable<T_BG_0601ApplicationData> GetCollectionFromImportDataTable(DataTable dt)
+        {
+            List<T_BG_0601ApplicationData> collection = new List<T_BG_0601ApplicationData>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                T_BG_0601ApplicationData applicationData = new T_BG_0601ApplicationData()
+                {
+ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
+    FBH = dr.ReadString("FBH"),
+    BT = dr.ReadString("BT"),
+    LanguageID = dr.ReadString("LanguageID"),
+    FBLM = dr.ReadString("FBLM"),
+    FBZT = dr.ReadString("FBZT"),
+    XXLX = dr.ReadString("XXLX"),
+    XXTPDZ = dr.ReadString("XXTPDZ"),
+    XXNR = dr.ReadString("XXNR"),
+    FJXZDZ = dr.ReadString("FJXZDZ"),
+    PZRJGH = dr.ReadString("PZRJGH"),
+    XXZT = dr.ReadString("XXZT"),
+    IsTop = dr.ReadString("IsTop"),
+    TopSort = dr.ReadInt32Nullable("TopSort"),
+    IsBest = dr.ReadString("IsBest"),
+    YXSJRQ = dr.ReadDateTimeNullable("YXSJRQ"),
+    FBRJGH = dr.ReadString("FBRJGH"),
+    FBSJRQ = dr.ReadDateTimeNullable("FBSJRQ"),
+    FBIP = dr.ReadString("FBIP"),
+    LLCS = dr.ReadInt32Nullable("LLCS"),
+    
+                };
+                collection.Add(applicationData);
+            }
+            return collection;
+        }
+
+		internal static T_BG_0601ApplicationData FillDataFromDataReader(IDataReader reader, bool fromImportDataSet = false)
         {
             if (reader == null)
             {
@@ -653,7 +688,7 @@ namespace RICH.Common.BM.T_BG_0601
             {
                 return new T_BG_0601ApplicationData
                 {
-ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuidNullable("ObjectID").ToString()),
+ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID").ToString()),
     FBH = reader.ReadString("FBH"),
     BT = reader.ReadString("BT"),
     LanguageID = reader.ReadString("LanguageID"),
@@ -666,13 +701,13 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
     PZRJGH = reader.ReadString("PZRJGH"),
     XXZT = reader.ReadString("XXZT"),
     IsTop = reader.ReadString("IsTop"),
-    TopSort = reader.ReadInt32Nullable("TopSort"),
+    TopSort = reader.ReadInt32Nullable(fromImportDataSet ? "TopSort" : "TopSort"),
     IsBest = reader.ReadString("IsBest"),
-    YXSJRQ = reader.ReadDateTimeNullable("YXSJRQ"),
+    YXSJRQ = reader.ReadDateTimeNullable(fromImportDataSet ? "YXSJRQ" : "YXSJRQ"),
     FBRJGH = reader.ReadString("FBRJGH"),
-    FBSJRQ = reader.ReadDateTimeNullable("FBSJRQ"),
+    FBSJRQ = reader.ReadDateTimeNullable(fromImportDataSet ? "FBSJRQ" : "FBSJRQ"),
     FBIP = reader.ReadString("FBIP"),
-    LLCS = reader.ReadInt32Nullable("LLCS"),
+    LLCS = reader.ReadInt32Nullable(fromImportDataSet ? "LLCS" : "LLCS"),
     
                 };
             }
@@ -680,6 +715,13 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
         }
 
         #endregion
+        
+        private DataTable GetImportColumn(DataTable dt)
+        {
+
+            return dt;
+        }
+
     }
 }
 

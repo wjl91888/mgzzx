@@ -695,6 +695,23 @@
                          </div>
                      </div>
   
+                     <div class="content" id="TJSJ_Area" runat="server">
+                         <div class="field">
+                             <div class="fieldname">
+                                          ÃÌº” ±º‰
+                             </div>
+                             <div class="redstar"></div>
+                         </div>
+                         <div class="fieldinput"><div>
+                                
+                             <asp:TextBox ID="TJSJ" runat="server" CssClass="input"></asp:TextBox>
+                                                 
+                         </div><div class="fieldnote" id="TJSJ_Note" runat="server">
+                                      
+                         </div>
+                         </div>
+                     </div>
+  
                 <div class="clearboth"></div>
                 <telerik:RadTabStrip ID="T_BM_GZXXTabStrip" Visible="false" runat="server" ClickSelectedTab="true" SelectedIndex="0" MultiPageID="T_BM_GZXXMultiPage" >
                     <Tabs>

@@ -4,6 +4,7 @@ FileName:FilterReportApplicationData.cs
 using System;
 using System.Data;
 using System.Data.Linq;
+using System.Collections.Generic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.DB;
 
@@ -377,7 +378,29 @@ namespace RICH.Common.BM.FilterReport
             return nullableList;
         }
 
-		internal static FilterReportApplicationData FillDataFromDataReader(IDataReader reader)
+        public static IEnumerable<FilterReportApplicationData> GetCollectionFromImportDataTable(DataTable dt)
+        {
+            List<FilterReportApplicationData> collection = new List<FilterReportApplicationData>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                FilterReportApplicationData applicationData = new FilterReportApplicationData()
+                {
+ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
+    BGMC = dr.ReadString("BGMC"),
+    UserID = dr.ReadString("UserID"),
+    BGLX = dr.ReadString("BGLX"),
+    GXBG = dr.ReadString("GXBG"),
+    XTBG = dr.ReadString("XTBG"),
+    BGCXTJ = dr.ReadString("BGCXTJ"),
+    BGCJSJ = dr.ReadDateTimeNullable("BGCJSJ"),
+    
+                };
+                collection.Add(applicationData);
+            }
+            return collection;
+        }
+
+		internal static FilterReportApplicationData FillDataFromDataReader(IDataReader reader, bool fromImportDataSet = false)
         {
             if (reader == null)
             {
@@ -387,14 +410,14 @@ namespace RICH.Common.BM.FilterReport
             {
                 return new FilterReportApplicationData
                 {
-ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuidNullable("ObjectID").ToString()),
+ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID").ToString()),
     BGMC = reader.ReadString("BGMC"),
     UserID = reader.ReadString("UserID"),
     BGLX = reader.ReadString("BGLX"),
     GXBG = reader.ReadString("GXBG"),
     XTBG = reader.ReadString("XTBG"),
     BGCXTJ = reader.ReadString("BGCXTJ"),
-    BGCJSJ = reader.ReadDateTimeNullable("BGCJSJ"),
+    BGCJSJ = reader.ReadDateTimeNullable(fromImportDataSet ? "BGCJSJ" : "BGCJSJ"),
     
                 };
             }
@@ -402,6 +425,13 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
         }
 
         #endregion
+        
+        private DataTable GetImportColumn(DataTable dt)
+        {
+
+            return dt;
+        }
+
     }
 }
 

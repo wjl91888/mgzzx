@@ -633,18 +633,18 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             int i = 0;
 
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     protected void btnImportFromDoc_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = true;
-        addpage.Visible = false;
+        ImportControlContainer.Visible = true;
+        ControlContainer.Visible = false;
     }
     protected void btnInfoFromDocCancel_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     private DataTable GetTemplateColumn(DataTable dt)
     {
@@ -654,33 +654,48 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
 
     protected void btnInfoFromDS_Click(object sender, EventArgs e)
     {
-        DataTable dt = new DataTable();
-        dt = GetTemplateColumn(dt);
-        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
-        if (dt.Rows.Count > 0)
+        try
         {
-            int i = 0;
-
+            var appDatas = T_BG_0602ApplicationData.GetDataFromDataFile<T_BG_0602ApplicationData>(InfoFromDoc.Text, true);
+            T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic = (T_BG_0602ApplicationLogic)CreateApplicationLogicInstance(typeof(T_BG_0602ApplicationLogic));
+            foreach (var app in appDatas)
+            {
+    
+                app.LMH = instanceT_BG_0602ApplicationLogic.AutoGenerateLMH(app);
+                    
+                string strSJLMH = GetValue(new RICH.Common.BM.T_BG_0602.T_BG_0602ApplicationLogicBase().GetValueByFixCondition("LMM", app.SJLMH, "LMH"));
+                if (!DataValidateManager.ValidateIsNull(strSJLMH))app.SJLMH = strSJLMH;
+                string strLMLBYS = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.LMLBYS, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strLMLBYS))app.LMLBYS = strLMLBYS;
+                string strSFLBLM = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.SFLBLM, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strSFLBLM))app.SFLBLM = strSFLBLM;
+                string strSFWBURL = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.SFWBURL, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strSFWBURL))app.SFWBURL = strSFWBURL;
+                instanceT_BG_0602ApplicationLogic.Add(app);
+            }
+            MessageContent += @"<font color=""green"">导入数据{0}条</font>".FormatInvariantCulture(appDatas.Count);
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        catch (Exception ex)
+        {
+            MessageContent += @"<font color=""red"">导入数据过程出错：{0}</font>".FormatInvariantCulture(ex.Message);
+        }
     }
 
     public void CheckPermission()
     {
         if (AccessPermission)
         {
-			if(EditMode)
-			{
-	ObjectID_Area.Visible = false;
-	  
-			}
-			else if(AddMode || CopyMode)
-			{
-	ObjectID_Area.Visible = false;
-	  LMH_Area.Visible = false;
-	  
-			}
+            if(EditMode)
+            {
+    ObjectID_Area.Visible = false;
+      
+            }
+            else if(AddMode || CopyMode)
+            {
+    ObjectID_Area.Visible = false;
+      LMH_Area.Visible = false;
+      
+            }
             if (ViewMode)
             {
     ObjectID.Enabled = false;
@@ -696,7 +711,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
                 WBURL.Enabled = false;
                 
       btnAddConfirm.Visible = false;
-      btnReset.Visible = false;
     
             }
             else
@@ -709,12 +723,15 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
         }
         else
         {
+            ImportControlContainer.Visible = false;
             ControlContainer.Visible = false;
             btnAddConfirm.Visible = false;
-            btnReset.Visible = false;
         
             btnCopyItem.Visible = false;
-        
+            btnInfoFromDS.Visible = false;
+            btnInfoFromDoc.Visible = false;
+            btnInfoFromDocBatch.Visible = false;
+            btnInfoFromDocCancel.Visible = false;
         }
     }
 }

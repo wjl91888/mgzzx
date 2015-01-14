@@ -4,6 +4,7 @@ FileName:T_BG_0602ApplicationData.cs
 using System;
 using System.Data;
 using System.Data.Linq;
+using System.Collections.Generic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.DB;
 
@@ -441,7 +442,32 @@ namespace RICH.Common.BM.T_BG_0602
             return nullableList;
         }
 
-		internal static T_BG_0602ApplicationData FillDataFromDataReader(IDataReader reader)
+        public static IEnumerable<T_BG_0602ApplicationData> GetCollectionFromImportDataTable(DataTable dt)
+        {
+            List<T_BG_0602ApplicationData> collection = new List<T_BG_0602ApplicationData>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                T_BG_0602ApplicationData applicationData = new T_BG_0602ApplicationData()
+                {
+ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
+    LMH = dr.ReadString("LMH"),
+    LanguageID = dr.ReadString("LanguageID"),
+    LMM = dr.ReadString("LMM"),
+    SJLMH = dr.ReadString("SJLMH"),
+    LMTP = dr.ReadString("LMTP"),
+    LMNR = dr.ReadString("LMNR"),
+    LMLBYS = dr.ReadString("LMLBYS"),
+    SFLBLM = dr.ReadString("SFLBLM"),
+    SFWBURL = dr.ReadString("SFWBURL"),
+    WBURL = dr.ReadString("WBURL"),
+    
+                };
+                collection.Add(applicationData);
+            }
+            return collection;
+        }
+
+		internal static T_BG_0602ApplicationData FillDataFromDataReader(IDataReader reader, bool fromImportDataSet = false)
         {
             if (reader == null)
             {
@@ -451,7 +477,7 @@ namespace RICH.Common.BM.T_BG_0602
             {
                 return new T_BG_0602ApplicationData
                 {
-ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuidNullable("ObjectID").ToString()),
+ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID").ToString()),
     LMH = reader.ReadString("LMH"),
     LanguageID = reader.ReadString("LanguageID"),
     LMM = reader.ReadString("LMM"),
@@ -469,6 +495,13 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
         }
 
         #endregion
+        
+        private DataTable GetImportColumn(DataTable dt)
+        {
+
+            return dt;
+        }
+
     }
 }
 

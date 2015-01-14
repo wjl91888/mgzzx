@@ -1,0 +1,36 @@
+文件'/Media/OtherFile/2015/01/14/20150114000741517.csv'数据获取失败，时间：1/14/2015 00:07:45，请检查数据格式。
+详细错误信息：表达式中 'CONVERT' 函数未定义。
+
+文件'/Media/OtherFile/2015/01/14/20150114000741517.csv'数据获取失败，时间：1/14/2015 00:15:54，请检查数据格式。
+详细错误信息：表达式中 'CONVERT' 函数未定义。
+
+文件'/Media/OtherFile/2015/01/14/20150114004339787.csv'数据获取失败，时间：1/14/2015 00:43:44，请检查数据格式。
+详细错误信息：A column named '0' already belongs to this DataTable.
+
+文件'/Media/OtherFile/2015/01/14/20150114004339787.csv'数据获取失败，时间：1/14/2015 00:44:41，请检查数据格式。
+详细错误信息：A column named '0' already belongs to this DataTable.
+
+文件'/Media/OtherFile/2015/01/14/20150114004339787.csv'数据获取失败，时间：1/14/2015 00:45:30，请检查数据格式。
+详细错误信息：A column named '0' already belongs to this DataTable.
+
+文件'/Media/OtherFile/2015/01/14/20150114004339787.csv'数据获取失败，时间：1/14/2015 00:49:16，请检查数据格式。
+详细错误信息：ColumnName is required when it is part of a DataTable.
+
+文件'/Media/OtherFile/2015/01/14/20150114004339787.csv'数据获取失败，时间：1/14/2015 00:51:37，请检查数据格式。
+详细错误信息：ColumnName is required when it is part of a DataTable.
+
+文件'/Media/OtherFile/2015/01/14/20150114004339787.csv'数据获取失败，时间：1/14/2015 00:55:21，请检查数据格式。
+详细错误信息：ColumnName is required when it is part of a DataTable.
+
+文件'/Media/OtherFile/2015/01/14/20150114004339787.csv'数据获取失败，时间：1/14/2015 01:01:36，请检查数据格式。
+详细错误信息：ColumnName is required when it is part of a DataTable.
+
+文件'/Media/OtherFile/2015/01/14/20150114010158791.txt'数据获取失败，时间：1/14/2015 01:02:21，请检查数据格式。
+详细错误信息：ColumnName is required when it is part of a DataTable.
+
+文件'/Media/OtherFile/2015/01/14/20150114010158791.txt'数据获取失败，时间：1/14/2015 01:02:31，请检查数据格式。
+详细错误信息：ColumnName is required when it is part of a DataTable.
+
+文件'/Media/OtherFile/2015/01/14/20150114010537762.txt'数据获取失败，时间：1/14/2015 01:05:42，请检查数据格式。
+详细错误信息：ColumnName is required when it is part of a DataTable.
+

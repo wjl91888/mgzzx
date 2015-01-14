@@ -4,6 +4,7 @@ FileName:DictionaryApplicationData.cs
 using System;
 using System.Data;
 using System.Data.Linq;
+using System.Collections.Generic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.DB;
 
@@ -340,7 +341,27 @@ namespace RICH.Common.BM.Dictionary
             return nullableList;
         }
 
-		internal static DictionaryApplicationData FillDataFromDataReader(IDataReader reader)
+        public static IEnumerable<DictionaryApplicationData> GetCollectionFromImportDataTable(DataTable dt)
+        {
+            List<DictionaryApplicationData> collection = new List<DictionaryApplicationData>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                DictionaryApplicationData applicationData = new DictionaryApplicationData()
+                {
+ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
+    DM = dr.ReadString("DM"),
+    LX = dr.ReadString("LX"),
+    MC = dr.ReadString("MC"),
+    SJDM = dr.ReadString("SJDM"),
+    SM = dr.ReadString("SM"),
+    
+                };
+                collection.Add(applicationData);
+            }
+            return collection;
+        }
+
+		internal static DictionaryApplicationData FillDataFromDataReader(IDataReader reader, bool fromImportDataSet = false)
         {
             if (reader == null)
             {
@@ -350,7 +371,7 @@ namespace RICH.Common.BM.Dictionary
             {
                 return new DictionaryApplicationData
                 {
-ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuidNullable("ObjectID").ToString()),
+ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID").ToString()),
     DM = reader.ReadString("DM"),
     LX = reader.ReadString("LX"),
     MC = reader.ReadString("MC"),
@@ -363,6 +384,13 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
         }
 
         #endregion
+        
+        private DataTable GetImportColumn(DataTable dt)
+        {
+
+            return dt;
+        }
+
     }
 }
 

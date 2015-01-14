@@ -4,6 +4,7 @@ FileName:T_PM_UserGroupInfoApplicationData.cs
 using System;
 using System.Data;
 using System.Data.Linq;
+using System.Collections.Generic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.DB;
 
@@ -361,7 +362,28 @@ namespace RICH.Common.BM.T_PM_UserGroupInfo
             return nullableList;
         }
 
-		internal static T_PM_UserGroupInfoApplicationData FillDataFromDataReader(IDataReader reader)
+        public static IEnumerable<T_PM_UserGroupInfoApplicationData> GetCollectionFromImportDataTable(DataTable dt)
+        {
+            List<T_PM_UserGroupInfoApplicationData> collection = new List<T_PM_UserGroupInfoApplicationData>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                T_PM_UserGroupInfoApplicationData applicationData = new T_PM_UserGroupInfoApplicationData()
+                {
+ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
+    UserGroupID = dr.ReadString("UserGroupID"),
+    UserGroupName = dr.ReadString("UserGroupName"),
+    UserGroupContent = dr.ReadString("UserGroupContent"),
+    UserGroupRemark = dr.ReadString("UserGroupRemark"),
+    DefaultPage = dr.ReadString("DefaultPage"),
+    UpdateDate = dr.ReadDateTimeNullable("UpdateDate"),
+    
+                };
+                collection.Add(applicationData);
+            }
+            return collection;
+        }
+
+		internal static T_PM_UserGroupInfoApplicationData FillDataFromDataReader(IDataReader reader, bool fromImportDataSet = false)
         {
             if (reader == null)
             {
@@ -371,13 +393,13 @@ namespace RICH.Common.BM.T_PM_UserGroupInfo
             {
                 return new T_PM_UserGroupInfoApplicationData
                 {
-ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuidNullable("ObjectID").ToString()),
+ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID").ToString()),
     UserGroupID = reader.ReadString("UserGroupID"),
     UserGroupName = reader.ReadString("UserGroupName"),
     UserGroupContent = reader.ReadString("UserGroupContent"),
     UserGroupRemark = reader.ReadString("UserGroupRemark"),
     DefaultPage = reader.ReadString("DefaultPage"),
-    UpdateDate = reader.ReadDateTimeNullable("UpdateDate"),
+    UpdateDate = reader.ReadDateTimeNullable(fromImportDataSet ? "UpdateDate" : "UpdateDate"),
     
                 };
             }
@@ -385,6 +407,13 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
         }
 
         #endregion
+        
+        private DataTable GetImportColumn(DataTable dt)
+        {
+
+            return dt;
+        }
+
     }
 }
 

@@ -246,51 +246,6 @@ namespace RICH.Common.BM.T_BM_GZXX
         }
 
         //=====================================================================
-        //  FunctionName : GetAddInputParameter
-        /// <summary>
-        /// 得到添加用户输入参数操作
-        /// </summary>
-        //=====================================================================
-        protected virtual Boolean GetAddInputParameter()
-        {
-            return false;
-        }
-
-        //=====================================================================
-        //  FunctionName : GetModifyInputParameter
-        /// <summary>
-        /// 得到修改用户输入参数操作
-        /// </summary>
-        //=====================================================================
-        protected virtual Boolean GetModifyInputParameter()
-        {
-            return false;
-        }
-
-        //=====================================================================
-        //  FunctionName : GetQueryInputParameter
-        /// <summary>
-        /// 得到查询用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
-        protected virtual Boolean GetQueryInputParameter()
-        {
-            return true;
-        }
-
-          
-        //=====================================================================
-        //  FunctionName : GetDeleteInputParameter
-        /// <summary>
-        /// 得到查询用户输入参数操作
-        /// </summary>
-        //=====================================================================
-        protected virtual Boolean GetDeleteInputParameter()
-        {
-            return true;
-        }
-
-        //=====================================================================
         //  FunctionName : GetCountInputParameter
         /// <summary>
         /// 得到统计记录数用户输入参数操作（通过Request对象）
@@ -379,64 +334,6 @@ namespace RICH.Common.BM.T_BM_GZXX
 
         #region 页面控件相关方法
         //=====================================================================
-        //  FunctionName : Initalize
-        /// <summary>
-        /// 页面初始化虚函数
-        /// </summary>
-        //=====================================================================
-        protected virtual void Initalize()
-        {
-        }
-
-        //=====================================================================
-        //  FunctionName : btnFirstPage_Click
-        /// <summary>
-        /// 第一页按钮事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void btnFirstPage_Click(object sender, EventArgs e)
-        {
-            ViewState["CurrentPage"] = 1;
-            Initalize();
-        }
-
-        //=====================================================================
-        //  FunctionName : btnPrePage_Click
-        /// <summary>
-        /// 上一页按钮事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void btnPrePage_Click(object sender, EventArgs e)
-        {
-            ViewState["CurrentPage"] = (int)ViewState["CurrentPage"] - 1;
-            Initalize();
-        }
-
-        //=====================================================================
-        //  FunctionName : btnNextPage_Click
-        /// <summary>
-        /// 下一页按钮事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void btnNextPage_Click(object sender, EventArgs e)
-        {
-            ViewState["CurrentPage"] = (int)ViewState["CurrentPage"] + 1;
-            Initalize();
-        }
-
-        //=====================================================================
-        //  FunctionName : btnLastPage_Click
-        /// <summary>
-        /// 最后一页按钮事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void btnLastPage_Click(object sender, EventArgs e)
-        {
-            ViewState["CurrentPage"] = ViewState["PageCount"];
-            Initalize();
-        }
-
-        //=====================================================================
         //  FunctionName : btnAddConfirm_Click
         /// <summary>
         /// 确认添加按钮事件
@@ -466,119 +363,6 @@ namespace RICH.Common.BM.T_BM_GZXX
         }
 
         //=====================================================================
-        //  FunctionName : gvList_RowDataBound
-        /// <summary>
-        /// GridView列表控件RowDataBound事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void gvList_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            // 首先判断是否是Header行
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                // 设置操作状态
-                LinkButton btnTemp = new LinkButton();
-                string strSortFieldID = "btnSort" + (string)ViewState["SortField"];
-                    for (int i = 0; i < e.Row.Cells.Count; i++)
-                {
-                    btnTemp = (LinkButton)e.Row.Cells[i].FindControl(strSortFieldID);
-                    if (btnTemp != null)
-                    {
-                        if ((Boolean)ViewState["Sort"] == false)
-                        {
-                            btnTemp.Text = "▼";
-                            btnTemp.CommandName = "AscSort";
-                        }
-                        else if ((Boolean)ViewState["Sort"] == true)
-                        {
-                            btnTemp.Text = "▲";
-                            btnTemp.CommandName = "DescSort";
-                        }
-                        break;
-                    }
-                }
-            }
-            // 判断是否是数据行
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                string strObjectID = string.Empty;
-                string strItemMenu = string.Empty;
-                    for (int i = 0; i < e.Row.Cells.Count; i++)
-                {
-                    Control hcTemp = e.Row.Cells[i].FindControl("ObjectID");
-                    if (hcTemp != null)
-                    {
-                        strObjectID = ((HtmlInputHidden)hcTemp).Value;
-                    }
-                    hcTemp = e.Row.Cells[i].FindControl("itemMenu");
-                    if (hcTemp != null)
-                    {
-                        strItemMenu = ((HtmlContainerControl)hcTemp).ClientID;
-                    }
-                }
-                e.Row.Attributes.Add("onmouseover", "overColor(this);");
-                e.Row.Attributes.Add("onmouseout", "outColor(this);");
-                e.Row.Attributes.Add("oncontextmenu", "showMenu('" + strItemMenu + "');");
-            }
-        }
-
-        //=====================================================================
-        //  FunctionName : btnSort_Click
-        /// <summary>
-        /// 排序按钮控件Click事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void btnSort_Click(object sender, EventArgs e)
-        {
-            LinkButton btnTemp = new LinkButton();
-            btnTemp = (LinkButton)sender;
-
-            ViewState["SortField"] = btnTemp.CommandArgument.ToString();
-            if (btnTemp.CommandName == "DescSort")
-            {
-                ViewState["Sort"] = false;
-            }
-            else if (btnTemp.CommandName == "AscSort")
-            {
-                ViewState["Sort"] = true;
-            }
-            else
-            {
-                ViewState["Sort"] = false;
-            }
-            Initalize();
-        }
-
-        //=====================================================================
-        //  FunctionName : ddlPageCount_SelectedIndexChanged
-        /// <summary>
-        /// 页码选择下拉列表控件SelectedIndexChanged事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void ddlPageCount_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DropDownList ddlTemp = new DropDownList();
-            ddlTemp = (DropDownList)sender;
-            ViewState["CurrentPage"] = int.Parse(ddlTemp.SelectedValue);
-            Initalize();
-        }
-
-        //=====================================================================
-        //  FunctionName : ddlPageSize_SelectedIndexChanged
-        /// <summary>
-        /// 每页记录数下拉列表控件SelectedIndexChanged事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DropDownList ddlTemp = new DropDownList();
-            ddlTemp = (DropDownList)sender;
-            ViewState["PageSize"] = int.Parse(ddlTemp.SelectedValue);
-            ViewState["CurrentPage"] = 1;
-            Initalize();
-        }
-
-        //=====================================================================
         //  FunctionName : btnOperate_Click
         /// <summary>
         /// 操作选中记录控件Click事件
@@ -598,65 +382,6 @@ namespace RICH.Common.BM.T_BM_GZXX
                     break;
             }
             Initalize();
-        }
-
-        //=====================================================================
-        //  FunctionName : ExportToFile
-        /// <summary>
-        /// 导出数据到文件函数
-        /// </summary>
-        //=====================================================================
-        protected virtual void ExportToFile()
-        {
-        }
-
-        //=====================================================================
-        //  FunctionName : VerifyRenderingInServerForm
-        /// <summary>
-        /// 重写函数VerifyRenderingInServerForm
-        /// </summary>
-        //=====================================================================
-        public override void VerifyRenderingInServerForm(Control control)
-        {
-            //base.VerifyRenderingInServerForm(control);
-        }
-
-        //=====================================================================
-        //  FunctionName : btnExportAllToFile_Click
-        /// <summary>
-        /// 导出所有数据到文件按钮控件Click事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void btnExportAllToFile_Click(object sender, EventArgs e)
-        {
-            ViewState["PageSize"] = 10000000;
-            ViewState["CurrentPage"] = 1;
-            ExportToFile();
-        }
-
-        //=====================================================================
-        //  FunctionName : btnReset_Click
-        /// <summary>
-        /// 重新填写按钮控件Click事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void btnReset_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(Request.Path);
-            Response.End();
-        }
-
-        //=====================================================================
-        //  FunctionName : btnDownload_Click
-        /// <summary>
-        /// 下载按钮控件Click事件
-        /// </summary>
-        //=====================================================================
-        protected virtual void btnDownload_Click(object sender, EventArgs e)
-        {
-            LinkButton btnTemp = new LinkButton();
-            btnTemp = (LinkButton)sender;
-            RICH.Common.FileLibrary.DownloadFile(btnTemp.CommandArgument.ToString(), btnTemp.CommandName.ToString());
         }
         #endregion
 
@@ -865,6 +590,10 @@ namespace RICH.Common.BM.T_BM_GZXX
                         appData.GZKKSM = Convert.ToString(strFieldValue);
                         break;
             
+                    case "TJSJ":
+                        appData.TJSJ = Convert.ToDateTime(strFieldValue);
+                        break;
+            
                     default:
                         appData.PageSize = 0;
                         break;
@@ -1052,6 +781,10 @@ namespace RICH.Common.BM.T_BM_GZXX
                         appData.GZKKSM = Convert.ToString(strFieldValue);
                         break;
             
+                    case "TJSJ":
+                        appData.TJSJ = Convert.ToDateTime(strFieldValue);
+                        break;
+            
                     default:
                         appData.PageSize = 0;
                         break;
@@ -1237,6 +970,10 @@ namespace RICH.Common.BM.T_BM_GZXX
             
                     case "GZKKSM":
                         appData.GZKKSM = Convert.ToString(strFieldValue);
+                        break;
+            
+                    case "TJSJ":
+                        appData.TJSJ = Convert.ToDateTime(strFieldValue);
                         break;
             
                     }
@@ -1471,6 +1208,10 @@ namespace RICH.Common.BM.T_BM_GZXX
             
                     case "GZKKSM":
                         appData.GZKKSM = Convert.ToString(strFieldValue);
+                        break;
+            
+                    case "TJSJ":
+                        appData.TJSJ = Convert.ToDateTime(strFieldValue);
                         break;
             
                     default:
@@ -4660,6 +4401,231 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
+        //=====================================================================
+        //  FunctionName : ValidateTJSJ
+        /// <summary>
+        /// 添加时间数值验证方法
+        /// </summary>
+        //=====================================================================        
+        protected virtual ValidateData ValidateTJSJ(object objValidateData, bool boolNullable, bool boolExist)
+        {
+            ValidateData validateData = new ValidateData();
+            try
+            {
+                // 初始化参数
+                validateData.Result = true;
+                validateData.Message = string.Empty;
+                validateData.Parameters = new string[5];
+                validateData.IsNull = false;
+                validateData.IsExist = false;
+                
+                // 传入参数赋值
+                validateData.Value = objValidateData;
+                validateData.Nullable = boolNullable;
+                validateData.Exist = boolExist;
+                validateData.Parameters[0] = "添加时间";
+                validateData.Parameters[1] = "null";
+                validateData.Parameters[2] = "null";
+
+                // 空验证
+                if (DataValidateManager.ValidateIsNull(validateData.Value) == false)
+                {
+                    // 数值格式验证
+                    if (DataValidateManager.ValidateDateFormat(validateData.Value, null, null) == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0005, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                    else
+                    {
+                        // 数据存在验证
+                        if (validateData.Exist == true)
+                        {
+                            if (AJAX_IsExist("TJSJ", validateData.Value.ToString()) == true)
+                            {
+                                 validateData.IsExist = true;
+                                 validateData.Message = @"添加时间已存在，请再换一个。";
+                                 validateData.Result = false;
+                            }
+                            else
+                            {
+                                validateData.Message = @"添加时间不存在，可以使用。";
+                                validateData.Result = true;
+                            }
+                        }
+                        else
+                        {
+                            validateData.Result = true;
+                        }
+                    }
+                }
+                else
+                {
+                    validateData.IsNull = true;
+                    if (validateData.Nullable == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0002, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                validateData.Result = false;
+            }
+            return validateData;
+        }
+    
+        //=====================================================================
+        //  FunctionName : ValidateTJSJ
+        /// <summary>
+        /// 添加时间Begin数值验证方法
+        /// </summary>
+        //=====================================================================        
+        protected virtual ValidateData ValidateTJSJBegin(object objValidateData, bool boolNullable, bool boolExist)
+        {
+            ValidateData validateData = new ValidateData();
+            try
+            {
+                // 初始化参数
+                validateData.Result = true;
+                validateData.Message = string.Empty;
+                validateData.Parameters = new string[5];
+                validateData.IsNull = false;
+                validateData.IsExist = false;
+                
+                // 传入参数赋值
+                validateData.Value = objValidateData;
+                validateData.Nullable = boolNullable;
+                validateData.Exist = boolExist;
+                validateData.Parameters[0] = "添加时间开始值";
+                validateData.Parameters[1] = "null";
+                validateData.Parameters[2] = "null";
+
+                // 空验证
+                if (DataValidateManager.ValidateIsNull(validateData.Value) == false)
+                {
+                    // 数值格式验证
+                    if (DataValidateManager.ValidateDateFormat(validateData.Value, null, null) == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0005, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                    else
+                    {
+                        // 数据存在验证
+                        if (validateData.Exist == true)
+                        {
+                            if (AJAX_IsExist("TJSJ", validateData.Value.ToString()) == true)
+                            {
+                                 validateData.IsExist = true;
+                                 validateData.Message = @"添加时间已存在，请再换一个。";
+                                 validateData.Result = false;
+                            }
+                            else
+                            {
+                                validateData.Message = @"添加时间不存在，可以使用。";
+                                validateData.Result = true;
+                            }
+                        }
+                        else
+                        {
+                            validateData.Result = true;
+                        }
+                    }
+                }
+                else
+                {
+                    validateData.IsNull = true;
+                    if (validateData.Nullable == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0002, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                validateData.Result = false;
+            }
+            return validateData;
+        }
+
+        //=====================================================================
+        //  FunctionName : ValidateTJSJ
+        /// <summary>
+        /// 添加时间End数值验证方法
+        /// </summary>
+        //=====================================================================        
+        protected virtual ValidateData ValidateTJSJEnd(object objValidateData, bool boolNullable, bool boolExist)
+        {
+            ValidateData validateData = new ValidateData();
+            try
+            {
+                // 初始化参数
+                validateData.Result = true;
+                validateData.Message = string.Empty;
+                validateData.Parameters = new string[5];
+                validateData.IsNull = false;
+                validateData.IsExist = false;
+                
+                // 传入参数赋值
+                validateData.Value = objValidateData;
+                validateData.Nullable = boolNullable;
+                validateData.Exist = boolExist;
+                validateData.Parameters[0] = "添加时间结束值";
+                validateData.Parameters[1] = "null";
+                validateData.Parameters[2] = "null";
+
+                // 空验证
+                if (DataValidateManager.ValidateIsNull(validateData.Value) == false)
+                {
+                    // 数值格式验证
+                    if (DataValidateManager.ValidateDateFormat(validateData.Value, null, null) == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0005, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                    else
+                    {
+                        // 数据存在验证
+                        if (validateData.Exist == true)
+                        {
+                            if (AJAX_IsExist("TJSJ", validateData.Value.ToString()) == true)
+                            {
+                                 validateData.IsExist = true;
+                                 validateData.Message = @"添加时间已存在，请再换一个。";
+                                 validateData.Result = false;
+                            }
+                            else
+                            {
+                                validateData.Message = @"添加时间不存在，可以使用。";
+                                validateData.Result = true;
+                            }
+                        }
+                        else
+                        {
+                            validateData.Result = true;
+                        }
+                    }
+                }
+                else
+                {
+                    validateData.IsNull = true;
+                    if (validateData.Nullable == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0002, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                validateData.Result = false;
+            }
+            return validateData;
+        }
+        
         #endregion
 
         #region 获取相关表信息

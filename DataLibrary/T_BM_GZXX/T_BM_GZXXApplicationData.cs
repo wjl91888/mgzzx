@@ -268,6 +268,24 @@ namespace RICH.Common.BM.T_BM_GZXX
         public String GZKKSM { get; set; }
     
         /// <summary>
+        /// 添加时间TJSJ
+        /// </summary>
+        /// <value>TJSJ</value>
+        public DateTime? TJSJ { get; set; }
+    
+        /// <summary>
+        /// 添加时间开始TJSJBegin
+        /// </summary>
+        /// <value>TJSJBegin</value>
+        public DateTime? TJSJBegin { get; set; }
+
+        /// <summary>
+        /// 添加时间结束TJSJEnd
+        /// </summary>
+        /// <value>TJSJEnd</value>
+        public DateTime? TJSJEnd { get; set; }
+    
+        /// <summary>
         /// ObjectIDBatch
         /// </summary>
         /// <value>ObjectID</value>
@@ -490,6 +508,12 @@ namespace RICH.Common.BM.T_BM_GZXX
         public String GZKKSMBatch { get; set; }
 
         /// <summary>
+        /// 添加时间TJSJBatch
+        /// </summary>
+        /// <value>TJSJ</value>
+        public String TJSJBatch { get; set; }
+
+        /// <summary>
         /// 批量更新ObjectIDValue
         /// </summary>
         /// <value>ObjectIDValue</value>
@@ -710,6 +734,12 @@ namespace RICH.Common.BM.T_BM_GZXX
         /// </summary>
         /// <value>GZKKSMValue</value>
         public String GZKKSMValue { get; set; }
+    
+        /// <summary>
+        /// 添加时间批量更新TJSJValue
+        /// </summary>
+        /// <value>TJSJValue</value>
+        public DateTime? TJSJValue { get; set; }
         
         #endregion
         #region 一对一相关表
@@ -871,6 +901,7 @@ namespace RICH.Common.BM.T_BM_GZXX
                               ,"KFX"
                               ,"SFGZ"
                               ,"GZKKSM"
+                              ,"TJSJ"
                                 };
 
         //=====================================================================
@@ -927,6 +958,7 @@ namespace RICH.Common.BM.T_BM_GZXX
                               ,SqlDbType.Float
                               ,SqlDbType.Float
                               ,SqlDbType.NVarChar
+                              ,SqlDbType.DateTime
                                   };
 
         //=====================================================================
@@ -946,7 +978,8 @@ namespace RICH.Common.BM.T_BM_GZXX
         /// </summary>
         private static string[] primaryKeyList 
                 = new string[] {
-                              "ObjectID"
+                              "SFZH"
+                              ,"FFGZNY"
                                 };
 
         //=====================================================================
@@ -1000,6 +1033,7 @@ namespace RICH.Common.BM.T_BM_GZXX
                               ,"KFX"
                               ,"SFGZ"
                               ,"GZKKSM"
+                              ,"TJSJ"
                                 };
 
 
@@ -1015,7 +1049,7 @@ namespace RICH.Common.BM.T_BM_GZXX
             return nullableList;
         }
 
-        public static IEnumerable<T_BM_GZXXApplicationData> GetCollectionFromDataTable(DataTable dt)
+        public static IEnumerable<T_BM_GZXXApplicationData> GetCollectionFromImportDataTable(DataTable dt)
         {
             List<T_BM_GZXXApplicationData> collection = new List<T_BM_GZXXApplicationData>();
             foreach (DataRow dr in dt.Rows)
@@ -1059,6 +1093,7 @@ ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable
     KFX = dr.ReadDoubleNullable("KFX"),
     SFGZ = dr.ReadDoubleNullable("SFGZ"),
     GZKKSM = dr.ReadString("GZKKSM"),
+    TJSJ = dr.ReadDateTimeNullable("TJSJ"),
     
                 };
                 collection.Add(applicationData);
@@ -1066,7 +1101,7 @@ ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable
             return collection;
         }
 
-		internal static T_BM_GZXXApplicationData FillDataFromDataReader(IDataReader reader)
+		internal static T_BM_GZXXApplicationData FillDataFromDataReader(IDataReader reader, bool fromImportDataSet = false)
         {
             if (reader == null)
             {
@@ -1076,43 +1111,44 @@ ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable
             {
                 return new T_BM_GZXXApplicationData
                 {
-ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuidNullable("ObjectID").ToString()),
+ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID").ToString()),
     XM = reader.ReadString("XM"),
     XB = reader.ReadString("XB"),
     SFZH = reader.ReadString("SFZH"),
     FFGZNY = reader.ReadString("FFGZNY"),
-    JCGZ = reader.ReadDoubleNullable("JCGZ"),
-    JSDJGZ = reader.ReadDoubleNullable("JSDJGZ"),
-    ZWGZ = reader.ReadDoubleNullable("ZWGZ"),
-    JBGZ = reader.ReadDoubleNullable("JBGZ"),
-    JKDQJT = reader.ReadDoubleNullable("JKDQJT"),
-    JKTSGWJT = reader.ReadDoubleNullable("JKTSGWJT"),
-    GLGZ = reader.ReadDoubleNullable("GLGZ"),
-    XJGZ = reader.ReadDoubleNullable("XJGZ"),
-    TGBF = reader.ReadDoubleNullable("TGBF"),
-    DHF = reader.ReadDoubleNullable("DHF"),
-    DSZNF = reader.ReadDoubleNullable("DSZNF"),
-    FNWSHLF = reader.ReadDoubleNullable("FNWSHLF"),
-    HLF = reader.ReadDoubleNullable("HLF"),
-    JJ = reader.ReadDoubleNullable("JJ"),
-    JTF = reader.ReadDoubleNullable("JTF"),
-    JHLGZ = reader.ReadDoubleNullable("JHLGZ"),
-    JT = reader.ReadDoubleNullable("JT"),
-    BF = reader.ReadDoubleNullable("BF"),
-    QTBT = reader.ReadDoubleNullable("QTBT"),
-    DFXJT = reader.ReadDoubleNullable("DFXJT"),
-    YFX = reader.ReadDoubleNullable("YFX"),
-    QTKK = reader.ReadDoubleNullable("QTKK"),
-    SYBX = reader.ReadDoubleNullable("SYBX"),
-    SDNQF = reader.ReadDoubleNullable("SDNQF"),
-    SDS = reader.ReadDoubleNullable("SDS"),
-    YLBX = reader.ReadDoubleNullable("YLBX"),
-    YLIBX = reader.ReadDoubleNullable("YLIBX"),
-    YSSHF = reader.ReadDoubleNullable("YSSHF"),
-    ZFGJJ = reader.ReadDoubleNullable("ZFGJJ"),
-    KFX = reader.ReadDoubleNullable("KFX"),
-    SFGZ = reader.ReadDoubleNullable("SFGZ"),
+    JCGZ = reader.ReadDoubleNullable(fromImportDataSet ? "JCGZ" : "JCGZ"),
+    JSDJGZ = reader.ReadDoubleNullable(fromImportDataSet ? "JSDJGZ" : "JSDJGZ"),
+    ZWGZ = reader.ReadDoubleNullable(fromImportDataSet ? "ZWGZ" : "ZWGZ"),
+    JBGZ = reader.ReadDoubleNullable(fromImportDataSet ? "JBGZ" : "JBGZ"),
+    JKDQJT = reader.ReadDoubleNullable(fromImportDataSet ? "JKDQJT" : "JKDQJT"),
+    JKTSGWJT = reader.ReadDoubleNullable(fromImportDataSet ? "JKTSGWJT" : "JKTSGWJT"),
+    GLGZ = reader.ReadDoubleNullable(fromImportDataSet ? "GLGZ" : "GLGZ"),
+    XJGZ = reader.ReadDoubleNullable(fromImportDataSet ? "XJGZ" : "XJGZ"),
+    TGBF = reader.ReadDoubleNullable(fromImportDataSet ? "TGBF" : "TGBF"),
+    DHF = reader.ReadDoubleNullable(fromImportDataSet ? "DHF" : "DHF"),
+    DSZNF = reader.ReadDoubleNullable(fromImportDataSet ? "DSZNF" : "DSZNF"),
+    FNWSHLF = reader.ReadDoubleNullable(fromImportDataSet ? "FNWSHLF" : "FNWSHLF"),
+    HLF = reader.ReadDoubleNullable(fromImportDataSet ? "HLF" : "HLF"),
+    JJ = reader.ReadDoubleNullable(fromImportDataSet ? "JJ" : "JJ"),
+    JTF = reader.ReadDoubleNullable(fromImportDataSet ? "JTF" : "JTF"),
+    JHLGZ = reader.ReadDoubleNullable(fromImportDataSet ? "JHLGZ" : "JHLGZ"),
+    JT = reader.ReadDoubleNullable(fromImportDataSet ? "JT" : "JT"),
+    BF = reader.ReadDoubleNullable(fromImportDataSet ? "BF" : "BF"),
+    QTBT = reader.ReadDoubleNullable(fromImportDataSet ? "QTBT" : "QTBT"),
+    DFXJT = reader.ReadDoubleNullable(fromImportDataSet ? "DFXJT" : "DFXJT"),
+    YFX = reader.ReadDoubleNullable(fromImportDataSet ? "YFX" : "YFX"),
+    QTKK = reader.ReadDoubleNullable(fromImportDataSet ? "QTKK" : "QTKK"),
+    SYBX = reader.ReadDoubleNullable(fromImportDataSet ? "SYBX" : "SYBX"),
+    SDNQF = reader.ReadDoubleNullable(fromImportDataSet ? "SDNQF" : "SDNQF"),
+    SDS = reader.ReadDoubleNullable(fromImportDataSet ? "SDS" : "SDS"),
+    YLBX = reader.ReadDoubleNullable(fromImportDataSet ? "YLBX" : "YLBX"),
+    YLIBX = reader.ReadDoubleNullable(fromImportDataSet ? "YLIBX" : "YLIBX"),
+    YSSHF = reader.ReadDoubleNullable(fromImportDataSet ? "YSSHF" : "YSSHF"),
+    ZFGJJ = reader.ReadDoubleNullable(fromImportDataSet ? "ZFGJJ" : "ZFGJJ"),
+    KFX = reader.ReadDoubleNullable(fromImportDataSet ? "KFX" : "KFX"),
+    SFGZ = reader.ReadDoubleNullable(fromImportDataSet ? "SFGZ" : "SFGZ"),
     GZKKSM = reader.ReadString("GZKKSM"),
+    TJSJ = reader.ReadDateTimeNullable(fromImportDataSet ? "TJSJ" : "TJSJ"),
     
                 };
             }
@@ -1120,6 +1156,49 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
         }
 
         #endregion
+        
+        private DataTable GetImportColumn(DataTable dt)
+        {
+
+            dt.Columns.Add("XM", Type.GetType("System.String"));
+            dt.Columns.Add("XB", Type.GetType("System.String"));
+            dt.Columns.Add("SFZH", Type.GetType("System.String"));
+            dt.Columns.Add("FFGZNY", Type.GetType("System.String"));
+            dt.Columns.Add("JCGZ", Type.GetType("System.Double"));
+            dt.Columns.Add("JSDJGZ", Type.GetType("System.Double"));
+            dt.Columns.Add("ZWGZ", Type.GetType("System.Double"));
+            dt.Columns.Add("JBGZ", Type.GetType("System.Double"));
+            dt.Columns.Add("JKDQJT", Type.GetType("System.Double"));
+            dt.Columns.Add("JKTSGWJT", Type.GetType("System.Double"));
+            dt.Columns.Add("GLGZ", Type.GetType("System.Double"));
+            dt.Columns.Add("XJGZ", Type.GetType("System.Double"));
+            dt.Columns.Add("TGBF", Type.GetType("System.Double"));
+            dt.Columns.Add("DHF", Type.GetType("System.Double"));
+            dt.Columns.Add("DSZNF", Type.GetType("System.Double"));
+            dt.Columns.Add("FNWSHLF", Type.GetType("System.Double"));
+            dt.Columns.Add("HLF", Type.GetType("System.Double"));
+            dt.Columns.Add("JJ", Type.GetType("System.Double"));
+            dt.Columns.Add("JTF", Type.GetType("System.Double"));
+            dt.Columns.Add("JHLGZ", Type.GetType("System.Double"));
+            dt.Columns.Add("JT", Type.GetType("System.Double"));
+            dt.Columns.Add("BF", Type.GetType("System.Double"));
+            dt.Columns.Add("QTBT", Type.GetType("System.Double"));
+            dt.Columns.Add("DFXJT", Type.GetType("System.Double"));
+            dt.Columns.Add("YFX", Type.GetType("System.Double"));
+            dt.Columns.Add("QTKK", Type.GetType("System.Double"));
+            dt.Columns.Add("SYBX", Type.GetType("System.Double"));
+            dt.Columns.Add("SDNQF", Type.GetType("System.Double"));
+            dt.Columns.Add("SDS", Type.GetType("System.Double"));
+            dt.Columns.Add("YLBX", Type.GetType("System.Double"));
+            dt.Columns.Add("YLIBX", Type.GetType("System.Double"));
+            dt.Columns.Add("YSSHF", Type.GetType("System.Double"));
+            dt.Columns.Add("ZFGJJ", Type.GetType("System.Double"));
+            dt.Columns.Add("KFX", Type.GetType("System.Double"));
+            dt.Columns.Add("SFGZ", Type.GetType("System.Double"));
+            dt.Columns.Add("GZKKSM", Type.GetType("System.String"));
+            return dt;
+        }
+
     }
 }
 

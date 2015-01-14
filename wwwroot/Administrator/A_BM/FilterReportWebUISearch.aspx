@@ -512,7 +512,7 @@
                                 <FooterStyle CssClass="fieldname" />
                                 <ItemTemplate>
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "BGMC"), null)%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "BGMC"), null)+ Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>
@@ -540,7 +540,7 @@
                                 <FooterStyle CssClass="fieldname" />
                                 <ItemTemplate>
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "BGLX"), null)%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "BGLX"), null)+ Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>
@@ -582,7 +582,7 @@
                                 <FooterStyle CssClass="fieldname" />
                                 <ItemTemplate>
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "BGCJSJ"), null)%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "BGCJSJ"), null)+ Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>

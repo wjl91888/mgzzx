@@ -82,6 +82,9 @@
     <Compile Include="Base\UserGroupLibrary.cs" />
     <Compile Include="Base\UserGroupPurviewLibrary.cs" />
     <Compile Include="Base\UserPurviewLibrary.cs" />
+    <Compile Include="WebUIBase\WebUIBase.Virtual.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="WebUIBase\WebUIBase.Event.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

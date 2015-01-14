@@ -4,6 +4,7 @@ FileName:T_BM_DWXXApplicationData.cs
 using System;
 using System.Data;
 using System.Data.Linq;
+using System.Collections.Generic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.DB;
 
@@ -445,7 +446,32 @@ namespace RICH.Common.BM.T_BM_DWXX
             return nullableList;
         }
 
-		internal static T_BM_DWXXApplicationData FillDataFromDataReader(IDataReader reader)
+        public static IEnumerable<T_BM_DWXXApplicationData> GetCollectionFromImportDataTable(DataTable dt)
+        {
+            List<T_BM_DWXXApplicationData> collection = new List<T_BM_DWXXApplicationData>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                T_BM_DWXXApplicationData applicationData = new T_BM_DWXXApplicationData()
+                {
+ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
+    DWBH = dr.ReadString("DWBH"),
+    DWMC = dr.ReadString("DWMC"),
+    SJDWBH = dr.ReadString("SJDWBH"),
+    DZ = dr.ReadString("DZ"),
+    YB = dr.ReadString("YB"),
+    LXBM = dr.ReadString("LXBM"),
+    LXDH = dr.ReadString("LXDH"),
+    Email = dr.ReadString("Email"),
+    LXR = dr.ReadString("LXR"),
+    SJ = dr.ReadString("SJ"),
+    
+                };
+                collection.Add(applicationData);
+            }
+            return collection;
+        }
+
+		internal static T_BM_DWXXApplicationData FillDataFromDataReader(IDataReader reader, bool fromImportDataSet = false)
         {
             if (reader == null)
             {
@@ -455,7 +481,7 @@ namespace RICH.Common.BM.T_BM_DWXX
             {
                 return new T_BM_DWXXApplicationData
                 {
-ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuidNullable("ObjectID").ToString()),
+ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID").ToString()),
     DWBH = reader.ReadString("DWBH"),
     DWMC = reader.ReadString("DWMC"),
     SJDWBH = reader.ReadString("SJDWBH"),
@@ -473,6 +499,13 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
         }
 
         #endregion
+        
+        private DataTable GetImportColumn(DataTable dt)
+        {
+
+            return dt;
+        }
+
     }
 }
 

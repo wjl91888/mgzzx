@@ -4,6 +4,7 @@ FileName:ShortMessageApplicationData.cs
 using System;
 using System.Data;
 using System.Data.Linq;
+using System.Collections.Generic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.DB;
 
@@ -477,7 +478,33 @@ namespace RICH.Common.BM.ShortMessage
             return nullableList;
         }
 
-		internal static ShortMessageApplicationData FillDataFromDataReader(IDataReader reader)
+        public static IEnumerable<ShortMessageApplicationData> GetCollectionFromImportDataTable(DataTable dt)
+        {
+            List<ShortMessageApplicationData> collection = new List<ShortMessageApplicationData>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                ShortMessageApplicationData applicationData = new ShortMessageApplicationData()
+                {
+ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
+    DXXBT = dr.ReadString("DXXBT"),
+    DXXLX = dr.ReadString("DXXLX"),
+    DXXNR = dr.ReadString("DXXNR"),
+    DXXFJ = dr.ReadString("DXXFJ"),
+    FSSJ = dr.ReadDateTimeNullable("FSSJ"),
+    FSR = dr.ReadString("FSR"),
+    FSBM = dr.ReadString("FSBM"),
+    FSIP = dr.ReadString("FSIP"),
+    JSR = dr.ReadString("JSR"),
+    SFCK = dr.ReadBooleanNullable("SFCK"),
+    CKSJ = dr.ReadDateTimeNullable("CKSJ"),
+    
+                };
+                collection.Add(applicationData);
+            }
+            return collection;
+        }
+
+		internal static ShortMessageApplicationData FillDataFromDataReader(IDataReader reader, bool fromImportDataSet = false)
         {
             if (reader == null)
             {
@@ -487,18 +514,18 @@ namespace RICH.Common.BM.ShortMessage
             {
                 return new ShortMessageApplicationData
                 {
-ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuidNullable("ObjectID").ToString()),
+ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID").ToString()),
     DXXBT = reader.ReadString("DXXBT"),
     DXXLX = reader.ReadString("DXXLX"),
     DXXNR = reader.ReadString("DXXNR"),
     DXXFJ = reader.ReadString("DXXFJ"),
-    FSSJ = reader.ReadDateTimeNullable("FSSJ"),
+    FSSJ = reader.ReadDateTimeNullable(fromImportDataSet ? "FSSJ" : "FSSJ"),
     FSR = reader.ReadString("FSR"),
     FSBM = reader.ReadString("FSBM"),
     FSIP = reader.ReadString("FSIP"),
     JSR = reader.ReadString("JSR"),
-    SFCK = reader.ReadBooleanNullable("SFCK"),
-    CKSJ = reader.ReadDateTimeNullable("CKSJ"),
+    SFCK = reader.ReadBooleanNullable(fromImportDataSet ? "SFCK" : "SFCK"),
+    CKSJ = reader.ReadDateTimeNullable(fromImportDataSet ? "CKSJ" : "CKSJ"),
     
                 };
             }
@@ -506,6 +533,13 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
         }
 
         #endregion
+        
+        private DataTable GetImportColumn(DataTable dt)
+        {
+
+            return dt;
+        }
+
     }
 }
 

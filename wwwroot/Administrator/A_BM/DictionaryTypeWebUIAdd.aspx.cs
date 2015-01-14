@@ -374,18 +374,18 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             int i = 0;
 
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     protected void btnImportFromDoc_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = true;
-        addpage.Visible = false;
+        ImportControlContainer.Visible = true;
+        ControlContainer.Visible = false;
     }
     protected void btnInfoFromDocCancel_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     private DataTable GetTemplateColumn(DataTable dt)
     {
@@ -395,33 +395,38 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
 
     protected void btnInfoFromDS_Click(object sender, EventArgs e)
     {
-        DataTable dt = new DataTable();
-        dt = GetTemplateColumn(dt);
-        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
-        if (dt.Rows.Count > 0)
+        try
         {
-            int i = 0;
-
+            var appDatas = DictionaryTypeApplicationData.GetDataFromDataFile<DictionaryTypeApplicationData>(InfoFromDoc.Text, true);
+            DictionaryTypeApplicationLogic instanceDictionaryTypeApplicationLogic = (DictionaryTypeApplicationLogic)CreateApplicationLogicInstance(typeof(DictionaryTypeApplicationLogic));
+            foreach (var app in appDatas)
+            {
+    
+                instanceDictionaryTypeApplicationLogic.Add(app);
+            }
+            MessageContent += @"<font color=""green"">导入数据{0}条</font>".FormatInvariantCulture(appDatas.Count);
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        catch (Exception ex)
+        {
+            MessageContent += @"<font color=""red"">导入数据过程出错：{0}</font>".FormatInvariantCulture(ex.Message);
+        }
     }
 
     public void CheckPermission()
     {
         if (AccessPermission)
         {
-			if(EditMode)
-			{
-	ObjectID_Area.Visible = false;
-	  DM.Enabled = false;
+            if(EditMode)
+            {
+    ObjectID_Area.Visible = false;
+      DM.Enabled = false;
                 
-			}
-			else if(AddMode || CopyMode)
-			{
-	ObjectID_Area.Visible = false;
-	  
-			}
+            }
+            else if(AddMode || CopyMode)
+            {
+    ObjectID_Area.Visible = false;
+      
+            }
             if (ViewMode)
             {
     ObjectID.Enabled = false;
@@ -431,7 +436,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 SM.Enabled = false;
                 
       btnAddConfirm.Visible = false;
-      btnReset.Visible = false;
     
             }
             else
@@ -442,10 +446,14 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
         else
         {
+            ImportControlContainer.Visible = false;
             ControlContainer.Visible = false;
             btnAddConfirm.Visible = false;
-            btnReset.Visible = false;
         
+            btnInfoFromDS.Visible = false;
+            btnInfoFromDoc.Visible = false;
+            btnInfoFromDocBatch.Visible = false;
+            btnInfoFromDocCancel.Visible = false;
         }
     }
 }

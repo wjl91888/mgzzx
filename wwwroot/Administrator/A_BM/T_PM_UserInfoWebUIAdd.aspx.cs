@@ -978,18 +978,18 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             int i = 0;
 
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     protected void btnImportFromDoc_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = true;
-        addpage.Visible = false;
+        ImportControlContainer.Visible = true;
+        ControlContainer.Visible = false;
     }
     protected void btnInfoFromDocCancel_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     private DataTable GetTemplateColumn(DataTable dt)
     {
@@ -999,42 +999,61 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
 
     protected void btnInfoFromDS_Click(object sender, EventArgs e)
     {
-        DataTable dt = new DataTable();
-        dt = GetTemplateColumn(dt);
-        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
-        if (dt.Rows.Count > 0)
+        try
         {
-            int i = 0;
-
+            var appDatas = T_PM_UserInfoApplicationData.GetDataFromDataFile<T_PM_UserInfoApplicationData>(InfoFromDoc.Text, true);
+            T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic = (T_PM_UserInfoApplicationLogic)CreateApplicationLogicInstance(typeof(T_PM_UserInfoApplicationLogic));
+            foreach (var app in appDatas)
+            {
+    
+                app.UserID = instanceT_PM_UserInfoApplicationLogic.AutoGenerateUserID(app);
+                    
+                string strUserGroupID = GetValue(new RICH.Common.BM.T_PM_UserGroupInfo.T_PM_UserGroupInfoApplicationLogicBase().GetValueByFixCondition("UserGroupName", app.UserGroupID, "UserGroupID"));
+                if (!DataValidateManager.ValidateIsNull(strUserGroupID))app.UserGroupID = strUserGroupID;
+                string strSubjectID = GetValue(new RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationLogicBase().GetValueByFixCondition("DWMC", app.SubjectID, "DWBH"));
+                if (!DataValidateManager.ValidateIsNull(strSubjectID))app.SubjectID = strSubjectID;
+                string strXB = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.XB, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strXB))app.XB = strXB;
+                string strMZ = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.MZ, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strMZ))app.MZ = strMZ;
+                string strZZMM = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.ZZMM, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strZZMM))app.ZZMM = strZZMM;
+                string strUserStatus = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.UserStatus, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strUserStatus))app.UserStatus = strUserStatus;
+                instanceT_PM_UserInfoApplicationLogic.Add(app);
+            }
+            MessageContent += @"<font color=""green"">导入数据{0}条</font>".FormatInvariantCulture(appDatas.Count);
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        catch (Exception ex)
+        {
+            MessageContent += @"<font color=""red"">导入数据过程出错：{0}</font>".FormatInvariantCulture(ex.Message);
+        }
     }
 
     public void CheckPermission()
     {
         if (AccessPermission)
         {
-			if(EditMode)
-			{
-	ObjectID_Area.Visible = false;
-	  UserID.Enabled = false;
+            if(EditMode)
+            {
+    ObjectID_Area.Visible = false;
+      UserID.Enabled = false;
                 LoginTime_Area.Visible = false;
-	  LastLoginIP_Area.Visible = false;
-	  LastLoginDate_Area.Visible = false;
-	  LoginTimes_Area.Visible = false;
-	  
-			}
-			else if(AddMode || CopyMode)
-			{
-	ObjectID_Area.Visible = false;
-	  UserID_Area.Visible = false;
-	  LoginTime_Area.Visible = false;
-	  LastLoginIP_Area.Visible = false;
-	  LastLoginDate_Area.Visible = false;
-	  LoginTimes_Area.Visible = false;
-	  
-			}
+      LastLoginIP_Area.Visible = false;
+      LastLoginDate_Area.Visible = false;
+      LoginTimes_Area.Visible = false;
+      
+            }
+            else if(AddMode || CopyMode)
+            {
+    ObjectID_Area.Visible = false;
+      UserID_Area.Visible = false;
+      LoginTime_Area.Visible = false;
+      LastLoginIP_Area.Visible = false;
+      LastLoginDate_Area.Visible = false;
+      LoginTimes_Area.Visible = false;
+      
+            }
             if (ViewMode)
             {
     ObjectID.Enabled = false;
@@ -1065,7 +1084,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                 LoginTimes.Enabled = false;
                 
       btnAddConfirm.Visible = false;
-      btnReset.Visible = false;
     
             }
             else
@@ -1076,10 +1094,14 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
         }
         else
         {
+            ImportControlContainer.Visible = false;
             ControlContainer.Visible = false;
             btnAddConfirm.Visible = false;
-            btnReset.Visible = false;
         
+            btnInfoFromDS.Visible = false;
+            btnInfoFromDoc.Visible = false;
+            btnInfoFromDocBatch.Visible = false;
+            btnInfoFromDocCancel.Visible = false;
         }
     }
 }

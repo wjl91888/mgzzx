@@ -86,6 +86,7 @@ namespace RICH.Common.Base.WebUI
             }
         }
         public bool AccessPermission { get; set; }
+        public bool DetailPage { get; set; }
         private string objectID;
         public string ObjectID
         {

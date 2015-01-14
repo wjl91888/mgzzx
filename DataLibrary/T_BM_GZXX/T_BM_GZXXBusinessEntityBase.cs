@@ -93,6 +93,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.AddInParameter(cmdProc, "@KFX", DbType.Double);
             db.AddInParameter(cmdProc, "@SFGZ", DbType.Double);
             db.AddInParameter(cmdProc, "@GZKKSM", DbType.String);
+            db.AddInParameter(cmdProc, "@TJSJ", DbType.DateTime);
             // 对存储过程参数赋值
 
             db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
@@ -132,6 +133,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.SetParameterValue(cmdProc, "@KFX", AppData.KFX);
             db.SetParameterValue(cmdProc, "@SFGZ", AppData.SFGZ);
             db.SetParameterValue(cmdProc, "@GZKKSM", AppData.GZKKSM);
+            db.SetParameterValue(cmdProc, "@TJSJ", AppData.TJSJ);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
         }
@@ -303,6 +305,12 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.AddInParameter(cmdProc, "@GZKKSMBatch", DbType.String);
             db.AddInParameter(cmdProc, "@GZKKSMValue", DbType.String);
                 
+            db.AddInParameter(cmdProc, "@TJSJ", DbType.DateTime);
+            db.AddInParameter(cmdProc, "@TJSJBegin", DbType.DateTime);
+            db.AddInParameter(cmdProc, "@TJSJEnd", DbType.DateTime);
+            db.AddInParameter(cmdProc, "@TJSJBatch", DbType.String);
+            db.AddInParameter(cmdProc, "@TJSJValue", DbType.DateTime);
+                
             // 设定存储过程输出参数
             db.AddOutParameter(cmdProc, "@RecordCount", DbType.Int32, 4);
             // 对存储过程参数赋值
@@ -460,6 +468,12 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.SetParameterValue(cmdProc, "@GZKKSMBatch", AppData.GZKKSMBatch);
             db.SetParameterValue(cmdProc, "@GZKKSMValue", AppData.GZKKSMValue);
                 
+            db.SetParameterValue(cmdProc, "@TJSJ", AppData.TJSJ);
+            db.SetParameterValue(cmdProc, "@TJSJBegin", AppData.TJSJBegin);
+            db.SetParameterValue(cmdProc, "@TJSJEnd", AppData.TJSJEnd);
+            db.SetParameterValue(cmdProc, "@TJSJBatch", AppData.TJSJBatch);
+            db.SetParameterValue(cmdProc, "@TJSJValue", AppData.TJSJValue);
+                
             // 执行存储过程
             AppData.ResultSet = (DataSet)db.ExecuteDataSet(cmdProc);
             // 得到更新的记录数
@@ -517,6 +531,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.AddInParameter(cmdProc, "@KFX", DbType.Double);
             db.AddInParameter(cmdProc, "@SFGZ", DbType.Double);
             db.AddInParameter(cmdProc, "@GZKKSM", DbType.String);
+            db.AddInParameter(cmdProc, "@TJSJ", DbType.DateTime);
             // 对存储过程参数赋值
 
             db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
@@ -556,6 +571,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.SetParameterValue(cmdProc, "@KFX", AppData.KFX);
             db.SetParameterValue(cmdProc, "@SFGZ", AppData.SFGZ);
             db.SetParameterValue(cmdProc, "@GZKKSM", AppData.GZKKSM);
+            db.SetParameterValue(cmdProc, "@TJSJ", AppData.TJSJ);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
         }
@@ -611,6 +627,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.AddInParameter(cmdProc, "@KFX", DbType.Double);
             db.AddInParameter(cmdProc, "@SFGZ", DbType.Double);
             db.AddInParameter(cmdProc, "@GZKKSM", DbType.String);
+            db.AddInParameter(cmdProc, "@TJSJ", DbType.DateTime);
             // 对存储过程参数赋值
 
             db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
@@ -650,6 +667,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.SetParameterValue(cmdProc, "@KFX", AppData.KFX);
             db.SetParameterValue(cmdProc, "@SFGZ", AppData.SFGZ);
             db.SetParameterValue(cmdProc, "@GZKKSM", AppData.GZKKSM);
+            db.SetParameterValue(cmdProc, "@TJSJ", AppData.TJSJ);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
         }
@@ -706,6 +724,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.AddInParameter(cmdProc, "@KFX", DbType.Double);
             db.AddInParameter(cmdProc, "@SFGZ", DbType.Double);
             db.AddInParameter(cmdProc, "@GZKKSM", DbType.String);
+            db.AddInParameter(cmdProc, "@TJSJ", DbType.DateTime);
             // 对存储过程参数赋值
             db.SetParameterValue(cmdProc, "@ObjectIDBatch", AppData.ObjectIDBatch);
 
@@ -746,6 +765,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.SetParameterValue(cmdProc, "@KFX", AppData.KFX);
             db.SetParameterValue(cmdProc, "@SFGZ", AppData.SFGZ);
             db.SetParameterValue(cmdProc, "@GZKKSM", AppData.GZKKSM);
+            db.SetParameterValue(cmdProc, "@TJSJ", AppData.TJSJ);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
         }
@@ -764,10 +784,12 @@ namespace  RICH.Common.BM.T_BM_GZXX
             DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
             // 设定存储过程输入参数
             
-            db.AddInParameter(cmdProc, "@ObjectID", DbType.String);
+            db.AddInParameter(cmdProc, "@SFZH", DbType.String);
+            db.AddInParameter(cmdProc, "@FFGZNY", DbType.String);
             // 对存储过程参数赋值
             
-            db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
+            db.SetParameterValue(cmdProc, "@SFZH", AppData.SFZH);
+            db.SetParameterValue(cmdProc, "@FFGZNY", AppData.FFGZNY);
             // 执行存储过程
             AppData.ResultSet = (DataSet)db.ExecuteDataSet(cmdProc);
             // 得到返回记录数
@@ -951,6 +973,11 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.AddInParameter(cmdProc, "@GZKKSM", DbType.String);
             db.AddInParameter(cmdProc, "@GZKKSMBatch", DbType.String);
                 
+            db.AddInParameter(cmdProc, "@TJSJ", DbType.DateTime);
+            db.AddInParameter(cmdProc, "@TJSJBegin", DbType.DateTime);
+            db.AddInParameter(cmdProc, "@TJSJEnd", DbType.DateTime);
+            db.AddInParameter(cmdProc, "@TJSJBatch", DbType.String);
+                
             // 一对一相关表
             
             // 设定存储过程输出参数
@@ -1080,6 +1107,11 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.SetParameterValue(cmdProc, "@GZKKSM", AppData.GZKKSM);
             db.SetParameterValue(cmdProc, "@GZKKSMBatch", AppData.GZKKSMBatch);
                 
+            db.SetParameterValue(cmdProc, "@TJSJ", AppData.TJSJ);
+            db.SetParameterValue(cmdProc, "@TJSJBegin", AppData.TJSJBegin);
+            db.SetParameterValue(cmdProc, "@TJSJEnd", AppData.TJSJEnd);
+            db.SetParameterValue(cmdProc, "@TJSJBatch", AppData.TJSJBatch);
+                
             // 一对一相关表
             
             // 执行存储过程
@@ -1103,10 +1135,12 @@ namespace  RICH.Common.BM.T_BM_GZXX
             DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
             // 设定存储过程输入参数
             
-            db.AddInParameter(cmdProc, "@ObjectID", DbType.String);
+            db.AddInParameter(cmdProc, "@SFZH", DbType.String);
+            db.AddInParameter(cmdProc, "@FFGZNY", DbType.String);
             // 对存储过程参数赋值
             
-            db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
+            db.SetParameterValue(cmdProc, "@SFZH", AppData.SFZH);
+            db.SetParameterValue(cmdProc, "@FFGZNY", AppData.FFGZNY);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
         }
@@ -1165,12 +1199,14 @@ namespace  RICH.Common.BM.T_BM_GZXX
             DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
             // 设定存储过程输入参数
             
-            db.AddInParameter(cmdProc, "@ObjectID", DbType.String);
+            db.AddInParameter(cmdProc, "@SFZH", DbType.String);
+            db.AddInParameter(cmdProc, "@FFGZNY", DbType.String);
             // 设定存储过程输出参数
             db.AddOutParameter(cmdProc, "@RecordCount", DbType.Int32, 4);
             // 对存储过程参数赋值
             
-            db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
+            db.SetParameterValue(cmdProc, "@SFZH", AppData.SFZH);
+            db.SetParameterValue(cmdProc, "@FFGZNY", AppData.FFGZNY);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
             // 得到返回记录数
@@ -1289,6 +1325,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
                     db.AddInParameter(cmdProc, "@KFX", DbType.Double);
                     db.AddInParameter(cmdProc, "@SFGZ", DbType.Double);
                     db.AddInParameter(cmdProc, "@GZKKSM", DbType.String);
+                    db.AddInParameter(cmdProc, "@TJSJ", DbType.DateTime);
                     // 设定存储过程输出参数
                     db.AddOutParameter(cmdProc, "@RecordCount", DbType.Int32, 4);
                 

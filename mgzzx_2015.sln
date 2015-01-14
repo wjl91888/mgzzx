@@ -25,11 +25,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "wwwroot", "wwwroot\", "{036
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{4E1D33F7-BE9F-4CBA-94DF-A47A786D5534}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\..\website_org\Common\Common.csproj", "{3F0F291E-6FF0-4580-ADD4-63A107C34FF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{3F0F291E-6FF0-4580-ADD4-63A107C34FF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibraryBase", "..\..\website_org\DataLibraryBase\DataLibraryBase.csproj", "{53705C01-D554-4539-8B0A-7101BAACB6B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibraryBase", "DataLibraryBase\DataLibraryBase.csproj", "{53705C01-D554-4539-8B0A-7101BAACB6B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWebControls", "..\..\..\..\20101207HD\RichSoft\WebSite2\CustomWebControls\CustomWebControls.csproj", "{024FE5BB-D66D-48D8-B816-FCD43B23CDD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWebControls", "Controls\CustomWebControls\CustomWebControls.csproj", "{024FE5BB-D66D-48D8-B816-FCD43B23CDD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

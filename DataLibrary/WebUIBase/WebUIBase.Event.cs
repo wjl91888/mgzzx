@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.BM.FilterReport;
 using RICH.Common.BM.T_PM_UserInfo;
@@ -12,7 +14,32 @@ namespace RICH.Common.Base.WebUI
     {
         protected virtual void Page_Init(object sender, EventArgs e)
         {
-            if (CurrentPageFileName.Equals(WEBUI_ADD_FILENAME, StringComparison.OrdinalIgnoreCase))
+            if (CurrentPageFileName.Equals(WEBUI_SEARCH_FILENAME, StringComparison.OrdinalIgnoreCase))
+            {
+                // 基本SESSION赋值
+                Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
+                Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_SEARCH_ACCESS_PURVIEW_ID;
+                MessageContent = string.Empty;
+                if (IsPostBack)
+                {
+                    if (string.Equals(Request.Params["__EVENTTARGET"], "ctl00$MainContentPlaceHolder$btnOperate", StringComparison.OrdinalIgnoreCase))
+                    {
+                        switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
+                        {
+                            case "remove":
+                                Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_DELETE_PURVIEW_ID;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else if (string.Equals(Request.Params["__EVENTTARGET"], "ctl00$MainContentPlaceHolder$btnExportAllToFile", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_EXPORTALL_PURVIEW_ID;
+                    }
+                }
+            }
+            else if (CurrentPageFileName.Equals(WEBUI_ADD_FILENAME, StringComparison.OrdinalIgnoreCase))
             {
                 Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_ADD_FILENAME;
                 if (EditMode)
@@ -106,311 +133,198 @@ namespace RICH.Common.Base.WebUI
             }
         }
 
-        protected virtual void ProcessUIControlsInit()
+        protected void btnShowAdvanceSearchItem_Click(object sender, EventArgs e)
         {
+            SetMoreSearchItemDisplay(true);
         }
 
-        protected virtual void ProcessUIControlsStatus()
+        protected void btnShowSimpleSearchItem_Click(object sender, EventArgs e)
+        {
+            SetMoreSearchItemDisplay(false);
+        }
+
+        protected void btnAdvanceSearch_Click(object sender, EventArgs e)
         {
             if (MainContentPlaceHolder != null)
             {
-                var txtObjectIDItem = (TextBox)MainContentPlaceHolder.FindControl("ObjectID");
-                if (txtObjectIDItem != null)
+                var ddlOperation = MainContentPlaceHolder.FindControl("ddlOperation");
+                var btnOperate = MainContentPlaceHolder.FindControl("btnOperate"); 
+                var chkAll = MainContentPlaceHolder.FindControl("chkAll");
+                if (ddlOperation != null && btnOperate != null && chkAll != null)
                 {
-                    txtObjectIDItem.Text = ObjectID;
+                    CustomColumnIndex();
+                    ViewState.Clear();
+                    chkAll.Visible = true;
+                    ddlOperation.Visible = true;
+                    btnOperate.Visible = true;
+                    Initalize();
                 }
-                var btnAddItem = MainContentPlaceHolder.FindControl("btnAddItem");
-                if (btnAddItem != null)
+            }
+        }
+
+        protected void btnFirstPage_Click(object sender, EventArgs e)
+        {
+            ViewState["CurrentPage"] = 1;
+            Initalize();
+        }
+
+        protected void btnPrePage_Click(object sender, EventArgs e)
+        {
+            ViewState["CurrentPage"] = (int)ViewState["CurrentPage"] - 1;
+            Initalize();
+        }
+
+        protected void btnNextPage_Click(object sender, EventArgs e)
+        {
+            ViewState["CurrentPage"] = (int)ViewState["CurrentPage"] + 1;
+            Initalize();
+        }
+
+        protected void btnLastPage_Click(object sender, EventArgs e)
+        {
+            ViewState["CurrentPage"] = ViewState["PageCount"];
+            Initalize();
+        }
+
+        protected void btnSort_Click(object sender, EventArgs e)
+        {
+            LinkButton btnTemp = new LinkButton();
+            btnTemp = (LinkButton)sender;
+            ViewState["SortField"] = btnTemp.CommandArgument.ToString();
+            if (btnTemp.CommandName == "DescSort")
+            {
+                ViewState["Sort"] = false;
+            }
+            else if (btnTemp.CommandName == "AscSort")
+            {
+                ViewState["Sort"] = true;
+            }
+            else
+            {
+                ViewState["Sort"] = false;
+            }
+            Initalize();
+        }
+
+        protected void ddlPageCount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddlTemp = new DropDownList();
+            ddlTemp = (DropDownList)sender;
+            ViewState["CurrentPage"] = int.Parse(ddlTemp.SelectedValue);
+            Initalize();
+        }
+
+        protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddlTemp = new DropDownList();
+            ddlTemp = (DropDownList)sender;
+            ViewState["PageSize"] = int.Parse(ddlTemp.SelectedValue);
+            ViewState["CurrentPage"] = 1;
+            Initalize();
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
+
+        protected void btnExportAllToFile_Click(object sender, EventArgs e)
+        {
+            ViewState["PageSize"] = 10000000;
+            ViewState["CurrentPage"] = 1;
+            ExportToFile();
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.Path);
+            Response.End();
+        }
+
+        protected void btnDownload_Click(object sender, EventArgs e)
+        {
+            LinkButton btnTemp = new LinkButton();
+            btnTemp = (LinkButton)sender;
+            RICH.Common.FileLibrary.DownloadFile(btnTemp.CommandArgument.ToString(), btnTemp.CommandName.ToString());
+        }
+
+        protected void gvList_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            // 首先判断是否是Header行
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                // 设置操作状态
+                LinkButton btnTemp = new LinkButton();
+                string strSortFieldID = "btnSort" + (string)ViewState["SortField"];
+                for (int i = 0; i < e.Row.Cells.Count; i++)
                 {
-                    btnAddItem.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, WEBUI_ADD_ACCESS_PURVIEW_ID);
-                }
-                var btnEditItem = MainContentPlaceHolder.FindControl("btnEditItem");
-                if (btnEditItem != null)
-                {
-                    btnEditItem.Visible = !EditMode && !AddMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, WEBUI_MODIFY_ACCESS_PURVIEW_ID);
-                }
-                var btnStatisticItem = MainContentPlaceHolder.FindControl("btnStatisticItem");
-                if (btnStatisticItem != null)
-                {
-                    btnStatisticItem.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, WEBUI_STATISTIC_ACCESS_PURVIEW_ID);
-                }
-                if (MainContentPlaceHolder.FindControl("ddlOperation") != null)
-                {
-                    DropDownList ddlOperation = (DropDownList)MainContentPlaceHolder.FindControl("ddlOperation");
-                    var deletePurview = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_DELETE_PURVIEW_ID);
-                    if (!deletePurview)
+                    btnTemp = (LinkButton)e.Row.Cells[i].FindControl(strSortFieldID);
+                    if (btnTemp != null)
                     {
-                        var item = ddlOperation.Items.FindByValue("remove");
-                        if (item != null)
+                        if ((Boolean)ViewState["Sort"] == false)
                         {
-                            int index = ddlOperation.Items.IndexOf(item);
-                            ddlOperation.Items.RemoveAt(index);
+                            btnTemp.Text = "▼";
+                            btnTemp.CommandName = "AscSort";
                         }
+                        else if ((Boolean)ViewState["Sort"])
+                        {
+                            btnTemp.Text = "▲";
+                            btnTemp.CommandName = "DescSort";
+                        }
+                        break;
                     }
-                    if (ddlOperation.Items.Count <= 1)
+                }
+            }
+            // 判断是否是数据行
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string strObjectID = string.Empty;
+                for (int i = 0; i < e.Row.Cells.Count; i++)
+                {
+                    Control hcTemp = e.Row.Cells[i].FindControl("ObjectID");
+                    if (hcTemp != null)
                     {
-                        ddlOperation.Visible = false;
-                        var btnOperate = MainContentPlaceHolder.FindControl("btnOperate");
-                        if (btnOperate != null)
-                        {
-                            btnOperate.Visible = false;
-                        }
-                        var chkAll = MainContentPlaceHolder.FindControl("chkAll");
-                        if (chkAll != null)
-                        {
-                            chkAll.Visible = false;
-                        }
+                        strObjectID = ((HtmlInputHidden)hcTemp).Value;
                     }
                 }
-                var btnImportFromDoc = MainContentPlaceHolder.FindControl("btnImportFromDoc");
-                if (btnImportFromDoc != null)
+                e.Row.Attributes.Add("onmouseover", "overColor(this);");
+                e.Row.Attributes.Add("onmouseout", "outColor(this);");
+                e.Row.Attributes.Add("ondblclick", "OpenWindow('{0}?ObjectID={1}{2}a=v',770,600,window);return false;".FormatInvariantCulture(DetailPage ? WEBUI_DETAIL_FILENAME : WEBUI_ADD_FILENAME, strObjectID, AndChar));
+            }
+        }
+
+        protected virtual void FilterReportList_SelectedIndexChanged(object sender, EventArgs e) { }
+        protected virtual void btnSaveFilterReport_Click(object sender, EventArgs e) { }
+        protected void btnDeleteFilterReport_Click(object sender, EventArgs e)
+        {
+            if (MainContentPlaceHolder != null)
+            {
+                var FilterReportList = MainContentPlaceHolder.FindControl("FilterReportList") as DropDownList;
+                var FilterReportName = MainContentPlaceHolder.FindControl("FilterReportName") as TextBox;
+                if (FilterReportList != null && FilterReportName != null)
                 {
-                    btnImportFromDoc.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_PURVIEW_ID);
-                }
-                var btnImportFromDataSet = MainContentPlaceHolder.FindControl("btnImportFromDataSet");
-                if (btnImportFromDataSet != null)
-                {
-                    btnImportFromDataSet.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_DS_PURVIEW_ID);
-                }
-                var btnExportAllToFile = MainContentPlaceHolder.FindControl("btnExportAllToFile");
-                var ddlExportFileFormat = MainContentPlaceHolder.FindControl("ddlExportFileFormat");
-                if (btnExportAllToFile != null)
-                {
-                    btnExportAllToFile.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_EXPORTALL_PURVIEW_ID);
-                }
-                if (ddlExportFileFormat != null)
-                {
-                    ddlExportFileFormat.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_EXPORTALL_PURVIEW_ID);
-                }
-                if (CurrentPageFileName.Equals(WEBUI_ADD_FILENAME, StringComparison.OrdinalIgnoreCase))
-                {
-                    if (ImportDocMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_PURVIEW_ID))
+                    FilterReportApplicationLogic filterReportApplicationLogic = (FilterReportApplicationLogic)CreateApplicationLogicInstance(typeof(FilterReportApplicationLogic));
+                    FilterReportApplicationData filterReportApplicationData = new FilterReportApplicationData();
+                    if (FilterReportList.SelectedIndex <= 0 || !string.Equals(FilterReportName.Text.TrimIfNotNullOrWhiteSpace(), FilterReportList.SelectedItem.Text, StringComparison.OrdinalIgnoreCase))
                     {
-                        var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
-                        if (ControlContainer != null)
-                        {
-                            ControlContainer.Visible = false;
-                        }
-                        var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
-                        if (ImportControlContainer != null)
-                        {
-                            ImportControlContainer.Visible = true;
-                        }
-                        var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
-                        if (btnInfoFromDoc != null)
-                        {
-                            btnInfoFromDoc.Visible = true;
-                        }
-                        var btnInfoFromDocBatch = MainContentPlaceHolder.FindControl("btnInfoFromDocBatch");
-                        if (btnInfoFromDocBatch != null)
-                        {
-                            btnInfoFromDocBatch.Visible = true;
-                        }
-                        var btnInfoFromDS = MainContentPlaceHolder.FindControl("btnInfoFromDS");
-                        if (btnInfoFromDS != null)
-                        {
-                            btnInfoFromDS.Visible = false;
-                        }
-                        var InfoFromDoc = MainContentPlaceHolder.FindControl("InfoFromDoc") as TextBox;
-                        if (InfoFromDoc != null)
-                        {
-                            InfoFromDoc.Attributes.Add("onclick", "uploadfile(this);");
-                        }
-                        if (btnEditItem != null)
-                        {
-                            btnEditItem.Visible = false;
-                        }
-                        var btnCopyItem = MainContentPlaceHolder.FindControl("btnCopyItem");
-                        if (btnCopyItem != null)
-                        {
-                            btnCopyItem.Visible = false;
-                        }
-                        var btnAddConfirm = MainContentPlaceHolder.FindControl("btnAddConfirm");
-                        if (btnAddConfirm != null)
-                        {
-                            btnAddConfirm.Visible = false;
-                        }
-                        if (btnImportFromDoc != null)
-                        {
-                            btnImportFromDoc.Visible = false;
-                        }
+                        return;
                     }
-                    else if (ImportDSMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_DS_PURVIEW_ID))
+                    filterReportApplicationData = FilterReportBusinessEntity.GetDataByObjectID(FilterReportList.SelectedValue);
+                    if (filterReportApplicationData.XTBG != "0")
                     {
-                        var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
-                        if (ControlContainer != null)
-                        {
-                            ControlContainer.Visible = false;
-                        }
-                        var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
-                        if (ImportControlContainer != null)
-                        {
-                            ImportControlContainer.Visible = true;
-                        }
-                        var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
-                        if (btnInfoFromDoc != null)
-                        {
-                            btnInfoFromDoc.Visible = false;
-                        }
-                        var btnInfoFromDocBatch = MainContentPlaceHolder.FindControl("btnInfoFromDocBatch");
-                        if (btnInfoFromDocBatch != null)
-                        {
-                            btnInfoFromDocBatch.Visible = false;
-                        }
-                        var btnInfoFromDS = MainContentPlaceHolder.FindControl("btnInfoFromDS");
-                        if (btnInfoFromDS != null)
-                        {
-                            btnInfoFromDS.Visible = true;
-                        }
-                        var btnInfoFromDocCancel = MainContentPlaceHolder.FindControl("btnInfoFromDocCancel");
-                        if (btnInfoFromDocCancel != null)
-                        {
-                            btnInfoFromDocCancel.Visible = false;
-                        }
-                        var InfoFromDoc = MainContentPlaceHolder.FindControl("InfoFromDoc") as TextBox;
-                        if (InfoFromDoc != null)
-                        {
-                            InfoFromDoc.Attributes.Add("onclick", "uploadfile(this);");
-                        }
-                        if (btnEditItem != null)
-                        {
-                            btnEditItem.Visible = false;
-                        }
-                        var btnCopyItem = MainContentPlaceHolder.FindControl("btnCopyItem");
-                        if (btnCopyItem != null)
-                        {
-                            btnCopyItem.Visible = false;
-                        }
-                        var btnAddConfirm = MainContentPlaceHolder.FindControl("btnAddConfirm");
-                        if (btnAddConfirm != null)
-                        {
-                            btnAddConfirm.Visible = false;
-                        }
-                        if (btnImportFromDoc != null)
-                        {
-                            btnImportFromDoc.Visible = false;
-                        }
+                        MessageContent += @"<font color=""red"">没有权限删除系统报告。</font>";
+                    }
+                    else if (!filterReportApplicationData.UserID.Equals((string)Session[ConstantsManager.SESSION_USER_ID]))
+                    {
+                        MessageContent += @"<font color=""red"">没有权限删除共享报告。</font>";
                     }
                     else
                     {
-                        var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
-                        if (ControlContainer != null)
-                        {
-                            ControlContainer.Visible = true;
-                        }
-                        var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
-                        if (ImportControlContainer != null)
-                        {
-                            ImportControlContainer.Visible = false;
-                        }
-                        var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
-                        if (btnInfoFromDoc != null)
-                        {
-                            btnInfoFromDoc.Visible = false;
-                        }
-                        var btnInfoFromDocBatch = MainContentPlaceHolder.FindControl("btnInfoFromDocBatch");
-                        if (btnInfoFromDocBatch != null)
-                        {
-                            btnInfoFromDocBatch.Visible = false;
-                        }
-                        var btnInfoFromDS = MainContentPlaceHolder.FindControl("btnInfoFromDS");
-                        if (btnInfoFromDS != null)
-                        {
-                            btnInfoFromDS.Visible = false;
-                        }
-                        var btnInfoFromDocCancel = MainContentPlaceHolder.FindControl("btnInfoFromDocCancel");
-                        if (btnInfoFromDocCancel != null)
-                        {
-                            btnInfoFromDocCancel.Visible = false;
-                        }
+                        filterReportApplicationLogic.Delete(new FilterReportApplicationData() { ObjectID = filterReportApplicationData.ObjectID, OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID });
+                        FilterReportDataBind((string)Session[ConstantsManager.SESSION_USER_ID], FilterReportList);
+                        FilterReportList_SelectedIndexChanged(sender, e);
                     }
                 }
-            }
-        }
-
-        protected bool ValidateUserIsLogined()
-        {
-            if (DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_USER_ID]) == false
-                && DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_USER_GROUP_ID]) == false
-                && DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_USER_NICK_NAME]) == false
-                // && DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_SSDW_ID]) == false
-                && DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_USER_LOGIN_NAME]) == false)
-            {
-                currentUserInfo = new T_PM_UserInfoApplicationData()
-                {
-                    UserID = (string)Session[ConstantsManager.SESSION_USER_ID],
-                    UserGroupID = (string)Session[ConstantsManager.SESSION_USER_GROUP_ID],
-                    UserLoginName = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME],
-                    UserNickName = (string)Session[ConstantsManager.SESSION_USER_NICK_NAME],
-                    SubjectID = (string)Session[ConstantsManager.SESSION_SSDW_ID]
-                };
-                return true;
-            }
-            if (DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_USER_ID]) == false
-                && DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_USER_GROUP_ID]) == false
-                && DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_USER_NICK_NAME]) == false
-                // && DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_SSDW_ID]) == false
-                && DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_USER_LOGIN_NAME]) == false)
-            {
-                Session[ConstantsManager.SESSION_USER_ID] = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_USER_ID].Value.ToString());
-                Session[ConstantsManager.SESSION_USER_GROUP_ID] = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_USER_GROUP_ID].Value.ToString());
-                Session[ConstantsManager.SESSION_USER_LOGIN_NAME] = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_USER_LOGIN_NAME].Value.ToString());
-                Session[ConstantsManager.SESSION_SSDW_ID] = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_SSDW_ID].Value.ToString());
-                Session[ConstantsManager.SESSION_USER_NICK_NAME] = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_USER_NICK_NAME].Value.ToString());
-                currentUserInfo = new T_PM_UserInfoApplicationData()
-                {
-                    UserID = (string)Session[ConstantsManager.SESSION_USER_ID],
-                    UserGroupID = (string)Session[ConstantsManager.SESSION_USER_GROUP_ID],
-                    UserLoginName = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME],
-                    UserNickName = (string)Session[ConstantsManager.SESSION_USER_NICK_NAME],
-                    SubjectID = (string)Session[ConstantsManager.SESSION_SSDW_ID]
-                };
-                //记录日志开始
-                string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0001, new string[] { currentUserInfo.UserLoginName });
-                LogLibrary.LogWrite("A01", strLogContent, null, null, null);
-                //记录日志结束
-                return true;
-            }
-            currentUserInfo = null;
-            return false;
-        }
-
-        private bool ValidateUserPagePurview()
-        {
-            htInputParameter = new Hashtable();
-            htInputParameter.Add(ConstantsManager.MESSAGE_ID, "");
-            htInputParameter.Add("UserID", Session[ConstantsManager.SESSION_USER_ID]);
-            htInputParameter.Add("UserGroupID", Session[ConstantsManager.SESSION_USER_GROUP_ID]);
-            htInputParameter.Add("PurviewID", Session[ConstantsManager.SESSION_CURRENT_PURVIEW]);
-            htOutputParameter = SystemValidateLibrary.ValidateUserPurview(htInputParameter);
-            if (htOutputParameter[ConstantsManager.MESSAGE_ID] != DBNull.Value)
-            {
-                //得到鉴权失败消息
-                strMessageInfo = MessageManager.GetMessageInfo(htOutputParameter[ConstantsManager.MESSAGE_ID].ToString(), strMessageInfo);
-                return false;
-            }
-            return true;
-        }
-
-        protected void FilterReportDataBind(string userID, DropDownList filterReportList, string defaultSelectValue = null)
-        {
-            FilterReportApplicationLogic filterReportApplicationLogic = (FilterReportApplicationLogic)CreateApplicationLogicInstance(typeof(FilterReportApplicationLogic));
-            FilterReportApplicationData filterReportApplicationData = new FilterReportApplicationData()
-            {
-                UserID = userID,
-                BGLX = FilterReportType,
-                GXBG = "0",
-                XTBG = "0",
-                CurrentPage = 1,
-                PageSize = 1000,
-            };
-            filterReportApplicationData = filterReportApplicationLogic.Query(filterReportApplicationData);
-            filterReportList.DataSource = filterReportApplicationData.ResultSet;
-            filterReportList.DataBind();
-            filterReportList.Items.Insert(0, new ListItem("选择报告", ""));
-            if (!defaultSelectValue.IsNullOrWhiteSpace())
-            {
-                filterReportList.SelectedValue = defaultSelectValue;
             }
         }
     }

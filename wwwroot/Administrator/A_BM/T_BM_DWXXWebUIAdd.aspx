@@ -28,45 +28,6 @@
     </telerik:RadAjaxManager>
     <telerik:RadAjaxLoadingPanel ID="ralpT_BM_DWXX" runat="server" Skin="Vista"></telerik:RadAjaxLoadingPanel>
         <center>
-              <div id="AddFromDoc" runat="server">
-                <div class="title">
-                  <div class="bar">
-                    <div class="lefttitle">
-                      单位信息导入
-                    </div>
-                  </div>
-                </div>
-                <div class="main">
-                  <div class="content" id="InfoFromDoc_Area" runat="server">
-                    <div class="field">
-                      <div class="fieldname">
-                        导入文件
-                      </div>
-                      <div class="redstar">*</div>
-                    </div>
-                    <div class="fieldinput">
-                      <asp:TextBox ID="InfoFromDoc" runat="server" CssClass="input"></asp:TextBox>
-                    </div>
-                    <div class="fieldnote" id="InfoFromDoc_Note" runat="server">
-                    </div>
-                  </div>
-                </div>
-                <div class="operation">
-                  <center>
-                    <table>
-                      <tr>
-                        <td>
-                          <asp:Button Text="导入数据" ID="btnInfoFromDS" runat="server" CssClass="button" OnClick="btnInfoFromDS_Click" />
-                          <asp:Button Text="导入文件" ID="btnInfoFromDoc" runat="server" CssClass="button" OnClick="btnInfoFromDoc_Click" />
-                          <asp:Button Text="批量导入" ID="btnInfoFromDocBatch" runat="server" CssClass="button" OnClick="btnInfoFromDocBatch_Click" Visible="false" />
-                          <asp:Button Text="取消" ID="btnInfoFromDocCancel" runat="server" CssClass="button" OnClick="btnInfoFromDocCancel_Click" />
-                          <input type="button" value="关闭窗口" onclick="CloseWindow();" class="button" />
-                        </td>
-                      </tr>
-                    </table>
-                  </center>
-                </div>
-              </div>
             <div id="addpage" runat="server" class="addpage">
                 <div class="toptoolsbar">
                 <div class="title">
@@ -78,33 +39,31 @@
                 </div>
                 <div class="operation">
                     <center>
-                        <table>
-                            <tr>
-                                <td>
-                    <input type="button" id ="btnEditItem" runat ="server" value="修改" onclick="OpenEditor();" class="button" />
-                                </td>
-                                <td>
+                        <asp:Button Text="导入数据" ID="btnInfoFromDS" runat="server" CssClass="button" OnClick="btnInfoFromDS_Click" />
+                        <asp:Button Text="Word导入" ID="btnInfoFromDoc" runat="server" CssClass="button" OnClick="btnInfoFromDoc_Click" />
+                        <asp:Button Text="批量Word导入" ID="btnInfoFromDocBatch" runat="server" CssClass="button" OnClick="btnInfoFromDocBatch_Click" Visible="false" />
+                        <asp:Button Text="取消" ID="btnInfoFromDocCancel" runat="server" CssClass="button" OnClick="btnInfoFromDocCancel_Click" />
+                        <input type="button" id ="btnEditItem" runat ="server" value="修改" onclick="OpenEditor();" class="button" />
 
-                                </td>
-                                <td>
-                                    <asp:Button Text="保存" ID="btnAddConfirm" runat="server" CssClass="button" OnClientClick="return AddConfirmDialog();" OnClick="btnSave_Click" />
-                                </td>
-                                <td>
+                        <asp:Button Text="保存" ID="btnAddConfirm" runat="server" CssClass="button" OnClientClick="return AddConfirmDialog();" OnClick="btnSave_Click" />
 
-                                </td>
-                                <td>
-                                    <input type="reset" id="btnReset" runat="server"  value="重新填写" class="button"  Visible = "false"/>
-                                </td>
-                                <td>
-                                   <input type="button" value="关闭窗口" onclick="CloseWindow();" class="button" />
-                                </td>
-                            </tr>
-                        </table>
+                        <input type="button" value="关闭窗口" onclick="CloseWindow();" class="button" />
                     </center>
                 </div>
                 </div>
                 <div class="main">
                      <asp:Literal ID="MessageBox" runat="server"></asp:Literal>
+                     <div  id= "ImportControlContainer" runat="server">
+                     <div class="content clearboth" id="InfoFromDoc_Area" runat="server">
+                         <div class="field">
+                             <div class="fieldname">导入文件</div><div class="redstar">*</div>
+                         </div>
+                         <div class="fieldinput">
+                                 <asp:TextBox ID="InfoFromDoc" runat="server" CssClass="input widthfull"></asp:TextBox>
+                         </div>
+                         <div class="fieldnote" id="InfoFromDoc_Note" runat="server"></div>
+                     </div>
+                     </div>
                      <div  id= "ControlContainer" runat="server">
 
                      <div class="content" id="ObjectID_Area" runat="server">

@@ -447,18 +447,18 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             int i = 0;
 
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     protected void btnImportFromDoc_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = true;
-        addpage.Visible = false;
+        ImportControlContainer.Visible = true;
+        ControlContainer.Visible = false;
     }
     protected void btnInfoFromDocCancel_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     private DataTable GetTemplateColumn(DataTable dt)
     {
@@ -468,50 +468,66 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
 
     protected void btnInfoFromDS_Click(object sender, EventArgs e)
     {
-        DataTable dt = new DataTable();
-        dt = GetTemplateColumn(dt);
-        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
-        if (dt.Rows.Count > 0)
+        try
         {
-            int i = 0;
-
+            var appDatas = ShortMessageApplicationData.GetDataFromDataFile<ShortMessageApplicationData>(InfoFromDoc.Text, true);
+            ShortMessageApplicationLogic instanceShortMessageApplicationLogic = (ShortMessageApplicationLogic)CreateApplicationLogicInstance(typeof(ShortMessageApplicationLogic));
+            foreach (var app in appDatas)
+            {
+    
+            app.DXXLX = "01";
+            app.FSSJ = DateTime.Now;
+            app.FSR = (string)Session[ConstantsManager.SESSION_USER_ID];
+                string strFSR = GetValue(new RICH.Common.BM.T_PM_UserInfo.T_PM_UserInfoApplicationLogicBase().GetValueByFixCondition("UserNickName", app.FSR, "UserID"));
+                if (!DataValidateManager.ValidateIsNull(strFSR))app.FSR = strFSR;
+            app.FSBM = (string)Session[ConstantsManager.SESSION_SSDW_ID];
+                string strFSBM = GetValue(new RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationLogicBase().GetValueByFixCondition("DWMC", app.FSBM, "DWBH"));
+                if (!DataValidateManager.ValidateIsNull(strFSBM))app.FSBM = strFSBM;
+            app.FSIP = (string)Request.ServerVariables["REMOTE_ADDR"];
+                string strJSR = GetValue(new RICH.Common.BM.T_PM_UserInfo.T_PM_UserInfoApplicationLogicBase().GetValueByFixCondition("UserNickName", app.JSR, "UserID"));
+                if (!DataValidateManager.ValidateIsNull(strJSR))app.JSR = strJSR;
+                instanceShortMessageApplicationLogic.Add(app);
+            }
+            MessageContent += @"<font color=""green"">导入数据{0}条</font>".FormatInvariantCulture(appDatas.Count);
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        catch (Exception ex)
+        {
+            MessageContent += @"<font color=""red"">导入数据过程出错：{0}</font>".FormatInvariantCulture(ex.Message);
+        }
     }
 
     public void CheckPermission()
     {
         if (AccessPermission)
         {
-			if(EditMode)
-			{
-	ObjectID_Area.Visible = false;
-	  DXXBT.Enabled = false;
+            if(EditMode)
+            {
+    ObjectID_Area.Visible = false;
+      DXXBT.Enabled = false;
                 DXXLX_Area.Visible = false;
-	  DXXNR.ReadOnly = true;
-			    DXXFJ.Enabled = false;
+      DXXNR.ReadOnly = true;
+                DXXFJ.Enabled = false;
                 FSSJ_Area.Visible = false;
-	  FSR_Area.Visible = false;
-	  FSBM_Area.Visible = false;
-	  FSIP_Area.Visible = false;
-	  JSR.ReadOnly = true;
-			    SFCK_Area.Visible = false;
-	  CKSJ_Area.Visible = false;
-	  
-			}
-			else if(AddMode || CopyMode)
-			{
-	ObjectID_Area.Visible = false;
-	  DXXLX_Area.Visible = false;
-	  FSSJ_Area.Visible = false;
-	  FSR_Area.Visible = false;
-	  FSBM_Area.Visible = false;
-	  FSIP_Area.Visible = false;
-	  SFCK_Area.Visible = false;
-	  CKSJ_Area.Visible = false;
-	  
-			}
+      FSR_Area.Visible = false;
+      FSBM_Area.Visible = false;
+      FSIP_Area.Visible = false;
+      JSR.ReadOnly = true;
+                SFCK_Area.Visible = false;
+      CKSJ_Area.Visible = false;
+      
+            }
+            else if(AddMode || CopyMode)
+            {
+    ObjectID_Area.Visible = false;
+      DXXLX_Area.Visible = false;
+      FSSJ_Area.Visible = false;
+      FSR_Area.Visible = false;
+      FSBM_Area.Visible = false;
+      FSIP_Area.Visible = false;
+      SFCK_Area.Visible = false;
+      CKSJ_Area.Visible = false;
+      
+            }
             if (ViewMode)
             {
     ObjectID.Enabled = false;
@@ -534,7 +550,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 CKSJ_Area.Visible = false;
       
       btnAddConfirm.Visible = false;
-      btnReset.Visible = false;
     
             }
             else
@@ -545,10 +560,14 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
         else
         {
+            ImportControlContainer.Visible = false;
             ControlContainer.Visible = false;
             btnAddConfirm.Visible = false;
-            btnReset.Visible = false;
         
+            btnInfoFromDS.Visible = false;
+            btnInfoFromDoc.Visible = false;
+            btnInfoFromDocBatch.Visible = false;
+            btnInfoFromDocCancel.Visible = false;
         }
     }
 }

@@ -4,6 +4,7 @@ FileName:T_PM_UserInfoApplicationData.cs
 using System;
 using System.Data;
 using System.Data.Linq;
+using System.Collections.Generic;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.DB;
 
@@ -666,7 +667,43 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return nullableList;
         }
 
-		internal static T_PM_UserInfoApplicationData FillDataFromDataReader(IDataReader reader)
+        public static IEnumerable<T_PM_UserInfoApplicationData> GetCollectionFromImportDataTable(DataTable dt)
+        {
+            List<T_PM_UserInfoApplicationData> collection = new List<T_PM_UserInfoApplicationData>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                T_PM_UserInfoApplicationData applicationData = new T_PM_UserInfoApplicationData()
+                {
+ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
+    UserID = dr.ReadString("UserID"),
+    UserLoginName = dr.ReadString("UserLoginName"),
+    UserGroupID = dr.ReadString("UserGroupID"),
+    SubjectID = dr.ReadString("SubjectID"),
+    UserNickName = dr.ReadString("UserNickName"),
+    Password = dr.ReadString("Password"),
+    XB = dr.ReadString("XB"),
+    MZ = dr.ReadString("MZ"),
+    ZZMM = dr.ReadString("ZZMM"),
+    SFZH = dr.ReadString("SFZH"),
+    SJH = dr.ReadString("SJH"),
+    BGDH = dr.ReadString("BGDH"),
+    JTDH = dr.ReadString("JTDH"),
+    Email = dr.ReadString("Email"),
+    QQH = dr.ReadString("QQH"),
+    LoginTime = dr.ReadDateTimeNullable("LoginTime"),
+    LastLoginIP = dr.ReadString("LastLoginIP"),
+    LastLoginDate = dr.ReadDateTimeNullable("LastLoginDate"),
+    LoginTimes = dr.ReadInt32Nullable("LoginTimes"),
+    UserStatus = dr.ReadString("UserStatus"),
+    vcode = (dr.ReadGuidNullable("vcode") == null ? null : dr.ReadGuidNullable("vcode").ToString()),
+    
+                };
+                collection.Add(applicationData);
+            }
+            return collection;
+        }
+
+		internal static T_PM_UserInfoApplicationData FillDataFromDataReader(IDataReader reader, bool fromImportDataSet = false)
         {
             if (reader == null)
             {
@@ -676,7 +713,7 @@ namespace RICH.Common.BM.T_PM_UserInfo
             {
                 return new T_PM_UserInfoApplicationData
                 {
-ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuidNullable("ObjectID").ToString()),
+ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID").ToString()),
     UserID = reader.ReadString("UserID"),
     UserLoginName = reader.ReadString("UserLoginName"),
     UserGroupID = reader.ReadString("UserGroupID"),
@@ -692,12 +729,12 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
     JTDH = reader.ReadString("JTDH"),
     Email = reader.ReadString("Email"),
     QQH = reader.ReadString("QQH"),
-    LoginTime = reader.ReadDateTimeNullable("LoginTime"),
+    LoginTime = reader.ReadDateTimeNullable(fromImportDataSet ? "LoginTime" : "LoginTime"),
     LastLoginIP = reader.ReadString("LastLoginIP"),
-    LastLoginDate = reader.ReadDateTimeNullable("LastLoginDate"),
-    LoginTimes = reader.ReadInt32Nullable("LoginTimes"),
+    LastLoginDate = reader.ReadDateTimeNullable(fromImportDataSet ? "LastLoginDate" : "LastLoginDate"),
+    LoginTimes = reader.ReadInt32Nullable(fromImportDataSet ? "LoginTimes" : "LoginTimes"),
     UserStatus = reader.ReadString("UserStatus"),
-    vcode = (reader.ReadGuidNullable("vcode") == null ? null : reader.ReadGuidNullable("vcode").ToString()),
+    vcode = (reader.ReadGuidNullable(fromImportDataSet ? "vcode" : "vcode") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "vcode" : "vcode").ToString()),
     
                 };
             }
@@ -705,6 +742,13 @@ ObjectID = (reader.ReadGuidNullable("ObjectID") == null ? null : reader.ReadGuid
         }
 
         #endregion
+        
+        private DataTable GetImportColumn(DataTable dt)
+        {
+
+            return dt;
+        }
+
     }
 }
 

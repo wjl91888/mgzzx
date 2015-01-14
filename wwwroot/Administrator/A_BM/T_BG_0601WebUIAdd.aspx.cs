@@ -779,18 +779,18 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             int i = 0;
 
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     protected void btnImportFromDoc_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = true;
-        addpage.Visible = false;
+        ImportControlContainer.Visible = true;
+        ControlContainer.Visible = false;
     }
     protected void btnInfoFromDocCancel_Click(object sender, EventArgs e)
     {
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        ImportControlContainer.Visible = false;
+        ControlContainer.Visible = true;
     }
     private DataTable GetTemplateColumn(DataTable dt)
     {
@@ -800,41 +800,64 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
 
     protected void btnInfoFromDS_Click(object sender, EventArgs e)
     {
-        DataTable dt = new DataTable();
-        dt = GetTemplateColumn(dt);
-        dt = FileLibrary.GetDataFromWord(InfoFromDoc.Text, dt, true);
-        if (dt.Rows.Count > 0)
+        try
         {
-            int i = 0;
-
+            var appDatas = T_BG_0601ApplicationData.GetDataFromDataFile<T_BG_0601ApplicationData>(InfoFromDoc.Text, true);
+            T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic = (T_BG_0601ApplicationLogic)CreateApplicationLogicInstance(typeof(T_BG_0601ApplicationLogic));
+            foreach (var app in appDatas)
+            {
+    
+                app.FBH = instanceT_BG_0601ApplicationLogic.AutoGenerateFBH(app);
+                    
+                string strFBLM = GetValue(new RICH.Common.BM.T_BG_0602.T_BG_0602ApplicationLogicBase().GetValueByFixCondition("LMM", app.FBLM, "LMH"));
+                if (!DataValidateManager.ValidateIsNull(strFBLM))app.FBLM = strFBLM;
+                string strXXLX = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.XXLX, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strXXLX))app.XXLX = strXXLX;
+            app.XXZT = "02";
+                string strXXZT = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.XXZT, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strXXZT))app.XXZT = strXXZT;
+                string strIsTop = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.IsTop, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strIsTop))app.IsTop = strIsTop;
+                string strIsBest = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.IsBest, "DM"));
+                if (!DataValidateManager.ValidateIsNull(strIsBest))app.IsBest = strIsBest;
+            app.FBRJGH = (string)Session[ConstantsManager.SESSION_USER_ID];
+                string strFBRJGH = GetValue(new RICH.Common.BM.T_PM_UserInfo.T_PM_UserInfoApplicationLogicBase().GetValueByFixCondition("UserNickName", app.FBRJGH, "UserID"));
+                if (!DataValidateManager.ValidateIsNull(strFBRJGH))app.FBRJGH = strFBRJGH;
+            app.FBSJRQ = DateTime.Now;
+            app.FBIP = (string)Request.ServerVariables["REMOTE_ADDR"];
+                instanceT_BG_0601ApplicationLogic.Add(app);
+            }
+            MessageContent += @"<font color=""green"">导入数据{0}条</font>".FormatInvariantCulture(appDatas.Count);
         }
-        AddFromDoc.Visible = false;
-        addpage.Visible = true;
+        catch (Exception ex)
+        {
+            MessageContent += @"<font color=""red"">导入数据过程出错：{0}</font>".FormatInvariantCulture(ex.Message);
+        }
     }
 
     public void CheckPermission()
     {
         if (AccessPermission)
         {
-			if(EditMode)
-			{
-	ObjectID_Area.Visible = false;
-	  FBH.Enabled = false;
+            if(EditMode)
+            {
+    ObjectID_Area.Visible = false;
+      FBH.Enabled = false;
                 FBRJGH.Enabled = false;
                 FBSJRQ.Enabled = false;
                 FBIP.Enabled = false;
                 
-			}
-			else if(AddMode || CopyMode)
-			{
-	ObjectID_Area.Visible = false;
-	  FBH_Area.Visible = false;
-	  XXZT_Area.Visible = false;
-	  FBRJGH_Area.Visible = false;
-	  FBSJRQ_Area.Visible = false;
-	  FBIP_Area.Visible = false;
-	  
-			}
+            }
+            else if(AddMode || CopyMode)
+            {
+    ObjectID_Area.Visible = false;
+      FBH_Area.Visible = false;
+      XXZT_Area.Visible = false;
+      FBRJGH_Area.Visible = false;
+      FBSJRQ_Area.Visible = false;
+      FBIP_Area.Visible = false;
+      
+            }
             if (ViewMode)
             {
     ObjectID.Enabled = false;
@@ -860,7 +883,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
                 FBIP.Enabled = false;
                 
       btnAddConfirm.Visible = false;
-      btnReset.Visible = false;
     
             }
             else
@@ -871,10 +893,14 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
         }
         else
         {
+            ImportControlContainer.Visible = false;
             ControlContainer.Visible = false;
             btnAddConfirm.Visible = false;
-            btnReset.Visible = false;
         
+            btnInfoFromDS.Visible = false;
+            btnInfoFromDoc.Visible = false;
+            btnInfoFromDocBatch.Visible = false;
+            btnInfoFromDocCancel.Visible = false;
         }
     }
 }
