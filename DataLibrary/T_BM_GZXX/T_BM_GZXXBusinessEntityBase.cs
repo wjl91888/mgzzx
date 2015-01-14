@@ -982,7 +982,9 @@ namespace  RICH.Common.BM.T_BM_GZXX
             
             // 设定存储过程输出参数
             db.AddOutParameter(cmdProc, "@RecordCount", DbType.Int32, 4);
-        
+      
+            db.AddOutParameter(cmdProc, "@YFXSum", DbType.Double, 8);  
+            db.AddOutParameter(cmdProc, "@SFGZSum", DbType.Double, 8);    
             // 对存储过程参数赋值
             db.SetParameterValue(cmdProc, "@QueryField", AppData.QueryField);
             db.SetParameterValue(cmdProc, "@QueryType", AppData.QueryType);
@@ -1118,7 +1120,15 @@ namespace  RICH.Common.BM.T_BM_GZXX
             AppData.ResultSet = (DataSet)db.ExecuteDataSet(cmdProc);
             // 得到返回记录数
             AppData.RecordCount = db.GetParameterValue(cmdProc, "@RecordCount") == DBNull.Value ? 0 : (Int32)db.GetParameterValue(cmdProc, "@RecordCount");
-        
+    
+            if (db.GetParameterValue(cmdProc, "@YFXSum") != DBNull.Value)
+            {
+                AppData.YFXSum = (Double)db.GetParameterValue(cmdProc, "@YFXSum");
+            }
+            if (db.GetParameterValue(cmdProc, "@SFGZSum") != DBNull.Value)
+            {
+                AppData.SFGZSum = (Double)db.GetParameterValue(cmdProc, "@SFGZSum");
+            }    
         }
 
         //=====================================================================
@@ -1328,7 +1338,9 @@ namespace  RICH.Common.BM.T_BM_GZXX
                     db.AddInParameter(cmdProc, "@TJSJ", DbType.DateTime);
                     // 设定存储过程输出参数
                     db.AddOutParameter(cmdProc, "@RecordCount", DbType.Int32, 4);
-                
+              
+                    db.AddOutParameter(cmdProc, "@YFXSum", DbType.Double, 8);  
+                    db.AddOutParameter(cmdProc, "@SFGZSum", DbType.Double, 8);    
                     // 对存储过程参数赋值
                     db.SetParameterValue(cmdProc, "@" + strConditionField, strValue);
                     if (!strFixConditionField.IsNullOrWhiteSpace())

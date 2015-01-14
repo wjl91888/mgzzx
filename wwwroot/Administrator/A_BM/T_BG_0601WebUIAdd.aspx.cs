@@ -800,10 +800,14 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
 
     protected void btnInfoFromDS_Click(object sender, EventArgs e)
     {
+        int totalCount = 0;
+        int importCount = 0;
+        int updateCount = 0;
         try
         {
             var appDatas = T_BG_0601ApplicationData.GetDataFromDataFile<T_BG_0601ApplicationData>(InfoFromDoc.Text, true);
             T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic = (T_BG_0601ApplicationLogic)CreateApplicationLogicInstance(typeof(T_BG_0601ApplicationLogic));
+            totalCount = appDatas.Count;
             foreach (var app in appDatas)
             {
     
@@ -826,12 +830,25 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             app.FBSJRQ = DateTime.Now;
             app.FBIP = (string)Request.ServerVariables["REMOTE_ADDR"];
                 instanceT_BG_0601ApplicationLogic.Add(app);
+                if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
+                {
+                    importCount++;
+                }
+                else
+                {
+                    app.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.PK;
+                    instanceT_BG_0601ApplicationLogic.Modify(app);
+                    if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
+                    {
+                        updateCount++;
+                    }
+                }
             }
-            MessageContent += @"<font color=""green"">导入数据{0}条</font>".FormatInvariantCulture(appDatas.Count);
+            MessageContent += @"<font color=""green"">共{0}条数据，导入数据{1}条，更新数据{2}条。</font>".FormatInvariantCulture(totalCount, importCount, updateCount);
         }
         catch (Exception ex)
         {
-            MessageContent += @"<font color=""red"">导入数据过程出错：{0}</font>".FormatInvariantCulture(ex.Message);
+            MessageContent += @"<font color=""red"">导入数据过程出错：{0}<br/>共{1}条数据，已导入数据{2}条，已更新数据{3}条。</font>".FormatInvariantCulture(ex.Message, totalCount, importCount, updateCount);
         }
     }
 
@@ -882,25 +899,7 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
                 FBSJRQ.Enabled = false;
                 FBIP.Enabled = false;
                 
-      btnAddConfirm.Visible = false;
-    
             }
-            else
-            {
-      btnEditItem.Visible = false;
-    
-            }
-        }
-        else
-        {
-            ImportControlContainer.Visible = false;
-            ControlContainer.Visible = false;
-            btnAddConfirm.Visible = false;
-        
-            btnInfoFromDS.Visible = false;
-            btnInfoFromDoc.Visible = false;
-            btnInfoFromDocBatch.Visible = false;
-            btnInfoFromDocCancel.Visible = false;
         }
     }
 }

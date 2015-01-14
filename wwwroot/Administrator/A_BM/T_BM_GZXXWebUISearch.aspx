@@ -1097,6 +1097,8 @@
                                 </ItemTemplate>
                                 <FooterTemplate>
                                         
+                                    <%=appData.YFXSum%>
+                                        
                                 </FooterTemplate>
                             </asp:TemplateField>
                            <asp:TemplateField HeaderText="其他扣款" 
@@ -1250,6 +1252,8 @@
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>
+                                        
+                                    <%=appData.SFGZSum%>
                                         
                                 </FooterTemplate>
                             </asp:TemplateField>
@@ -1638,6 +1642,8 @@
                                 </ItemTemplate>
                                 <FooterTemplate>
                                         
+                                    <%=appData.YFXSum%>
+                                        
                                 </FooterTemplate>
                             </asp:TemplateField>
                            <asp:TemplateField HeaderText="其他扣款"
@@ -1777,6 +1783,8 @@
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>
+                                        
+                                    <%=appData.SFGZSum%>
                                         
                                 </FooterTemplate>
                             </asp:TemplateField>

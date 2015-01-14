@@ -545,10 +545,14 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
 
     protected void btnInfoFromDS_Click(object sender, EventArgs e)
     {
+        int totalCount = 0;
+        int importCount = 0;
+        int updateCount = 0;
         try
         {
             var appDatas = DictionaryApplicationData.GetDataFromDataFile<DictionaryApplicationData>(InfoFromDoc.Text, true);
             DictionaryApplicationLogic instanceDictionaryApplicationLogic = (DictionaryApplicationLogic)CreateApplicationLogicInstance(typeof(DictionaryApplicationLogic));
+            totalCount = appDatas.Count;
             foreach (var app in appDatas)
             {
     
@@ -557,12 +561,25 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 string strSJDM = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.SJDM, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strSJDM))app.SJDM = strSJDM;
                 instanceDictionaryApplicationLogic.Add(app);
+                if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
+                {
+                    importCount++;
+                }
+                else
+                {
+                    app.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.PK;
+                    instanceDictionaryApplicationLogic.Modify(app);
+                    if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
+                    {
+                        updateCount++;
+                    }
+                }
             }
-            MessageContent += @"<font color=""green"">导入数据{0}条</font>".FormatInvariantCulture(appDatas.Count);
+            MessageContent += @"<font color=""green"">共{0}条数据，导入数据{1}条，更新数据{2}条。</font>".FormatInvariantCulture(totalCount, importCount, updateCount);
         }
         catch (Exception ex)
         {
-            MessageContent += @"<font color=""red"">导入数据过程出错：{0}</font>".FormatInvariantCulture(ex.Message);
+            MessageContent += @"<font color=""red"">导入数据过程出错：{0}<br/>共{1}条数据，已导入数据{2}条，已更新数据{3}条。</font>".FormatInvariantCulture(ex.Message, totalCount, importCount, updateCount);
         }
     }
 
@@ -592,25 +609,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 SJDM.Enabled = false;
                 SM.Enabled = false;
                 
-      btnAddConfirm.Visible = false;
-    
             }
-            else
-            {
-      btnEditItem.Visible = false;
-    
-            }
-        }
-        else
-        {
-            ImportControlContainer.Visible = false;
-            ControlContainer.Visible = false;
-            btnAddConfirm.Visible = false;
-        
-            btnInfoFromDS.Visible = false;
-            btnInfoFromDoc.Visible = false;
-            btnInfoFromDocBatch.Visible = false;
-            btnInfoFromDocCancel.Visible = false;
         }
     }
 }

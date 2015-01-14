@@ -147,6 +147,36 @@
                             <FooterStyle CssClass="fieldname" HorizontalAlign="Center" />
                         </asp:TemplateField>
 
+                        <asp:TemplateField HeaderText="应发项" Visible = "true">
+                            <ItemStyle CssClass="fieldinput" HorizontalAlign="Center" />
+                            <HeaderStyle CssClass="fieldname" HorizontalAlign="Center" />
+                            <HeaderTemplate>
+                                应发项<asp:LinkButton ID="btnSortYFXSum" runat="server" CommandArgument="YFXSum" CommandName="DescSort" Text="▲" OnClick="btnSort_Click" CssClass="button"></asp:LinkButton>
+                            </HeaderTemplate>
+                            <ItemTemplate>                                  
+                            <%# DataBinder.Eval(Container.DataItem, "YFXSum")%>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                             
+                            </FooterTemplate>
+                            <FooterStyle CssClass="fieldname" HorizontalAlign="Center" />
+                        </asp:TemplateField>
+    
+                        <asp:TemplateField HeaderText="实发工资" Visible = "true">
+                            <ItemStyle CssClass="fieldinput" HorizontalAlign="Center" />
+                            <HeaderStyle CssClass="fieldname" HorizontalAlign="Center" />
+                            <HeaderTemplate>
+                                实发工资<asp:LinkButton ID="btnSortSFGZSum" runat="server" CommandArgument="SFGZSum" CommandName="DescSort" Text="▲" OnClick="btnSort_Click" CssClass="button"></asp:LinkButton>
+                            </HeaderTemplate>
+                            <ItemTemplate>                                  
+                            <%# DataBinder.Eval(Container.DataItem, "SFGZSum")%>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                             
+                            </FooterTemplate>
+                            <FooterStyle CssClass="fieldname" HorizontalAlign="Center" />
+                        </asp:TemplateField>
+    
                         </Columns>
                     </asp:GridView>
                 </div>

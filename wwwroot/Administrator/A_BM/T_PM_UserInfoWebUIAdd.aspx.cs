@@ -999,10 +999,14 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
 
     protected void btnInfoFromDS_Click(object sender, EventArgs e)
     {
+        int totalCount = 0;
+        int importCount = 0;
+        int updateCount = 0;
         try
         {
             var appDatas = T_PM_UserInfoApplicationData.GetDataFromDataFile<T_PM_UserInfoApplicationData>(InfoFromDoc.Text, true);
             T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic = (T_PM_UserInfoApplicationLogic)CreateApplicationLogicInstance(typeof(T_PM_UserInfoApplicationLogic));
+            totalCount = appDatas.Count;
             foreach (var app in appDatas)
             {
     
@@ -1021,12 +1025,25 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                 string strUserStatus = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.UserStatus, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strUserStatus))app.UserStatus = strUserStatus;
                 instanceT_PM_UserInfoApplicationLogic.Add(app);
+                if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
+                {
+                    importCount++;
+                }
+                else
+                {
+                    app.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.PK;
+                    instanceT_PM_UserInfoApplicationLogic.Modify(app);
+                    if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
+                    {
+                        updateCount++;
+                    }
+                }
             }
-            MessageContent += @"<font color=""green"">导入数据{0}条</font>".FormatInvariantCulture(appDatas.Count);
+            MessageContent += @"<font color=""green"">共{0}条数据，导入数据{1}条，更新数据{2}条。</font>".FormatInvariantCulture(totalCount, importCount, updateCount);
         }
         catch (Exception ex)
         {
-            MessageContent += @"<font color=""red"">导入数据过程出错：{0}</font>".FormatInvariantCulture(ex.Message);
+            MessageContent += @"<font color=""red"">导入数据过程出错：{0}<br/>共{1}条数据，已导入数据{2}条，已更新数据{3}条。</font>".FormatInvariantCulture(ex.Message, totalCount, importCount, updateCount);
         }
     }
 
@@ -1083,25 +1100,7 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                 LastLoginDate.Enabled = false;
                 LoginTimes.Enabled = false;
                 
-      btnAddConfirm.Visible = false;
-    
             }
-            else
-            {
-      btnEditItem.Visible = false;
-    
-            }
-        }
-        else
-        {
-            ImportControlContainer.Visible = false;
-            ControlContainer.Visible = false;
-            btnAddConfirm.Visible = false;
-        
-            btnInfoFromDS.Visible = false;
-            btnInfoFromDoc.Visible = false;
-            btnInfoFromDocBatch.Visible = false;
-            btnInfoFromDocCancel.Visible = false;
         }
     }
 }

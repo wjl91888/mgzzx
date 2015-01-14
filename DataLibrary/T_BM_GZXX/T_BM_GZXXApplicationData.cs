@@ -512,7 +512,19 @@ namespace RICH.Common.BM.T_BM_GZXX
         /// </summary>
         /// <value>TJSJ</value>
         public String TJSJBatch { get; set; }
-
+  
+        /// <summary>
+        /// 应发项聚合求和YFXSum
+        /// </summary>
+        /// <value>YFXSum</value>
+        public Double YFXSum { get; set; }
+      
+        /// <summary>
+        /// 实发工资聚合求和SFGZSum
+        /// </summary>
+        /// <value>SFGZSum</value>
+        public Double SFGZSum { get; set; }
+    
         /// <summary>
         /// 批量更新ObjectIDValue
         /// </summary>

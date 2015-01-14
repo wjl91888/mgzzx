@@ -92,34 +92,37 @@ namespace RICH.Common.Base.WebUI
                 }
                 if (CurrentPageFileName.Equals(WEBUI_ADD_FILENAME, StringComparison.OrdinalIgnoreCase))
                 {
+                    var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
+                    var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
+                    var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
+                    var btnInfoFromDocBatch = MainContentPlaceHolder.FindControl("btnInfoFromDocBatch");
+                    var btnInfoFromDocCancel = MainContentPlaceHolder.FindControl("btnInfoFromDocCancel");
+                    var btnInfoFromDS = MainContentPlaceHolder.FindControl("btnInfoFromDS");
+                    var InfoFromDoc = MainContentPlaceHolder.FindControl("InfoFromDoc") as TextBox;
+                    var btnCopyItem = MainContentPlaceHolder.FindControl("btnCopyItem");
+                    var btnAddConfirm = MainContentPlaceHolder.FindControl("btnAddConfirm");
                     if (ImportDocMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_PURVIEW_ID))
                     {
-                        var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
                         if (ControlContainer != null)
                         {
                             ControlContainer.Visible = false;
                         }
-                        var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
                         if (ImportControlContainer != null)
                         {
-                            ImportControlContainer.Visible = true;
+                            ImportControlContainer.Visible = AccessPermission;
                         }
-                        var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
                         if (btnInfoFromDoc != null)
                         {
                             btnInfoFromDoc.Visible = true;
                         }
-                        var btnInfoFromDocBatch = MainContentPlaceHolder.FindControl("btnInfoFromDocBatch");
                         if (btnInfoFromDocBatch != null)
                         {
-                            btnInfoFromDocBatch.Visible = true;
+                            btnInfoFromDocBatch.Visible = AccessPermission;
                         }
-                        var btnInfoFromDS = MainContentPlaceHolder.FindControl("btnInfoFromDS");
                         if (btnInfoFromDS != null)
                         {
                             btnInfoFromDS.Visible = false;
                         }
-                        var InfoFromDoc = MainContentPlaceHolder.FindControl("InfoFromDoc") as TextBox;
                         if (InfoFromDoc != null)
                         {
                             InfoFromDoc.Attributes.Add("onclick", "uploadfile(this);");
@@ -128,12 +131,10 @@ namespace RICH.Common.Base.WebUI
                         {
                             btnEditItem.Visible = false;
                         }
-                        var btnCopyItem = MainContentPlaceHolder.FindControl("btnCopyItem");
                         if (btnCopyItem != null)
                         {
                             btnCopyItem.Visible = false;
                         }
-                        var btnAddConfirm = MainContentPlaceHolder.FindControl("btnAddConfirm");
                         if (btnAddConfirm != null)
                         {
                             btnAddConfirm.Visible = false;
@@ -145,37 +146,30 @@ namespace RICH.Common.Base.WebUI
                     }
                     else if (ImportDSMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_DS_PURVIEW_ID))
                     {
-                        var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
                         if (ControlContainer != null)
                         {
                             ControlContainer.Visible = false;
                         }
-                        var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
                         if (ImportControlContainer != null)
                         {
-                            ImportControlContainer.Visible = true;
+                            ImportControlContainer.Visible = AccessPermission;
                         }
-                        var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
                         if (btnInfoFromDoc != null)
                         {
                             btnInfoFromDoc.Visible = false;
                         }
-                        var btnInfoFromDocBatch = MainContentPlaceHolder.FindControl("btnInfoFromDocBatch");
                         if (btnInfoFromDocBatch != null)
                         {
                             btnInfoFromDocBatch.Visible = false;
                         }
-                        var btnInfoFromDS = MainContentPlaceHolder.FindControl("btnInfoFromDS");
                         if (btnInfoFromDS != null)
                         {
-                            btnInfoFromDS.Visible = true;
+                            btnInfoFromDS.Visible = AccessPermission;
                         }
-                        var btnInfoFromDocCancel = MainContentPlaceHolder.FindControl("btnInfoFromDocCancel");
                         if (btnInfoFromDocCancel != null)
                         {
                             btnInfoFromDocCancel.Visible = false;
                         }
-                        var InfoFromDoc = MainContentPlaceHolder.FindControl("InfoFromDoc") as TextBox;
                         if (InfoFromDoc != null)
                         {
                             InfoFromDoc.Attributes.Add("onclick", "uploadfile(this);");
@@ -184,12 +178,10 @@ namespace RICH.Common.Base.WebUI
                         {
                             btnEditItem.Visible = false;
                         }
-                        var btnCopyItem = MainContentPlaceHolder.FindControl("btnCopyItem");
                         if (btnCopyItem != null)
                         {
                             btnCopyItem.Visible = false;
                         }
-                        var btnAddConfirm = MainContentPlaceHolder.FindControl("btnAddConfirm");
                         if (btnAddConfirm != null)
                         {
                             btnAddConfirm.Visible = false;
@@ -201,32 +193,38 @@ namespace RICH.Common.Base.WebUI
                     }
                     else
                     {
-                        var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
                         if (ControlContainer != null)
                         {
                             ControlContainer.Visible = AccessPermission;
                         }
-                        var ImportControlContainer = MainContentPlaceHolder.FindControl("ImportControlContainer");
+                        if (btnCopyItem != null)
+                        {
+                            btnCopyItem.Visible = ViewMode && AccessPermission;
+                        }
+                        if (btnAddConfirm != null)
+                        {
+                            btnAddConfirm.Visible = (CopyMode || AddMode || EditMode) && AccessPermission;
+                        }
+                        if (btnEditItem != null)
+                        {
+                            btnEditItem.Visible = ViewMode && AccessPermission;
+                        }
                         if (ImportControlContainer != null)
                         {
                             ImportControlContainer.Visible = false;
                         }
-                        var btnInfoFromDoc = MainContentPlaceHolder.FindControl("btnInfoFromDoc");
                         if (btnInfoFromDoc != null)
                         {
                             btnInfoFromDoc.Visible = false;
                         }
-                        var btnInfoFromDocBatch = MainContentPlaceHolder.FindControl("btnInfoFromDocBatch");
                         if (btnInfoFromDocBatch != null)
                         {
                             btnInfoFromDocBatch.Visible = false;
                         }
-                        var btnInfoFromDS = MainContentPlaceHolder.FindControl("btnInfoFromDS");
                         if (btnInfoFromDS != null)
                         {
                             btnInfoFromDS.Visible = false;
                         }
-                        var btnInfoFromDocCancel = MainContentPlaceHolder.FindControl("btnInfoFromDocCancel");
                         if (btnInfoFromDocCancel != null)
                         {
                             btnInfoFromDocCancel.Visible = false;
