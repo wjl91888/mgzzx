@@ -356,7 +356,7 @@ namespace RICH.Common.Base.ApplicationData
             return boolReturn;
         }
 
-        public static IList<T> GetDataFromDataFile<T>(string strFileName, bool boolVirtual = false, bool afterDelete = false)
+        public static IList<T> GetDataFromDataFile<T>(string strFileName, bool boolVirtual = false, bool afterDelete = true)
         {
             IList<T> appDatas = new List<T>();
             var dt = RICH.Common.FileLibrary.ConvertDataFileToDataTable(strFileName, boolVirtual, afterDelete);
