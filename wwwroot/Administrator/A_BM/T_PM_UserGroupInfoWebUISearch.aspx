@@ -216,7 +216,7 @@
                         </ul>
                     </div>
                 
-                   <div class="contentshow">
+                   <div ID="chkShowUserGroupID_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowUserGroupID" runat="server"  CssClass="needrefresh" Text = "用户组编号" 
@@ -226,7 +226,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowUserGroupName_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowUserGroupName" runat="server"  CssClass="needrefresh" Text = "用户组名称" 
@@ -236,7 +236,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowUserGroupContent_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowUserGroupContent" runat="server"  CssClass="needrefresh" Text = "内容" 
@@ -246,7 +246,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowUserGroupRemark_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowUserGroupRemark" runat="server"  CssClass="needrefresh" Text = "备注" 
@@ -256,7 +256,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowDefaultPage_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowDefaultPage" runat="server"  CssClass="needrefresh" Text = "系统默认页" 
@@ -266,7 +266,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowUpdateDate_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowUpdateDate" runat="server"  CssClass="needrefresh" Text = "更新时间" 
@@ -309,10 +309,10 @@
                     </div>
                 </div>
                 <asp:Literal ID="MessageBox" runat="server"></asp:Literal>
-                <div class="quicksearch">
-                    <input type="button" id="btnAddItem" runat="server" value="添加" onclick="OpenWindow('T_PM_UserGroupInfoWebUIAdd.aspx?a=a',770,600,window);" class="button" />
+                <div id="SearchPageTopButtonBar" runat="server" class="quicksearch">
+                    <input type="button" id="btnAddItem" runat="server" value="添加" class="button" />
 
-                     <input type="button" id="btnStatisticItem" runat="server" value="统计" onclick="OpenWindow('T_PM_UserGroupInfoWebUIStatistic.aspx',770,600,window);" class="button" />
+                     <input type="button" id="btnStatisticItem" runat="server" value="统计" class="button" />
                      <input type="button" value="关闭" onclick="CloseWindow();" class="button displaynone" />
                      <asp:DropDownList runat="server" ID="ddlExportFileFormat">
                          <asp:ListItem Text="文件类型" Value="xls"></asp:ListItem>

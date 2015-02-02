@@ -258,7 +258,7 @@
                         </ul>
                     </div>
                 
-                   <div class="contentshow">
+                   <div ID="chkShowXM_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowXM" runat="server"  CssClass="needrefresh" Text = "姓名" 
@@ -268,7 +268,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowXB_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowXB" runat="server"  CssClass="needrefresh" Text = "性别" 
@@ -278,7 +278,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowSFZH_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowSFZH" runat="server"  CssClass="needrefresh" Text = "身份证号" 
@@ -288,7 +288,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowFFGZNY_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowFFGZNY" runat="server"  CssClass="needrefresh" Text = "日期" 
@@ -298,7 +298,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowYFX_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowYFX" runat="server"  CssClass="needrefresh" Text = "应发项" 
@@ -308,7 +308,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowSFGZ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowSFGZ" runat="server"  CssClass="needrefresh" Text = "实发工资" 
@@ -318,7 +318,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowTJSJ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowTJSJ" runat="server"  CssClass="needrefresh" Text = "添加时间" 
@@ -328,7 +328,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowJCGZ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowJCGZ" runat="server"  CssClass="needrefresh" Text = "基础工资" 
@@ -338,7 +338,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowJSDJGZ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowJSDJGZ" runat="server"  CssClass="needrefresh" Text = "技术等级工资" 
@@ -348,7 +348,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowZWGZ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowZWGZ" runat="server"  CssClass="needrefresh" Text = "职务工资" 
@@ -358,7 +358,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowJBGZ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowJBGZ" runat="server"  CssClass="needrefresh" Text = "级别工资" 
@@ -368,7 +368,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowJKDQJT_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowJKDQJT" runat="server"  CssClass="needrefresh" Text = "艰苦地区津贴" 
@@ -378,7 +378,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowJKTSGWJT_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowJKTSGWJT" runat="server"  CssClass="needrefresh" Text = "艰苦特岗津贴" 
@@ -388,7 +388,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowGLGZ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowGLGZ" runat="server"  CssClass="needrefresh" Text = "工龄工资" 
@@ -398,7 +398,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowXJGZ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowXJGZ" runat="server"  CssClass="needrefresh" Text = "薪级工资" 
@@ -408,7 +408,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowTGBF_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowTGBF" runat="server"  CssClass="needrefresh" Text = "10%提高部分" 
@@ -418,7 +418,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowDHF_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowDHF" runat="server"  CssClass="needrefresh" Text = "电话费" 
@@ -428,7 +428,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowDSZNF_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowDSZNF" runat="server"  CssClass="needrefresh" Text = "独生子女费" 
@@ -438,7 +438,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowFNWSHLF_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowFNWSHLF" runat="server"  CssClass="needrefresh" Text = "妇女卫生费" 
@@ -448,7 +448,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowHLF_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowHLF" runat="server"  CssClass="needrefresh" Text = "护理费" 
@@ -458,17 +458,17 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowJJ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
-                               <asp:CheckBox ID="chkShowJJ" runat="server"  CssClass="needrefresh" Text = "奖金" 
+                               <asp:CheckBox ID="chkShowJJ" runat="server"  CssClass="needrefresh" Text = "取暖补贴" 
                                          Checked="false" />
                                <asp:TextBox ID="txtJJColumnIndex" runat="server" Width="13" MaxLength="2" Visible = "False"></asp:TextBox>
                            </div>
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowJTF_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowJTF" runat="server"  CssClass="needrefresh" Text = "交通费" 
@@ -478,7 +478,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowJHLGZ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowJHLGZ" runat="server"  CssClass="needrefresh" Text = "教护龄工资" 
@@ -488,7 +488,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowJT_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowJT" runat="server"  CssClass="needrefresh" Text = "津贴" 
@@ -498,7 +498,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowBF_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowBF" runat="server"  CssClass="needrefresh" Text = "补发" 
@@ -508,7 +508,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowQTBT_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowQTBT" runat="server"  CssClass="needrefresh" Text = "其他补贴" 
@@ -518,7 +518,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowDFXJT_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowDFXJT" runat="server"  CssClass="needrefresh" Text = "地方性津贴" 
@@ -528,7 +528,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowQTKK_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowQTKK" runat="server"  CssClass="needrefresh" Text = "其他扣款" 
@@ -538,7 +538,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowSYBX_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowSYBX" runat="server"  CssClass="needrefresh" Text = "失业保险" 
@@ -548,7 +548,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowSDNQF_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowSDNQF" runat="server"  CssClass="needrefresh" Text = "水电暖气费" 
@@ -558,7 +558,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowSDS_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowSDS" runat="server"  CssClass="needrefresh" Text = "所得税" 
@@ -568,7 +568,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowYLBX_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowYLBX" runat="server"  CssClass="needrefresh" Text = "养老保险" 
@@ -578,7 +578,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowYLIBX_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowYLIBX" runat="server"  CssClass="needrefresh" Text = "医疗保险" 
@@ -588,7 +588,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowYSSHF_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowYSSHF" runat="server"  CssClass="needrefresh" Text = "遗属生活费" 
@@ -598,7 +598,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowZFGJJ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowZFGJJ" runat="server"  CssClass="needrefresh" Text = "住房公积金" 
@@ -608,17 +608,17 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowKFX_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowKFX" runat="server"  CssClass="needrefresh" Text = "扣发项" 
-                                         Checked="false" />
+                                         Checked="true" />
                                <asp:TextBox ID="txtKFXColumnIndex" runat="server" Width="13" MaxLength="2" Visible = "False"></asp:TextBox>
                            </div>
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowGZKKSM_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowGZKKSM" runat="server"  CssClass="needrefresh" Text = "说明" 
@@ -661,12 +661,12 @@
                     </div>
                 </div>
                 <asp:Literal ID="MessageBox" runat="server"></asp:Literal>
-                <div class="quicksearch">
-                    <input type="button" id="btnAddItem" runat="server" value="添加" onclick="OpenWindow('T_BM_GZXXWebUIAdd.aspx?a=a',770,600,window);" class="button" />
+                <div id="SearchPageTopButtonBar" runat="server" class="quicksearch">
+                    <input type="button" id="btnAddItem" runat="server" value="添加" class="button" />
 
-                    <input type="button" id="btnImportFromDataSet" runat="server" value="导入数据" onclick="OpenWindow('T_BM_GZXXWebUIAdd.aspx?a=ds',770,600,window);" class="button" />
+                    <input type="button" id="btnImportFromDataSet" runat="server" value="导入数据" class="button" />
 
-                     <input type="button" id="btnStatisticItem" runat="server" value="统计" onclick="OpenWindow('T_BM_GZXXWebUIStatistic.aspx',770,600,window);" class="button" />
+                     <input type="button" id="btnStatisticItem" runat="server" value="统计" class="button" />
                      <input type="button" value="关闭" onclick="CloseWindow();" class="button displaynone" />
                      <asp:DropDownList runat="server" ID="ddlExportFileFormat">
                          <asp:ListItem Text="文件类型" Value="xls"></asp:ListItem>
@@ -975,7 +975,7 @@
                                         
                                 </FooterTemplate>
                             </asp:TemplateField>
-                           <asp:TemplateField HeaderText="奖金" 
+                           <asp:TemplateField HeaderText="取暖补贴" 
                         Visible = "false">
                                 <ItemStyle CssClass="fieldinput" HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="fieldname" />
@@ -1532,7 +1532,7 @@
                                         
                                 </FooterTemplate>
                             </asp:TemplateField>
-                           <asp:TemplateField HeaderText="奖金"
+                           <asp:TemplateField HeaderText="取暖补贴"
                         Visible = "false">
                                 <ItemStyle CssClass="fieldinput" HorizontalAlign="Center" />
                                 <HeaderStyle CssClass="fieldname" />

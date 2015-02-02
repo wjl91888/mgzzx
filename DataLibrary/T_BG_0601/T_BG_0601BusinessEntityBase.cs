@@ -61,6 +61,7 @@ namespace  RICH.Common.BM.T_BG_0601
             db.AddInParameter(cmdProc, "@BT", DbType.String);
             db.AddInParameter(cmdProc, "@LanguageID", DbType.String);
             db.AddInParameter(cmdProc, "@FBLM", DbType.String);
+            db.AddInParameter(cmdProc, "@FBBM", DbType.String);
             db.AddInParameter(cmdProc, "@FBZT", DbType.String);
             db.AddInParameter(cmdProc, "@XXLX", DbType.String);
             db.AddInParameter(cmdProc, "@XXTPDZ", DbType.String);
@@ -83,6 +84,7 @@ namespace  RICH.Common.BM.T_BG_0601
             db.SetParameterValue(cmdProc, "@BT", AppData.BT);
             db.SetParameterValue(cmdProc, "@LanguageID", AppData.LanguageID);
             db.SetParameterValue(cmdProc, "@FBLM", AppData.FBLM);
+            db.SetParameterValue(cmdProc, "@FBBM", AppData.FBBM);
             db.SetParameterValue(cmdProc, "@FBZT", AppData.FBZT);
             db.SetParameterValue(cmdProc, "@XXLX", AppData.XXLX);
             db.SetParameterValue(cmdProc, "@XXTPDZ", AppData.XXTPDZ);
@@ -136,6 +138,10 @@ namespace  RICH.Common.BM.T_BG_0601
             db.AddInParameter(cmdProc, "@FBLM", DbType.String);
             db.AddInParameter(cmdProc, "@FBLMBatch", DbType.String);
             db.AddInParameter(cmdProc, "@FBLMValue", DbType.String);
+                
+            db.AddInParameter(cmdProc, "@FBBM", DbType.String);
+            db.AddInParameter(cmdProc, "@FBBMBatch", DbType.String);
+            db.AddInParameter(cmdProc, "@FBBMValue", DbType.String);
                 
             db.AddInParameter(cmdProc, "@FBZT", DbType.String);
             db.AddInParameter(cmdProc, "@FBZTBatch", DbType.String);
@@ -224,6 +230,10 @@ namespace  RICH.Common.BM.T_BG_0601
             db.SetParameterValue(cmdProc, "@FBLMBatch", AppData.FBLMBatch);
             db.SetParameterValue(cmdProc, "@FBLMValue", AppData.FBLMValue);
                 
+            db.SetParameterValue(cmdProc, "@FBBM", AppData.FBBM);
+            db.SetParameterValue(cmdProc, "@FBBMBatch", AppData.FBBMBatch);
+            db.SetParameterValue(cmdProc, "@FBBMValue", AppData.FBBMValue);
+                
             db.SetParameterValue(cmdProc, "@FBZT", AppData.FBZT);
             db.SetParameterValue(cmdProc, "@FBZTBatch", AppData.FBZTBatch);
             db.SetParameterValue(cmdProc, "@FBZTValue", AppData.FBZTValue);
@@ -311,6 +321,7 @@ namespace  RICH.Common.BM.T_BG_0601
             db.AddInParameter(cmdProc, "@BT", DbType.String);
             db.AddInParameter(cmdProc, "@LanguageID", DbType.String);
             db.AddInParameter(cmdProc, "@FBLM", DbType.String);
+            db.AddInParameter(cmdProc, "@FBBM", DbType.String);
             db.AddInParameter(cmdProc, "@FBZT", DbType.String);
             db.AddInParameter(cmdProc, "@XXLX", DbType.String);
             db.AddInParameter(cmdProc, "@XXTPDZ", DbType.String);
@@ -333,6 +344,7 @@ namespace  RICH.Common.BM.T_BG_0601
             db.SetParameterValue(cmdProc, "@BT", AppData.BT);
             db.SetParameterValue(cmdProc, "@LanguageID", AppData.LanguageID);
             db.SetParameterValue(cmdProc, "@FBLM", AppData.FBLM);
+            db.SetParameterValue(cmdProc, "@FBBM", AppData.FBBM);
             db.SetParameterValue(cmdProc, "@FBZT", AppData.FBZT);
             db.SetParameterValue(cmdProc, "@XXLX", AppData.XXLX);
             db.SetParameterValue(cmdProc, "@XXTPDZ", AppData.XXTPDZ);
@@ -371,6 +383,7 @@ namespace  RICH.Common.BM.T_BG_0601
             db.AddInParameter(cmdProc, "@BT", DbType.String);
             db.AddInParameter(cmdProc, "@LanguageID", DbType.String);
             db.AddInParameter(cmdProc, "@FBLM", DbType.String);
+            db.AddInParameter(cmdProc, "@FBBM", DbType.String);
             db.AddInParameter(cmdProc, "@FBZT", DbType.String);
             db.AddInParameter(cmdProc, "@XXLX", DbType.String);
             db.AddInParameter(cmdProc, "@XXTPDZ", DbType.String);
@@ -393,6 +406,7 @@ namespace  RICH.Common.BM.T_BG_0601
             db.SetParameterValue(cmdProc, "@BT", AppData.BT);
             db.SetParameterValue(cmdProc, "@LanguageID", AppData.LanguageID);
             db.SetParameterValue(cmdProc, "@FBLM", AppData.FBLM);
+            db.SetParameterValue(cmdProc, "@FBBM", AppData.FBBM);
             db.SetParameterValue(cmdProc, "@FBZT", AppData.FBZT);
             db.SetParameterValue(cmdProc, "@XXLX", AppData.XXLX);
             db.SetParameterValue(cmdProc, "@XXTPDZ", AppData.XXTPDZ);
@@ -432,6 +446,7 @@ namespace  RICH.Common.BM.T_BG_0601
             db.AddInParameter(cmdProc, "@BT", DbType.String);
             db.AddInParameter(cmdProc, "@LanguageID", DbType.String);
             db.AddInParameter(cmdProc, "@FBLM", DbType.String);
+            db.AddInParameter(cmdProc, "@FBBM", DbType.String);
             db.AddInParameter(cmdProc, "@FBZT", DbType.String);
             db.AddInParameter(cmdProc, "@XXLX", DbType.String);
             db.AddInParameter(cmdProc, "@XXTPDZ", DbType.String);
@@ -455,6 +470,7 @@ namespace  RICH.Common.BM.T_BG_0601
             db.SetParameterValue(cmdProc, "@BT", AppData.BT);
             db.SetParameterValue(cmdProc, "@LanguageID", AppData.LanguageID);
             db.SetParameterValue(cmdProc, "@FBLM", AppData.FBLM);
+            db.SetParameterValue(cmdProc, "@FBBM", AppData.FBBM);
             db.SetParameterValue(cmdProc, "@FBZT", AppData.FBZT);
             db.SetParameterValue(cmdProc, "@XXLX", AppData.XXLX);
             db.SetParameterValue(cmdProc, "@XXTPDZ", AppData.XXTPDZ);
@@ -519,6 +535,7 @@ namespace  RICH.Common.BM.T_BG_0601
             // 得到返回记录数
             AppData.RecordCount = AppData.ResultSet.Tables[0].Rows.Count;
         }
+        
         //=====================================================================
         //  FunctionName : GetDataByObjectID
         /// <summary>
@@ -535,6 +552,28 @@ namespace  RICH.Common.BM.T_BG_0601
             db.AddInParameter(cmdProc, "@ObjectID", DbType.String);
             // 对存储过程参数赋值
             db.SetParameterValue(cmdProc, "@ObjectID", strObjectID);
+            // 执行存储过程
+            return T_BG_0601ApplicationData.FillDataFromDataReader(db.ExecuteReader(cmdProc));
+        }
+        
+        //=====================================================================
+        //  FunctionName : GetDataByKey
+        /// <summary>
+        /// 以Key为条件查询记录并返回AppData
+        /// </summary>
+        //=====================================================================
+        public static T_BG_0601ApplicationData GetDataByKey(T_BG_0601ApplicationData appData)
+        {
+            // 创建数据库连接 
+            Database db = DatabaseFactory.CreateDatabase("strConnManager");
+            string strProcName = "SP_SelectT_BG_0601ByKey";
+            DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
+            // 设定存储过程输入参数
+            
+            db.AddInParameter(cmdProc, "@FBH", DbType.String);
+            // 对存储过程参数赋值
+            
+            db.SetParameterValue(cmdProc, "@FBH", appData.FBH);
             // 执行存储过程
             return T_BG_0601ApplicationData.FillDataFromDataReader(db.ExecuteReader(cmdProc));
         }
@@ -574,6 +613,9 @@ namespace  RICH.Common.BM.T_BG_0601
                 
             db.AddInParameter(cmdProc, "@FBLM", DbType.String);
             db.AddInParameter(cmdProc, "@FBLMBatch", DbType.String);
+                
+            db.AddInParameter(cmdProc, "@FBBM", DbType.String);
+            db.AddInParameter(cmdProc, "@FBBMBatch", DbType.String);
                 
             db.AddInParameter(cmdProc, "@FBZT", DbType.String);
             db.AddInParameter(cmdProc, "@FBZTBatch", DbType.String);
@@ -650,6 +692,9 @@ namespace  RICH.Common.BM.T_BG_0601
                 
             db.SetParameterValue(cmdProc, "@FBLM", AppData.FBLM);
             db.SetParameterValue(cmdProc, "@FBLMBatch", AppData.FBLMBatch);
+                
+            db.SetParameterValue(cmdProc, "@FBBM", AppData.FBBM);
+            db.SetParameterValue(cmdProc, "@FBBMBatch", AppData.FBBMBatch);
                 
             db.SetParameterValue(cmdProc, "@FBZT", AppData.FBZT);
             db.SetParameterValue(cmdProc, "@FBZTBatch", AppData.FBZTBatch);
@@ -875,6 +920,7 @@ namespace  RICH.Common.BM.T_BG_0601
                     db.AddInParameter(cmdProc, "@BT", DbType.String);
                     db.AddInParameter(cmdProc, "@LanguageID", DbType.String);
                     db.AddInParameter(cmdProc, "@FBLM", DbType.String);
+                    db.AddInParameter(cmdProc, "@FBBM", DbType.String);
                     db.AddInParameter(cmdProc, "@FBZT", DbType.String);
                     db.AddInParameter(cmdProc, "@XXLX", DbType.String);
                     db.AddInParameter(cmdProc, "@XXTPDZ", DbType.String);
@@ -1008,6 +1054,30 @@ namespace  RICH.Common.BM.T_BG_0601
             // 创建数据库连接 
             Database db = DatabaseFactory.CreateDatabase("strConnManager");
             string strProcName = "SP_GetTreeData_T_BG_0601_FBLM";
+            DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
+            // 设定存储过程输入参数
+            db.AddInParameter(cmdProc, "@IDFieldName", DbType.String);
+            db.SetParameterValue(cmdProc, "@IDFieldName", iDFieldName);
+            db.AddInParameter(cmdProc, "@NameFieldName", DbType.String);
+            db.SetParameterValue(cmdProc, "@NameFieldName", nameFieldName);
+            db.AddInParameter(cmdProc, "@ParentIDFieldValue", DbType.String);
+            db.SetParameterValue(cmdProc, "@ParentIDFieldValue", parentFieldValue);
+            db.AddInParameter(cmdProc, "@ConditionFieldName", DbType.String);
+            db.SetParameterValue(cmdProc, "@ConditionFieldName", conditionFieldName);
+            db.AddInParameter(cmdProc, "@ConditionFieldValue", DbType.String);
+            db.SetParameterValue(cmdProc, "@ConditionFieldValue", conditionFieldValue);
+            db.AddInParameter(cmdProc, "@OnlyShowUsed", DbType.Boolean);
+            db.SetParameterValue(cmdProc, "@OnlyShowUsed", onlyShowUsed);
+            // 执行存储过程
+            DataSet ds = db.ExecuteDataSet(cmdProc);
+            return ds;
+        }
+	
+        public static DataSet GetTreeData_T_BG_0601_FBBM(string iDFieldName, string nameFieldName, string parentFieldValue = null, string conditionFieldName = null, string conditionFieldValue = null, bool onlyShowUsed = false)
+        {
+            // 创建数据库连接 
+            Database db = DatabaseFactory.CreateDatabase("strConnManager");
+            string strProcName = "SP_GetTreeData_T_BG_0601_FBBM";
             DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
             // 设定存储过程输入参数
             db.AddInParameter(cmdProc, "@IDFieldName", DbType.String);

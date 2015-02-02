@@ -203,7 +203,7 @@
                         </ul>
                     </div>
                 
-                   <div class="contentshow">
+                   <div ID="chkShowDM_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowDM" runat="server"  CssClass="needrefresh" Text = "类型代码" 
@@ -213,7 +213,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowMC_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowMC" runat="server"  CssClass="needrefresh" Text = "类型名称" 
@@ -223,7 +223,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowSM_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowSM" runat="server"  CssClass="needrefresh" Text = "说明" 
@@ -266,10 +266,10 @@
                     </div>
                 </div>
                 <asp:Literal ID="MessageBox" runat="server"></asp:Literal>
-                <div class="quicksearch">
-                    <input type="button" id="btnAddItem" runat="server" value="添加" onclick="OpenWindow('DictionaryTypeWebUIAdd.aspx?a=a',770,600,window);" class="button" />
+                <div id="SearchPageTopButtonBar" runat="server" class="quicksearch">
+                    <input type="button" id="btnAddItem" runat="server" value="添加" class="button" />
 
-                     <input type="button" id="btnStatisticItem" runat="server" value="统计" onclick="OpenWindow('DictionaryTypeWebUIStatistic.aspx',770,600,window);" class="button" />
+                     <input type="button" id="btnStatisticItem" runat="server" value="统计" class="button" />
                      <input type="button" value="关闭" onclick="CloseWindow();" class="button displaynone" />
                      <asp:DropDownList runat="server" ID="ddlExportFileFormat">
                          <asp:ListItem Text="文件类型" Value="xls"></asp:ListItem>

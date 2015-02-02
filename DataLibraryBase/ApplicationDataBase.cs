@@ -356,10 +356,10 @@ namespace RICH.Common.Base.ApplicationData
             return boolReturn;
         }
 
-        public static IList<T> GetDataFromDataFile<T>(string strFileName, bool boolVirtual = false, bool afterDelete = true)
+        public static IList<T> GetDataFromDataFile<T>(string strFileName, bool boolVirtual = false, bool afterDelete = true, int recordStartLine = 2)
         {
             IList<T> appDatas = new List<T>();
-            var dt = RICH.Common.FileLibrary.ConvertDataFileToDataTable(strFileName, boolVirtual, afterDelete);
+            var dt = RICH.Common.FileLibrary.ConvertDataFileToDataTable(strFileName, boolVirtual, afterDelete, recordStartLine);
             var arg = new object[] { dt };
             appDatas = (IList<T>)typeof(T).InvokeMember("GetCollectionFromImportDataTable", BindingFlags.Static | BindingFlags.Public | BindingFlags.InvokeMethod, null, null, arg);
             return appDatas;

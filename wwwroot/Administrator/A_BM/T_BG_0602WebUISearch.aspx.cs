@@ -27,6 +27,7 @@ public partial class T_BG_0602WebUISearch : RICH.Common.BM.T_BG_0602.T_BG_0602We
 
     protected override void Page_Init(object sender, EventArgs e)
     {
+        
         base.Page_Init(sender, e);
     }
     
@@ -512,6 +513,8 @@ LMM.Text = GetValue(appData.LMM);
       {
         appData.CurrentPage = DEFAULT_CURRENT_PAGE;
       }
+
+
       return boolReturn;                
     }
 
@@ -564,6 +567,20 @@ LMM.Text = GetValue(appData.LMM);
 
             sbCaption.Append("</div>");
             return sbCaption.ToString();
+    }
+    
+    protected override void CheckPermission()
+    {
+        if(AccessPermission)
+        {
+
+        }
+    }
+
+    protected override void SetCurrentAccessPermission()
+    {
+
+        base.SetCurrentAccessPermission();
     }
 }
 

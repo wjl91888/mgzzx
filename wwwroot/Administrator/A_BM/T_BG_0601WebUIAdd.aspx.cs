@@ -61,7 +61,6 @@ public partial class T_BG_0601WebUIAdd : RICH.Common.BM.T_BG_0601.T_BG_0601WebUI
             InitalizeCoupledDataSource();
         }
         base.Page_Load(sender, e);
-        CheckPermission();
     }
 
     //=====================================================================
@@ -91,6 +90,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                     FBH.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["FBH"]); 
                     BT.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["BT"]); 
                     FBLM.SelectedValue = GetValue(appData.ResultSet.Tables[0].Rows[0]["FBLM"]); 
+                    FBBM.SelectedValue = GetValue(appData.ResultSet.Tables[0].Rows[0]["FBBM"]); 
                     XXLX.SelectedValue = GetValue(appData.ResultSet.Tables[0].Rows[0]["XXLX"]); 
                     XXTPDZ.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["XXTPDZ"]); 
                     XXNR.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["XXNR"]); 
@@ -115,7 +115,14 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                     FBLM.Enabled = false;
                 }
             
+                if (!DataValidateManager.ValidateIsNull(Request.QueryString["FBBM"]))
+                {
+                    FBBM.SelectedValue = GetValue(Request.QueryString["FBBM"]); 
+                    FBBM.Enabled = false;
+                }
+            
                 // 初始化默认值
+FBBM.SelectedValue = CurrentUserInfo.SubjectID; 
 
             }
 
@@ -148,6 +155,13 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         FBLM.DataValueField = "LMH";
               FBLM.DataBind();
         
+        // 初始化发布部门(FBBM)下拉列表
+          FBBM.DataSource = GetDataSource_FBBM();
+        FBBM.DataTextField = "DWMC";
+        FBBM.DataValueField = "DWBH";
+              FBBM.DataBind();
+        FBBM.Items.Insert(0, new ListItem("请选择发布部门", ""));
+              
         // 初始化信息类型(XXLX)下拉列表
           XXLX.DataSource = GetDataSource_XXLX();
         XXLX.DataTextField = "MC";
@@ -190,12 +204,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         // 验证输入参数
 
         validateData = ValidateBT(BT.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.BT = Convert.ToString(validateData.Value.ToString());
-                BT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             BT.BackColor = System.Drawing.Color.Empty;
         }
@@ -207,12 +220,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateFBLM(FBLM.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.FBLM = Convert.ToString(validateData.Value.ToString());
-                FBLM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             FBLM.BackColor = System.Drawing.Color.Empty;
         }
@@ -223,13 +235,28 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             boolReturn = validateData.Result;
         }
                 
-        validateData = ValidateXXLX(XXLX.SelectedValue, false, false);
-        if (validateData.Result==true)
+        validateData = ValidateFBBM(FBBM.SelectedValue, true, false);
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
+            {
+                appData.FBBM = Convert.ToString(validateData.Value.ToString());
+            }
+            FBBM.BackColor = System.Drawing.Color.Empty;
+        }
+        else
+        {
+            FBBM.BackColor = System.Drawing.Color.YellowGreen;
+            MessageContent += @"<font color=""red"">" + validateData.Message + "</font>";
+            boolReturn = validateData.Result;
+        }
+                
+        validateData = ValidateXXLX(XXLX.SelectedValue, false, false);
+        if (validateData.Result)
+        {                
+            if (!validateData.IsNull)
             {
                 appData.XXLX = Convert.ToString(validateData.Value.ToString());
-                XXLX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             XXLX.BackColor = System.Drawing.Color.Empty;
         }
@@ -241,12 +268,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateXXTPDZ(XXTPDZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.XXTPDZ = Convert.ToString(validateData.Value.ToString());
-                XXTPDZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             XXTPDZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -258,12 +284,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateXXNR(XXNR.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.XXNR = Convert.ToString(validateData.Value.ToString());
-                XXNR_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             XXNR.BackColor = System.Drawing.Color.Empty;
         }
@@ -275,12 +300,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateFJXZDZ(FJXZDZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.FJXZDZ = Convert.ToString(validateData.Value.ToString());
-                FJXZDZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             FJXZDZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -294,12 +318,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         appData.XXZT = "02";
             
         validateData = ValidateIsTop(IsTop.SelectedValue, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.IsTop = Convert.ToString(validateData.Value.ToString());
-                IsTop_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             IsTop.BackColor = System.Drawing.Color.Empty;
         }
@@ -311,12 +334,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateTopSort(TopSort.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.TopSort = Convert.ToInt32(validateData.Value.ToString());
-                TopSort_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             TopSort.BackColor = System.Drawing.Color.Empty;
         }
@@ -328,12 +350,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateIsBest(IsBest.SelectedValue, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.IsBest = Convert.ToString(validateData.Value.ToString());
-                IsBest_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             IsBest.BackColor = System.Drawing.Color.Empty;
         }
@@ -386,7 +407,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.FBH = Convert.ToString(validateData.Value.ToString());
-                FBH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -408,7 +428,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.BT = Convert.ToString(validateData.Value.ToString());
-                BT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -430,7 +449,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.FBLM = Convert.ToString(validateData.Value.ToString());
-                FBLM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -446,13 +464,33 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             boolReturn = validateData.Result;
         }
                 
+        validateData = ValidateFBBM(FBBM.SelectedValue, true, false);
+        if (validateData.Result)
+        {
+            if (!validateData.IsNull)
+            {
+                appData.FBBM = Convert.ToString(validateData.Value.ToString());
+            }
+                        
+            else
+            {
+                appData.FBBM = null;
+            }
+            FBBM.BackColor = System.Drawing.Color.Empty;
+        }
+        else
+        {
+            FBBM.BackColor = System.Drawing.Color.YellowGreen;
+            MessageContent += @"<font color=""red"">" + validateData.Message + "</font>";
+            boolReturn = validateData.Result;
+        }
+                
         validateData = ValidateXXLX(XXLX.SelectedValue, false, false);
         if (validateData.Result)
         {
             if (!validateData.IsNull)
             {
                 appData.XXLX = Convert.ToString(validateData.Value.ToString());
-                XXLX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -474,7 +512,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.XXTPDZ = Convert.ToString(validateData.Value.ToString());
-                XXTPDZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -496,7 +533,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.XXNR = Convert.ToString(validateData.Value.ToString());
-                XXNR_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -518,7 +554,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.FJXZDZ = Convert.ToString(validateData.Value.ToString());
-                FJXZDZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -540,7 +575,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.XXZT = Convert.ToString(validateData.Value.ToString());
-                XXZT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -562,7 +596,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.IsTop = Convert.ToString(validateData.Value.ToString());
-                IsTop_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -584,7 +617,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.TopSort = Convert.ToInt32(validateData.Value.ToString());
-                TopSort_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             TopSort.BackColor = System.Drawing.Color.Empty;
         }
@@ -601,7 +633,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.IsBest = Convert.ToString(validateData.Value.ToString());
-                IsBest_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -623,7 +654,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.FBRJGH = Convert.ToString(validateData.Value.ToString());
-                FBRJGH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -645,7 +675,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.FBSJRQ = Convert.ToDateTime(validateData.Value.ToString());
-                FBSJRQ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             FBSJRQ.BackColor = System.Drawing.Color.Empty;
         }
@@ -662,7 +691,6 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.FBIP = Convert.ToString(validateData.Value.ToString());
-                FBIP_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -805,7 +833,7 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
         int updateCount = 0;
         try
         {
-            var appDatas = T_BG_0601ApplicationData.GetDataFromDataFile<T_BG_0601ApplicationData>(InfoFromDoc.Text, true);
+            var appDatas = T_BG_0601ApplicationData.GetDataFromDataFile<T_BG_0601ApplicationData>(InfoFromDoc.Text, true, true, recordStartLine: T_BG_0601Contants.ImportDataSetStartLineNum);
             T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic = (T_BG_0601ApplicationLogic)CreateApplicationLogicInstance(typeof(T_BG_0601ApplicationLogic));
             totalCount = appDatas.Count;
             foreach (var app in appDatas)
@@ -813,22 +841,74 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
     
                 app.FBH = instanceT_BG_0601ApplicationLogic.AutoGenerateFBH(app);
                     
+                if(!BT.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.BT =  Convert.ToString(BT.Text);
+                }
+    
                 string strFBLM = GetValue(new RICH.Common.BM.T_BG_0602.T_BG_0602ApplicationLogicBase().GetValueByFixCondition("LMM", app.FBLM, "LMH"));
                 if (!DataValidateManager.ValidateIsNull(strFBLM))app.FBLM = strFBLM;
+                if(!FBLM.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.FBLM =  Convert.ToString(FBLM.SelectedValue);
+                }
+    
+                string strFBBM = GetValue(new RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationLogicBase().GetValueByFixCondition("DWMC", app.FBBM, "DWBH"));
+                if (!DataValidateManager.ValidateIsNull(strFBBM))app.FBBM = strFBBM;
+                if(!FBBM.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.FBBM =  Convert.ToString(FBBM.SelectedValue);
+                }
+    
                 string strXXLX = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.XXLX, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strXXLX))app.XXLX = strXXLX;
-            app.XXZT = "02";
+                if(!XXLX.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.XXLX =  Convert.ToString(XXLX.SelectedValue);
+                }
+    
+                if(!XXTPDZ.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.XXTPDZ =  Convert.ToString(XXTPDZ.Text);
+                }
+    
+                if(!XXNR.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.XXNR =  Convert.ToString(XXNR.Text);
+                }
+    
+                if(!FJXZDZ.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.FJXZDZ =  Convert.ToString(FJXZDZ.Text);
+                }
+    
+                app.XXZT = "02";
                 string strXXZT = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.XXZT, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strXXZT))app.XXZT = strXXZT;
                 string strIsTop = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.IsTop, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strIsTop))app.IsTop = strIsTop;
+                if(!IsTop.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.IsTop =  Convert.ToString(IsTop.SelectedValue);
+                }
+    
+                if(!TopSort.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.TopSort =  Convert.ToInt32(TopSort.Text);
+                }
+    
                 string strIsBest = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.IsBest, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strIsBest))app.IsBest = strIsBest;
-            app.FBRJGH = (string)Session[ConstantsManager.SESSION_USER_ID];
+                if(!IsBest.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.IsBest =  Convert.ToString(IsBest.SelectedValue);
+                }
+    
+                app.FBRJGH = (string)Session[ConstantsManager.SESSION_USER_ID];
                 string strFBRJGH = GetValue(new RICH.Common.BM.T_PM_UserInfo.T_PM_UserInfoApplicationLogicBase().GetValueByFixCondition("UserNickName", app.FBRJGH, "UserID"));
                 if (!DataValidateManager.ValidateIsNull(strFBRJGH))app.FBRJGH = strFBRJGH;
-            app.FBSJRQ = DateTime.Now;
-            app.FBIP = (string)Request.ServerVariables["REMOTE_ADDR"];
+                app.FBSJRQ = DateTime.Now;
+                app.FBIP = (string)Request.ServerVariables["REMOTE_ADDR"];
                 instanceT_BG_0601ApplicationLogic.Add(app);
                 if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
                 {
@@ -852,7 +932,7 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
         }
     }
 
-    public void CheckPermission()
+    protected override void CheckPermission()
     {
         if (AccessPermission)
         {
@@ -875,6 +955,36 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
       FBIP_Area.Visible = false;
       
             }
+            if(ImportDSMode)
+            {
+    ObjectID_Area.Visible = false;
+      FBH_Area.Visible = false;
+      BT_Area.Visible = false;
+      BT_Area.Visible = true;
+      FBLM_Area.Visible = false;
+      FBLM_Area.Visible = true;
+      FBBM_Area.Visible = false;
+      FBBM_Area.Visible = true;
+      XXLX_Area.Visible = false;
+      XXLX_Area.Visible = true;
+      XXTPDZ_Area.Visible = false;
+      XXTPDZ_Area.Visible = true;
+      XXNR_Area.Visible = false;
+      XXNR_Area.Visible = true;
+      FJXZDZ_Area.Visible = false;
+      FJXZDZ_Area.Visible = true;
+      XXZT_Area.Visible = false;
+      IsTop_Area.Visible = false;
+      IsTop_Area.Visible = true;
+      TopSort_Area.Visible = false;
+      TopSort_Area.Visible = true;
+      IsBest_Area.Visible = false;
+      IsBest_Area.Visible = true;
+      FBRJGH_Area.Visible = false;
+      FBSJRQ_Area.Visible = false;
+      FBIP_Area.Visible = false;
+      
+            }
             if (ViewMode)
             {
     ObjectID.Enabled = false;
@@ -883,8 +993,10 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
                 FBH_Area.Visible = false;
       BT.Enabled = false;
                 FBLM.Enabled = false;
+                FBBM.Enabled = false;
                 XXLX.Enabled = false;
-                XXTPDZ.Enabled = false;
+                XXLX_Area.Visible = false;
+      XXTPDZ.Enabled = false;
                 XXNR.ReadOnly = true;
                 FJXZDZ.Enabled = false;
                 XXZT.Enabled = false;
@@ -900,6 +1012,47 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
                 FBIP.Enabled = false;
                 
             }
+	
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                FBH_Area.Visible = false;
+				}
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                FBLM.Enabled = false;
+				}
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                FBBM.Enabled = false;
+				}
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                XXZT_Area.Visible = false;
+				}
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                IsTop_Area.Visible = false;
+				}
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                TopSort_Area.Visible = false;
+				}
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                IsBest_Area.Visible = false;
+				}
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                FBRJGH_Area.Visible = false;
+				}
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                FBRJGH.Enabled = false;
+				}
+				if(CustomPermission == WFBD_PURVIEW_ID)
+				{
+                FBIP_Area.Visible = false;
+				}
         }
     }
 }

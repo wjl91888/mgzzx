@@ -15,87 +15,30 @@ namespace RICH.Common.BM.ShortMessage
     public class ShortMessageWebUIBase : WebUIBase
     {
         #region 常量定义
-        /// <summary>
-        /// 数据类型
-        /// </summary>
+        public override string TableName { get { return "ShortMessage"; } }
+        public override string PurviewPrefix { get { return "DXX"; } }
         public override string FilterReportType { get { return "ShortMessage"; } }
-        /// <summary>
-        /// 当前页面所在文件路径
-        /// </summary>
-        public override string CURRENT_PATH { get { return "/Administrator/A_BM"; } }
-        /// <summary>
-        /// 默认的排序方式
-        /// </summary>
         protected const Boolean DEFAULT_SORT = false;
-        /// <summary>
-        /// 默认的排序字段
-        /// </summary>
         protected const string DEFAULT_SORT_FIELD = "FSSJ";
-        /// <summary>
-        /// 每页显示记录数
-        /// </summary>
-        protected const Int32 DEFAULT_PAGE_SIZE = 50;
-        /// <summary>
-        /// 默认当前页号
-        /// </summary>
-        protected const Int32 DEFAULT_CURRENT_PAGE = 1;
-
-        #region 页面名称定义
-        /// <summary>
-        /// 编辑页面文件名
-        /// </summary>
-        public override string WEBUI_ADD_FILENAME { get { return "ShortMessageWebUIAdd.aspx"; } }
-        /// <summary>
-        /// 查询页面文件名
-        /// </summary>
-        public override string WEBUI_SEARCH_FILENAME { get { return "ShortMessageWebUISearch.aspx"; } }
-        /// <summary>
-        /// 详情页面文件名
-        /// </summary>
-        public override string WEBUI_DETAIL_FILENAME { get { return "ShortMessageWebUIDetail.aspx"; } }
-        /// <summary>
-        /// 统计页面文件名
-        /// </summary>
-        public override string WEBUI_STATISTIC_FILENAME { get { return "ShortMessageWebUIStatistic.aspx";} }
-        #endregion
 
         #region 权限编号定义
+
         /// <summary>
-        /// 添加权限
+        /// 发件箱权限
         /// </summary>
-        public override string WEBUI_ADD_ACCESS_PURVIEW_ID { get { return "DXX01";} }
+        public string FJX_PURVIEW_ID { get { return "DXX51";} }
+        public string FJX_ADD_PURVIEW_ID { get { return "DXX51_Add";} }
+        public string FJX_MODIFY_PURVIEW_ID { get { return "DXX51_Modify";} }
+        public string FJX_DETAIL_PURVIEW_ID { get { return "DXX51_Detail";} }
+        
         /// <summary>
-        /// 修改权限
+        /// 收件箱权限
         /// </summary>
-        public override string WEBUI_MODIFY_ACCESS_PURVIEW_ID { get { return "DXX02";} }
-        /// <summary>
-        /// 浏览权限
-        /// </summary>
-        public override string WEBUI_SEARCH_ACCESS_PURVIEW_ID  { get { return "DXX04";} }
-        /// <summary>
-        /// 详情权限
-        /// </summary>
-        public override string WEBUI_DETAIL_ACCESS_PURVIEW_ID  { get { return "DXX05";} }
-        /// <summary>
-        /// 统计权限
-        /// </summary>
-        public override string WEBUI_STATISTIC_ACCESS_PURVIEW_ID  { get { return "DXX06";} }
-        /// <summary>
-        /// 删除权限
-        /// </summary>
-        public override string OPERATION_DELETE_PURVIEW_ID  { get { return "DXX07";} }
-        /// <summary>
-        /// 导出权限
-        /// </summary>
-        public override string OPERATION_EXPORTALL_PURVIEW_ID { get { return "DXX08";} }
-        /// <summary>
-        /// 导入权限
-        /// </summary>
-        public override string OPERATION_IMPORT_PURVIEW_ID { get { return "DXX09";} }
-        /// <summary>
-        /// 导入数据集权限
-        /// </summary>
-        public override string OPERATION_IMPORT_DS_PURVIEW_ID { get { return "DXX10";} }
+        public string SJX_PURVIEW_ID { get { return "DXX52";} }
+        public string SJX_ADD_PURVIEW_ID { get { return "DXX52_Add";} }
+        public string SJX_MODIFY_PURVIEW_ID { get { return "DXX52_Modify";} }
+        public string SJX_DETAIL_PURVIEW_ID { get { return "DXX52_Detail";} }
+        
         #endregion
         #endregion
 

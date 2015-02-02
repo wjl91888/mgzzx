@@ -547,6 +547,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             // 得到返回记录数
             AppData.RecordCount = AppData.ResultSet.Tables[0].Rows.Count;
         }
+        
         //=====================================================================
         //  FunctionName : GetDataByObjectID
         /// <summary>
@@ -563,6 +564,28 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.AddInParameter(cmdProc, "@ObjectID", DbType.String);
             // 对存储过程参数赋值
             db.SetParameterValue(cmdProc, "@ObjectID", strObjectID);
+            // 执行存储过程
+            return T_PM_UserInfoApplicationData.FillDataFromDataReader(db.ExecuteReader(cmdProc));
+        }
+        
+        //=====================================================================
+        //  FunctionName : GetDataByKey
+        /// <summary>
+        /// 以Key为条件查询记录并返回AppData
+        /// </summary>
+        //=====================================================================
+        public static T_PM_UserInfoApplicationData GetDataByKey(T_PM_UserInfoApplicationData appData)
+        {
+            // 创建数据库连接 
+            Database db = DatabaseFactory.CreateDatabase("strConnManager");
+            string strProcName = "SP_SelectT_PM_UserInfoByKey";
+            DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
+            // 设定存储过程输入参数
+            
+            db.AddInParameter(cmdProc, "@UserID", DbType.String);
+            // 对存储过程参数赋值
+            
+            db.SetParameterValue(cmdProc, "@UserID", appData.UserID);
             // 执行存储过程
             return T_PM_UserInfoApplicationData.FillDataFromDataReader(db.ExecuteReader(cmdProc));
         }

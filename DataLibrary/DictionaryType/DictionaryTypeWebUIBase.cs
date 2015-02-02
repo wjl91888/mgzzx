@@ -15,87 +15,14 @@ namespace RICH.Common.BM.DictionaryType
     public class DictionaryTypeWebUIBase : WebUIBase
     {
         #region 常量定义
-        /// <summary>
-        /// 数据类型
-        /// </summary>
+        public override string TableName { get { return "DictionaryType"; } }
+        public override string PurviewPrefix { get { return "DICTT"; } }
         public override string FilterReportType { get { return "DictionaryType"; } }
-        /// <summary>
-        /// 当前页面所在文件路径
-        /// </summary>
-        public override string CURRENT_PATH { get { return "/Administrator/A_BM"; } }
-        /// <summary>
-        /// 默认的排序方式
-        /// </summary>
         protected const Boolean DEFAULT_SORT = true;
-        /// <summary>
-        /// 默认的排序字段
-        /// </summary>
         protected const string DEFAULT_SORT_FIELD = "DM";
-        /// <summary>
-        /// 每页显示记录数
-        /// </summary>
-        protected const Int32 DEFAULT_PAGE_SIZE = 50;
-        /// <summary>
-        /// 默认当前页号
-        /// </summary>
-        protected const Int32 DEFAULT_CURRENT_PAGE = 1;
-
-        #region 页面名称定义
-        /// <summary>
-        /// 编辑页面文件名
-        /// </summary>
-        public override string WEBUI_ADD_FILENAME { get { return "DictionaryTypeWebUIAdd.aspx"; } }
-        /// <summary>
-        /// 查询页面文件名
-        /// </summary>
-        public override string WEBUI_SEARCH_FILENAME { get { return "DictionaryTypeWebUISearch.aspx"; } }
-        /// <summary>
-        /// 详情页面文件名
-        /// </summary>
-        public override string WEBUI_DETAIL_FILENAME { get { return "DictionaryTypeWebUIDetail.aspx"; } }
-        /// <summary>
-        /// 统计页面文件名
-        /// </summary>
-        public override string WEBUI_STATISTIC_FILENAME { get { return "DictionaryTypeWebUIStatistic.aspx";} }
-        #endregion
 
         #region 权限编号定义
-        /// <summary>
-        /// 添加权限
-        /// </summary>
-        public override string WEBUI_ADD_ACCESS_PURVIEW_ID { get { return "DICTT01";} }
-        /// <summary>
-        /// 修改权限
-        /// </summary>
-        public override string WEBUI_MODIFY_ACCESS_PURVIEW_ID { get { return "DICTT02";} }
-        /// <summary>
-        /// 浏览权限
-        /// </summary>
-        public override string WEBUI_SEARCH_ACCESS_PURVIEW_ID  { get { return "DICTT04";} }
-        /// <summary>
-        /// 详情权限
-        /// </summary>
-        public override string WEBUI_DETAIL_ACCESS_PURVIEW_ID  { get { return "DICTT05";} }
-        /// <summary>
-        /// 统计权限
-        /// </summary>
-        public override string WEBUI_STATISTIC_ACCESS_PURVIEW_ID  { get { return "DICTT06";} }
-        /// <summary>
-        /// 删除权限
-        /// </summary>
-        public override string OPERATION_DELETE_PURVIEW_ID  { get { return "DICTT07";} }
-        /// <summary>
-        /// 导出权限
-        /// </summary>
-        public override string OPERATION_EXPORTALL_PURVIEW_ID { get { return "DICTT08";} }
-        /// <summary>
-        /// 导入权限
-        /// </summary>
-        public override string OPERATION_IMPORT_PURVIEW_ID { get { return "DICTT09";} }
-        /// <summary>
-        /// 导入数据集权限
-        /// </summary>
-        public override string OPERATION_IMPORT_DS_PURVIEW_ID { get { return "DICTT10";} }
+
         #endregion
         #endregion
 

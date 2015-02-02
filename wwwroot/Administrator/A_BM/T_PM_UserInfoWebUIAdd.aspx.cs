@@ -61,7 +61,6 @@ public partial class T_PM_UserInfoWebUIAdd : RICH.Common.BM.T_PM_UserInfo.T_PM_U
             InitalizeCoupledDataSource();
         }
         base.Page_Load(sender, e);
-        CheckPermission();
     }
 
     //=====================================================================
@@ -195,12 +194,11 @@ UserStatus.SelectedValue = "02";
         // 验证输入参数
 
         validateData = ValidateUserLoginName(UserLoginName.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.UserLoginName = Convert.ToString(validateData.Value.ToString());
-                UserLoginName_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             UserLoginName.BackColor = System.Drawing.Color.Empty;
         }
@@ -212,12 +210,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateUserGroupID(UserGroupID.SelectedValues, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.UserGroupID = Convert.ToString(validateData.Value.ToString());
-                UserGroupID_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             UserGroupID.BackColor = System.Drawing.Color.Empty;
         }
@@ -229,12 +226,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateSubjectID(SubjectID.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SubjectID = Convert.ToString(validateData.Value.ToString());
-                SubjectID_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SubjectID.BackColor = System.Drawing.Color.Empty;
         }
@@ -246,12 +242,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateUserNickName(UserNickName.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.UserNickName = Convert.ToString(validateData.Value.ToString());
-                UserNickName_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             UserNickName.BackColor = System.Drawing.Color.Empty;
         }
@@ -270,7 +265,6 @@ UserStatus.SelectedValue = "02";
                 if (!validateData.IsNull)
                 {
                     appData.Password = RICH.Common.SecurityManager.MD5(Convert.ToString(validateData.Value.ToString()), 32);
-                    Password_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
                 }
                 Password.BackColor = System.Drawing.Color.Empty;
             }
@@ -290,12 +284,11 @@ UserStatus.SelectedValue = "02";
         }
             
         validateData = ValidateXB(XB.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.XB = Convert.ToString(validateData.Value.ToString());
-                XB_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             XB.BackColor = System.Drawing.Color.Empty;
         }
@@ -307,12 +300,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateMZ(MZ.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.MZ = Convert.ToString(validateData.Value.ToString());
-                MZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             MZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -324,12 +316,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateZZMM(ZZMM.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.ZZMM = Convert.ToString(validateData.Value.ToString());
-                ZZMM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             ZZMM.BackColor = System.Drawing.Color.Empty;
         }
@@ -341,12 +332,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateSFZH(SFZH.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SFZH = Convert.ToString(validateData.Value.ToString());
-                SFZH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SFZH.BackColor = System.Drawing.Color.Empty;
         }
@@ -358,12 +348,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateSJH(SJH.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SJH = Convert.ToString(validateData.Value.ToString());
-                SJH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SJH.BackColor = System.Drawing.Color.Empty;
         }
@@ -375,12 +364,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateBGDH(BGDH.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.BGDH = Convert.ToString(validateData.Value.ToString());
-                BGDH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             BGDH.BackColor = System.Drawing.Color.Empty;
         }
@@ -392,12 +380,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateJTDH(JTDH.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JTDH = Convert.ToString(validateData.Value.ToString());
-                JTDH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JTDH.BackColor = System.Drawing.Color.Empty;
         }
@@ -409,12 +396,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateEmail(Email.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.Email = Convert.ToString(validateData.Value.ToString());
-                Email_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             Email.BackColor = System.Drawing.Color.Empty;
         }
@@ -426,12 +412,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateQQH(QQH.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.QQH = Convert.ToString(validateData.Value.ToString());
-                QQH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             QQH.BackColor = System.Drawing.Color.Empty;
         }
@@ -443,12 +428,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = ValidateUserStatus(UserStatus.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.UserStatus = Convert.ToString(validateData.Value.ToString());
-                UserStatus_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             UserStatus.BackColor = System.Drawing.Color.Empty;
         }
@@ -460,12 +444,11 @@ UserStatus.SelectedValue = "02";
         }
                 
         validateData = Validatevcode(vcode.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.vcode = Convert.ToString(validateData.Value.ToString());
-                vcode_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             vcode.BackColor = System.Drawing.Color.Empty;
         }
@@ -504,7 +487,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.UserID = Convert.ToString(validateData.Value.ToString());
-                UserID_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -526,7 +508,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.UserLoginName = Convert.ToString(validateData.Value.ToString());
-                UserLoginName_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -548,7 +529,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.UserGroupID = Convert.ToString(validateData.Value.ToString());
-                UserGroupID_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -570,7 +550,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.SubjectID = Convert.ToString(validateData.Value.ToString());
-                SubjectID_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -592,7 +571,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.UserNickName = Convert.ToString(validateData.Value.ToString());
-                UserNickName_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -616,7 +594,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                 if (!validateData.IsNull)
                 {
                     appData.Password = RICH.Common.SecurityManager.MD5(Convert.ToString(validateData.Value.ToString()), 32);
-                    Password_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
                 }
                 Password.BackColor = System.Drawing.Color.Empty;
             }
@@ -641,7 +618,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.XB = Convert.ToString(validateData.Value.ToString());
-                XB_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -663,7 +639,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.MZ = Convert.ToString(validateData.Value.ToString());
-                MZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -685,7 +660,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.ZZMM = Convert.ToString(validateData.Value.ToString());
-                ZZMM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -707,7 +681,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.SFZH = Convert.ToString(validateData.Value.ToString());
-                SFZH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -729,7 +702,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.SJH = Convert.ToString(validateData.Value.ToString());
-                SJH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -751,7 +723,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.BGDH = Convert.ToString(validateData.Value.ToString());
-                BGDH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -773,7 +744,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.JTDH = Convert.ToString(validateData.Value.ToString());
-                JTDH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -795,7 +765,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.Email = Convert.ToString(validateData.Value.ToString());
-                Email_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -817,7 +786,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.QQH = Convert.ToString(validateData.Value.ToString());
-                QQH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -839,7 +807,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.UserStatus = Convert.ToString(validateData.Value.ToString());
-                UserStatus_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -861,7 +828,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.vcode = Convert.ToString(validateData.Value.ToString());
-                vcode_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -1004,7 +970,7 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
         int updateCount = 0;
         try
         {
-            var appDatas = T_PM_UserInfoApplicationData.GetDataFromDataFile<T_PM_UserInfoApplicationData>(InfoFromDoc.Text, true);
+            var appDatas = T_PM_UserInfoApplicationData.GetDataFromDataFile<T_PM_UserInfoApplicationData>(InfoFromDoc.Text, true, true, recordStartLine: T_PM_UserInfoContants.ImportDataSetStartLineNum);
             T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic = (T_PM_UserInfoApplicationLogic)CreateApplicationLogicInstance(typeof(T_PM_UserInfoApplicationLogic));
             totalCount = appDatas.Count;
             foreach (var app in appDatas)
@@ -1012,18 +978,98 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
     
                 app.UserID = instanceT_PM_UserInfoApplicationLogic.AutoGenerateUserID(app);
                     
+                if(!UserLoginName.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.UserLoginName =  Convert.ToString(UserLoginName.Text);
+                }
+    
                 string strUserGroupID = GetValue(new RICH.Common.BM.T_PM_UserGroupInfo.T_PM_UserGroupInfoApplicationLogicBase().GetValueByFixCondition("UserGroupName", app.UserGroupID, "UserGroupID"));
                 if (!DataValidateManager.ValidateIsNull(strUserGroupID))app.UserGroupID = strUserGroupID;
+                if(!UserGroupID.SelectedValues.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.UserGroupID =  Convert.ToString(UserGroupID.SelectedValues);
+                }
+    
                 string strSubjectID = GetValue(new RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationLogicBase().GetValueByFixCondition("DWMC", app.SubjectID, "DWBH"));
                 if (!DataValidateManager.ValidateIsNull(strSubjectID))app.SubjectID = strSubjectID;
+                if(!SubjectID.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SubjectID =  Convert.ToString(SubjectID.SelectedValue);
+                }
+    
+                if(!UserNickName.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.UserNickName =  Convert.ToString(UserNickName.Text);
+                }
+    
+                if(!Password.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.Password =  Convert.ToString(Password.Text);
+                }
+    
                 string strXB = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.XB, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strXB))app.XB = strXB;
+                if(!XB.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.XB =  Convert.ToString(XB.SelectedValue);
+                }
+    
                 string strMZ = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.MZ, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strMZ))app.MZ = strMZ;
+                if(!MZ.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.MZ =  Convert.ToString(MZ.SelectedValue);
+                }
+    
                 string strZZMM = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.ZZMM, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strZZMM))app.ZZMM = strZZMM;
+                if(!ZZMM.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.ZZMM =  Convert.ToString(ZZMM.SelectedValue);
+                }
+    
+                if(!SFZH.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SFZH =  Convert.ToString(SFZH.Text);
+                }
+    
+                if(!SJH.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SJH =  Convert.ToString(SJH.Text);
+                }
+    
+                if(!BGDH.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.BGDH =  Convert.ToString(BGDH.Text);
+                }
+    
+                if(!JTDH.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.JTDH =  Convert.ToString(JTDH.Text);
+                }
+    
+                if(!Email.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.Email =  Convert.ToString(Email.Text);
+                }
+    
+                if(!QQH.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.QQH =  Convert.ToString(QQH.Text);
+                }
+    
                 string strUserStatus = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.UserStatus, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strUserStatus))app.UserStatus = strUserStatus;
+                if(!UserStatus.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.UserStatus =  Convert.ToString(UserStatus.SelectedValue);
+                }
+    
+                if(!vcode.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.vcode =  Convert.ToString(vcode.Text);
+                }
+    
                 instanceT_PM_UserInfoApplicationLogic.Add(app);
                 if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
                 {
@@ -1047,7 +1093,7 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
         }
     }
 
-    public void CheckPermission()
+    protected override void CheckPermission()
     {
         if (AccessPermission)
         {
@@ -1069,6 +1115,48 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
       LastLoginIP_Area.Visible = false;
       LastLoginDate_Area.Visible = false;
       LoginTimes_Area.Visible = false;
+      
+            }
+            if(ImportDSMode)
+            {
+    ObjectID_Area.Visible = false;
+      UserID_Area.Visible = false;
+      UserLoginName_Area.Visible = false;
+      UserLoginName_Area.Visible = true;
+      UserGroupID_Area.Visible = false;
+      UserGroupID_Area.Visible = true;
+      SubjectID_Area.Visible = false;
+      SubjectID_Area.Visible = true;
+      UserNickName_Area.Visible = false;
+      UserNickName_Area.Visible = true;
+      Password_Area.Visible = false;
+      Password_Area.Visible = true;
+      XB_Area.Visible = false;
+      XB_Area.Visible = true;
+      MZ_Area.Visible = false;
+      MZ_Area.Visible = true;
+      ZZMM_Area.Visible = false;
+      ZZMM_Area.Visible = true;
+      SFZH_Area.Visible = false;
+      SFZH_Area.Visible = true;
+      SJH_Area.Visible = false;
+      SJH_Area.Visible = true;
+      BGDH_Area.Visible = false;
+      BGDH_Area.Visible = true;
+      JTDH_Area.Visible = false;
+      JTDH_Area.Visible = true;
+      Email_Area.Visible = false;
+      Email_Area.Visible = true;
+      QQH_Area.Visible = false;
+      QQH_Area.Visible = true;
+      LoginTime_Area.Visible = false;
+      LastLoginIP_Area.Visible = false;
+      LastLoginDate_Area.Visible = false;
+      LoginTimes_Area.Visible = false;
+      UserStatus_Area.Visible = false;
+      UserStatus_Area.Visible = true;
+      vcode_Area.Visible = false;
+      vcode_Area.Visible = true;
       
             }
             if (ViewMode)
@@ -1100,6 +1188,42 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                 LastLoginDate.Enabled = false;
                 LoginTimes.Enabled = false;
                 
+				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				{
+                UserID_Area.Visible = false;
+				}
+				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				{
+                UserLoginName_Area.Visible = false;
+				}
+				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				{
+                UserGroupID_Area.Visible = false;
+				}
+				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				{
+                SFZH_Area.Visible = false;
+				}
+				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				{
+                LoginTime_Area.Visible = false;
+				}
+				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				{
+                LastLoginIP_Area.Visible = false;
+				}
+				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				{
+                LastLoginDate_Area.Visible = false;
+				}
+				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				{
+                LoginTimes_Area.Visible = false;
+				}
+				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				{
+                UserStatus_Area.Visible = false;
+				}
             }
         }
     }

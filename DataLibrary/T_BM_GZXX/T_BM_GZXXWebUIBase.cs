@@ -15,87 +15,22 @@ namespace RICH.Common.BM.T_BM_GZXX
     public class T_BM_GZXXWebUIBase : WebUIBase
     {
         #region 常量定义
-        /// <summary>
-        /// 数据类型
-        /// </summary>
+        public override string TableName { get { return "T_BM_GZXX"; } }
+        public override string PurviewPrefix { get { return "GZ"; } }
         public override string FilterReportType { get { return "T_BM_GZXX"; } }
-        /// <summary>
-        /// 当前页面所在文件路径
-        /// </summary>
-        public override string CURRENT_PATH { get { return "/Administrator/A_BM"; } }
-        /// <summary>
-        /// 默认的排序方式
-        /// </summary>
         protected const Boolean DEFAULT_SORT = false;
-        /// <summary>
-        /// 默认的排序字段
-        /// </summary>
         protected const string DEFAULT_SORT_FIELD = "FFGZNY";
-        /// <summary>
-        /// 每页显示记录数
-        /// </summary>
-        protected const Int32 DEFAULT_PAGE_SIZE = 50;
-        /// <summary>
-        /// 默认当前页号
-        /// </summary>
-        protected const Int32 DEFAULT_CURRENT_PAGE = 1;
-
-        #region 页面名称定义
-        /// <summary>
-        /// 编辑页面文件名
-        /// </summary>
-        public override string WEBUI_ADD_FILENAME { get { return "T_BM_GZXXWebUIAdd.aspx"; } }
-        /// <summary>
-        /// 查询页面文件名
-        /// </summary>
-        public override string WEBUI_SEARCH_FILENAME { get { return "T_BM_GZXXWebUISearch.aspx"; } }
-        /// <summary>
-        /// 详情页面文件名
-        /// </summary>
-        public override string WEBUI_DETAIL_FILENAME { get { return "T_BM_GZXXWebUIDetail.aspx"; } }
-        /// <summary>
-        /// 统计页面文件名
-        /// </summary>
-        public override string WEBUI_STATISTIC_FILENAME { get { return "T_BM_GZXXWebUIStatistic.aspx";} }
-        #endregion
 
         #region 权限编号定义
+
         /// <summary>
-        /// 添加权限
+        /// 我的工资权限
         /// </summary>
-        public override string WEBUI_ADD_ACCESS_PURVIEW_ID { get { return "GZ01";} }
-        /// <summary>
-        /// 修改权限
-        /// </summary>
-        public override string WEBUI_MODIFY_ACCESS_PURVIEW_ID { get { return "GZ02";} }
-        /// <summary>
-        /// 浏览权限
-        /// </summary>
-        public override string WEBUI_SEARCH_ACCESS_PURVIEW_ID  { get { return "GZ04";} }
-        /// <summary>
-        /// 详情权限
-        /// </summary>
-        public override string WEBUI_DETAIL_ACCESS_PURVIEW_ID  { get { return "GZ05";} }
-        /// <summary>
-        /// 统计权限
-        /// </summary>
-        public override string WEBUI_STATISTIC_ACCESS_PURVIEW_ID  { get { return "GZ06";} }
-        /// <summary>
-        /// 删除权限
-        /// </summary>
-        public override string OPERATION_DELETE_PURVIEW_ID  { get { return "GZ07";} }
-        /// <summary>
-        /// 导出权限
-        /// </summary>
-        public override string OPERATION_EXPORTALL_PURVIEW_ID { get { return "GZ08";} }
-        /// <summary>
-        /// 导入权限
-        /// </summary>
-        public override string OPERATION_IMPORT_PURVIEW_ID { get { return "GZ09";} }
-        /// <summary>
-        /// 导入数据集权限
-        /// </summary>
-        public override string OPERATION_IMPORT_DS_PURVIEW_ID { get { return "GZ10";} }
+        public string WDGZ_PURVIEW_ID { get { return "GZ51";} }
+        public string WDGZ_ADD_PURVIEW_ID { get { return "GZ51_Add";} }
+        public string WDGZ_MODIFY_PURVIEW_ID { get { return "GZ51_Modify";} }
+        public string WDGZ_DETAIL_PURVIEW_ID { get { return "GZ51_Detail";} }
+        
         #endregion
         #endregion
 
@@ -2679,7 +2614,7 @@ namespace RICH.Common.BM.T_BM_GZXX
         //=====================================================================
         //  FunctionName : ValidateJJ
         /// <summary>
-        /// 奖金数值验证方法
+        /// 取暖补贴数值验证方法
         /// </summary>
         //=====================================================================        
         protected virtual ValidateData ValidateJJ(object objValidateData, bool boolNullable, bool boolExist)
@@ -2698,7 +2633,7 @@ namespace RICH.Common.BM.T_BM_GZXX
                 validateData.Value = objValidateData;
                 validateData.Nullable = boolNullable;
                 validateData.Exist = boolExist;
-                validateData.Parameters[0] = "奖金";
+                validateData.Parameters[0] = "取暖补贴";
                 validateData.Parameters[1] = "null";
                 validateData.Parameters[2] = "null";
 
@@ -2719,12 +2654,12 @@ namespace RICH.Common.BM.T_BM_GZXX
                             if (AJAX_IsExist("JJ", validateData.Value.ToString()) == true)
                             {
                                  validateData.IsExist = true;
-                                 validateData.Message = @"奖金已存在，请再换一个。";
+                                 validateData.Message = @"取暖补贴已存在，请再换一个。";
                                  validateData.Result = false;
                             }
                             else
                             {
-                                validateData.Message = @"奖金不存在，可以使用。";
+                                validateData.Message = @"取暖补贴不存在，可以使用。";
                                 validateData.Result = true;
                             }
                         }

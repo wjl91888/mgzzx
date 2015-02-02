@@ -10,18 +10,6 @@ using RICH.Common.LM;
 
 public partial class Administrator_Login : Page
 {
-    #region 当前页面常量定义
-    /// <summary>
-    /// 当前访问页面名称
-    /// </summary>
-    private const string CURRENT_PAGE = "Login.aspx";
-
-    /// <summary>
-    /// 当前访问页面权限编号
-    /// </summary>
-    private const string CURRENT_PAGE_ACCESS_PURVIEW_ID = "";
-    #endregion
-
     #region 当前页面变量定义
     /// <summary>
     /// 输入参数HashTable

@@ -9,14 +9,6 @@
     <style type="text/css">
 
     </style>
-    <script type="text/javascript">
-        function OpenEditor() {
-       window.location='DictionaryWebUIAdd.aspx?a=e<%=AndChar%>ObjectID=<%=ObjectID.Text%>';
-        }
-        function OpenCopyEditor() {
-            window.location = 'DictionaryWebUIAdd.aspx?a=c<%=AndChar%>ObjectID=<%=ObjectID.Text%>';
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <telerik:RadScriptManager ID="rsmDictionary" runat="server">
@@ -49,7 +41,7 @@
                         <asp:Button Text="Word导入" ID="btnInfoFromDoc" runat="server" CssClass="button" OnClick="btnInfoFromDoc_Click" />
                         <asp:Button Text="批量Word导入" ID="btnInfoFromDocBatch" runat="server" CssClass="button" OnClick="btnInfoFromDocBatch_Click" Visible="false" />
                         <asp:Button Text="取消" ID="btnInfoFromDocCancel" runat="server" CssClass="button" OnClick="btnInfoFromDocCancel_Click" />
-                        <input type="button" id ="btnEditItem" runat ="server" value="修改" onclick="OpenEditor();" class="button" />
+                        <input type="button" id ="btnEditItem" runat ="server" value="修改" class="button" />
 
                         <asp:Button Text="保存" ID="btnAddConfirm" runat="server" CssClass="button" OnClientClick="return AddConfirmDialog();" OnClick="btnSave_Click" />
 

@@ -23,6 +23,7 @@ public partial class DictionaryTypeWebUISearch : RICH.Common.BM.DictionaryType.D
 
     protected override void Page_Init(object sender, EventArgs e)
     {
+        
         base.Page_Init(sender, e);
     }
     
@@ -426,6 +427,8 @@ DM.Text = GetValue(appData.DM);
       {
         appData.CurrentPage = DEFAULT_CURRENT_PAGE;
       }
+
+
       return boolReturn;                
     }
 
@@ -469,6 +472,20 @@ DM.Text = GetValue(appData.DM);
 
             sbCaption.Append("</div>");
             return sbCaption.ToString();
+    }
+    
+    protected override void CheckPermission()
+    {
+        if(AccessPermission)
+        {
+
+        }
+    }
+
+    protected override void SetCurrentAccessPermission()
+    {
+
+        base.SetCurrentAccessPermission();
     }
 }
 

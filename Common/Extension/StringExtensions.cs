@@ -393,5 +393,11 @@ namespace RICH.Common
         {
             return str ?? String.Empty;
         }
+
+        public static string PrepareConvertToNumeric(this string value)
+        {
+            return value.Replace(@"""", "").TrimIfNotNullOrWhiteSpace();
+        }
+
     }
 }

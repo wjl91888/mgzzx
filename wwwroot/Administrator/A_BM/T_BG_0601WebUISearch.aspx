@@ -188,6 +188,23 @@
                            </div>
                        </div>
   
+                       <div class="content clearboth" id="FBBM_Area" runat="server">
+                           <div class="field">
+                               <div class="fieldname">
+                                            发布部门
+                               </div>
+                           </div>
+                           <div class="fieldinput">
+                                
+                             <asp:DropDownList ID="FBBM" runat="server" CssClass="input needrefresh"></asp:DropDownList>
+                                        
+                           </div>
+                           <div class="fieldinput alignright width100per">
+                                   <asp:CheckBox ID="chkShowSubItemFBBM" runat="server" Text = "包含子（下级）" Checked="true" CssClass="needrefresh" />
+                                      
+                           </div>
+                       </div>
+  
                        <div class="content" id="XXNR_Area" runat="server">
                            <div class="field">
                                <div class="fieldname">
@@ -286,7 +303,7 @@
                         </ul>
                     </div>
                 
-                   <div class="contentshow">
+                   <div ID="chkShowFBH_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowFBH" runat="server"  CssClass="needrefresh" Text = "发布号" 
@@ -296,7 +313,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowBT_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowBT" runat="server"  CssClass="needrefresh" Text = "标题" 
@@ -306,7 +323,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowFBLM_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowFBLM" runat="server"  CssClass="needrefresh" Text = "发布栏目" 
@@ -316,7 +333,17 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowFBBM_Area" runat="server"   class="contentshow">
+                       <div class="field">
+                           <div class="fieldcheck">
+                               <asp:CheckBox ID="chkShowFBBM" runat="server"  CssClass="needrefresh" Text = "发布部门" 
+                                         Checked="true" />
+                               <asp:TextBox ID="txtFBBMColumnIndex" runat="server" Width="13" MaxLength="2" Visible = "False"></asp:TextBox>
+                           </div>
+                       </div>
+                   </div>
+                    
+                   <div ID="chkShowXXLX_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowXXLX" runat="server"  CssClass="needrefresh" Text = "信息类型" 
@@ -326,7 +353,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowIsTop_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowIsTop" runat="server"  CssClass="needrefresh" Text = "是否置顶" 
@@ -336,7 +363,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowIsBest_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowIsBest" runat="server"  CssClass="needrefresh" Text = "推荐" 
@@ -346,7 +373,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowFBRJGH_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowFBRJGH" runat="server"  CssClass="needrefresh" Text = "发布人" 
@@ -356,7 +383,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowFBSJRQ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowFBSJRQ" runat="server"  CssClass="needrefresh" Text = "发布时间" 
@@ -366,7 +393,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowFJXZDZ_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowFJXZDZ" runat="server"  CssClass="needrefresh" Text = "附件" 
@@ -376,7 +403,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowXXZT_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowXXZT" runat="server"  CssClass="needrefresh" Text = "信息状态" 
@@ -386,7 +413,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowTopSort_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowTopSort" runat="server"  CssClass="needrefresh" Text = "置顶序号" 
@@ -396,7 +423,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowFBIP_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowFBIP" runat="server"  CssClass="needrefresh" Text = "发布IP" 
@@ -439,10 +466,10 @@
                     </div>
                 </div>
                 <asp:Literal ID="MessageBox" runat="server"></asp:Literal>
-                <div class="quicksearch">
-                    <input type="button" id="btnAddItem" runat="server" value="添加" onclick="OpenWindow('T_BG_0601WebUIAdd.aspx?a=a',770,600,window);" class="button" />
+                <div id="SearchPageTopButtonBar" runat="server" class="quicksearch">
+                    <input type="button" id="btnAddItem" runat="server" value="添加" class="button" />
 
-                     <input type="button" id="btnStatisticItem" runat="server" value="统计" onclick="OpenWindow('T_BG_0601WebUIStatistic.aspx',770,600,window);" class="button" />
+                     <input type="button" id="btnStatisticItem" runat="server" value="统计" class="button" />
                      <input type="button" value="关闭" onclick="CloseWindow();" class="button displaynone" />
                      <asp:DropDownList runat="server" ID="ddlExportFileFormat">
                          <asp:ListItem Text="文件类型" Value="xls"></asp:ListItem>
@@ -539,6 +566,21 @@
                                 <ItemTemplate>
                                         
                                     <%# DataBinder.Eval(Container.DataItem, "FBLM_T_BG_0602_LMM")%>
+                                            
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                        
+                                </FooterTemplate>
+                            </asp:TemplateField>
+                           <asp:TemplateField HeaderText="发布部门" 
+                        Visible = "true">
+                                <ItemStyle CssClass="fieldinput" HorizontalAlign="Center" />
+                                <HeaderStyle CssClass="fieldname" />
+                                <FooterStyle CssClass="fieldname" />
+                        
+                                <ItemTemplate>
+                                        
+                                    <%# DataBinder.Eval(Container.DataItem, "FBBM_T_BM_DWXX_DWMC")%>
                                             
                                 </ItemTemplate>
                                 <FooterTemplate>
@@ -740,6 +782,20 @@
                                 <ItemTemplate>
                                         
                                     <%# DataBinder.Eval(Container.DataItem, "FBLM_T_BG_0602_LMM") + Convert.ToChar(38).ToString() +"nbsp;"%>
+                                        
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                        
+                                </FooterTemplate>
+                            </asp:TemplateField>
+                           <asp:TemplateField HeaderText="发布部门"
+                        Visible = "true">
+                                <ItemStyle CssClass="fieldinput" HorizontalAlign="Center" />
+                                <HeaderStyle CssClass="fieldname" />
+                                <FooterStyle CssClass="fieldname" />
+                                <ItemTemplate>
+                                        
+                                    <%# DataBinder.Eval(Container.DataItem, "FBBM_T_BM_DWXX_DWMC") + Convert.ToChar(38).ToString() +"nbsp;"%>
                                         
                                 </ItemTemplate>
                                 <FooterTemplate>

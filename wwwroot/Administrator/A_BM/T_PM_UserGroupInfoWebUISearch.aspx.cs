@@ -26,6 +26,7 @@ public partial class T_PM_UserGroupInfoWebUISearch : RICH.Common.BM.T_PM_UserGro
 
     protected override void Page_Init(object sender, EventArgs e)
     {
+        
         base.Page_Init(sender, e);
     }
     
@@ -481,6 +482,8 @@ UserGroupID.Text = GetValue(appData.UserGroupID);
       {
         appData.CurrentPage = DEFAULT_CURRENT_PAGE;
       }
+
+
       return boolReturn;                
     }
 
@@ -531,6 +534,20 @@ UserGroupID.Text = GetValue(appData.UserGroupID);
 
             sbCaption.Append("</div>");
             return sbCaption.ToString();
+    }
+    
+    protected override void CheckPermission()
+    {
+        if(AccessPermission)
+        {
+
+        }
+    }
+
+    protected override void SetCurrentAccessPermission()
+    {
+
+        base.SetCurrentAccessPermission();
     }
 }
 

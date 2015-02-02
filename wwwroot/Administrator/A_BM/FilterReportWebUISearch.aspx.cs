@@ -26,6 +26,7 @@ public partial class FilterReportWebUISearch : RICH.Common.BM.FilterReport.Filte
 
     protected override void Page_Init(object sender, EventArgs e)
     {
+        
         base.Page_Init(sender, e);
     }
     
@@ -523,6 +524,8 @@ BGMC.Text = GetValue(appData.BGMC);
       {
         appData.CurrentPage = DEFAULT_CURRENT_PAGE;
       }
+
+
       return boolReturn;                
     }
 
@@ -590,6 +593,20 @@ BGMC.Text = GetValue(appData.BGMC);
 
             sbCaption.Append("</div>");
             return sbCaption.ToString();
+    }
+    
+    protected override void CheckPermission()
+    {
+        if(AccessPermission)
+        {
+
+        }
+    }
+
+    protected override void SetCurrentAccessPermission()
+    {
+
+        base.SetCurrentAccessPermission();
     }
 }
 

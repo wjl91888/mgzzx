@@ -988,7 +988,12 @@ div.messagebox .messagebody div div
 }
 
 .leftback {
-    background:#60A3DC;
+    background:#101C18;
+    color:#ffffff;
+}
+
+.leftback a{
+    color:#ffffff;
 }
 
 .topback {

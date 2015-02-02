@@ -61,7 +61,6 @@ public partial class FilterReportWebUIAdd : RICH.Common.BM.FilterReport.FilterRe
             InitalizeCoupledDataSource();
         }
         base.Page_Load(sender, e);
-        CheckPermission();
     }
 
     //=====================================================================
@@ -162,12 +161,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         // 验证输入参数
 
         validateData = ValidateBGMC(BGMC.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.BGMC = Convert.ToString(validateData.Value.ToString());
-                BGMC_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             BGMC.BackColor = System.Drawing.Color.Empty;
         }
@@ -179,12 +177,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateBGLX(BGLX.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.BGLX = Convert.ToString(validateData.Value.ToString());
-                BGLX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             BGLX.BackColor = System.Drawing.Color.Empty;
         }
@@ -196,12 +193,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateGXBG(GXBG.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.GXBG = Convert.ToString(validateData.Value.ToString());
-                GXBG_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             GXBG.BackColor = System.Drawing.Color.Empty;
         }
@@ -213,12 +209,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateXTBG(XTBG.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.XTBG = Convert.ToString(validateData.Value.ToString());
-                XTBG_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             XTBG.BackColor = System.Drawing.Color.Empty;
         }
@@ -230,12 +225,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateBGCXTJ(BGCXTJ.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.BGCXTJ = Convert.ToString(validateData.Value.ToString());
-                BGCXTJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             BGCXTJ.BackColor = System.Drawing.Color.Empty;
         }
@@ -275,7 +269,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.BGMC = Convert.ToString(validateData.Value.ToString());
-                BGMC_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -297,7 +290,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.UserID = Convert.ToString(validateData.Value.ToString());
-                UserID_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -319,7 +311,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.BGLX = Convert.ToString(validateData.Value.ToString());
-                BGLX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -341,7 +332,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.GXBG = Convert.ToString(validateData.Value.ToString());
-                GXBG_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -363,7 +353,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.XTBG = Convert.ToString(validateData.Value.ToString());
-                XTBG_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -385,7 +374,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.BGCXTJ = Convert.ToString(validateData.Value.ToString());
-                BGCXTJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -407,7 +395,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.BGCJSJ = Convert.ToDateTime(validateData.Value.ToString());
-                BGCJSJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             BGCJSJ.BackColor = System.Drawing.Color.Empty;
         }
@@ -543,20 +530,45 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         int updateCount = 0;
         try
         {
-            var appDatas = FilterReportApplicationData.GetDataFromDataFile<FilterReportApplicationData>(InfoFromDoc.Text, true);
+            var appDatas = FilterReportApplicationData.GetDataFromDataFile<FilterReportApplicationData>(InfoFromDoc.Text, true, true, recordStartLine: FilterReportContants.ImportDataSetStartLineNum);
             FilterReportApplicationLogic instanceFilterReportApplicationLogic = (FilterReportApplicationLogic)CreateApplicationLogicInstance(typeof(FilterReportApplicationLogic));
             totalCount = appDatas.Count;
             foreach (var app in appDatas)
             {
     
-            app.UserID = (string)Session[ConstantsManager.SESSION_USER_ID];
+                if(!BGMC.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.BGMC =  Convert.ToString(BGMC.Text);
+                }
+    
+                app.UserID = (string)Session[ConstantsManager.SESSION_USER_ID];
                 string strUserID = GetValue(new RICH.Common.BM.T_PM_UserInfo.T_PM_UserInfoApplicationLogicBase().GetValueByFixCondition("UserLoginName", app.UserID, "UserID"));
                 if (!DataValidateManager.ValidateIsNull(strUserID))app.UserID = strUserID;
+                if(!BGLX.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.BGLX =  Convert.ToString(BGLX.Text);
+                }
+    
                 string strGXBG = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.GXBG, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strGXBG))app.GXBG = strGXBG;
+                if(!GXBG.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.GXBG =  Convert.ToString(GXBG.SelectedValue);
+                }
+    
                 string strXTBG = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.XTBG, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strXTBG))app.XTBG = strXTBG;
-            app.BGCJSJ = DateTime.Now;
+                if(!XTBG.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.XTBG =  Convert.ToString(XTBG.SelectedValue);
+                }
+    
+                if(!BGCXTJ.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.BGCXTJ =  Convert.ToString(BGCXTJ.Text);
+                }
+    
+                app.BGCJSJ = DateTime.Now;
                 instanceFilterReportApplicationLogic.Add(app);
                 if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
                 {
@@ -580,7 +592,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
     }
 
-    public void CheckPermission()
+    protected override void CheckPermission()
     {
         if (AccessPermission)
         {
@@ -595,6 +607,23 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             {
     ObjectID_Area.Visible = false;
       UserID_Area.Visible = false;
+      BGCJSJ_Area.Visible = false;
+      
+            }
+            if(ImportDSMode)
+            {
+    ObjectID_Area.Visible = false;
+      BGMC_Area.Visible = false;
+      BGMC_Area.Visible = true;
+      UserID_Area.Visible = false;
+      BGLX_Area.Visible = false;
+      BGLX_Area.Visible = true;
+      GXBG_Area.Visible = false;
+      GXBG_Area.Visible = true;
+      XTBG_Area.Visible = false;
+      XTBG_Area.Visible = true;
+      BGCXTJ_Area.Visible = false;
+      BGCXTJ_Area.Visible = true;
       BGCJSJ_Area.Visible = false;
       
             }

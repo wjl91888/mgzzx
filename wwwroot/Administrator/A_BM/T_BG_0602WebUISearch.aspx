@@ -216,7 +216,7 @@
                         </ul>
                     </div>
                 
-                   <div class="contentshow">
+                   <div ID="chkShowLMM_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowLMM" runat="server"  CssClass="needrefresh" Text = "栏目名" 
@@ -226,7 +226,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowSJLMH_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowSJLMH" runat="server"  CssClass="needrefresh" Text = "上级栏目" 
@@ -236,7 +236,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowLMNR_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowLMNR" runat="server"  CssClass="needrefresh" Text = "栏目显示内容" 
@@ -246,7 +246,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowLMLBYS_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowLMLBYS" runat="server"  CssClass="needrefresh" Text = "栏目列表样式" 
@@ -256,7 +256,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowLMH_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowLMH" runat="server"  CssClass="needrefresh" Text = "栏目号" 
@@ -266,7 +266,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowSFLBLM_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowSFLBLM" runat="server"  CssClass="needrefresh" Text = "列表内容栏目" 
@@ -276,7 +276,7 @@
                        </div>
                    </div>
                     
-                   <div class="contentshow">
+                   <div ID="chkShowSFWBURL_Area" runat="server"   class="contentshow">
                        <div class="field">
                            <div class="fieldcheck">
                                <asp:CheckBox ID="chkShowSFWBURL" runat="server"  CssClass="needrefresh" Text = "外部栏目" 
@@ -319,10 +319,10 @@
                     </div>
                 </div>
                 <asp:Literal ID="MessageBox" runat="server"></asp:Literal>
-                <div class="quicksearch">
-                    <input type="button" id="btnAddItem" runat="server" value="添加" onclick="OpenWindow('T_BG_0602WebUIAdd.aspx?a=a',770,600,window);" class="button" />
+                <div id="SearchPageTopButtonBar" runat="server" class="quicksearch">
+                    <input type="button" id="btnAddItem" runat="server" value="添加" class="button" />
 
-                     <input type="button" id="btnStatisticItem" runat="server" value="统计" onclick="OpenWindow('T_BG_0602WebUIStatistic.aspx',770,600,window);" class="button" />
+                     <input type="button" id="btnStatisticItem" runat="server" value="统计" class="button" />
                      <input type="button" value="关闭" onclick="CloseWindow();" class="button displaynone" />
                      <asp:DropDownList runat="server" ID="ddlExportFileFormat">
                          <asp:ListItem Text="文件类型" Value="xls"></asp:ListItem>

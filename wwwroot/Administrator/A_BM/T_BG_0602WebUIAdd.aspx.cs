@@ -61,7 +61,6 @@ public partial class T_BG_0602WebUIAdd : RICH.Common.BM.T_BG_0602.T_BG_0602WebUI
             InitalizeCoupledDataSource();
         }
         base.Page_Load(sender, e);
-        CheckPermission();
     }
 
     //=====================================================================
@@ -177,12 +176,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         // 验证输入参数
 
         validateData = ValidateLMM(LMM.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.LMM = Convert.ToString(validateData.Value.ToString());
-                LMM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             LMM.BackColor = System.Drawing.Color.Empty;
         }
@@ -194,12 +192,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateSJLMH(SJLMH.SelectedValue, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SJLMH = Convert.ToString(validateData.Value.ToString());
-                SJLMH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SJLMH.BackColor = System.Drawing.Color.Empty;
         }
@@ -211,12 +208,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateLMTP(LMTP.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.LMTP = Convert.ToString(validateData.Value.ToString());
-                LMTP_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             LMTP.BackColor = System.Drawing.Color.Empty;
         }
@@ -228,12 +224,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateLMNR(LMNR.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.LMNR = Convert.ToString(validateData.Value.ToString());
-                LMNR_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             LMNR.BackColor = System.Drawing.Color.Empty;
         }
@@ -245,12 +240,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateLMLBYS(LMLBYS.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.LMLBYS = Convert.ToString(validateData.Value.ToString());
-                LMLBYS_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             LMLBYS.BackColor = System.Drawing.Color.Empty;
         }
@@ -262,12 +256,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateSFLBLM(SFLBLM.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SFLBLM = Convert.ToString(validateData.Value.ToString());
-                SFLBLM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SFLBLM.BackColor = System.Drawing.Color.Empty;
         }
@@ -279,12 +272,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateSFWBURL(SFWBURL.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SFWBURL = Convert.ToString(validateData.Value.ToString());
-                SFWBURL_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SFWBURL.BackColor = System.Drawing.Color.Empty;
         }
@@ -296,12 +288,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateWBURL(WBURL.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.WBURL = Convert.ToString(validateData.Value.ToString());
-                WBURL_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             WBURL.BackColor = System.Drawing.Color.Empty;
         }
@@ -340,7 +331,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.LMH = Convert.ToString(validateData.Value.ToString());
-                LMH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -362,7 +352,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.LMM = Convert.ToString(validateData.Value.ToString());
-                LMM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -384,7 +373,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.SJLMH = Convert.ToString(validateData.Value.ToString());
-                SJLMH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -406,7 +394,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.LMTP = Convert.ToString(validateData.Value.ToString());
-                LMTP_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -428,7 +415,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.LMNR = Convert.ToString(validateData.Value.ToString());
-                LMNR_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -450,7 +436,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.LMLBYS = Convert.ToString(validateData.Value.ToString());
-                LMLBYS_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -472,7 +457,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.SFLBLM = Convert.ToString(validateData.Value.ToString());
-                SFLBLM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -494,7 +478,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.SFWBURL = Convert.ToString(validateData.Value.ToString());
-                SFWBURL_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -516,7 +499,6 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.WBURL = Convert.ToString(validateData.Value.ToString());
-                WBURL_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -659,7 +641,7 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
         int updateCount = 0;
         try
         {
-            var appDatas = T_BG_0602ApplicationData.GetDataFromDataFile<T_BG_0602ApplicationData>(InfoFromDoc.Text, true);
+            var appDatas = T_BG_0602ApplicationData.GetDataFromDataFile<T_BG_0602ApplicationData>(InfoFromDoc.Text, true, true, recordStartLine: T_BG_0602Contants.ImportDataSetStartLineNum);
             T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic = (T_BG_0602ApplicationLogic)CreateApplicationLogicInstance(typeof(T_BG_0602ApplicationLogic));
             totalCount = appDatas.Count;
             foreach (var app in appDatas)
@@ -667,14 +649,54 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
     
                 app.LMH = instanceT_BG_0602ApplicationLogic.AutoGenerateLMH(app);
                     
+                if(!LMM.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.LMM =  Convert.ToString(LMM.Text);
+                }
+    
                 string strSJLMH = GetValue(new RICH.Common.BM.T_BG_0602.T_BG_0602ApplicationLogicBase().GetValueByFixCondition("LMM", app.SJLMH, "LMH"));
                 if (!DataValidateManager.ValidateIsNull(strSJLMH))app.SJLMH = strSJLMH;
+                if(!SJLMH.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SJLMH =  Convert.ToString(SJLMH.SelectedValue);
+                }
+    
+                if(!LMTP.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.LMTP =  Convert.ToString(LMTP.Text);
+                }
+    
+                if(!LMNR.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.LMNR =  Convert.ToString(LMNR.Text);
+                }
+    
                 string strLMLBYS = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.LMLBYS, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strLMLBYS))app.LMLBYS = strLMLBYS;
+                if(!LMLBYS.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.LMLBYS =  Convert.ToString(LMLBYS.SelectedValue);
+                }
+    
                 string strSFLBLM = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.SFLBLM, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strSFLBLM))app.SFLBLM = strSFLBLM;
+                if(!SFLBLM.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SFLBLM =  Convert.ToString(SFLBLM.SelectedValue);
+                }
+    
                 string strSFWBURL = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.SFWBURL, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strSFWBURL))app.SFWBURL = strSFWBURL;
+                if(!SFWBURL.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SFWBURL =  Convert.ToString(SFWBURL.SelectedValue);
+                }
+    
+                if(!WBURL.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.WBURL =  Convert.ToString(WBURL.Text);
+                }
+    
                 instanceT_BG_0602ApplicationLogic.Add(app);
                 if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
                 {
@@ -698,7 +720,7 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
         }
     }
 
-    public void CheckPermission()
+    protected override void CheckPermission()
     {
         if (AccessPermission)
         {
@@ -711,6 +733,28 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
             {
     ObjectID_Area.Visible = false;
       LMH_Area.Visible = false;
+      
+            }
+            if(ImportDSMode)
+            {
+    ObjectID_Area.Visible = false;
+      LMH_Area.Visible = false;
+      LMM_Area.Visible = false;
+      LMM_Area.Visible = true;
+      SJLMH_Area.Visible = false;
+      SJLMH_Area.Visible = true;
+      LMTP_Area.Visible = false;
+      LMTP_Area.Visible = true;
+      LMNR_Area.Visible = false;
+      LMNR_Area.Visible = true;
+      LMLBYS_Area.Visible = false;
+      LMLBYS_Area.Visible = true;
+      SFLBLM_Area.Visible = false;
+      SFLBLM_Area.Visible = true;
+      SFWBURL_Area.Visible = false;
+      SFWBURL_Area.Visible = true;
+      WBURL_Area.Visible = false;
+      WBURL_Area.Visible = true;
       
             }
             if (ViewMode)

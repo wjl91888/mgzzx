@@ -15,87 +15,22 @@ namespace RICH.Common.BM.T_BG_0601
     public class T_BG_0601WebUIBase : WebUIBase
     {
         #region 常量定义
-        /// <summary>
-        /// 数据类型
-        /// </summary>
+        public override string TableName { get { return "T_BG_0601"; } }
+        public override string PurviewPrefix { get { return "BG0601"; } }
         public override string FilterReportType { get { return "T_BG_0601"; } }
-        /// <summary>
-        /// 当前页面所在文件路径
-        /// </summary>
-        public override string CURRENT_PATH { get { return "/Administrator/A_BM"; } }
-        /// <summary>
-        /// 默认的排序方式
-        /// </summary>
         protected const Boolean DEFAULT_SORT = false;
-        /// <summary>
-        /// 默认的排序字段
-        /// </summary>
         protected const string DEFAULT_SORT_FIELD = "FBH";
-        /// <summary>
-        /// 每页显示记录数
-        /// </summary>
-        protected const Int32 DEFAULT_PAGE_SIZE = 50;
-        /// <summary>
-        /// 默认当前页号
-        /// </summary>
-        protected const Int32 DEFAULT_CURRENT_PAGE = 1;
-
-        #region 页面名称定义
-        /// <summary>
-        /// 编辑页面文件名
-        /// </summary>
-        public override string WEBUI_ADD_FILENAME { get { return "T_BG_0601WebUIAdd.aspx"; } }
-        /// <summary>
-        /// 查询页面文件名
-        /// </summary>
-        public override string WEBUI_SEARCH_FILENAME { get { return "T_BG_0601WebUISearch.aspx"; } }
-        /// <summary>
-        /// 详情页面文件名
-        /// </summary>
-        public override string WEBUI_DETAIL_FILENAME { get { return "T_BG_0601WebUIDetail.aspx"; } }
-        /// <summary>
-        /// 统计页面文件名
-        /// </summary>
-        public override string WEBUI_STATISTIC_FILENAME { get { return "T_BG_0601WebUIStatistic.aspx";} }
-        #endregion
 
         #region 权限编号定义
+
         /// <summary>
-        /// 添加权限
+        /// 我发布的信息权限
         /// </summary>
-        public override string WEBUI_ADD_ACCESS_PURVIEW_ID { get { return "BG060101";} }
-        /// <summary>
-        /// 修改权限
-        /// </summary>
-        public override string WEBUI_MODIFY_ACCESS_PURVIEW_ID { get { return "BG060102";} }
-        /// <summary>
-        /// 浏览权限
-        /// </summary>
-        public override string WEBUI_SEARCH_ACCESS_PURVIEW_ID  { get { return "BG060104";} }
-        /// <summary>
-        /// 详情权限
-        /// </summary>
-        public override string WEBUI_DETAIL_ACCESS_PURVIEW_ID  { get { return "BG060105";} }
-        /// <summary>
-        /// 统计权限
-        /// </summary>
-        public override string WEBUI_STATISTIC_ACCESS_PURVIEW_ID  { get { return "BG060106";} }
-        /// <summary>
-        /// 删除权限
-        /// </summary>
-        public override string OPERATION_DELETE_PURVIEW_ID  { get { return "BG060107";} }
-        /// <summary>
-        /// 导出权限
-        /// </summary>
-        public override string OPERATION_EXPORTALL_PURVIEW_ID { get { return "BG060108";} }
-        /// <summary>
-        /// 导入权限
-        /// </summary>
-        public override string OPERATION_IMPORT_PURVIEW_ID { get { return "BG060109";} }
-        /// <summary>
-        /// 导入数据集权限
-        /// </summary>
-        public override string OPERATION_IMPORT_DS_PURVIEW_ID { get { return "BG060110";} }
+        public string WFBD_PURVIEW_ID { get { return "BG060151";} }
+        public string WFBD_ADD_PURVIEW_ID { get { return "BG060151_Add";} }
+        public string WFBD_MODIFY_PURVIEW_ID { get { return "BG060151_Modify";} }
+        public string WFBD_DETAIL_PURVIEW_ID { get { return "BG060151_Detail";} }
+        
         #endregion
         #endregion
 
@@ -529,6 +464,153 @@ namespace RICH.Common.BM.T_BG_0601
                 {
                     sbReturn.Append(",");
                     sbReturn.Append(drTemp["LMH"]);
+                }
+            }
+            return sbReturn.ToString();
+        }
+        
+        //=====================================================================
+        //  FunctionName : GetTree_FBBM
+        /// <summary>
+        /// 根据指定条件取得发布部门(FBBM)数据源
+        /// </summary>
+        //=====================================================================
+        protected  virtual void GetTree_FBBM(
+            string strFieldName, string strFieldValue, bool boolIsTreeStyle,
+            string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
+            )
+        {
+            string strDM = "DWBH";
+            string strMC = "DWMC";
+            RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationData 
+                T_BM_DWXXAppData = new RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationData();
+            T_BM_DWXXAppData.PageSize = 1000;
+            T_BM_DWXXAppData.CurrentPage = 1;
+            T_BM_DWXXAppData.Sort = true;
+            T_BM_DWXXAppData.SortField = strDM;
+            if (!(!(boolIsTreeStyle == true) || !(T_BM_DWXXAppData.ValidateColumnName(strParentName) == true)))
+            {
+                Type typeRef = typeof(RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationData);
+                typeRef.GetProperty(strParentName).SetValue(T_BM_DWXXAppData, strParent, null);
+            }
+            if (T_BM_DWXXAppData.ValidateColumnName(strFieldName) == true)
+            {
+                Type typeRef = typeof(RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationData);
+                typeRef.GetProperty(strFieldName).SetValue(T_BM_DWXXAppData, strFieldValue, null);
+            }
+            
+            RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationLogic
+                T_BM_DWXXAL = (RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationLogic)CreateApplicationLogicInstance(typeof(RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationLogic));
+            T_BM_DWXXAL.Query(T_BM_DWXXAppData);
+            
+            if (!(!(boolIsTreeStyle == true)
+                || !(T_BM_DWXXAppData.ValidateColumnName(strParentName) == true) 
+                || !(T_BM_DWXXAppData.ResultSet.Tables[0].Rows.Count > 0))
+                )
+            {
+                foreach (DataRow drChild in T_BM_DWXXAppData.ResultSet.Tables[0].Rows)
+                {
+                    if ((string)drChild[strDM] != strParent)
+                    {
+                        if (intLevel == 0)
+                        {
+                            if (DataValidateManager.ValidateIsNull(drChild[strParentName]) == true
+                                || (string)drChild[strParentName] == strParent)
+                            {
+                                dsReturn.Tables[0].Rows.Add(drChild[strDM], displayTextIncludeCode ? drChild[strMC] + "[" + drChild[strDM] + "]" : drChild[strMC]);
+                                GetTree_FBBM(strFieldName, strFieldValue, boolIsTreeStyle, strParentName, (string)drChild[strDM], ref dsReturn, intLevel + 1, isDisplayExistItem);
+                            }
+                            else if(T_BM_DWXXAppData.ValidateColumnName(strFieldName) == true)
+                            {
+                                if ((string)drChild[strFieldName] == strFieldValue)
+                                {
+                                    dsReturn.Tables[0].Rows.Add(drChild[strDM], displayTextIncludeCode ? drChild[strMC] + "[" + drChild[strDM] + "]" : drChild[strMC]);
+                                    GetTree_FBBM(strFieldName, strFieldValue, boolIsTreeStyle, strParentName, (string)drChild[strDM], ref dsReturn, intLevel + 1, isDisplayExistItem);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            drChild[strMC] = "└" + drChild[strMC];
+                            for (int i = 0; intLevel > i; i++)
+                            {
+                                drChild[strMC] = "　" + drChild[strMC];
+                            }
+                            dsReturn.Tables[0].Rows.Add(drChild[strDM], displayTextIncludeCode ? drChild[strMC] + "[" + drChild[strDM] + "]" : drChild[strMC]);
+                            GetTree_FBBM(strFieldName, strFieldValue, boolIsTreeStyle, strParentName, (string)drChild[strDM], ref dsReturn, intLevel + 1, isDisplayExistItem);
+                        }
+                    }
+                    else
+                    {
+                        dsReturn.Tables[0].Rows.Add(drChild[strDM], displayTextIncludeCode ? drChild[strMC] + "[" + drChild[strDM] + "]" : drChild[strMC]);
+                    }
+                }
+            }
+            else if (boolIsTreeStyle == false
+                || T_BM_DWXXAppData.ValidateColumnName(strParentName) == false)
+            {
+                // dsReturn = T_BM_DWXXAppData.ResultSet;
+                foreach (DataRow drChild in T_BM_DWXXAppData.ResultSet.Tables[0].Rows)
+                {
+                    dsReturn.Tables[0].Rows.Add(drChild[strDM], displayTextIncludeCode ? drChild[strMC] + "[" + drChild[strDM] + "]" : drChild[strMC]);
+                }
+            }
+        }
+
+        //=====================================================================
+        //  FunctionName : GetDataSource_FBBM
+        /// <summary>
+        /// 取得发布部门(FBBM)数据源
+        /// </summary>
+        //=====================================================================
+        protected virtual object GetDataSource_FBBM(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_BM_DWXX");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWBH");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWMC");
+            GetTree_FBBM("null", "null", true, "SJDWBH", null, ref dsReturn, 0, isDisplayExistItem, displayTextIncludeCode);
+            return dsReturn;
+        }
+
+        //=====================================================================
+        //  FunctionName : GetDataSource_FBBM_AdvanceSearch
+        /// <summary>
+        /// 取得发布部门(FBBM)数据源
+        /// </summary>
+        //=====================================================================
+        protected virtual object GetDataSource_FBBM_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_BM_DWXX");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWBH");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWMC");
+            GetTree_FBBM("null", "null", true, "SJDWBH", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return dsReturn;
+        }
+
+        
+        //=====================================================================
+        //  FunctionName : GetSubItem_FBBM
+        /// <summary>
+        /// 取得发布部门(FBBM)指定条件的子项目信息
+        /// </summary>
+        //=====================================================================
+        protected virtual String GetSubItem_FBBM(String strSJDWBH, bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
+        {
+            System.Text.StringBuilder sbReturn = new System.Text.StringBuilder(string.Empty);
+            sbReturn.Append("No Search Item!");
+            DataSet dsTemp = new DataSet();
+            dsTemp.Tables.Add("T_BM_DWXX");
+            dsTemp.Tables["T_BM_DWXX"].Columns.Add("DWBH");
+            dsTemp.Tables["T_BM_DWXX"].Columns.Add("DWMC");
+            GetTree_FBBM("null", "null", true, "SJDWBH", strSJDWBH, ref dsTemp, 0, isDisplayExistItem, displayTextIncludeCode);
+            if (dsTemp.Tables.Count>0)
+            {
+                foreach (DataRow drTemp in dsTemp.Tables[0].Rows)
+                {
+                    sbReturn.Append(",");
+                    sbReturn.Append(drTemp["DWBH"]);
                 }
             }
             return sbReturn.ToString();
@@ -1210,6 +1292,10 @@ namespace RICH.Common.BM.T_BG_0601
                         appData.FBLM = Convert.ToString(strFieldValue);
                         break;
             
+                    case "FBBM":
+                        appData.FBBM = Convert.ToString(strFieldValue);
+                        break;
+            
                     case "XXLX":
                         appData.XXLX = Convert.ToString(strFieldValue);
                         break;
@@ -1309,6 +1395,10 @@ namespace RICH.Common.BM.T_BG_0601
                         appData.FBLM = Convert.ToString(strFieldValue);
                         break;
             
+                    case "FBBM":
+                        appData.FBBM = Convert.ToString(strFieldValue);
+                        break;
+            
                     case "XXLX":
                         appData.XXLX = Convert.ToString(strFieldValue);
                         break;
@@ -1406,6 +1496,10 @@ namespace RICH.Common.BM.T_BG_0601
             
                     case "FBLM":
                         appData.FBLM = Convert.ToString(strFieldValue);
+                        break;
+            
+                    case "FBBM":
+                        appData.FBBM = Convert.ToString(strFieldValue);
                         break;
             
                     case "XXLX":
@@ -1552,6 +1646,10 @@ namespace RICH.Common.BM.T_BG_0601
             
                     case "FBLM":
                         appData.FBLM = Convert.ToString(strFieldValue);
+                        break;
+            
+                    case "FBBM":
+                        appData.FBBM = Convert.ToString(strFieldValue);
                         break;
             
                     case "XXLX":
@@ -2128,6 +2226,81 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
         
+        //=====================================================================
+        //  FunctionName : ValidateFBBM
+        /// <summary>
+        /// 发布部门数值验证方法
+        /// </summary>
+        //=====================================================================        
+        protected virtual ValidateData ValidateFBBM(object objValidateData, bool boolNullable, bool boolExist)
+        {
+            ValidateData validateData = new ValidateData();
+            try
+            {
+                // 初始化参数
+                validateData.Result = true;
+                validateData.Message = string.Empty;
+                validateData.Parameters = new string[5];
+                validateData.IsNull = false;
+                validateData.IsExist = false;
+                
+                // 传入参数赋值
+                validateData.Value = objValidateData;
+                validateData.Nullable = boolNullable;
+                validateData.Exist = boolExist;
+                validateData.Parameters[0] = "发布部门";
+                validateData.Parameters[1] = "1";
+                validateData.Parameters[2] = "50";
+
+                // 空验证
+                if (DataValidateManager.ValidateIsNull(validateData.Value) == false)
+                {
+                    // 数值格式验证
+                    if (DataValidateManager.ValidateStringLengthRange(validateData.Value, 1, 50) == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0004, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                    else
+                    {
+                        // 数据存在验证
+                        if (validateData.Exist == true)
+                        {
+                            if (AJAX_IsExist("FBBM", validateData.Value.ToString()) == true)
+                            {
+                                 validateData.IsExist = true;
+                                 validateData.Message = @"发布部门已存在，请再换一个。";
+                                 validateData.Result = false;
+                            }
+                            else
+                            {
+                                validateData.Message = @"发布部门不存在，可以使用。";
+                                validateData.Result = true;
+                            }
+                        }
+                        else
+                        {
+                            validateData.Result = true;
+                        }
+                    }
+                }
+                else
+                {
+                    validateData.IsNull = true;
+                    if (validateData.Nullable == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0002, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                validateData.Result = false;
+            }
+            return validateData;
+        }
+    
         //=====================================================================
         //  FunctionName : ValidateFBZT
         /// <summary>

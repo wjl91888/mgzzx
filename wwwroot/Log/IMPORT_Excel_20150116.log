@@ -1,0 +1,36 @@
+文件'/Media/OtherFile/2015/01/16/20150116154603416.xls'数据获取失败，时间：1/16/2015 15:47:50，请检查数据格式。
+详细错误信息：Cannot find column 21.
+
+文件'/Media/OtherFile/2015/01/16/20150116154902859.xls'数据获取失败，时间：1/16/2015 15:50:43，请检查数据格式。
+详细错误信息：Cannot find column 21.
+
+文件'/Media/OtherFile/2015/01/16/20150116155534638.xls'数据获取失败，时间：1/16/2015 15:55:40，请检查数据格式。
+详细错误信息：Index was outside the bounds of the array.
+
+文件'/Media/OtherFile/2015/01/16/20150116155631824.xls'数据获取失败，时间：1/16/2015 16:16:21，请检查数据格式。
+详细错误信息：Index was outside the bounds of the array.
+
+文件'/Media/OtherFile/2015/01/16/20150116171343667.csv'数据获取失败，时间：1/16/2015 17:13:48，请检查数据格式。
+详细错误信息：Index was outside the bounds of the array.
+
+文件'/Media/OtherFile/2015/01/16/20150116171343667.csv'数据获取失败，时间：1/16/2015 17:13:51，请检查数据格式。
+详细错误信息：Index was outside the bounds of the array.
+
+文件'/Media/OtherFile/2015/01/16/20150116174418808.xls'数据获取失败，时间：1/16/2015 17:44:25，请检查数据格式。
+详细错误信息：Unable to cast object of type 'System.Collections.ArrayList' to type 'System.String[]'.
+
+文件'/Media/OtherFile/2015/01/16/20150116175019383.xls'数据获取失败，时间：1/16/2015 17:52:08，请检查数据格式。
+详细错误信息：Unable to cast object of type 'System.Collections.ArrayList' to type 'System.String[]'.
+
+文件'/Media/OtherFile/2015/01/16/20150116180745670.xls'数据获取失败，时间：1/16/2015 18:08:21，请检查数据格式。
+详细错误信息：Unable to cast object of type 'System.Text.StringBuilder' to type 'System.String'.
+
+文件'/Media/OtherFile/2015/01/16/20150116180831829.xls'数据获取失败，时间：1/16/2015 18:09:44，请检查数据格式。
+详细错误信息：Unable to cast object of type 'System.Text.StringBuilder' to type 'System.String'.
+
+文件'/Media/OtherFile/2015/01/16/20150116212908013.xls'数据获取失败，时间：1/16/2015 21:32:58，请检查数据格式。
+详细错误信息：需导入的文件无数据，请重新选择。
+
+文件'/Media/OtherFile/2015/01/16/20150116213837431.xls'数据获取失败，时间：1/16/2015 21:42:32，请检查数据格式。
+详细错误信息：Object reference not set to an instance of an object.
+

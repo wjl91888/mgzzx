@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Web.UI;
 using RICH.Common;
+using RICH.Common.BM.T_PM_PurviewInfo;
 using RICH.Common.BM.T_PM_UserInfo;
+using RICH.Common.PM;
 
 namespace RICH.Common.Base.WebUI
 {
@@ -85,18 +87,71 @@ namespace RICH.Common.Base.WebUI
                 return false;
             }
         }
+        public string CustomPermission
+        {
+            get
+            {
+                if (!DataValidateManager.ValidateIsNull(Request.QueryString["p"]))
+                {
+                    return Request.QueryString["p"];
+                }
+                return string.Empty;
+            }
+        }
+
+        private bool? detailAccessPermission = null;
+        public bool DetailAccessPermission 
+        {
+            get
+            {
+                if (detailAccessPermission == null)
+                {
+                    detailAccessPermission = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIDetailAccessPurviewID());
+                }
+                return (bool) detailAccessPermission;
+            }
+        }
+
+        private bool? modifyAccessPermission = null;
+        public bool ModifyAccessPermission
+        {
+            get
+            {
+                if (modifyAccessPermission == null)
+                {
+                    modifyAccessPermission = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIModifyAccessPurviewID());
+                }
+                return (bool)modifyAccessPermission;
+            }
+        }
         public bool AccessPermission { get; set; }
+        public string CurrentAccessPermission { get; set; }
         public bool DetailPage { get; set; }
-        private string objectID;
+        private string pageHeaderTitle = null;
+        public string PageHeaderTitle
+        {
+            get
+            {
+                if (pageHeaderTitle.IsHtmlNullOrWiteSpace())
+                {
+                    var app = RICH.Common.BM.T_PM_PurviewInfo.T_PM_PurviewInfoBusinessEntity.GetDataByKey(new T_PM_PurviewInfoApplicationData() { PurviewID = GetWebUISearchAccessPurviewID() });
+                    if (app != null)
+                    {
+                        pageHeaderTitle = app.PurviewName;
+                    }
+                }
+                return pageHeaderTitle;
+            }
+        }
         public string ObjectID
         {
             get
             {
                 if (DataValidateManager.ValidateUniqueIdentifierFormat(Request.QueryString["ObjectID"]))
                 {
-                    objectID = Request.QueryString["ObjectID"];
+                    return Request.QueryString["ObjectID"];
                 }
-                return objectID;
+                return string.Empty;
             }
         }
         public T_PM_UserInfoApplicationData CurrentUserInfo
@@ -110,14 +165,11 @@ namespace RICH.Common.Base.WebUI
                         // 未登录处理
                         Response.Redirect(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + "/Administrator/Login.aspx");
                     }
-                    currentUserInfo = new T_PM_UserInfoApplicationData()
+                    currentUserInfo = T_PM_UserInfoBusinessEntity.GetDataByKey(new T_PM_UserInfoApplicationData()
                     {
                         UserID = (string)Session[ConstantsManager.SESSION_USER_ID],
-                        UserGroupID = (string)Session[ConstantsManager.SESSION_USER_GROUP_ID],
-                        UserLoginName = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME],
-                        UserNickName = (string)Session[ConstantsManager.SESSION_USER_NICK_NAME],
-                        SubjectID = (string)Session[ConstantsManager.SESSION_SSDW_ID]
-                    };
+                    });
+                    
                 }
                 return currentUserInfo;
             }

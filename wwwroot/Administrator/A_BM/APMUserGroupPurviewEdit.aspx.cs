@@ -58,73 +58,17 @@ public partial class Administrator_A_PM_APMUserGroupPurviewEdit : WebUIBase
     /// </summary>
     private string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
     #endregion
+    public override string TableName
+    {
+        get { return null; }
+    }
+
+    public override string PurviewPrefix
+    {
+        get { return null; }
+    }
 
     public override string FilterReportType
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_ADD_FILENAME
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_SEARCH_FILENAME
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_DETAIL_FILENAME
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_STATISTIC_FILENAME
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_ADD_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_MODIFY_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_SEARCH_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_DETAIL_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_STATISTIC_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string OPERATION_DELETE_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string OPERATION_EXPORTALL_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string OPERATION_IMPORT_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string OPERATION_IMPORT_DS_PURVIEW_ID
     {
         get { return null; }
     }
@@ -135,7 +79,7 @@ public partial class Administrator_A_PM_APMUserGroupPurviewEdit : WebUIBase
         {
             //»ù±¾SESSION¸³Öµ
             Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + CURRENT_PAGE;
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = CURRENT_PAGE_ACCESS_PURVIEW_ID;
+            CurrentAccessPermission = CURRENT_PAGE_ACCESS_PURVIEW_ID;
 
             if (Request.QueryString["UserGroupID"] != null
                 && Request.QueryString["UserGroupID"] != ""

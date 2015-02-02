@@ -61,7 +61,6 @@ public partial class DictionaryWebUIAdd : RICH.Common.BM.Dictionary.DictionaryWe
             InitalizeCoupledDataSource();
         }
         base.Page_Load(sender, e);
-        CheckPermission();
     }
 
     //=====================================================================
@@ -167,12 +166,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         // 验证输入参数
 
         validateData = ValidateDM(DM.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.DM = Convert.ToString(validateData.Value.ToString());
-                DM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DM.BackColor = System.Drawing.Color.Empty;
         }
@@ -184,12 +182,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateLX(LX.SelectedValue, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.LX = Convert.ToString(validateData.Value.ToString());
-                LX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             LX.BackColor = System.Drawing.Color.Empty;
         }
@@ -201,12 +198,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateMC(MC.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.MC = Convert.ToString(validateData.Value.ToString());
-                MC_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             MC.BackColor = System.Drawing.Color.Empty;
         }
@@ -218,12 +214,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateSJDM(SJDM.SelectedValue, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SJDM = Convert.ToString(validateData.Value.ToString());
-                SJDM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SJDM.BackColor = System.Drawing.Color.Empty;
         }
@@ -235,12 +230,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateSM(SM.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SM = Convert.ToString(validateData.Value.ToString());
-                SM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SM.BackColor = System.Drawing.Color.Empty;
         }
@@ -276,7 +270,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.DM = Convert.ToString(validateData.Value.ToString());
-                DM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -298,7 +291,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.LX = Convert.ToString(validateData.Value.ToString());
-                LX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -320,7 +312,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.MC = Convert.ToString(validateData.Value.ToString());
-                MC_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -342,7 +333,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.SJDM = Convert.ToString(validateData.Value.ToString());
-                SJDM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -364,7 +354,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.SM = Convert.ToString(validateData.Value.ToString());
-                SM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -550,16 +539,41 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         int updateCount = 0;
         try
         {
-            var appDatas = DictionaryApplicationData.GetDataFromDataFile<DictionaryApplicationData>(InfoFromDoc.Text, true);
+            var appDatas = DictionaryApplicationData.GetDataFromDataFile<DictionaryApplicationData>(InfoFromDoc.Text, true, true, recordStartLine: DictionaryContants.ImportDataSetStartLineNum);
             DictionaryApplicationLogic instanceDictionaryApplicationLogic = (DictionaryApplicationLogic)CreateApplicationLogicInstance(typeof(DictionaryApplicationLogic));
             totalCount = appDatas.Count;
             foreach (var app in appDatas)
             {
     
+                if(!DM.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.DM =  Convert.ToString(DM.Text);
+                }
+    
                 string strLX = GetValue(new RICH.Common.BM.DictionaryType.DictionaryTypeApplicationLogicBase().GetValueByFixCondition("MC", app.LX, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strLX))app.LX = strLX;
+                if(!LX.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.LX =  Convert.ToString(LX.SelectedValue);
+                }
+    
+                if(!MC.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.MC =  Convert.ToString(MC.Text);
+                }
+    
                 string strSJDM = GetValue(new RICH.Common.BM.Dictionary.DictionaryApplicationLogicBase().GetValueByFixCondition("MC", app.SJDM, "DM"));
                 if (!DataValidateManager.ValidateIsNull(strSJDM))app.SJDM = strSJDM;
+                if(!SJDM.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SJDM =  Convert.ToString(SJDM.SelectedValue);
+                }
+    
+                if(!SM.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SM =  Convert.ToString(SM.Text);
+                }
+    
                 instanceDictionaryApplicationLogic.Add(app);
                 if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
                 {
@@ -583,7 +597,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
     }
 
-    public void CheckPermission()
+    protected override void CheckPermission()
     {
         if (AccessPermission)
         {
@@ -597,6 +611,21 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             else if(AddMode || CopyMode)
             {
     ObjectID_Area.Visible = false;
+      
+            }
+            if(ImportDSMode)
+            {
+    ObjectID_Area.Visible = false;
+      DM_Area.Visible = false;
+      DM_Area.Visible = true;
+      LX_Area.Visible = false;
+      LX_Area.Visible = true;
+      MC_Area.Visible = false;
+      MC_Area.Visible = true;
+      SJDM_Area.Visible = false;
+      SJDM_Area.Visible = true;
+      SM_Area.Visible = false;
+      SM_Area.Visible = true;
       
             }
             if (ViewMode)

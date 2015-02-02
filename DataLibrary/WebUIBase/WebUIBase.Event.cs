@@ -16,9 +16,9 @@ namespace RICH.Common.Base.WebUI
         {
             if (CurrentPageFileName.Equals(WEBUI_SEARCH_FILENAME, StringComparison.OrdinalIgnoreCase))
             {
-                // 基本SESSION赋值
                 Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
-                Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_SEARCH_ACCESS_PURVIEW_ID;
+                CurrentAccessPermission = GetWebUISearchAccessPurviewID();
+                SetCurrentAccessPermission();
                 MessageContent = string.Empty;
                 if (IsPostBack)
                 {
@@ -27,7 +27,7 @@ namespace RICH.Common.Base.WebUI
                         switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
                         {
                             case "remove":
-                                Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_DELETE_PURVIEW_ID;
+                                CurrentAccessPermission = GetOperationDeletePurviewID();
                                 break;
                             default:
                                 break;
@@ -35,7 +35,7 @@ namespace RICH.Common.Base.WebUI
                     }
                     else if (string.Equals(Request.Params["__EVENTTARGET"], "ctl00$MainContentPlaceHolder$btnExportAllToFile", StringComparison.OrdinalIgnoreCase))
                     {
-                        Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_EXPORTALL_PURVIEW_ID;
+                        CurrentAccessPermission = OPERATION_EXPORTALL_PURVIEW_ID;
                     }
                 }
             }
@@ -44,30 +44,42 @@ namespace RICH.Common.Base.WebUI
                 Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_ADD_FILENAME;
                 if (EditMode)
                 {
-                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_MODIFY_ACCESS_PURVIEW_ID;
+                    CurrentAccessPermission = GetWebUIModifyAccessPurviewID();
                 }
                 else if (ViewMode)
                 {
-                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_DETAIL_ACCESS_PURVIEW_ID;
+                    CurrentAccessPermission = GetWebUIDetailAccessPurviewID();
                 }
                 else if (AddMode)
                 {
-                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_ADD_ACCESS_PURVIEW_ID;
+                    CurrentAccessPermission = GetWebUIAddAccessPurviewID();
                 }
                 else if (ImportDocMode)
                 {
-                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_IMPORT_PURVIEW_ID;
+                    CurrentAccessPermission = OPERATION_IMPORT_PURVIEW_ID;
                 }
                 else if (ImportDSMode)
                 {
-                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = OPERATION_IMPORT_DS_PURVIEW_ID;
+                    CurrentAccessPermission = OPERATION_IMPORT_DS_PURVIEW_ID;
                 }
                 else
                 {
-                    Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = NO_ACCESS_PURVIEW_ID;
+                    CurrentAccessPermission = NO_ACCESS_PURVIEW_ID;
                 }
                 MessageContent = string.Empty;
             }
+            else if (CurrentPageFileName.Equals(WEBUI_DETAIL_FILENAME, StringComparison.OrdinalIgnoreCase)
+                || CurrentPageFileName.Equals(WEBUI_IMAGE_FILENAME, StringComparison.OrdinalIgnoreCase))
+            {
+                Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_DETAIL_FILENAME;
+                CurrentAccessPermission = GetWebUIDetailAccessPurviewID();
+            }
+            else if (CurrentPageFileName.Equals(WEBUI_STATISTIC_FILENAME, StringComparison.OrdinalIgnoreCase))
+            {
+                Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_STATISTIC_FILENAME;
+                CurrentAccessPermission = WEBUI_STATISTIC_ACCESS_PURVIEW_ID;
+            }
+
             if (NeedLogin)
             {
                 if (!ValidateUserIsLogined())
@@ -78,13 +90,13 @@ namespace RICH.Common.Base.WebUI
                     Response.Redirect(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + "/Administrator/Login.aspx");
                 }
                 //权限验证
-                if (!DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_CURRENT_PURVIEW]))
+                if (!DataValidateManager.ValidateIsNull(CurrentAccessPermission))
                 {
                     AccessPermission = ValidateUserPagePurview();
                     if (!AccessPermission)
                     {
                         //记录日志
-                        string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0004, new string[] { (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], (string)Session[ConstantsManager.SESSION_CURRENT_PURVIEW] });
+                        string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0004, new string[] { (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], (string)CurrentAccessPermission });
                         LogLibrary.LogWrite("A03", strLogContent, null, null, null);
 
                         //对权限验证错误消息进行处理
@@ -126,6 +138,7 @@ namespace RICH.Common.Base.WebUI
                         MessageContent = string.Empty;
                     }
                 }
+                CheckPermission();
                 if (!IsPostBack)
                 {
                     ProcessUIControlsStatus();
@@ -289,7 +302,14 @@ namespace RICH.Common.Base.WebUI
                 }
                 e.Row.Attributes.Add("onmouseover", "overColor(this);");
                 e.Row.Attributes.Add("onmouseout", "outColor(this);");
-                e.Row.Attributes.Add("ondblclick", "OpenWindow('{0}?ObjectID={1}{2}a=v',770,600,window);return false;".FormatInvariantCulture(DetailPage ? WEBUI_DETAIL_FILENAME : WEBUI_ADD_FILENAME, strObjectID, AndChar));
+                if (DetailAccessPermission)
+                {
+                    e.Row.Attributes.Add("ondblclick", "OpenWindow('{0}',770,600,window);return false;".FormatInvariantCulture(DetailPage ? GetDetailPageUrl(strObjectID) : GetViewPageUrl(strObjectID)));
+                }
+                else if (ModifyAccessPermission)
+                {
+                    e.Row.Attributes.Add("ondblclick", "OpenWindow('{0}',770,600,window);return false;".FormatInvariantCulture(GetEditPageUrl(strObjectID)));
+                }
             }
         }
 

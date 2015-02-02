@@ -12,7 +12,33 @@ namespace RICH.Common.Base.WebUI
 {
     public partial class WebUIBase
     {
+        public virtual string CURRENT_PATH { get { return "/Administrator/A_BM"; } }
+
+        #region 页面名称定义
+        public virtual string WEBUI_ADD_FILENAME { get { return "{0}WebUIAdd.aspx".FormatInvariantCulture(TableName); } }
+        public virtual string WEBUI_SEARCH_FILENAME { get { return "{0}WebUISearch.aspx".FormatInvariantCulture(TableName); } }
+        public virtual string WEBUI_DETAIL_FILENAME { get { return "{0}WebUIDetail.aspx".FormatInvariantCulture(TableName); } }
+        public virtual string WEBUI_IMAGE_FILENAME { get { return "{0}WebUIImage.aspx".FormatInvariantCulture(TableName); } }
+        public virtual string WEBUI_STATISTIC_FILENAME { get { return "{0}WebUIStatistic.aspx".FormatInvariantCulture(TableName); } }
+        #endregion
+
+        #region 权限编号定义
+        public virtual string WEBUI_ADD_ACCESS_PURVIEW_ID { get { return "{0}01".FormatInvariantCulture(PurviewPrefix); } }
+        public virtual string WEBUI_MODIFY_ACCESS_PURVIEW_ID { get { return "{0}02".FormatInvariantCulture(PurviewPrefix); } }
+        public virtual string WEBUI_SEARCH_ACCESS_PURVIEW_ID { get { return "{0}04".FormatInvariantCulture(PurviewPrefix); } }
+        public virtual string WEBUI_DETAIL_ACCESS_PURVIEW_ID { get { return "{0}05".FormatInvariantCulture(PurviewPrefix); } }
+        public virtual string WEBUI_STATISTIC_ACCESS_PURVIEW_ID { get { return "{0}06".FormatInvariantCulture(PurviewPrefix); } }
+        public virtual string OPERATION_DELETE_PURVIEW_ID { get { return "{0}07".FormatInvariantCulture(PurviewPrefix); } }
+        public virtual string OPERATION_EXPORTALL_PURVIEW_ID { get { return "{0}08".FormatInvariantCulture(PurviewPrefix); } }
+        public virtual string OPERATION_IMPORT_PURVIEW_ID { get { return "{0}09".FormatInvariantCulture(PurviewPrefix); } }
+        public virtual string OPERATION_IMPORT_DS_PURVIEW_ID { get { return "{0}10".FormatInvariantCulture(PurviewPrefix); } }
+        #endregion
+
         protected virtual void ExportToFile() { }
+        
+        protected virtual void SetCurrentAccessPermission() { }
+
+        protected virtual void CheckPermission() { }
 
         protected virtual void ProcessUIControlsInit()
         {
@@ -27,25 +53,41 @@ namespace RICH.Common.Base.WebUI
                 {
                     txtObjectIDItem.Text = ObjectID;
                 }
-                var btnAddItem = MainContentPlaceHolder.FindControl("btnAddItem");
+                var btnAddItem = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnAddItem");
                 if (btnAddItem != null)
                 {
-                    btnAddItem.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, WEBUI_ADD_ACCESS_PURVIEW_ID);
+                    btnAddItem.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIAddAccessPurviewID());
+                    btnAddItem.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetAddPageUrl()));
                 }
-                var btnEditItem = MainContentPlaceHolder.FindControl("btnEditItem");
+                var btnEditItem = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnEditItem");
                 if (btnEditItem != null)
                 {
-                    btnEditItem.Visible = !EditMode && !AddMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, WEBUI_MODIFY_ACCESS_PURVIEW_ID);
+                    btnEditItem.Visible = !EditMode && !AddMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIModifyAccessPurviewID());
+                    btnEditItem.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetEditPageUrl(ObjectID)));
                 }
-                var btnStatisticItem = MainContentPlaceHolder.FindControl("btnStatisticItem");
+                var btnCopyItem = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnCopyItem");
+                var btnImportFromDoc = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnImportFromDoc");
+                if (btnImportFromDoc != null)
+                {
+                    btnImportFromDoc.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_PURVIEW_ID);
+                    btnImportFromDoc.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetImportDocPageUrl()));
+                }
+                var btnImportFromDataSet = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnImportFromDataSet");
+                if (btnImportFromDataSet != null)
+                {
+                    btnImportFromDataSet.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_DS_PURVIEW_ID);
+                    btnImportFromDataSet.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetImportDocPageUrl()));
+                }
+                var btnStatisticItem = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnStatisticItem");
                 if (btnStatisticItem != null)
                 {
                     btnStatisticItem.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, WEBUI_STATISTIC_ACCESS_PURVIEW_ID);
+                    btnStatisticItem.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetStatisicPageUrl()));
                 }
                 if (MainContentPlaceHolder.FindControl("ddlOperation") != null)
                 {
                     DropDownList ddlOperation = (DropDownList)MainContentPlaceHolder.FindControl("ddlOperation");
-                    var deletePurview = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_DELETE_PURVIEW_ID);
+                    var deletePurview = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetOperationDeletePurviewID());
                     if (!deletePurview)
                     {
                         var item = ddlOperation.Items.FindByValue("remove");
@@ -70,16 +112,6 @@ namespace RICH.Common.Base.WebUI
                         }
                     }
                 }
-                var btnImportFromDoc = MainContentPlaceHolder.FindControl("btnImportFromDoc");
-                if (btnImportFromDoc != null)
-                {
-                    btnImportFromDoc.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_PURVIEW_ID);
-                }
-                var btnImportFromDataSet = MainContentPlaceHolder.FindControl("btnImportFromDataSet");
-                if (btnImportFromDataSet != null)
-                {
-                    btnImportFromDataSet.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_DS_PURVIEW_ID);
-                }
                 var btnExportAllToFile = MainContentPlaceHolder.FindControl("btnExportAllToFile");
                 var ddlExportFileFormat = MainContentPlaceHolder.FindControl("ddlExportFileFormat");
                 if (btnExportAllToFile != null)
@@ -90,6 +122,7 @@ namespace RICH.Common.Base.WebUI
                 {
                     ddlExportFileFormat.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_EXPORTALL_PURVIEW_ID);
                 }
+                #region add page
                 if (CurrentPageFileName.Equals(WEBUI_ADD_FILENAME, StringComparison.OrdinalIgnoreCase))
                 {
                     var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
@@ -99,7 +132,6 @@ namespace RICH.Common.Base.WebUI
                     var btnInfoFromDocCancel = MainContentPlaceHolder.FindControl("btnInfoFromDocCancel");
                     var btnInfoFromDS = MainContentPlaceHolder.FindControl("btnInfoFromDS");
                     var InfoFromDoc = MainContentPlaceHolder.FindControl("InfoFromDoc") as TextBox;
-                    var btnCopyItem = MainContentPlaceHolder.FindControl("btnCopyItem");
                     var btnAddConfirm = MainContentPlaceHolder.FindControl("btnAddConfirm");
                     if (ImportDocMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_PURVIEW_ID))
                     {
@@ -146,10 +178,10 @@ namespace RICH.Common.Base.WebUI
                     }
                     else if (ImportDSMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_DS_PURVIEW_ID))
                     {
-                        if (ControlContainer != null)
-                        {
-                            ControlContainer.Visible = false;
-                        }
+                        //if (ControlContainer != null)
+                        //{
+                        //    ControlContainer.Visible = false;
+                        //}
                         if (ImportControlContainer != null)
                         {
                             ImportControlContainer.Visible = AccessPermission;
@@ -193,21 +225,23 @@ namespace RICH.Common.Base.WebUI
                     }
                     else
                     {
-                        if (ControlContainer != null)
+                        if (btnEditItem != null)
                         {
-                            ControlContainer.Visible = AccessPermission;
+                            btnEditItem.Visible = btnEditItem.Visible && AccessPermission;
+                            btnEditItem.Attributes.Add("onclick", "window.location='{0}';".FormatInvariantCulture(GetEditPageUrl(ObjectID)));
                         }
                         if (btnCopyItem != null)
                         {
                             btnCopyItem.Visible = ViewMode && AccessPermission;
+                            btnCopyItem.Attributes.Add("onclick", "window.location='{0}';".FormatInvariantCulture(GetCopyPageUrl(ObjectID)));
+                        }
+                        if (ControlContainer != null)
+                        {
+                            ControlContainer.Visible = AccessPermission;
                         }
                         if (btnAddConfirm != null)
                         {
                             btnAddConfirm.Visible = (CopyMode || AddMode || EditMode) && AccessPermission;
-                        }
-                        if (btnEditItem != null)
-                        {
-                            btnEditItem.Visible = ViewMode && AccessPermission;
                         }
                         if (ImportControlContainer != null)
                         {
@@ -231,6 +265,68 @@ namespace RICH.Common.Base.WebUI
                         }
                     }
                 }
+                #endregion add page
+
+                #region search page
+                if (CurrentPageFileName.Equals(WEBUI_SEARCH_FILENAME, StringComparison.OrdinalIgnoreCase))
+                {
+                    if (!AccessPermission)
+                    {
+                        var divtree = MainContentPlaceHolder.FindControl("divtree");
+                        if (divtree != null)
+                        {
+                            divtree.Visible = false;
+                        }
+                        var advancesearchpage = MainContentPlaceHolder.FindControl("advancesearchpage");
+                        if (advancesearchpage != null)
+                        {
+                            advancesearchpage.Visible = false;
+                        }
+                        var SearchPageTopButtonBar = MainContentPlaceHolder.FindControl("SearchPageTopButtonBar");
+                        if (SearchPageTopButtonBar != null)
+                        {
+                            SearchPageTopButtonBar.Visible = false;
+                        }
+                        var SearchPageTopToolBar = MainContentPlaceHolder.FindControl("SearchPageTopToolBar");
+                        if (SearchPageTopToolBar != null)
+                        {
+                            SearchPageTopToolBar.Visible = false;
+                        }
+                        var ListControl = MainContentPlaceHolder.FindControl("ListControl");
+                        if (ListControl != null)
+                        {
+                            ListControl.Visible = false;
+                        }
+                    }
+                }
+                #endregion search page
+
+                #region detail page
+                if (CurrentPageFileName.Equals(WEBUI_DETAIL_FILENAME, StringComparison.OrdinalIgnoreCase))
+                {
+                    if (btnEditItem != null)
+                    {
+                        btnEditItem.Visible = btnEditItem.Visible && AccessPermission;
+                        btnEditItem.Attributes.Add("onclick", "window.location='{0}';".FormatInvariantCulture(GetEditPageUrl(ObjectID)));
+                    }
+                    if (btnCopyItem != null)
+                    {
+                        btnCopyItem.Visible = AccessPermission;
+                        btnCopyItem.Attributes.Add("onclick", "window.location='{0}';".FormatInvariantCulture(GetCopyPageUrl(ObjectID)));
+                    }
+                    var ControlContainer = MainContentPlaceHolder.FindControl("ControlContainer");
+                    if (ControlContainer != null)
+                    {
+                        ControlContainer.Visible = AccessPermission;
+                    }
+                    var btnPrintPage = MainContentPlaceHolder.FindControl("btnPrintPage");
+                    if (btnPrintPage != null)
+                    {
+                        btnPrintPage.Visible = AccessPermission;
+                    }
+                }
+                #endregion detail page
+
             }
         }
 
@@ -242,14 +338,10 @@ namespace RICH.Common.Base.WebUI
                 // && DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_SSDW_ID]) == false
                 && DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_USER_LOGIN_NAME]) == false)
             {
-                currentUserInfo = new T_PM_UserInfoApplicationData()
+                currentUserInfo = T_PM_UserInfoBusinessEntity.GetDataByKey(new T_PM_UserInfoApplicationData()
                 {
                     UserID = (string)Session[ConstantsManager.SESSION_USER_ID],
-                    UserGroupID = (string)Session[ConstantsManager.SESSION_USER_GROUP_ID],
-                    UserLoginName = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME],
-                    UserNickName = (string)Session[ConstantsManager.SESSION_USER_NICK_NAME],
-                    SubjectID = (string)Session[ConstantsManager.SESSION_SSDW_ID]
-                };
+                });
                 return true;
             }
             if (DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_USER_ID]) == false
@@ -263,14 +355,10 @@ namespace RICH.Common.Base.WebUI
                 Session[ConstantsManager.SESSION_USER_LOGIN_NAME] = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_USER_LOGIN_NAME].Value.ToString());
                 Session[ConstantsManager.SESSION_SSDW_ID] = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_SSDW_ID].Value.ToString());
                 Session[ConstantsManager.SESSION_USER_NICK_NAME] = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_USER_NICK_NAME].Value.ToString());
-                currentUserInfo = new T_PM_UserInfoApplicationData()
+                currentUserInfo = T_PM_UserInfoBusinessEntity.GetDataByKey(new T_PM_UserInfoApplicationData()
                 {
                     UserID = (string)Session[ConstantsManager.SESSION_USER_ID],
-                    UserGroupID = (string)Session[ConstantsManager.SESSION_USER_GROUP_ID],
-                    UserLoginName = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME],
-                    UserNickName = (string)Session[ConstantsManager.SESSION_USER_NICK_NAME],
-                    SubjectID = (string)Session[ConstantsManager.SESSION_SSDW_ID]
-                };
+                });
                 //记录日志开始
                 string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0001, new string[] { currentUserInfo.UserLoginName });
                 LogLibrary.LogWrite("A01", strLogContent, null, null, null);
@@ -285,9 +373,9 @@ namespace RICH.Common.Base.WebUI
         {
             htInputParameter = new Hashtable();
             htInputParameter.Add(ConstantsManager.MESSAGE_ID, "");
-            htInputParameter.Add("UserID", Session[ConstantsManager.SESSION_USER_ID]);
-            htInputParameter.Add("UserGroupID", Session[ConstantsManager.SESSION_USER_GROUP_ID]);
-            htInputParameter.Add("PurviewID", Session[ConstantsManager.SESSION_CURRENT_PURVIEW]);
+            htInputParameter.Add("UserID", CurrentUserInfo.UserID);
+            htInputParameter.Add("UserGroupID", CurrentUserInfo.UserGroupID);
+            htInputParameter.Add("PurviewID", CurrentAccessPermission);
             htOutputParameter = SystemValidateLibrary.ValidateUserPurview(htInputParameter);
             if (htOutputParameter[ConstantsManager.MESSAGE_ID] != DBNull.Value)
             {

@@ -13,14 +13,6 @@
     .print .fieldinput{padding-left:1px;padding-top:3px;padding-bottom:3px;border-right:1px black solid;border-bottom:1px black solid;border-top:0px black solid;border-left:0px black solid;background-color:white;text-align:center; height:25px; line-height:18px;}
     .prln { page-break-before: always; page-break-after: always;}
     </style>
-    <script type="text/javascript">
-        function OpenEditor() {
-            window.location='T_BM_GZXXWebUIAdd.aspx?a=e<%=AndChar%>ObjectID=<%=base.ObjectID%>';
-        }
-        function OpenCopyEditor() {
-            window.location = 'T_BM_GZXXWebUIAdd.aspx?a=c<%=AndChar%>ObjectID=<%=base.ObjectID%>';
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
         <center>
@@ -45,13 +37,13 @@
                     左边距<asp:TextBox ID="txtMarginLeft" runat="server" Width="20" Text="50" Visible="false"></asp:TextBox>
                     <br />
                         </div>
-                    <input type="button" id ="btnEditItem" runat ="server" value="修改" onclick="OpenEditor();" class="button" />
+                    <input type="button" id ="btnEditItem" runat ="server" value="修改" class="button" />
 
-                    <input type="button" value="打印本页" onclick="nonprintarea.style.display = 'none'; window.print();nonprintarea.style.display = 'block';" class="button" />
+                    <input id="btnPrintPage" runat="server" type="button" value="打印本页" onclick="nonprintarea.style.display = 'none'; window.print();nonprintarea.style.display = 'block';" class="button" />
                     <input type="button" value="关闭窗口" onclick="CloseWindow();" class="button" />
                         </div>
                     </div>
-                    <div class="print">
+                    <div ID="ControlContainer" runat="server" class="print">
                         <asp:GridView ID="gvPrint" runat="server" AutoGenerateColumns="False" CellSpacing="0" CellPadding="0" HorizontalAlign="Center" BorderWidth="0" onrowdatabound="gvPrint_RowDataBound">
                             <Columns>
                                 <asp:TemplateField>

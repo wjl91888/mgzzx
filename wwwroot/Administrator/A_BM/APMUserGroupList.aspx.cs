@@ -11,14 +11,6 @@ public partial class Administrator_A_PM_APMUserGroupList : WebUIBase
 {
     #region 当前页面常量定义
     /// <summary>
-    /// 当前页面所在路径
-    /// </summary>
-    public override string CURRENT_PATH
-    {
-        get { return "Administrator/A_BM"; }
-    }
-
-    /// <summary>
     /// 当前访问页面名称
     /// </summary>
     private const string CURRENT_PAGE = "APMUserGroupList.aspx";
@@ -79,73 +71,17 @@ public partial class Administrator_A_PM_APMUserGroupList : WebUIBase
     private string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
     #endregion
 
+    public override string TableName
+    {
+        get { return null; }
+    }
+
+    public override string PurviewPrefix
+    {
+        get { return null; }
+    }
+
     public override string FilterReportType
-    {
-        get { return null; }
-    }
-
-
-    public override string WEBUI_ADD_FILENAME
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_SEARCH_FILENAME
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_DETAIL_FILENAME
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_STATISTIC_FILENAME
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_ADD_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_MODIFY_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_SEARCH_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_DETAIL_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string WEBUI_STATISTIC_ACCESS_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string OPERATION_DELETE_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string OPERATION_EXPORTALL_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string OPERATION_IMPORT_PURVIEW_ID
-    {
-        get { return null; }
-    }
-
-    public override string OPERATION_IMPORT_DS_PURVIEW_ID
     {
         get { return null; }
     }
@@ -156,7 +92,7 @@ public partial class Administrator_A_PM_APMUserGroupList : WebUIBase
         {
             //基本SESSION赋值
             Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + CURRENT_PAGE;
-            Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = CURRENT_PAGE_ACCESS_PURVIEW_ID;
+            CurrentAccessPermission = CURRENT_PAGE_ACCESS_PURVIEW_ID;
             ViewState["CurrentPage"] = 1;
             QueryRecordInfo();
             ViewState["RecordCount"] = intRecordCount;

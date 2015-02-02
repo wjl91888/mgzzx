@@ -18,9 +18,6 @@ public partial class T_BG_0602WebUIDetail : RICH.Common.BM.T_BG_0602.T_BG_0602We
 {
     protected override void Page_Init(object sender, EventArgs e)
     {
-        // »ù±¾SESSION¸³Öµ
-        Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_DETAIL_FILENAME;
-        Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_SEARCH_ACCESS_PURVIEW_ID;
         base.Page_Init(sender, e);
     }
 

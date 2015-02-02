@@ -8,7 +8,7 @@ namespace RICH.Common.DB
 {
     public static class DataTableExtension
     {
-
+        private const string ReplaceStringInNumber = @"""";
         public static Byte[] ReadBytesNullable(this DataRow dr, string name)
         {
             if (!dr.ContainsColumn(name))
@@ -23,7 +23,7 @@ namespace RICH.Common.DB
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? valueIfNull : Int64.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? valueIfNull : Int64.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static long ReadBigInt(this DataRow dr, string name)
@@ -31,14 +31,14 @@ namespace RICH.Common.DB
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
             dr.ValidateNullValue(ordinal, name);
-            return Int64.Parse(ordinal.ToString());
+            return Int64.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static SqlInt64 ReadSqlInt64(this DataRow dr, string name)
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? SqlInt64.Null : Int64.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? SqlInt64.Null : Int64.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static long? ReadBigIntNullable(this DataRow dr, string name)
@@ -48,14 +48,14 @@ namespace RICH.Common.DB
                 return null;
             }
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? null : (long?)Int64.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? null : (long?)Int64.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static int ReadInt32(this DataRow dr, string name, int valueIfNull)
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? valueIfNull : Int32.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? valueIfNull : Int32.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static int ReadInt32(this DataRow dr, string name)
@@ -63,14 +63,14 @@ namespace RICH.Common.DB
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
             dr.ValidateNullValue(ordinal, name);
-            return Int32.Parse(ordinal.ToString());
+            return Int32.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static SqlInt32 ReadSqlInt32(this DataRow dr, string name)
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? SqlInt32.Null : Int32.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? SqlInt32.Null : Int32.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static int? ReadInt32Nullable(this DataRow dr, string name)
@@ -80,14 +80,14 @@ namespace RICH.Common.DB
                 return null;
             }
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? null : (int?)Int32.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? null : (int?)Int32.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static Int16 ReadInt16(this DataRow dr, string name, Int16 valueIfNull)
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? valueIfNull : Int16.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? valueIfNull : Int16.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static Int16? ReadInt16Nullable(this DataRow dr, string name)
@@ -97,7 +97,7 @@ namespace RICH.Common.DB
                 return null;
             }
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? null : (Int16?)Int16.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? null : (Int16?)Int16.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static Int16 ReadInt16(this DataRow dr, string name)
@@ -112,7 +112,7 @@ namespace RICH.Common.DB
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? SqlInt16.Null : Int16.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? SqlInt16.Null : Int16.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static float ReadFloat(this DataRow dr, string name)
@@ -127,7 +127,7 @@ namespace RICH.Common.DB
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? SqlSingle.Null : float.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? SqlSingle.Null : float.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static float? ReadFloatNullable(this DataRow dr, string name)
@@ -137,14 +137,14 @@ namespace RICH.Common.DB
                 return null;
             }
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? null : (float?)float.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? null : (float?)float.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static float ReadFolat(this DataRow dr, string name, float valueIfNull)
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? valueIfNull : float.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? valueIfNull : float.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
 
@@ -152,7 +152,7 @@ namespace RICH.Common.DB
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? valueIfNull : decimal.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? valueIfNull : decimal.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static decimal? ReadDecimalNullable(this DataRow dr, string name)
@@ -162,7 +162,7 @@ namespace RICH.Common.DB
                 return null;
             }
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? null : (decimal?)decimal.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? null : (decimal?)decimal.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static decimal ReadDecimal(this DataRow dr, string name)
@@ -170,14 +170,14 @@ namespace RICH.Common.DB
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
             dr.ValidateNullValue(ordinal, name);
-            return decimal.Parse(ordinal.ToString());
+            return decimal.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static SqlDecimal ReadSqlDecimal(this DataRow dr, string name)
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? SqlDecimal.Null : decimal.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? SqlDecimal.Null : decimal.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static DateTime ReadDateTime(this DataRow dr, string name, DateTime valueIfNull)
@@ -331,7 +331,7 @@ namespace RICH.Common.DB
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? valueIfNull : double.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? valueIfNull : double.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static double ReadDouble(this DataRow dr, string name)
@@ -339,14 +339,14 @@ namespace RICH.Common.DB
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
             dr.ValidateNullValue(ordinal, name);
-            return double.Parse(ordinal.ToString());
+            return double.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static SqlDouble ReadSqlDouble(this DataRow dr, string name)
         {
             dr.ValidateColumnExistance(name);
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? SqlDouble.Null : double.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? SqlDouble.Null : double.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static double? ReadDoubleNullable(this DataRow dr, string name)
@@ -356,7 +356,7 @@ namespace RICH.Common.DB
                 return null;
             }
             var ordinal = dr[name];
-            return dr.IsDBNull(ordinal) ? null : (double?)double.Parse(ordinal.ToString());
+            return dr.IsDBNull(ordinal) ? null : (double?)double.Parse(ordinal.ToString().PrepareConvertToNumeric());
         }
 
         public static object ReadValue(this DataRow dr, string name)

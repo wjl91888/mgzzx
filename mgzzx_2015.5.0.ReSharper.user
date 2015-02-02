@@ -10,52 +10,52 @@
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
       <Item value="using" priority="0" />
-      <Item value="string" priority="11" />
-      <Item value="break" priority="2" />
+      <Item value="string" priority="23" />
+      <Item value="break" priority="3" />
       <Item value="true" priority="5" />
-      <Item value="public" priority="9" />
+      <Item value="public" priority="13" />
       <Item value="value" priority="2" />
-      <Item value="return" priority="9" />
-      <Item value="if" priority="11" />
-      <Item value="null" priority="2" />
+      <Item value="return" priority="16" />
+      <Item value="if" priority="18" />
+      <Item value="null" priority="3" />
       <Item value="void" priority="3" />
       <Item value="TreeView" priority="4" />
-      <Item value="foreach" priority="7" />
-      <Item value="for" priority="1" />
-      <Item value="node" priority="4" />
+      <Item value="foreach" priority="10" />
+      <Item value="for" priority="6" />
+      <Item value="node" priority="7" />
       <Item value="TEST" priority="0" />
       <Item value="protected" priority="1" />
       <Item value="ComboTreeView" priority="2" />
       <Item value="RICH" priority="0" />
-      <Item value="Common" priority="0" />
-      <Item value="BM" priority="0" />
+      <Item value="Common" priority="1" />
+      <Item value="BM" priority="1" />
       <Item value="T_PM_UserInfo" priority="0" />
-      <Item value="T_PM_UserInfoBusinessEntity`0" priority="0" />
+      <Item value="T_PM_UserInfoBusinessEntity`0" priority="1" />
       <Item value="IEnumerable" priority="0" />
       <Item value="DB" priority="0" />
       <Item value="DbHelper`0" priority="0" />
-      <Item value="int" priority="3" />
+      <Item value="int" priority="5" />
       <Item value="AutoExpandLevel" priority="0" />
-      <Item value="private" priority="0" />
+      <Item value="private" priority="1" />
       <Item value="level" priority="0" />
-      <Item value="else" priority="4" />
+      <Item value="else" priority="5" />
       <Item value="nodes" priority="0" />
       <Item value="autoExpandLevel" priority="1" />
-      <Item value="const" priority="0" />
+      <Item value="const" priority="1" />
       <Item value="bool" priority="1" />
-      <Item value="false" priority="1" />
+      <Item value="false" priority="3" />
       <Item value="TextBox`0" priority="0" />
-      <Item value="ViewMode" priority="0" />
-      <Item value="EditMode" priority="0" />
+      <Item value="ViewMode" priority="1" />
+      <Item value="EditMode" priority="1" />
       <Item value="Decimal`0" priority="0" />
       <Item value="Type`0" priority="1" />
       <Item value="objValue" priority="0" />
       <Item value="OrdinalIgnoreCase" priority="0" />
       <Item value="abstract" priority="1" />
-      <Item value="var" priority="3" />
+      <Item value="var" priority="4" />
       <Item value="tablename" priority="0" />
       <Item value="ds" priority="1" />
-      <Item value="new" priority="9" />
+      <Item value="new" priority="10" />
       <Item value="DataTable" priority="6" />
       <Item value="static" priority="1" />
       <Item value="DataTable`0" priority="0" />
@@ -64,7 +64,7 @@
       <Item value="T_BM_GZXXApplicationData" priority="0" />
       <Item value="collection" priority="0" />
       <Item value="dr" priority="0" />
-      <Item value="object" priority="0" />
+      <Item value="object" priority="1" />
       <Item value="ordinal" priority="0" />
       <Item value="try" priority="0" />
       <Item value="decimal" priority="0" />
@@ -102,15 +102,55 @@
       <Item value="dt" priority="0" />
       <Item value="default" priority="0" />
       <Item value="FileLibrary`0" priority="0" />
-      <Item value="as" priority="1" />
+      <Item value="as" priority="4" />
       <Item value="WEBUI_ADD_FILENAME" priority="0" />
       <Item value="virtual" priority="0" />
       <Item value="WEBUI_DETAIL_FILENAME" priority="0" />
+      <Item value="CopyMode" priority="0" />
+      <Item value="AddMode" priority="0" />
+      <Item value="char" priority="0" />
+      <Item value="Length" priority="0" />
+      <Item value="sr" priority="0" />
+      <Item value="data" priority="1" />
+      <Item value="i" priority="0" />
+      <Item value="arrayList" priority="0" />
+      <Item value="returnValue" priority="0" />
+      <Item value="src" priority="0" />
+      <Item value="ArrayList`0" priority="0" />
+      <Item value="split" priority="0" />
+      <Item value="Telerik" priority="0" />
+      <Item value="T`0" priority="0" />
+      <Item value="Result" priority="1" />
+      <Item value="namespace" priority="0" />
+      <Item value="partial" priority="0" />
+      <Item value="WebUI" priority="0" />
+      <Item value="readonly" priority="0" />
+      <Item value="CurrentAccessPermission" priority="0" />
+      <Item value="CurrentUserInfo" priority="1" />
+      <Item value="TableName" priority="0" />
+      <Item value="CustomPermission" priority="0" />
+      <Item value="objectID" priority="0" />
+      <Item value="btnAddItem" priority="0" />
+      <Item value="Button`0" priority="1" />
+      <Item value="Object`0" priority="0" />
+      <Item value="HtmlButton`0" priority="0" />
+      <Item value="T_PM_PurviewInfo" priority="0" />
+      <Item value="T_PM_PurviewInfoBusinessEntity`0" priority="0" />
+      <Item value="GetWebUISearchAccessPurviewID`0" priority="0" />
+      <Item value="T_PM_PurviewInfoApplicationData" priority="0" />
+      <Item value="PurviewID" priority="0" />
+      <Item value="rtvMenu" priority="4" />
+      <Item value="DropDownNodeBinding`0" priority="1" />
+      <Item value="RadTreeNode`0" priority="0" />
+      <Item value="sender" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.String">
-      <Item value="FormatInvariantCulture`0" priority="6" />
-      <Item value="IsHtmlNullOrWiteSpace`0" priority="5" />
+      <Item value="FormatInvariantCulture`0" priority="9" />
+      <Item value="IsHtmlNullOrWiteSpace`0" priority="8" />
       <Item value="Equals`0" priority="0" />
+      <Item value="Replace`0" priority="2" />
+      <Item value="IsNullOrWhiteSpace`0" priority="0" />
+      <Item value="TrimIfNotNullOrWhiteSpace`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Web.UI.HtmlControls.HtmlGenericControl">
       <Item value="Visible" priority="0" />
@@ -122,7 +162,11 @@
       <Item value="ClientID" priority="0" />
       <Item value="OnClientNodeChecked" priority="0" />
       <Item value="ExpandAllNodes`0" priority="0" />
-      <Item value="Nodes" priority="2" />
+      <Item value="Nodes" priority="4" />
+      <Item value="DataSource" priority="0" />
+      <Item value="DataTextField" priority="1" />
+      <Item value="DataValueField" priority="0" />
+      <Item value="DataNavigateUrlField" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Telerik.Web.UI.RadTreeNode">
       <Item value="Value" priority="0" />
@@ -132,6 +176,7 @@
       <Item value="ExpandMode" priority="0" />
       <Item value="Expanded" priority="1" />
       <Item value="Nodes" priority="0" />
+      <Item value="NavigateUrl" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ASP.control_combotreeviewcontrol_ascx">
       <Item value="DataFieldID" priority="0" />
@@ -143,7 +188,7 @@
       <Item value="OnClientSelectedIndexChanged" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.String">
-      <Item value="Empty" priority="2" />
+      <Item value="Empty" priority="6" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Microsoft.Practices.EnterpriseLibrary.Data.Database">
       <Item value="ExecuteDataSet`0" priority="0" />
@@ -227,71 +272,97 @@
     <ItemStatistics item="Qualified:Microsoft.Office.Interop.Excel.Workbooks">
       <Item value="Open`0" priority="0" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamReader">
+      <Item value="ReadToEnd`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.ArrayList">
+      <Item value="RemoveRange`0" priority="0" />
+      <Item value="Count" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@RICH.Common.BM.T_PM_UserInfo.T_PM_UserInfoBusinessEntity">
+      <Item value="GetDataByObjectID`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:RICH.Common.BM.T_PM_UserInfo.T_PM_UserInfoApplicationData">
+      <Item value="UserID" priority="0" />
+      <Item value="UserGroupID" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Button">
+      <Item value="Attributes" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.AttributeCollection">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@RICH.Common.BM.T_PM_PurviewInfo.T_PM_PurviewInfoBusinessEntity">
+      <Item value="GetDataByKey`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:RICH.Common.BM.T_PM_PurviewInfo.T_PM_PurviewInfoApplicationData">
+      <Item value="PurviewName" priority="0" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:APMUserGroupPurviewManage.aspx.cs" caret="2856" fromTop="23" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:APMUserGroupPurviewEdit.aspx.cs" caret="2817" fromTop="32" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:APMUserGroupList.aspx.cs" caret="3199" fromTop="36" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Abstract.cs" caret="319" fromTop="10" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Constant.cs" caret="301" fromTop="12" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:T_BG_0601/f:T_BG_0601WebUI.cs" caret="613" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUISearch.aspx" caret="0" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:PreviewDocument/f:PreviewDocument.aspx.cs" caret="3133" fromTop="18" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUIAdd.aspx" caret="5904" fromTop="8" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:DictionaryTypeWebUIAdd.aspx.cs" caret="14859" fromTop="40" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:T_BM_GZXX/f:T_BM_GZXXApplicationLogicBase.cs" caret="1592" fromTop="13" />
-      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/d:DB/f:DataTableExtension.cs" caret="14025" fromTop="14" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Log/f:IMPORT_Excel_20150110.log" caret="0" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUIAdd.aspx" caret="3285" fromTop="35" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:T_BM_GZXX/f:T_BM_GZXXWebUIBase.cs" caret="40844" fromTop="0" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.cs" caret="2457" fromTop="9" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:T_BM_GZXX/f:T_BM_GZXXBusinessEntityBase.cs" caret="47295" fromTop="14" />
-      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/d:DB/f:DataReaderExtension.cs" caret="2909" fromTop="17" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Log/f:IMPORT_Excel_20150113.log" caret="0" fromTop="0" />
-      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/f:FileLibrary.cs" caret="335" fromTop="12" />
-      <File id="53705C01-D554-4539-8B0A-7101BAACB6B3/f:ApplicationDataBase.cs" caret="569" fromTop="18" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:T_BM_GZXX/f:T_BM_GZXXApplicationData.cs" caret="32392" fromTop="30" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUIAdd.aspx.cs" caret="7085" fromTop="129" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_DWXXWebUISearch.aspx" caret="0" fromTop="0" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12739" fromTop="31" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="2696" fromTop="24" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_PM_UserGroupInfoWebUISearch.aspx.cs" caret="8118" fromTop="17" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_PM_UserInfoWebUISearch.aspx.cs" caret="27451" fromTop="9" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_DWXXWebUISearch.aspx.cs" caret="15220" fromTop="15" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Virtual.cs" caret="460" fromTop="10" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:FilterReportWebUIStatistic.aspx.cs" caret="847" fromTop="21" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:ShortMessageWebUIDetail.aspx.cs" caret="804" fromTop="21" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:ShortMessageWebUIStatistic.aspx.cs" caret="847" fromTop="21" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx.cs" caret="6370" fromTop="21" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:ShortMessageWebUISearch.aspx.cs" caret="24705" fromTop="29" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_PM_UserInfoWebUISearch.aspx.cs" caret="43901" fromTop="175" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Abstract.cs" caret="263" fromTop="8" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Constant.cs" caret="346" fromTop="11" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:APMUserGroupList.aspx.cs" caret="1854" fromTop="24" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:APMUserGroupPurviewEdit.aspx.cs" caret="1720" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:APMUserGroupPurviewManage.aspx.cs" caret="1614" fromTop="10" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Main.aspx.cs" caret="0" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Top.aspx.cs" caret="0" fromTop="0" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.cs" caret="0" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:ImportWord.aspx.cs" caret="587" fromTop="21" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default.aspx.cs" caret="0" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUIDetail.aspx" caret="0" fromTop="0" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:T_BM_GZXX/f:T_BM_GZXXWebUIBase.cs" caret="1999" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:BasePage.master" caret="0" fromTop="0" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Virtual.cs" caret="6006" fromTop="0" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:Base/f:PurviewLibrary.cs" caret="9478" fromTop="24" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUISearch.aspx.cs" caret="2350" fromTop="19" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Navigation.cs" caret="4720" fromTop="36" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUISearch.aspx" caret="1938" fromTop="28" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUIAdd.aspx.cs" caret="37277" fromTop="16" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="3575" fromTop="35" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12521" fromTop="294" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx" caret="3415" fromTop="13" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:Base/f:UserPurviewLibrary.cs" caret="8270" fromTop="26" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="1380" fromTop="19" />
     </RecentFiles>
     <RecentEdits>
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="14992" fromTop="35" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="14990" fromTop="35" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="14978" fromTop="8" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="13279" fromTop="6" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="14947" fromTop="29" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12743" fromTop="7" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12743" fromTop="13" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12743" fromTop="34" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12743" fromTop="35" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12743" fromTop="14" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12743" fromTop="4" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_DWXXWebUISearch.aspx.cs" caret="16253" fromTop="15" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_DWXXWebUISearch.aspx.cs" caret="16253" fromTop="3" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12224" fromTop="21" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="11907" fromTop="10" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="10622" fromTop="3" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="2682" fromTop="24" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12565" fromTop="31" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_DWXXWebUISearch.aspx.cs" caret="16253" fromTop="7" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="7721" fromTop="34" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="14992" fromTop="22" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12739" fromTop="31" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_DWXXWebUISearch.aspx.cs" caret="16253" fromTop="15" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_DWXXWebUISearch.aspx.cs" caret="16253" fromTop="125" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_DWXXWebUISearch.aspx.cs" caret="989" fromTop="5" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_DWXXWebUISearch.aspx.cs" caret="13263" fromTop="5" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_PM_UserGroupInfoWebUISearch.aspx.cs" caret="8120" fromTop="17" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_PM_UserInfoWebUISearch.aspx.cs" caret="27540" fromTop="9" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Virtual.cs" caret="380" fromTop="5" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Virtual.cs" caret="460" fromTop="10" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="3375" fromTop="39" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUISearch.aspx.cs" caret="2350" fromTop="19" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Navigation.cs" caret="4709" fromTop="36" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Navigation.cs" caret="4709" fromTop="36" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="1292" fromTop="25" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Virtual.cs" caret="6006" fromTop="31" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUISearch.aspx" caret="40160" fromTop="5" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:Base/f:PurviewLibrary.cs" caret="0" fromTop="0" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="4313" fromTop="24" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="4650" fromTop="29" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUISearch.aspx" caret="40167" fromTop="45" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUISearch.aspx" caret="716" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BM_GZXXWebUISearch.aspx" caret="1495" fromTop="21" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUIAdd.aspx.cs" caret="0" fromTop="0" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="3966" fromTop="46" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="3559" fromTop="35" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="3846" fromTop="41" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="13415" fromTop="42" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx" caret="4107" fromTop="32" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx" caret="3946" fromTop="24" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="3972" fromTop="24" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="3138" fromTop="4" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:Base/f:UserPurviewLibrary.cs" caret="9269" fromTop="46" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:Base/f:UserPurviewLibrary.cs" caret="8270" fromTop="26" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="3531" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="2572" fromTop="3" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="3649" fromTop="28" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="1344" fromTop="21" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="1355" fromTop="22" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="3248" fromTop="23" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

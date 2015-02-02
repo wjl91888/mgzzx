@@ -130,7 +130,7 @@ namespace RICH.Common.BM.T_BM_GZXX
         public Double? HLF { get; set; }
     
         /// <summary>
-        /// 奖金JJ
+        /// 取暖补贴JJ
         /// </summary>
         /// <value>JJ</value>
         public Double? JJ { get; set; }
@@ -394,7 +394,7 @@ namespace RICH.Common.BM.T_BM_GZXX
         public String HLFBatch { get; set; }
 
         /// <summary>
-        /// 奖金JJBatch
+        /// 取暖补贴JJBatch
         /// </summary>
         /// <value>JJ</value>
         public String JJBatch { get; set; }
@@ -634,7 +634,7 @@ namespace RICH.Common.BM.T_BM_GZXX
         public Double? HLFValue { get; set; }
     
         /// <summary>
-        /// 奖金批量更新JJValue
+        /// 取暖补贴批量更新JJValue
         /// </summary>
         /// <value>JJValue</value>
         public Double? JJValue { get; set; }
@@ -1069,31 +1069,31 @@ namespace RICH.Common.BM.T_BM_GZXX
                 T_BM_GZXXApplicationData applicationData = new T_BM_GZXXApplicationData()
                 {
 ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable("ObjectID").ToString()),
-    XM = dr.ReadString("XM"),
+    XM = dr.ReadString("姓名"),
     XB = dr.ReadString("XB"),
-    SFZH = dr.ReadString("SFZH"),
+    SFZH = dr.ReadString("身份证号码"),
     FFGZNY = dr.ReadString("FFGZNY"),
     JCGZ = dr.ReadDoubleNullable("JCGZ"),
     JSDJGZ = dr.ReadDoubleNullable("JSDJGZ"),
-    ZWGZ = dr.ReadDoubleNullable("ZWGZ"),
-    JBGZ = dr.ReadDoubleNullable("JBGZ"),
-    JKDQJT = dr.ReadDoubleNullable("JKDQJT"),
+    ZWGZ = dr.ReadDoubleNullable("职务(岗位)工资"),
+    JBGZ = dr.ReadDoubleNullable("级别（薪级、技术等级）工资"),
+    JKDQJT = dr.ReadDoubleNullable("艰苦边远地区津贴"),
     JKTSGWJT = dr.ReadDoubleNullable("JKTSGWJT"),
     GLGZ = dr.ReadDoubleNullable("GLGZ"),
     XJGZ = dr.ReadDoubleNullable("XJGZ"),
-    TGBF = dr.ReadDoubleNullable("TGBF"),
-    DHF = dr.ReadDoubleNullable("DHF"),
-    DSZNF = dr.ReadDoubleNullable("DSZNF"),
-    FNWSHLF = dr.ReadDoubleNullable("FNWSHLF"),
+    TGBF = dr.ReadDoubleNullable("警衔工资（教师护士10%）"),
+    DHF = dr.ReadDoubleNullable("公务移动通讯费"),
+    DSZNF = dr.ReadDoubleNullable("独生子女费"),
+    FNWSHLF = dr.ReadDoubleNullable("妇女卫生费"),
     HLF = dr.ReadDoubleNullable("HLF"),
-    JJ = dr.ReadDoubleNullable("JJ"),
-    JTF = dr.ReadDoubleNullable("JTF"),
-    JHLGZ = dr.ReadDoubleNullable("JHLGZ"),
+    JJ = dr.ReadDoubleNullable("职工住宅取暖补贴"),
+    JTF = dr.ReadDoubleNullable("上下班交通补助"),
+    JHLGZ = dr.ReadDoubleNullable("特殊岗位津贴（教护龄工资）"),
     JT = dr.ReadDoubleNullable("JT"),
-    BF = dr.ReadDoubleNullable("BF"),
+    BF = dr.ReadDoubleNullable("补发"),
     QTBT = dr.ReadDoubleNullable("QTBT"),
-    DFXJT = dr.ReadDoubleNullable("DFXJT"),
-    YFX = dr.ReadDoubleNullable("YFX"),
+    DFXJT = dr.ReadDoubleNullable("地方津贴补贴（基础绩效工资）"),
+    YFX = dr.ReadDoubleNullable("应发工资"),
     QTKK = dr.ReadDoubleNullable("QTKK"),
     SYBX = dr.ReadDoubleNullable("SYBX"),
     SDNQF = dr.ReadDoubleNullable("SDNQF"),
@@ -1102,8 +1102,8 @@ ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable
     YLIBX = dr.ReadDoubleNullable("YLIBX"),
     YSSHF = dr.ReadDoubleNullable("YSSHF"),
     ZFGJJ = dr.ReadDoubleNullable("ZFGJJ"),
-    KFX = dr.ReadDoubleNullable("KFX"),
-    SFGZ = dr.ReadDoubleNullable("SFGZ"),
+    KFX = dr.ReadDoubleNullable("扣发部分"),
+    SFGZ = dr.ReadDoubleNullable("实发工资"),
     GZKKSM = dr.ReadString("GZKKSM"),
     TJSJ = dr.ReadDateTimeNullable("TJSJ"),
     
@@ -1130,25 +1130,25 @@ ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID")
     FFGZNY = reader.ReadString("FFGZNY"),
     JCGZ = reader.ReadDoubleNullable(fromImportDataSet ? "JCGZ" : "JCGZ"),
     JSDJGZ = reader.ReadDoubleNullable(fromImportDataSet ? "JSDJGZ" : "JSDJGZ"),
-    ZWGZ = reader.ReadDoubleNullable(fromImportDataSet ? "ZWGZ" : "ZWGZ"),
-    JBGZ = reader.ReadDoubleNullable(fromImportDataSet ? "JBGZ" : "JBGZ"),
-    JKDQJT = reader.ReadDoubleNullable(fromImportDataSet ? "JKDQJT" : "JKDQJT"),
+    ZWGZ = reader.ReadDoubleNullable(fromImportDataSet ? "职务(岗位)工资" : "ZWGZ"),
+    JBGZ = reader.ReadDoubleNullable(fromImportDataSet ? "级别（薪级、技术等级）工资" : "JBGZ"),
+    JKDQJT = reader.ReadDoubleNullable(fromImportDataSet ? "艰苦边远地区津贴" : "JKDQJT"),
     JKTSGWJT = reader.ReadDoubleNullable(fromImportDataSet ? "JKTSGWJT" : "JKTSGWJT"),
     GLGZ = reader.ReadDoubleNullable(fromImportDataSet ? "GLGZ" : "GLGZ"),
     XJGZ = reader.ReadDoubleNullable(fromImportDataSet ? "XJGZ" : "XJGZ"),
-    TGBF = reader.ReadDoubleNullable(fromImportDataSet ? "TGBF" : "TGBF"),
-    DHF = reader.ReadDoubleNullable(fromImportDataSet ? "DHF" : "DHF"),
-    DSZNF = reader.ReadDoubleNullable(fromImportDataSet ? "DSZNF" : "DSZNF"),
-    FNWSHLF = reader.ReadDoubleNullable(fromImportDataSet ? "FNWSHLF" : "FNWSHLF"),
+    TGBF = reader.ReadDoubleNullable(fromImportDataSet ? "警衔工资（教师护士10%）" : "TGBF"),
+    DHF = reader.ReadDoubleNullable(fromImportDataSet ? "公务移动通讯费" : "DHF"),
+    DSZNF = reader.ReadDoubleNullable(fromImportDataSet ? "独生子女费" : "DSZNF"),
+    FNWSHLF = reader.ReadDoubleNullable(fromImportDataSet ? "妇女卫生费" : "FNWSHLF"),
     HLF = reader.ReadDoubleNullable(fromImportDataSet ? "HLF" : "HLF"),
-    JJ = reader.ReadDoubleNullable(fromImportDataSet ? "JJ" : "JJ"),
-    JTF = reader.ReadDoubleNullable(fromImportDataSet ? "JTF" : "JTF"),
-    JHLGZ = reader.ReadDoubleNullable(fromImportDataSet ? "JHLGZ" : "JHLGZ"),
+    JJ = reader.ReadDoubleNullable(fromImportDataSet ? "职工住宅取暖补贴" : "JJ"),
+    JTF = reader.ReadDoubleNullable(fromImportDataSet ? "上下班交通补助" : "JTF"),
+    JHLGZ = reader.ReadDoubleNullable(fromImportDataSet ? "特殊岗位津贴（教护龄工资）" : "JHLGZ"),
     JT = reader.ReadDoubleNullable(fromImportDataSet ? "JT" : "JT"),
-    BF = reader.ReadDoubleNullable(fromImportDataSet ? "BF" : "BF"),
+    BF = reader.ReadDoubleNullable(fromImportDataSet ? "补发" : "BF"),
     QTBT = reader.ReadDoubleNullable(fromImportDataSet ? "QTBT" : "QTBT"),
-    DFXJT = reader.ReadDoubleNullable(fromImportDataSet ? "DFXJT" : "DFXJT"),
-    YFX = reader.ReadDoubleNullable(fromImportDataSet ? "YFX" : "YFX"),
+    DFXJT = reader.ReadDoubleNullable(fromImportDataSet ? "地方津贴补贴（基础绩效工资）" : "DFXJT"),
+    YFX = reader.ReadDoubleNullable(fromImportDataSet ? "应发工资" : "YFX"),
     QTKK = reader.ReadDoubleNullable(fromImportDataSet ? "QTKK" : "QTKK"),
     SYBX = reader.ReadDoubleNullable(fromImportDataSet ? "SYBX" : "SYBX"),
     SDNQF = reader.ReadDoubleNullable(fromImportDataSet ? "SDNQF" : "SDNQF"),
@@ -1157,8 +1157,8 @@ ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID")
     YLIBX = reader.ReadDoubleNullable(fromImportDataSet ? "YLIBX" : "YLIBX"),
     YSSHF = reader.ReadDoubleNullable(fromImportDataSet ? "YSSHF" : "YSSHF"),
     ZFGJJ = reader.ReadDoubleNullable(fromImportDataSet ? "ZFGJJ" : "ZFGJJ"),
-    KFX = reader.ReadDoubleNullable(fromImportDataSet ? "KFX" : "KFX"),
-    SFGZ = reader.ReadDoubleNullable(fromImportDataSet ? "SFGZ" : "SFGZ"),
+    KFX = reader.ReadDoubleNullable(fromImportDataSet ? "扣发部分" : "KFX"),
+    SFGZ = reader.ReadDoubleNullable(fromImportDataSet ? "实发工资" : "SFGZ"),
     GZKKSM = reader.ReadString("GZKKSM"),
     TJSJ = reader.ReadDateTimeNullable(fromImportDataSet ? "TJSJ" : "TJSJ"),
     
@@ -1172,31 +1172,30 @@ ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID")
         private DataTable GetImportColumn(DataTable dt)
         {
 
-            dt.Columns.Add("XM", Type.GetType("System.String"));
+            dt.Columns.Add("姓名", Type.GetType("System.String"));
             dt.Columns.Add("XB", Type.GetType("System.String"));
-            dt.Columns.Add("SFZH", Type.GetType("System.String"));
-            dt.Columns.Add("FFGZNY", Type.GetType("System.String"));
+            dt.Columns.Add("身份证号码", Type.GetType("System.String"));
             dt.Columns.Add("JCGZ", Type.GetType("System.Double"));
             dt.Columns.Add("JSDJGZ", Type.GetType("System.Double"));
-            dt.Columns.Add("ZWGZ", Type.GetType("System.Double"));
-            dt.Columns.Add("JBGZ", Type.GetType("System.Double"));
-            dt.Columns.Add("JKDQJT", Type.GetType("System.Double"));
+            dt.Columns.Add("职务(岗位)工资", Type.GetType("System.Double"));
+            dt.Columns.Add("级别（薪级、技术等级）工资", Type.GetType("System.Double"));
+            dt.Columns.Add("艰苦边远地区津贴", Type.GetType("System.Double"));
             dt.Columns.Add("JKTSGWJT", Type.GetType("System.Double"));
             dt.Columns.Add("GLGZ", Type.GetType("System.Double"));
             dt.Columns.Add("XJGZ", Type.GetType("System.Double"));
-            dt.Columns.Add("TGBF", Type.GetType("System.Double"));
-            dt.Columns.Add("DHF", Type.GetType("System.Double"));
-            dt.Columns.Add("DSZNF", Type.GetType("System.Double"));
-            dt.Columns.Add("FNWSHLF", Type.GetType("System.Double"));
+            dt.Columns.Add("警衔工资（教师护士10%）", Type.GetType("System.Double"));
+            dt.Columns.Add("公务移动通讯费", Type.GetType("System.Double"));
+            dt.Columns.Add("独生子女费", Type.GetType("System.Double"));
+            dt.Columns.Add("妇女卫生费", Type.GetType("System.Double"));
             dt.Columns.Add("HLF", Type.GetType("System.Double"));
-            dt.Columns.Add("JJ", Type.GetType("System.Double"));
-            dt.Columns.Add("JTF", Type.GetType("System.Double"));
-            dt.Columns.Add("JHLGZ", Type.GetType("System.Double"));
+            dt.Columns.Add("职工住宅取暖补贴", Type.GetType("System.Double"));
+            dt.Columns.Add("上下班交通补助", Type.GetType("System.Double"));
+            dt.Columns.Add("特殊岗位津贴（教护龄工资）", Type.GetType("System.Double"));
             dt.Columns.Add("JT", Type.GetType("System.Double"));
-            dt.Columns.Add("BF", Type.GetType("System.Double"));
+            dt.Columns.Add("补发", Type.GetType("System.Double"));
             dt.Columns.Add("QTBT", Type.GetType("System.Double"));
-            dt.Columns.Add("DFXJT", Type.GetType("System.Double"));
-            dt.Columns.Add("YFX", Type.GetType("System.Double"));
+            dt.Columns.Add("地方津贴补贴（基础绩效工资）", Type.GetType("System.Double"));
+            dt.Columns.Add("应发工资", Type.GetType("System.Double"));
             dt.Columns.Add("QTKK", Type.GetType("System.Double"));
             dt.Columns.Add("SYBX", Type.GetType("System.Double"));
             dt.Columns.Add("SDNQF", Type.GetType("System.Double"));
@@ -1205,9 +1204,8 @@ ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID")
             dt.Columns.Add("YLIBX", Type.GetType("System.Double"));
             dt.Columns.Add("YSSHF", Type.GetType("System.Double"));
             dt.Columns.Add("ZFGJJ", Type.GetType("System.Double"));
-            dt.Columns.Add("KFX", Type.GetType("System.Double"));
-            dt.Columns.Add("SFGZ", Type.GetType("System.Double"));
-            dt.Columns.Add("GZKKSM", Type.GetType("System.String"));
+            dt.Columns.Add("扣发部分", Type.GetType("System.Double"));
+            dt.Columns.Add("实发工资", Type.GetType("System.Double"));
             return dt;
         }
 

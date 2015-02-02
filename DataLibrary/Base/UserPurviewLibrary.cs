@@ -163,6 +163,30 @@ namespace RICH.Common.PM
             return htInputParameter;
         }
 
+        public Hashtable GetUserPurviewInfoForMenu(Hashtable htInputParameter)
+        {
+            Database db = DatabaseFactory.CreateDatabase("strConnManager");
+            string strProcName = "SP_GetUserPurviewInfoForMenu";
+            DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
+
+            db.AddInParameter(cmdProc, "@UserID", DbType.String);
+            db.AddInParameter(cmdProc, "@PurviewPRI", DbType.Int32);
+            db.AddInParameter(cmdProc, "@IsPageMenu", DbType.Boolean);
+
+            db.SetParameterValue(cmdProc, "@UserID", (string)htInputParameter["UserID"]);
+            if (DataValidateManager.ValidateIsNull(htInputParameter["PurviewPRI"]) == false)
+            {
+                db.SetParameterValue(cmdProc, "@PurviewPRI", (int)htInputParameter["PurviewPRI"]);
+            }
+            if (DataValidateManager.ValidateBooleanFormat(htInputParameter["IsPageMenu"]) == true)
+            {
+                db.SetParameterValue(cmdProc, "@IsPageMenu", Boolean.Parse((string)htInputParameter["IsPageMenu"]));
+            }
+
+            htInputParameter[ConstantsManager.QUERY_DATASET_NAME] = db.ExecuteDataSet(cmdProc);
+            return htInputParameter;
+        }
+
 
         public Hashtable SetUserPurviewInfo(Hashtable htInputParameter)
         {

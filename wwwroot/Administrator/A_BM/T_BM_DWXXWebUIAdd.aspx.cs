@@ -61,7 +61,6 @@ public partial class T_BM_DWXXWebUIAdd : RICH.Common.BM.T_BM_DWXX.T_BM_DWXXWebUI
             InitalizeCoupledDataSource();
         }
         base.Page_Load(sender, e);
-        CheckPermission();
     }
 
     //=====================================================================
@@ -154,12 +153,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         // 验证输入参数
 
         validateData = ValidateDWMC(DWMC.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.DWMC = Convert.ToString(validateData.Value.ToString());
-                DWMC_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DWMC.BackColor = System.Drawing.Color.Empty;
         }
@@ -171,12 +169,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateSJDWBH(SJDWBH.SelectedValue, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SJDWBH = Convert.ToString(validateData.Value.ToString());
-                SJDWBH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SJDWBH.BackColor = System.Drawing.Color.Empty;
         }
@@ -188,12 +185,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateDZ(DZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.DZ = Convert.ToString(validateData.Value.ToString());
-                DZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -205,12 +201,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateYB(YB.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.YB = Convert.ToString(validateData.Value.ToString());
-                YB_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             YB.BackColor = System.Drawing.Color.Empty;
         }
@@ -222,12 +217,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateLXBM(LXBM.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.LXBM = Convert.ToString(validateData.Value.ToString());
-                LXBM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             LXBM.BackColor = System.Drawing.Color.Empty;
         }
@@ -239,12 +233,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateLXDH(LXDH.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.LXDH = Convert.ToString(validateData.Value.ToString());
-                LXDH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             LXDH.BackColor = System.Drawing.Color.Empty;
         }
@@ -256,12 +249,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateEmail(Email.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.Email = Convert.ToString(validateData.Value.ToString());
-                Email_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             Email.BackColor = System.Drawing.Color.Empty;
         }
@@ -273,12 +265,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateLXR(LXR.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.LXR = Convert.ToString(validateData.Value.ToString());
-                LXR_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             LXR.BackColor = System.Drawing.Color.Empty;
         }
@@ -290,12 +281,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                 
         validateData = ValidateSJ(SJ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {                
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SJ = Convert.ToString(validateData.Value.ToString());
-                SJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SJ.BackColor = System.Drawing.Color.Empty;
         }
@@ -334,7 +324,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.DWBH = Convert.ToString(validateData.Value.ToString());
-                DWBH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -356,7 +345,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.DWMC = Convert.ToString(validateData.Value.ToString());
-                DWMC_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -378,7 +366,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.SJDWBH = Convert.ToString(validateData.Value.ToString());
-                SJDWBH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -400,7 +387,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.DZ = Convert.ToString(validateData.Value.ToString());
-                DZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -422,7 +408,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.YB = Convert.ToString(validateData.Value.ToString());
-                YB_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -444,7 +429,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.LXBM = Convert.ToString(validateData.Value.ToString());
-                LXBM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -466,7 +450,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.LXDH = Convert.ToString(validateData.Value.ToString());
-                LXDH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -488,7 +471,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.Email = Convert.ToString(validateData.Value.ToString());
-                Email_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -510,7 +492,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.LXR = Convert.ToString(validateData.Value.ToString());
-                LXR_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -532,7 +513,6 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             if (!validateData.IsNull)
             {
                 appData.SJ = Convert.ToString(validateData.Value.ToString());
-                SJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -675,7 +655,7 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
         int updateCount = 0;
         try
         {
-            var appDatas = T_BM_DWXXApplicationData.GetDataFromDataFile<T_BM_DWXXApplicationData>(InfoFromDoc.Text, true);
+            var appDatas = T_BM_DWXXApplicationData.GetDataFromDataFile<T_BM_DWXXApplicationData>(InfoFromDoc.Text, true, true, recordStartLine: T_BM_DWXXContants.ImportDataSetStartLineNum);
             T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic = (T_BM_DWXXApplicationLogic)CreateApplicationLogicInstance(typeof(T_BM_DWXXApplicationLogic));
             totalCount = appDatas.Count;
             foreach (var app in appDatas)
@@ -683,8 +663,53 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
     
                 app.DWBH = instanceT_BM_DWXXApplicationLogic.AutoGenerateDWBH(app);
                     
+                if(!DWMC.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.DWMC =  Convert.ToString(DWMC.Text);
+                }
+    
                 string strSJDWBH = GetValue(new RICH.Common.BM.T_BM_DWXX.T_BM_DWXXApplicationLogicBase().GetValueByFixCondition("DWMC", app.SJDWBH, "DWBH"));
                 if (!DataValidateManager.ValidateIsNull(strSJDWBH))app.SJDWBH = strSJDWBH;
+                if(!SJDWBH.SelectedValue.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SJDWBH =  Convert.ToString(SJDWBH.SelectedValue);
+                }
+    
+                if(!DZ.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.DZ =  Convert.ToString(DZ.Text);
+                }
+    
+                if(!YB.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.YB =  Convert.ToString(YB.Text);
+                }
+    
+                if(!LXBM.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.LXBM =  Convert.ToString(LXBM.Text);
+                }
+    
+                if(!LXDH.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.LXDH =  Convert.ToString(LXDH.Text);
+                }
+    
+                if(!Email.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.Email =  Convert.ToString(Email.Text);
+                }
+    
+                if(!LXR.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.LXR =  Convert.ToString(LXR.Text);
+                }
+    
+                if(!SJ.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.SJ =  Convert.ToString(SJ.Text);
+                }
+    
                 instanceT_BM_DWXXApplicationLogic.Add(app);
                 if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
                 {
@@ -708,7 +733,7 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
         }
     }
 
-    public void CheckPermission()
+    protected override void CheckPermission()
     {
         if (AccessPermission)
         {
@@ -722,6 +747,30 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
             {
     ObjectID_Area.Visible = false;
       DWBH_Area.Visible = false;
+      
+            }
+            if(ImportDSMode)
+            {
+    ObjectID_Area.Visible = false;
+      DWBH_Area.Visible = false;
+      DWMC_Area.Visible = false;
+      DWMC_Area.Visible = true;
+      SJDWBH_Area.Visible = false;
+      SJDWBH_Area.Visible = true;
+      DZ_Area.Visible = false;
+      DZ_Area.Visible = true;
+      YB_Area.Visible = false;
+      YB_Area.Visible = true;
+      LXBM_Area.Visible = false;
+      LXBM_Area.Visible = true;
+      LXDH_Area.Visible = false;
+      LXDH_Area.Visible = true;
+      Email_Area.Visible = false;
+      Email_Area.Visible = true;
+      LXR_Area.Visible = false;
+      LXR_Area.Visible = true;
+      SJ_Area.Visible = false;
+      SJ_Area.Visible = true;
       
             }
             if (ViewMode)

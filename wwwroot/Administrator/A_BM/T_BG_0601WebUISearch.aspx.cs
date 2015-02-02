@@ -19,6 +19,7 @@ public partial class T_BG_0601WebUISearch : RICH.Common.BM.T_BG_0601.T_BG_0601We
     static int intFBHColumnIndex;
     static int intBTColumnIndex;
     static int intFBLMColumnIndex;
+    static int intFBBMColumnIndex;
     static int intXXLXColumnIndex;
     static int intFJXZDZColumnIndex;
     static int intXXZTColumnIndex;
@@ -32,6 +33,7 @@ public partial class T_BG_0601WebUISearch : RICH.Common.BM.T_BG_0601.T_BG_0601We
 
     protected override void Page_Init(object sender, EventArgs e)
     {
+        
         base.Page_Init(sender, e);
     }
     
@@ -50,6 +52,7 @@ public partial class T_BG_0601WebUISearch : RICH.Common.BM.T_BG_0601.T_BG_0601We
             InitalizeDataBind();
             InitalizeCoupledDataSource();
 FBLM.SelectedValue = (string)Request.QueryString["FBLM"];
+      FBBM.SelectedValue = (string)Request.QueryString["FBBM"];
       FBRJGH.Text = (string)Request.QueryString["FBRJGH"];
       
             btnAdvanceSearch_Click(sender, e);
@@ -76,6 +79,7 @@ FBLM.SelectedValue = (string)Request.QueryString["FBLM"];
             gvList.Columns[intFBHColumnIndex].Visible = chkShowFBH.Checked;
             gvList.Columns[intBTColumnIndex].Visible = chkShowBT.Checked;
             gvList.Columns[intFBLMColumnIndex].Visible = chkShowFBLM.Checked;
+            gvList.Columns[intFBBMColumnIndex].Visible = chkShowFBBM.Checked;
             gvList.Columns[intXXLXColumnIndex].Visible = chkShowXXLX.Checked;
             gvList.Columns[intFJXZDZColumnIndex].Visible = chkShowFJXZDZ.Checked;
             gvList.Columns[intXXZTColumnIndex].Visible = chkShowXXZT.Checked;
@@ -135,6 +139,13 @@ FBH_Area.Visible = isDisplay;
               FBLM.DataBind();
                   FBLM.RepeatColumns = 1;
                     
+            // 初始化发布部门(FBBM)下拉列表
+          FBBM.DataSource = GetDataSource_FBBM_AdvanceSearch();
+            FBBM.DataTextField = "DWMC";
+            FBBM.DataValueField = "DWBH";
+              FBBM.DataBind();
+                  FBBM.Items.Insert(0, new ListItem("选择发布部门", ""));
+                    
             // 初始化信息类型(XXLX)下拉列表
           XXLX.DataSource = GetDataSource_XXLX_AdvanceSearch();
             XXLX.DataTextField = "MC";
@@ -178,6 +189,7 @@ FBH_Area.Visible = isDisplay;
         gvPrint.Columns[intFBHColumnIndex - 1].Visible = chkShowFBH.Checked;
         gvPrint.Columns[intBTColumnIndex - 1].Visible = chkShowBT.Checked;
         gvPrint.Columns[intFBLMColumnIndex - 1].Visible = chkShowFBLM.Checked;
+        gvPrint.Columns[intFBBMColumnIndex - 1].Visible = chkShowFBBM.Checked;
         gvPrint.Columns[intXXLXColumnIndex - 1].Visible = chkShowXXLX.Checked;
         gvPrint.Columns[intFJXZDZColumnIndex - 1].Visible = chkShowFJXZDZ.Checked;
         gvPrint.Columns[intXXZTColumnIndex - 1].Visible = chkShowXXZT.Checked;
@@ -244,33 +256,36 @@ FBH_Area.Visible = isDisplay;
             intFBLMColumnIndex = 3;
             txtFBLMColumnIndex.Text = intFBLMColumnIndex.ToString();
             intNext = 3;
-            intXXLXColumnIndex = 4;
-            txtXXLXColumnIndex.Text = intXXLXColumnIndex.ToString();
+            intFBBMColumnIndex = 4;
+            txtFBBMColumnIndex.Text = intFBBMColumnIndex.ToString();
             intNext = 4;
-            intFJXZDZColumnIndex = 5;
-            txtFJXZDZColumnIndex.Text = intFJXZDZColumnIndex.ToString();
+            intXXLXColumnIndex = 5;
+            txtXXLXColumnIndex.Text = intXXLXColumnIndex.ToString();
             intNext = 5;
-            intXXZTColumnIndex = 6;
-            txtXXZTColumnIndex.Text = intXXZTColumnIndex.ToString();
+            intFJXZDZColumnIndex = 6;
+            txtFJXZDZColumnIndex.Text = intFJXZDZColumnIndex.ToString();
             intNext = 6;
-            intIsTopColumnIndex = 7;
-            txtIsTopColumnIndex.Text = intIsTopColumnIndex.ToString();
+            intXXZTColumnIndex = 7;
+            txtXXZTColumnIndex.Text = intXXZTColumnIndex.ToString();
             intNext = 7;
-            intTopSortColumnIndex = 8;
-            txtTopSortColumnIndex.Text = intTopSortColumnIndex.ToString();
+            intIsTopColumnIndex = 8;
+            txtIsTopColumnIndex.Text = intIsTopColumnIndex.ToString();
             intNext = 8;
-            intIsBestColumnIndex = 9;
-            txtIsBestColumnIndex.Text = intIsBestColumnIndex.ToString();
+            intTopSortColumnIndex = 9;
+            txtTopSortColumnIndex.Text = intTopSortColumnIndex.ToString();
             intNext = 9;
-            intFBRJGHColumnIndex = 10;
-            txtFBRJGHColumnIndex.Text = intFBRJGHColumnIndex.ToString();
+            intIsBestColumnIndex = 10;
+            txtIsBestColumnIndex.Text = intIsBestColumnIndex.ToString();
             intNext = 10;
-            intFBSJRQColumnIndex = 11;
-            txtFBSJRQColumnIndex.Text = intFBSJRQColumnIndex.ToString();
+            intFBRJGHColumnIndex = 11;
+            txtFBRJGHColumnIndex.Text = intFBRJGHColumnIndex.ToString();
             intNext = 11;
-            intFBIPColumnIndex = 12;
-            txtFBIPColumnIndex.Text = intFBIPColumnIndex.ToString();
+            intFBSJRQColumnIndex = 12;
+            txtFBSJRQColumnIndex.Text = intFBSJRQColumnIndex.ToString();
             intNext = 12;
+            intFBIPColumnIndex = 13;
+            txtFBIPColumnIndex.Text = intFBIPColumnIndex.ToString();
+            intNext = 13;
             // 初始化一对一对应表显示列序号
         
     }
@@ -316,6 +331,15 @@ FBH_Area.Visible = isDisplay;
                 gvPrint.Columns.RemoveAt(intTempColumnIndex - 1);
                 gvPrint.Columns.Insert(intTempColumnIndex - 1, dcPrintColunms[intFBLMColumnIndex - 1]);
                 intFBLMColumnIndex = intTempColumnIndex;
+            }
+            intTempColumnIndex = Convert.ToInt32(txtFBBMColumnIndex.Text);
+            if(intTempColumnIndex != intFBBMColumnIndex)
+            {
+                gvList.Columns.RemoveAt(intTempColumnIndex);
+                gvList.Columns.Insert(intTempColumnIndex, dcListColunms[intFBBMColumnIndex]);
+                gvPrint.Columns.RemoveAt(intTempColumnIndex - 1);
+                gvPrint.Columns.Insert(intTempColumnIndex - 1, dcPrintColunms[intFBBMColumnIndex - 1]);
+                intFBBMColumnIndex = intTempColumnIndex;
             }
             intTempColumnIndex = Convert.ToInt32(txtXXLXColumnIndex.Text);
             if(intTempColumnIndex != intXXLXColumnIndex)
@@ -417,6 +441,7 @@ FBH_Area.Visible = isDisplay;
         {
 BT.Text = GetValue(appData.BT); 
       FBLM.SelectedValue = GetValue(appData.FBLMBatch); 
+      FBBM.SelectedValue = GetValue(appData.FBBM); 
       XXNR.Text = GetValue(appData.XXNR); 
       FBSJRQ.Text = GetValue(appData.FBSJRQBegin); 
             FBSJRQ.Text = GetValue(appData.FBSJRQEnd); 
@@ -539,6 +564,28 @@ BT.Text = GetValue(appData.BT);
                     {
                         appData.FBLM = null;
                         appData.FBLMBatch = GetSubItem_FBLM(FBLM.SelectedValue) + "," + FBLM.SelectedValue;
+                    }
+                }
+            }
+        
+            validateData = ValidateFBBM(FBBM.SelectedValue, true, false);
+            if (validateData.Result)
+            {
+                if (!validateData.IsNull)
+                {
+                    appData.FBBM = Convert.ToString(validateData.Value.ToString());
+                }
+            }
+      
+            validateData = ValidateFBBM(FBBM.SelectedValue, true, false);
+            if (validateData.Result)
+            {
+                if (!validateData.IsNull)
+                {
+                    if (chkShowSubItemFBBM.Checked)
+                    {
+                        appData.FBBM = null;
+                        appData.FBBMBatch = GetSubItem_FBBM(FBBM.SelectedValue) + "," + FBBM.SelectedValue;
                     }
                 }
             }
@@ -690,6 +737,13 @@ BT.Text = GetValue(appData.BT);
       {
         appData.CurrentPage = DEFAULT_CURRENT_PAGE;
       }
+
+        if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+        {
+            appData.FBRJGH = CurrentUserInfo.UserID;
+        }
+        
+
       return boolReturn;                
     }
 
@@ -727,6 +781,19 @@ BT.Text = GetValue(appData.BT);
                sbCaption.Append(@"<div style=""margin-right:10px"">");
                 sbCaption.Append("发布栏目：");
                 sbCaption.Append(new RICH.Common.BM.T_BG_0602.T_BG_0602BusinessEntity().GetValueByFixCondition("LMH", FBLM.SelectedValues, "LMM"));
+               sbCaption.Append(@"</div>");
+            }
+            if (!DataValidateManager.ValidateIsNull(FBBM.SelectedValue))
+            {
+               sbCaption.Append(@"<div style=""margin-right:10px"">");
+                sbCaption.Append("发布部门：");
+                sbCaption.Append(new RICH.Common.BM.T_BM_DWXX.T_BM_DWXXBusinessEntity().GetValueByFixCondition("DWBH", FBBM.SelectedValue, "DWMC"));
+                
+                if (chkShowSubItemFBBM.Checked)
+                {
+                    sbCaption.Append("的子（下级）项信息");
+                }
+                
                sbCaption.Append(@"</div>");
             }
             if (!DataValidateManager.ValidateIsNull(XXLX.SelectedValue))
@@ -793,6 +860,94 @@ BT.Text = GetValue(appData.BT);
 
             sbCaption.Append("</div>");
             return sbCaption.ToString();
+    }
+    
+    protected override void CheckPermission()
+    {
+        if(AccessPermission)
+        {
+
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            gvList.Columns[intFBHColumnIndex].Visible = 
+            chkShowFBH_Area.Visible =
+            chkShowFBH.Checked =
+            chkShowFBH.Enabled = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            FBBM_Area.Visible = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            XXLX_Area.Visible = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            gvList.Columns[intXXZTColumnIndex].Visible = 
+            chkShowXXZT_Area.Visible =
+            chkShowXXZT.Checked =
+            chkShowXXZT.Enabled = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            gvList.Columns[intIsTopColumnIndex].Visible = 
+            chkShowIsTop_Area.Visible =
+            chkShowIsTop.Checked =
+            chkShowIsTop.Enabled = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            IsTop_Area.Visible = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            gvList.Columns[intTopSortColumnIndex].Visible = 
+            chkShowTopSort_Area.Visible =
+            chkShowTopSort.Checked =
+            chkShowTopSort.Enabled = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            gvList.Columns[intIsBestColumnIndex].Visible = 
+            chkShowIsBest_Area.Visible =
+            chkShowIsBest.Checked =
+            chkShowIsBest.Enabled = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            IsBest_Area.Visible = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            gvList.Columns[intFBRJGHColumnIndex].Visible = 
+            chkShowFBRJGH_Area.Visible =
+            chkShowFBRJGH.Checked =
+            chkShowFBRJGH.Enabled = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            FBRJGH_Area.Visible = false;
+            }
+            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            {
+            gvList.Columns[intFBIPColumnIndex].Visible = 
+            chkShowFBIP_Area.Visible =
+            chkShowFBIP.Checked =
+            chkShowFBIP.Enabled = false;
+            }
+        }
+    }
+
+    protected override void SetCurrentAccessPermission()
+    {
+
+        if (CustomPermission == WFBD_PURVIEW_ID)
+        {
+            CurrentAccessPermission = WFBD_PURVIEW_ID;
+        }
+        
+        base.SetCurrentAccessPermission();
     }
 }
 

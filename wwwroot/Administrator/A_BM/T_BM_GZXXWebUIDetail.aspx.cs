@@ -18,9 +18,6 @@ public partial class T_BM_GZXXWebUIDetail : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
 {
     protected override void Page_Init(object sender, EventArgs e)
     {
-        // 基本SESSION赋值
-        Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_DETAIL_FILENAME;
-        Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_SEARCH_ACCESS_PURVIEW_ID;
         base.Page_Init(sender, e);
     }
 
@@ -695,9 +692,9 @@ public partial class T_BM_GZXXWebUIDetail : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
                     tcHLFContent.Style.Add("text-align", "right");
                     tDetailView.Rows[7].Cells.Add(tcHLFContent);
               
-                    // 显示奖金标题
+                    // 显示取暖补贴标题
                     TableCell tcJJTitle = new TableCell();
-                    tcJJTitle.Text = "奖金";
+                    tcJJTitle.Text = "取暖补贴";
                     tcJJTitle.ColumnSpan = 4;
                     tcJJTitle.RowSpan = 1;
                     tcJJTitle.CssClass = "fieldname";
@@ -705,7 +702,7 @@ public partial class T_BM_GZXXWebUIDetail : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWe
                     tcJJTitle.Style.Add("border", "1px black solid");
                     tDetailView.Rows[7].Cells.Add(tcJJTitle);
                     
-                    // 显示奖金值
+                    // 显示取暖补贴值
                     TableCell tcJJContent = new TableCell();
                       
                     tcJJContent.Text = ((HtmlContainerControl)hcTemp.FindControl("JJ")).InnerHtml;

@@ -817,6 +817,7 @@ namespace  RICH.Common.BM.T_BM_GZXX
             // 得到返回记录数
             AppData.RecordCount = AppData.ResultSet.Tables[0].Rows.Count;
         }
+        
         //=====================================================================
         //  FunctionName : GetDataByObjectID
         /// <summary>
@@ -833,6 +834,30 @@ namespace  RICH.Common.BM.T_BM_GZXX
             db.AddInParameter(cmdProc, "@ObjectID", DbType.String);
             // 对存储过程参数赋值
             db.SetParameterValue(cmdProc, "@ObjectID", strObjectID);
+            // 执行存储过程
+            return T_BM_GZXXApplicationData.FillDataFromDataReader(db.ExecuteReader(cmdProc));
+        }
+        
+        //=====================================================================
+        //  FunctionName : GetDataByKey
+        /// <summary>
+        /// 以Key为条件查询记录并返回AppData
+        /// </summary>
+        //=====================================================================
+        public static T_BM_GZXXApplicationData GetDataByKey(T_BM_GZXXApplicationData appData)
+        {
+            // 创建数据库连接 
+            Database db = DatabaseFactory.CreateDatabase("strConnManager");
+            string strProcName = "SP_SelectT_BM_GZXXByKey";
+            DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
+            // 设定存储过程输入参数
+            
+            db.AddInParameter(cmdProc, "@SFZH", DbType.String);
+            db.AddInParameter(cmdProc, "@FFGZNY", DbType.String);
+            // 对存储过程参数赋值
+            
+            db.SetParameterValue(cmdProc, "@SFZH", appData.SFZH);
+            db.SetParameterValue(cmdProc, "@FFGZNY", appData.FFGZNY);
             // 执行存储过程
             return T_BM_GZXXApplicationData.FillDataFromDataReader(db.ExecuteReader(cmdProc));
         }

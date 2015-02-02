@@ -9,14 +9,6 @@
     <style type="text/css">
     .ctl00_MainContentPlaceHolder_XXNR_DesignBox { background-color: #ffffff !important;}
     </style>
-    <script type="text/javascript">
-        function OpenEditor() {
-       window.location='T_BG_0601WebUIAdd.aspx?a=e<%=AndChar%>ObjectID=<%=ObjectID.Text%>';
-        }
-        function OpenCopyEditor() {
-            window.location = 'T_BG_0601WebUIAdd.aspx?a=c<%=AndChar%>ObjectID=<%=ObjectID.Text%>';
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
     <telerik:RadScriptManager ID="rsmT_BG_0601" runat="server">
@@ -43,7 +35,7 @@
                         <asp:Button Text="Word导入" ID="btnInfoFromDoc" runat="server" CssClass="button" OnClick="btnInfoFromDoc_Click" />
                         <asp:Button Text="批量Word导入" ID="btnInfoFromDocBatch" runat="server" CssClass="button" OnClick="btnInfoFromDocBatch_Click" Visible="false" />
                         <asp:Button Text="取消" ID="btnInfoFromDocCancel" runat="server" CssClass="button" OnClick="btnInfoFromDocCancel_Click" />
-                        <input type="button" id ="btnEditItem" runat ="server" value="修改" onclick="OpenEditor();" class="button" />
+                        <input type="button" id ="btnEditItem" runat ="server" value="修改" class="button" />
 
                         <asp:Button Text="保存" ID="btnAddConfirm" runat="server" CssClass="button" OnClientClick="return AddConfirmDialog();" OnClick="btnSave_Click" />
 
@@ -129,6 +121,23 @@
                              <asp:DropDownList ID="FBLM" runat="server" CssClass="input"></asp:DropDownList>
                                                  
                          </div><div class="fieldnote" id="FBLM_Note" runat="server">
+                                      
+                         </div>
+                         </div>
+                     </div>
+  
+                     <div class="content" id="FBBM_Area" runat="server">
+                         <div class="field">
+                             <div class="fieldname">
+                                          发布部门
+                             </div>
+                             <div class="redstar"></div>
+                         </div>
+                         <div class="fieldinput"><div>
+                                
+                             <asp:DropDownList ID="FBBM" runat="server" CssClass="input"></asp:DropDownList>
+                                                 
+                         </div><div class="fieldnote" id="FBBM_Note" runat="server">
                                       
                          </div>
                          </div>

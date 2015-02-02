@@ -52,6 +52,12 @@ namespace RICH.Common.BM.T_BG_0601
         public String FBLM { get; set; }
     
         /// <summary>
+        /// 发布部门FBBM
+        /// </summary>
+        /// <value>FBBM</value>
+        public String FBBM { get; set; }
+    
+        /// <summary>
         /// 发布专题FBZT
         /// </summary>
         /// <value>FBZT</value>
@@ -184,6 +190,12 @@ namespace RICH.Common.BM.T_BG_0601
         public String FBLMBatch { get; set; }
 
         /// <summary>
+        /// 发布部门FBBMBatch
+        /// </summary>
+        /// <value>FBBM</value>
+        public String FBBMBatch { get; set; }
+
+        /// <summary>
         /// 发布专题FBZTBatch
         /// </summary>
         /// <value>FBZT</value>
@@ -302,6 +314,12 @@ namespace RICH.Common.BM.T_BG_0601
         /// </summary>
         /// <value>FBLMValue</value>
         public String FBLMValue { get; set; }
+    
+        /// <summary>
+        /// 发布部门批量更新FBBMValue
+        /// </summary>
+        /// <value>FBBMValue</value>
+        public String FBBMValue { get; set; }
     
         /// <summary>
         /// 发布专题批量更新FBZTValue
@@ -521,6 +539,7 @@ namespace RICH.Common.BM.T_BG_0601
                               ,"BT"
                               ,"LanguageID"
                               ,"FBLM"
+                              ,"FBBM"
                               ,"FBZT"
                               ,"XXLX"
                               ,"XXTPDZ"
@@ -556,6 +575,7 @@ namespace RICH.Common.BM.T_BG_0601
         private static SqlDbType[] columnTypeList 
                 = new SqlDbType[] {
                               SqlDbType.UniqueIdentifier
+                              ,SqlDbType.NVarChar
                               ,SqlDbType.NVarChar
                               ,SqlDbType.NVarChar
                               ,SqlDbType.NVarChar
@@ -616,6 +636,7 @@ namespace RICH.Common.BM.T_BG_0601
                 = new string[] {
                               "ObjectID"
                               ,"LanguageID"
+                              ,"FBBM"
                               ,"FBZT"
                               ,"XXTPDZ"
                               ,"FJXZDZ"
@@ -656,6 +677,7 @@ ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable
     BT = dr.ReadString("BT"),
     LanguageID = dr.ReadString("LanguageID"),
     FBLM = dr.ReadString("FBLM"),
+    FBBM = dr.ReadString("FBBM"),
     FBZT = dr.ReadString("FBZT"),
     XXLX = dr.ReadString("XXLX"),
     XXTPDZ = dr.ReadString("XXTPDZ"),
@@ -693,6 +715,7 @@ ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID")
     BT = reader.ReadString("BT"),
     LanguageID = reader.ReadString("LanguageID"),
     FBLM = reader.ReadString("FBLM"),
+    FBBM = reader.ReadString("FBBM"),
     FBZT = reader.ReadString("FBZT"),
     XXLX = reader.ReadString("XXLX"),
     XXTPDZ = reader.ReadString("XXTPDZ"),

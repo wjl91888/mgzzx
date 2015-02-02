@@ -18,9 +18,6 @@ public partial class T_BG_0601WebUIDetail : RICH.Common.BM.T_BG_0601.T_BG_0601We
 {
     protected override void Page_Init(object sender, EventArgs e)
     {
-        // 基本SESSION赋值
-        Session[ConstantsManager.SESSION_CURRENT_PAGE] = CURRENT_PATH + "/" + WEBUI_DETAIL_FILENAME;
-        Session[ConstantsManager.SESSION_CURRENT_PURVIEW] = WEBUI_SEARCH_ACCESS_PURVIEW_ID;
         base.Page_Init(sender, e);
     }
 
@@ -229,36 +226,36 @@ public partial class T_BG_0601WebUIDetail : RICH.Common.BM.T_BG_0601.T_BG_0601We
                     tcFBLMContent.Style.Add("text-align", "center");
                     tDetailView.Rows[2].Cells.Add(tcFBLMContent);
               
-                    // 显示信息类型标题
-                    TableCell tcXXLXTitle = new TableCell();
-                    tcXXLXTitle.Text = "信息类型";
-                    tcXXLXTitle.ColumnSpan = 4;
-                    tcXXLXTitle.RowSpan = 1;
-                    tcXXLXTitle.CssClass = "fieldname";
-                    tcXXLXTitle.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
-                    tcXXLXTitle.Style.Add("border", "1px black solid");
-                    tDetailView.Rows[2].Cells.Add(tcXXLXTitle);
+                    // 显示发布部门标题
+                    TableCell tcFBBMTitle = new TableCell();
+                    tcFBBMTitle.Text = "发布部门";
+                    tcFBBMTitle.ColumnSpan = 4;
+                    tcFBBMTitle.RowSpan = 1;
+                    tcFBBMTitle.CssClass = "fieldname";
+                    tcFBBMTitle.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
+                    tcFBBMTitle.Style.Add("border", "1px black solid");
+                    tDetailView.Rows[2].Cells.Add(tcFBBMTitle);
                     
-                    // 显示信息类型值
-                    TableCell tcXXLXContent = new TableCell();
+                    // 显示发布部门值
+                    TableCell tcFBBMContent = new TableCell();
                       
-                    tcXXLXContent.Text = ((HtmlContainerControl)hcTemp.FindControl("XXLX")).InnerHtml;
-                    ((HtmlContainerControl)hcTemp.FindControl("XXLX")).InnerHtml = "";
-                    tcXXLXContent.ColumnSpan = 4;
-                    tcXXLXContent.RowSpan = 1;
-                    tcXXLXContent.CssClass = "fieldinput";
-                    tcXXLXContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
+                    tcFBBMContent.Text = ((HtmlContainerControl)hcTemp.FindControl("FBBM")).InnerHtml;
+                    ((HtmlContainerControl)hcTemp.FindControl("FBBM")).InnerHtml = "";
+                    tcFBBMContent.ColumnSpan = 4;
+                    tcFBBMContent.RowSpan = 1;
+                    tcFBBMContent.CssClass = "fieldinput";
+                    tcFBBMContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
                         
-                    tcXXLXContent.Style.Add("border-top", "1px black solid");
+                    tcFBBMContent.Style.Add("border-top", "1px black solid");
                         
-                    tcXXLXContent.Style.Add("border-left", "1px black solid");
+                    tcFBBMContent.Style.Add("border-left", "1px black solid");
                         
-                    tcXXLXContent.Style.Add("border-bottom", "1px black solid");
+                    tcFBBMContent.Style.Add("border-bottom", "1px black solid");
                         
-                    tcXXLXContent.Style.Add("border-right", "1px black solid");
+                    tcFBBMContent.Style.Add("border-right", "1px black solid");
                         
-                    tcXXLXContent.Style.Add("text-align", "center");
-                    tDetailView.Rows[2].Cells.Add(tcXXLXContent);
+                    tcFBBMContent.Style.Add("text-align", "center");
+                    tDetailView.Rows[2].Cells.Add(tcFBBMContent);
               
                     // 显示信息图片标题
                     TableCell tcXXTPDZTitle = new TableCell();

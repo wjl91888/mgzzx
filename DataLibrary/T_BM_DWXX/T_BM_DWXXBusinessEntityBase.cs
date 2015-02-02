@@ -371,6 +371,7 @@ namespace  RICH.Common.BM.T_BM_DWXX
             // 得到返回记录数
             AppData.RecordCount = AppData.ResultSet.Tables[0].Rows.Count;
         }
+        
         //=====================================================================
         //  FunctionName : GetDataByObjectID
         /// <summary>
@@ -387,6 +388,28 @@ namespace  RICH.Common.BM.T_BM_DWXX
             db.AddInParameter(cmdProc, "@ObjectID", DbType.String);
             // 对存储过程参数赋值
             db.SetParameterValue(cmdProc, "@ObjectID", strObjectID);
+            // 执行存储过程
+            return T_BM_DWXXApplicationData.FillDataFromDataReader(db.ExecuteReader(cmdProc));
+        }
+        
+        //=====================================================================
+        //  FunctionName : GetDataByKey
+        /// <summary>
+        /// 以Key为条件查询记录并返回AppData
+        /// </summary>
+        //=====================================================================
+        public static T_BM_DWXXApplicationData GetDataByKey(T_BM_DWXXApplicationData appData)
+        {
+            // 创建数据库连接 
+            Database db = DatabaseFactory.CreateDatabase("strConnManager");
+            string strProcName = "SP_SelectT_BM_DWXXByKey";
+            DbCommand cmdProc = db.GetStoredProcCommand(strProcName);
+            // 设定存储过程输入参数
+            
+            db.AddInParameter(cmdProc, "@DWBH", DbType.String);
+            // 对存储过程参数赋值
+            
+            db.SetParameterValue(cmdProc, "@DWBH", appData.DWBH);
             // 执行存储过程
             return T_BM_DWXXApplicationData.FillDataFromDataReader(db.ExecuteReader(cmdProc));
         }

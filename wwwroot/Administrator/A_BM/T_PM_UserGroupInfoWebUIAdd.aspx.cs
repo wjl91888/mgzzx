@@ -61,7 +61,6 @@ public partial class T_PM_UserGroupInfoWebUIAdd : RICH.Common.BM.T_PM_UserGroupI
             InitalizeCoupledDataSource();
         }
         base.Page_Load(sender, e);
-        CheckPermission();
     }
 
     //=====================================================================
@@ -144,12 +143,11 @@ UpdateDate.Text = DateTime.Now.ToString();
         // 验证输入参数
 
         validateData = ValidateUserGroupID(UserGroupID.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.UserGroupID = Convert.ToString(validateData.Value.ToString());
-                UserGroupID_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             UserGroupID.BackColor = System.Drawing.Color.Empty;
         }
@@ -161,12 +159,11 @@ UpdateDate.Text = DateTime.Now.ToString();
         }
                     
         validateData = ValidateUserGroupName(UserGroupName.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.UserGroupName = Convert.ToString(validateData.Value.ToString());
-                UserGroupName_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             UserGroupName.BackColor = System.Drawing.Color.Empty;
         }
@@ -178,12 +175,11 @@ UpdateDate.Text = DateTime.Now.ToString();
         }
                     
         validateData = ValidateUserGroupContent(UserGroupContent.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.UserGroupContent = Convert.ToString(validateData.Value.ToString());
-                UserGroupContent_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             UserGroupContent.BackColor = System.Drawing.Color.Empty;
         }
@@ -195,12 +191,11 @@ UpdateDate.Text = DateTime.Now.ToString();
         }
                     
         validateData = ValidateUserGroupRemark(UserGroupRemark.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.UserGroupRemark = Convert.ToString(validateData.Value.ToString());
-                UserGroupRemark_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             UserGroupRemark.BackColor = System.Drawing.Color.Empty;
         }
@@ -212,12 +207,11 @@ UpdateDate.Text = DateTime.Now.ToString();
         }
                     
         validateData = ValidateDefaultPage(DefaultPage.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.DefaultPage = Convert.ToString(validateData.Value.ToString());
-                DefaultPage_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DefaultPage.BackColor = System.Drawing.Color.Empty;
         }
@@ -255,7 +249,6 @@ UpdateDate.Text = DateTime.Now.ToString();
             if (!validateData.IsNull)
             {
                 appData.UserGroupID = Convert.ToString(validateData.Value.ToString());
-                UserGroupID_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -277,7 +270,6 @@ UpdateDate.Text = DateTime.Now.ToString();
             if (!validateData.IsNull)
             {
                 appData.UserGroupName = Convert.ToString(validateData.Value.ToString());
-                UserGroupName_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -299,7 +291,6 @@ UpdateDate.Text = DateTime.Now.ToString();
             if (!validateData.IsNull)
             {
                 appData.UserGroupContent = Convert.ToString(validateData.Value.ToString());
-                UserGroupContent_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -321,7 +312,6 @@ UpdateDate.Text = DateTime.Now.ToString();
             if (!validateData.IsNull)
             {
                 appData.UserGroupRemark = Convert.ToString(validateData.Value.ToString());
-                UserGroupRemark_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -343,7 +333,6 @@ UpdateDate.Text = DateTime.Now.ToString();
             if (!validateData.IsNull)
             {
                 appData.DefaultPage = Convert.ToString(validateData.Value.ToString());
-                DefaultPage_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -486,13 +475,38 @@ UpdateDate.Text = DateTime.Now.ToString();
         int updateCount = 0;
         try
         {
-            var appDatas = T_PM_UserGroupInfoApplicationData.GetDataFromDataFile<T_PM_UserGroupInfoApplicationData>(InfoFromDoc.Text, true);
+            var appDatas = T_PM_UserGroupInfoApplicationData.GetDataFromDataFile<T_PM_UserGroupInfoApplicationData>(InfoFromDoc.Text, true, true, recordStartLine: T_PM_UserGroupInfoContants.ImportDataSetStartLineNum);
             T_PM_UserGroupInfoApplicationLogic instanceT_PM_UserGroupInfoApplicationLogic = (T_PM_UserGroupInfoApplicationLogic)CreateApplicationLogicInstance(typeof(T_PM_UserGroupInfoApplicationLogic));
             totalCount = appDatas.Count;
             foreach (var app in appDatas)
             {
     
-            app.UpdateDate = DateTime.Now;
+                if(!UserGroupID.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.UserGroupID =  Convert.ToString(UserGroupID.Text);
+                }
+    
+                if(!UserGroupName.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.UserGroupName =  Convert.ToString(UserGroupName.Text);
+                }
+    
+                if(!UserGroupContent.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.UserGroupContent =  Convert.ToString(UserGroupContent.Text);
+                }
+    
+                if(!UserGroupRemark.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.UserGroupRemark =  Convert.ToString(UserGroupRemark.Text);
+                }
+    
+                if(!DefaultPage.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.DefaultPage =  Convert.ToString(DefaultPage.Text);
+                }
+    
+                app.UpdateDate = DateTime.Now;
                 instanceT_PM_UserGroupInfoApplicationLogic.Add(app);
                 if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
                 {
@@ -516,7 +530,7 @@ UpdateDate.Text = DateTime.Now.ToString();
         }
     }
 
-    public void CheckPermission()
+    protected override void CheckPermission()
     {
         if (AccessPermission)
         {
@@ -530,6 +544,22 @@ UpdateDate.Text = DateTime.Now.ToString();
             else if(AddMode || CopyMode)
             {
     ObjectID_Area.Visible = false;
+      UpdateDate_Area.Visible = false;
+      
+            }
+            if(ImportDSMode)
+            {
+    ObjectID_Area.Visible = false;
+      UserGroupID_Area.Visible = false;
+      UserGroupID_Area.Visible = true;
+      UserGroupName_Area.Visible = false;
+      UserGroupName_Area.Visible = true;
+      UserGroupContent_Area.Visible = false;
+      UserGroupContent_Area.Visible = true;
+      UserGroupRemark_Area.Visible = false;
+      UserGroupRemark_Area.Visible = true;
+      DefaultPage_Area.Visible = false;
+      DefaultPage_Area.Visible = true;
       UpdateDate_Area.Visible = false;
       
             }

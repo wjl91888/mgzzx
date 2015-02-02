@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\DataTableExtension.cs" />
+    <Compile Include="Extension\ArrayListExtensions.cs" />
     <Compile Include="Utilities\PreviewDocumetHelper.cs" />
     <Compile Include="SystemNotification.cs" />
     <Compile Include="Mail.cs" />

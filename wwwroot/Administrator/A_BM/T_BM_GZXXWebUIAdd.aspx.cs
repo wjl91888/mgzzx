@@ -61,7 +61,6 @@ public partial class T_BM_GZXXWebUIAdd : RICH.Common.BM.T_BM_GZXX.T_BM_GZXXWebUI
             InitalizeCoupledDataSource();
         }
         base.Page_Load(sender, e);
-        CheckPermission();
     }
 
     //=====================================================================
@@ -174,12 +173,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         // 验证输入参数
 
         validateData = ValidateXM(XM.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.XM = Convert.ToString(validateData.Value.ToString());
-                XM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             XM.BackColor = System.Drawing.Color.Empty;
         }
@@ -191,12 +189,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateXB(XB.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.XB = Convert.ToString(validateData.Value.ToString());
-                XB_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             XB.BackColor = System.Drawing.Color.Empty;
         }
@@ -208,12 +205,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateSFZH(SFZH.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SFZH = Convert.ToString(validateData.Value.ToString());
-                SFZH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SFZH.BackColor = System.Drawing.Color.Empty;
         }
@@ -225,12 +221,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateFFGZNY(FFGZNY.Text, false, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.FFGZNY = Convert.ToString(validateData.Value.ToString());
-                FFGZNY_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             FFGZNY.BackColor = System.Drawing.Color.Empty;
         }
@@ -242,12 +237,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateJCGZ(JCGZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JCGZ = Convert.ToDouble(validateData.Value.ToString());
-                JCGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JCGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -259,12 +253,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateJSDJGZ(JSDJGZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JSDJGZ = Convert.ToDouble(validateData.Value.ToString());
-                JSDJGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JSDJGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -276,12 +269,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateZWGZ(ZWGZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.ZWGZ = Convert.ToDouble(validateData.Value.ToString());
-                ZWGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             ZWGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -293,12 +285,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateJBGZ(JBGZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JBGZ = Convert.ToDouble(validateData.Value.ToString());
-                JBGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JBGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -310,12 +301,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateJKDQJT(JKDQJT.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JKDQJT = Convert.ToDouble(validateData.Value.ToString());
-                JKDQJT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JKDQJT.BackColor = System.Drawing.Color.Empty;
         }
@@ -327,12 +317,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateJKTSGWJT(JKTSGWJT.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JKTSGWJT = Convert.ToDouble(validateData.Value.ToString());
-                JKTSGWJT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JKTSGWJT.BackColor = System.Drawing.Color.Empty;
         }
@@ -344,12 +333,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateGLGZ(GLGZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.GLGZ = Convert.ToDouble(validateData.Value.ToString());
-                GLGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             GLGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -361,12 +349,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateXJGZ(XJGZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.XJGZ = Convert.ToDouble(validateData.Value.ToString());
-                XJGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             XJGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -378,12 +365,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateTGBF(TGBF.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.TGBF = Convert.ToDouble(validateData.Value.ToString());
-                TGBF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             TGBF.BackColor = System.Drawing.Color.Empty;
         }
@@ -395,12 +381,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateDHF(DHF.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.DHF = Convert.ToDouble(validateData.Value.ToString());
-                DHF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DHF.BackColor = System.Drawing.Color.Empty;
         }
@@ -412,12 +397,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateDSZNF(DSZNF.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.DSZNF = Convert.ToDouble(validateData.Value.ToString());
-                DSZNF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DSZNF.BackColor = System.Drawing.Color.Empty;
         }
@@ -429,12 +413,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateFNWSHLF(FNWSHLF.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.FNWSHLF = Convert.ToDouble(validateData.Value.ToString());
-                FNWSHLF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             FNWSHLF.BackColor = System.Drawing.Color.Empty;
         }
@@ -446,12 +429,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateHLF(HLF.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.HLF = Convert.ToDouble(validateData.Value.ToString());
-                HLF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             HLF.BackColor = System.Drawing.Color.Empty;
         }
@@ -463,12 +445,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateJJ(JJ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JJ = Convert.ToDouble(validateData.Value.ToString());
-                JJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JJ.BackColor = System.Drawing.Color.Empty;
         }
@@ -480,12 +461,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateJTF(JTF.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JTF = Convert.ToDouble(validateData.Value.ToString());
-                JTF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JTF.BackColor = System.Drawing.Color.Empty;
         }
@@ -497,12 +477,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateJHLGZ(JHLGZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JHLGZ = Convert.ToDouble(validateData.Value.ToString());
-                JHLGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JHLGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -514,12 +493,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateJT(JT.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.JT = Convert.ToDouble(validateData.Value.ToString());
-                JT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JT.BackColor = System.Drawing.Color.Empty;
         }
@@ -531,12 +509,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateBF(BF.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.BF = Convert.ToDouble(validateData.Value.ToString());
-                BF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             BF.BackColor = System.Drawing.Color.Empty;
         }
@@ -548,12 +525,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateQTBT(QTBT.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.QTBT = Convert.ToDouble(validateData.Value.ToString());
-                QTBT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             QTBT.BackColor = System.Drawing.Color.Empty;
         }
@@ -565,12 +541,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateDFXJT(DFXJT.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.DFXJT = Convert.ToDouble(validateData.Value.ToString());
-                DFXJT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DFXJT.BackColor = System.Drawing.Color.Empty;
         }
@@ -582,12 +557,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateYFX(YFX.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.YFX = Convert.ToDouble(validateData.Value.ToString());
-                YFX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             YFX.BackColor = System.Drawing.Color.Empty;
         }
@@ -599,12 +573,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateQTKK(QTKK.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.QTKK = Convert.ToDouble(validateData.Value.ToString());
-                QTKK_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             QTKK.BackColor = System.Drawing.Color.Empty;
         }
@@ -616,12 +589,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateSYBX(SYBX.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SYBX = Convert.ToDouble(validateData.Value.ToString());
-                SYBX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SYBX.BackColor = System.Drawing.Color.Empty;
         }
@@ -633,12 +605,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateSDNQF(SDNQF.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SDNQF = Convert.ToDouble(validateData.Value.ToString());
-                SDNQF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SDNQF.BackColor = System.Drawing.Color.Empty;
         }
@@ -650,12 +621,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateSDS(SDS.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SDS = Convert.ToDouble(validateData.Value.ToString());
-                SDS_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SDS.BackColor = System.Drawing.Color.Empty;
         }
@@ -667,12 +637,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateYLBX(YLBX.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.YLBX = Convert.ToDouble(validateData.Value.ToString());
-                YLBX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             YLBX.BackColor = System.Drawing.Color.Empty;
         }
@@ -684,12 +653,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateYLIBX(YLIBX.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.YLIBX = Convert.ToDouble(validateData.Value.ToString());
-                YLIBX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             YLIBX.BackColor = System.Drawing.Color.Empty;
         }
@@ -701,12 +669,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateYSSHF(YSSHF.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.YSSHF = Convert.ToDouble(validateData.Value.ToString());
-                YSSHF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             YSSHF.BackColor = System.Drawing.Color.Empty;
         }
@@ -718,12 +685,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateZFGJJ(ZFGJJ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.ZFGJJ = Convert.ToDouble(validateData.Value.ToString());
-                ZFGJJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             ZFGJJ.BackColor = System.Drawing.Color.Empty;
         }
@@ -735,12 +701,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateKFX(KFX.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.KFX = Convert.ToDouble(validateData.Value.ToString());
-                KFX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             KFX.BackColor = System.Drawing.Color.Empty;
         }
@@ -752,12 +717,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateSFGZ(SFGZ.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.SFGZ = Convert.ToDouble(validateData.Value.ToString());
-                SFGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SFGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -769,12 +733,11 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
                     
         validateData = ValidateGZKKSM(GZKKSM.Text, true, false);
-        if (validateData.Result==true)
+        if (validateData.Result)
         {
-            if (validateData.IsNull==false)
+            if (!validateData.IsNull)
             {
                 appData.GZKKSM = Convert.ToString(validateData.Value.ToString());
-                GZKKSM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             GZKKSM.BackColor = System.Drawing.Color.Empty;
         }
@@ -812,7 +775,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.XM = Convert.ToString(validateData.Value.ToString());
-                XM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -834,7 +796,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.XB = Convert.ToString(validateData.Value.ToString());
-                XB_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -856,7 +817,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.SFZH = Convert.ToString(validateData.Value.ToString());
-                SFZH_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -878,7 +838,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.FFGZNY = Convert.ToString(validateData.Value.ToString());
-                FFGZNY_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -900,7 +859,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.JCGZ = Convert.ToDouble(validateData.Value.ToString());
-                JCGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JCGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -917,7 +875,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.JSDJGZ = Convert.ToDouble(validateData.Value.ToString());
-                JSDJGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JSDJGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -934,7 +891,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.ZWGZ = Convert.ToDouble(validateData.Value.ToString());
-                ZWGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             ZWGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -951,7 +907,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.JBGZ = Convert.ToDouble(validateData.Value.ToString());
-                JBGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JBGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -968,7 +923,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.JKDQJT = Convert.ToDouble(validateData.Value.ToString());
-                JKDQJT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JKDQJT.BackColor = System.Drawing.Color.Empty;
         }
@@ -985,7 +939,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.JKTSGWJT = Convert.ToDouble(validateData.Value.ToString());
-                JKTSGWJT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JKTSGWJT.BackColor = System.Drawing.Color.Empty;
         }
@@ -1002,7 +955,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.GLGZ = Convert.ToDouble(validateData.Value.ToString());
-                GLGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             GLGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -1019,7 +971,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.XJGZ = Convert.ToDouble(validateData.Value.ToString());
-                XJGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             XJGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -1036,7 +987,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.TGBF = Convert.ToDouble(validateData.Value.ToString());
-                TGBF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             TGBF.BackColor = System.Drawing.Color.Empty;
         }
@@ -1053,7 +1003,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.DHF = Convert.ToDouble(validateData.Value.ToString());
-                DHF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DHF.BackColor = System.Drawing.Color.Empty;
         }
@@ -1070,7 +1019,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.DSZNF = Convert.ToDouble(validateData.Value.ToString());
-                DSZNF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DSZNF.BackColor = System.Drawing.Color.Empty;
         }
@@ -1087,7 +1035,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.FNWSHLF = Convert.ToDouble(validateData.Value.ToString());
-                FNWSHLF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             FNWSHLF.BackColor = System.Drawing.Color.Empty;
         }
@@ -1104,7 +1051,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.HLF = Convert.ToDouble(validateData.Value.ToString());
-                HLF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             HLF.BackColor = System.Drawing.Color.Empty;
         }
@@ -1121,7 +1067,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.JJ = Convert.ToDouble(validateData.Value.ToString());
-                JJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JJ.BackColor = System.Drawing.Color.Empty;
         }
@@ -1138,7 +1083,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.JTF = Convert.ToDouble(validateData.Value.ToString());
-                JTF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JTF.BackColor = System.Drawing.Color.Empty;
         }
@@ -1155,7 +1099,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.JHLGZ = Convert.ToDouble(validateData.Value.ToString());
-                JHLGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JHLGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -1172,7 +1115,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.JT = Convert.ToDouble(validateData.Value.ToString());
-                JT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             JT.BackColor = System.Drawing.Color.Empty;
         }
@@ -1189,7 +1131,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.BF = Convert.ToDouble(validateData.Value.ToString());
-                BF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             BF.BackColor = System.Drawing.Color.Empty;
         }
@@ -1206,7 +1147,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.QTBT = Convert.ToDouble(validateData.Value.ToString());
-                QTBT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             QTBT.BackColor = System.Drawing.Color.Empty;
         }
@@ -1223,7 +1163,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.DFXJT = Convert.ToDouble(validateData.Value.ToString());
-                DFXJT_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             DFXJT.BackColor = System.Drawing.Color.Empty;
         }
@@ -1240,7 +1179,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.YFX = Convert.ToDouble(validateData.Value.ToString());
-                YFX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             YFX.BackColor = System.Drawing.Color.Empty;
         }
@@ -1257,7 +1195,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.QTKK = Convert.ToDouble(validateData.Value.ToString());
-                QTKK_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             QTKK.BackColor = System.Drawing.Color.Empty;
         }
@@ -1274,7 +1211,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.SYBX = Convert.ToDouble(validateData.Value.ToString());
-                SYBX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SYBX.BackColor = System.Drawing.Color.Empty;
         }
@@ -1291,7 +1227,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.SDNQF = Convert.ToDouble(validateData.Value.ToString());
-                SDNQF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SDNQF.BackColor = System.Drawing.Color.Empty;
         }
@@ -1308,7 +1243,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.SDS = Convert.ToDouble(validateData.Value.ToString());
-                SDS_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SDS.BackColor = System.Drawing.Color.Empty;
         }
@@ -1325,7 +1259,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.YLBX = Convert.ToDouble(validateData.Value.ToString());
-                YLBX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             YLBX.BackColor = System.Drawing.Color.Empty;
         }
@@ -1342,7 +1275,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.YLIBX = Convert.ToDouble(validateData.Value.ToString());
-                YLIBX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             YLIBX.BackColor = System.Drawing.Color.Empty;
         }
@@ -1359,7 +1291,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.YSSHF = Convert.ToDouble(validateData.Value.ToString());
-                YSSHF_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             YSSHF.BackColor = System.Drawing.Color.Empty;
         }
@@ -1376,7 +1307,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.ZFGJJ = Convert.ToDouble(validateData.Value.ToString());
-                ZFGJJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             ZFGJJ.BackColor = System.Drawing.Color.Empty;
         }
@@ -1393,7 +1323,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.KFX = Convert.ToDouble(validateData.Value.ToString());
-                KFX_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             KFX.BackColor = System.Drawing.Color.Empty;
         }
@@ -1410,7 +1339,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.SFGZ = Convert.ToDouble(validateData.Value.ToString());
-                SFGZ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             SFGZ.BackColor = System.Drawing.Color.Empty;
         }
@@ -1427,7 +1355,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.GZKKSM = Convert.ToString(validateData.Value.ToString());
-                GZKKSM_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
                         
             else
@@ -1449,7 +1376,6 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             if (!validateData.IsNull)
             {
                 appData.TJSJ = Convert.ToDateTime(validateData.Value.ToString());
-                TJSJ_Note.InnerHtml = @"<font color=""gray"">输入正确。</font>";
             }
             TJSJ.BackColor = System.Drawing.Color.Empty;
         }
@@ -1585,13 +1511,23 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         int updateCount = 0;
         try
         {
-            var appDatas = T_BM_GZXXApplicationData.GetDataFromDataFile<T_BM_GZXXApplicationData>(InfoFromDoc.Text, true);
+            var appDatas = T_BM_GZXXApplicationData.GetDataFromDataFile<T_BM_GZXXApplicationData>(InfoFromDoc.Text, true, true, recordStartLine: T_BM_GZXXContants.ImportDataSetStartLineNum);
             T_BM_GZXXApplicationLogic instanceT_BM_GZXXApplicationLogic = (T_BM_GZXXApplicationLogic)CreateApplicationLogicInstance(typeof(T_BM_GZXXApplicationLogic));
             totalCount = appDatas.Count;
             foreach (var app in appDatas)
             {
     
-            app.TJSJ = DateTime.Now;
+                if(!FFGZNY.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.FFGZNY =  Convert.ToString(FFGZNY.Text);
+                }
+    
+                if(!GZKKSM.Text.IsHtmlNullOrWiteSpace()) 
+                {
+                    app.GZKKSM =  Convert.ToString(GZKKSM.Text);
+                }
+    
+                app.TJSJ = DateTime.Now;
                 instanceT_BM_GZXXApplicationLogic.Add(app);
                 if (app.ResultCode == RICH.Common.Base.ApplicationData.ApplicationDataBase.ResultState.Succeed)
                 {
@@ -1615,7 +1551,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
         }
     }
 
-    public void CheckPermission()
+    protected override void CheckPermission()
     {
         if (AccessPermission)
         {
@@ -1632,6 +1568,50 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             else if(AddMode || CopyMode)
             {
     ObjectID_Area.Visible = false;
+      TJSJ_Area.Visible = false;
+      
+            }
+            if(ImportDSMode)
+            {
+    ObjectID_Area.Visible = false;
+      XM_Area.Visible = false;
+      XB_Area.Visible = false;
+      SFZH_Area.Visible = false;
+      FFGZNY_Area.Visible = false;
+      FFGZNY_Area.Visible = true;
+      JCGZ_Area.Visible = false;
+      JSDJGZ_Area.Visible = false;
+      ZWGZ_Area.Visible = false;
+      JBGZ_Area.Visible = false;
+      JKDQJT_Area.Visible = false;
+      JKTSGWJT_Area.Visible = false;
+      GLGZ_Area.Visible = false;
+      XJGZ_Area.Visible = false;
+      TGBF_Area.Visible = false;
+      DHF_Area.Visible = false;
+      DSZNF_Area.Visible = false;
+      FNWSHLF_Area.Visible = false;
+      HLF_Area.Visible = false;
+      JJ_Area.Visible = false;
+      JTF_Area.Visible = false;
+      JHLGZ_Area.Visible = false;
+      JT_Area.Visible = false;
+      BF_Area.Visible = false;
+      QTBT_Area.Visible = false;
+      DFXJT_Area.Visible = false;
+      YFX_Area.Visible = false;
+      QTKK_Area.Visible = false;
+      SYBX_Area.Visible = false;
+      SDNQF_Area.Visible = false;
+      SDS_Area.Visible = false;
+      YLBX_Area.Visible = false;
+      YLIBX_Area.Visible = false;
+      YSSHF_Area.Visible = false;
+      ZFGJJ_Area.Visible = false;
+      KFX_Area.Visible = false;
+      SFGZ_Area.Visible = false;
+      GZKKSM_Area.Visible = false;
+      GZKKSM_Area.Visible = true;
       TJSJ_Area.Visible = false;
       
             }
@@ -1678,6 +1658,10 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 TJSJ.Enabled = false;
                 TJSJ_Area.Visible = false;
       
+				if(CurrentAccessPermission == WDGZ_PURVIEW_ID)
+				{
+                TJSJ_Area.Visible = false;
+				}
             }
         }
     }

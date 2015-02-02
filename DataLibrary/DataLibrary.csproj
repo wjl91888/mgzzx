@@ -82,6 +82,14 @@
     <Compile Include="Base\UserGroupLibrary.cs" />
     <Compile Include="Base\UserGroupPurviewLibrary.cs" />
     <Compile Include="Base\UserPurviewLibrary.cs" />
+    <Compile Include="T_PM_PurviewInfo\T_PM_PurviewInfoApplicationData.cs" />
+    <Compile Include="T_PM_PurviewInfo\T_PM_PurviewInfoApplicationLogic.cs" />
+    <Compile Include="T_PM_PurviewInfo\T_PM_PurviewInfoApplicationLogicBase.cs" />
+    <Compile Include="T_PM_PurviewInfo\T_PM_PurviewInfoBusinessEntity.cs" />
+    <Compile Include="T_PM_PurviewInfo\T_PM_PurviewInfoBusinessEntityBase.cs" />
+    <Compile Include="WebUIBase\WebUIBase.Navigation.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="WebUIBase\WebUIBase.Virtual.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

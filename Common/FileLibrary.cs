@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -668,7 +669,7 @@ namespace RICH.Common
 
         #region Excel文件导入
 
-        public static DataTable ConvertDataFileToDataTable(string strFileName, bool boolVirtual = false, bool afterDelete = false)
+        public static DataTable ConvertDataFileToDataTable(string strFileName, bool boolVirtual = false, bool afterDelete = false, int recordStartLine = 2)
         {
             if (strFileName.IsHtmlNullOrWiteSpace())
             {
@@ -708,31 +709,47 @@ namespace RICH.Common
                     if (File.Exists(csvFileName))
                     {
                         var dt = new DataTable("filename");
-                        String line;
                         String[] split = null;
                         DataRow row = null;
+                        string[] columnNames = null;
                         using (StreamReader sr = new StreamReader(csvFileName, System.Text.Encoding.Default))
                         {
-                            line = sr.ReadLine();
-                            split = line.Split(',');
-                            foreach (String colname in split)
+                            string record = sr.ReadToEnd();
+                            var arrayList = SplitCSV(record);
+                            if (arrayList.Count == 0)
+                            {
+                                throw new Exception("需导入的文件无数据，请重新选择。");
+                            }
+                            columnNames = ((ArrayList)arrayList[0]).ToStringArray();
+                            for (int i = 1; i < recordStartLine - 1; i++)
+                            {
+                                split = ((ArrayList)arrayList[i]).ToStringArray();
+                                for (int j = 0; j < split.Length; j++)
+                                {
+                                    if (!split[j].IsNullOrWhiteSpace())
+                                    {
+                                        columnNames[j] = split[j];
+                                    }
+                                }
+                            }
+                            foreach (String colname in columnNames)
                             {
                                 dt.Columns.Add(colname, System.Type.GetType("System.String"));
                             }
-                            int j = 0;
-                            while ((line = sr.ReadLine()) != null)
+                            arrayList.RemoveRange(0, recordStartLine - 1);
+                            int columnIndex = 0;
+                            foreach (ArrayList data in arrayList)
                             {
-                                j = 0;
+                                columnIndex = 0;
+                                split = data.ToStringArray();
                                 row = dt.NewRow();
-                                split = line.Split(',');
                                 foreach (String colname in split)
                                 {
-                                    row[j] = colname;
-                                    j++;
+                                    row[columnIndex] = colname;
+                                    columnIndex++;
                                 }
                                 dt.Rows.Add(row);
                             }
-                            sr.Close();
                         }
                         if (afterDelete)
                         {
@@ -753,6 +770,65 @@ namespace RICH.Common
                 }
             }
             return new DataTable();
+        }
+
+        public static ArrayList SplitCSV(string record)
+        {
+            char[] s = record.ToCharArray();
+            System.Text.StringBuilder strCol = new System.Text.StringBuilder();
+            ArrayList arLne = new ArrayList();
+            ArrayList arAll = new ArrayList();
+            int cnter = 0;
+            foreach (char t in s)
+            {
+                switch (t)
+                {
+                    case '\"':
+                        cnter++;
+                        strCol.Append(t);
+                        break;
+                    case ',':
+                        if (IsColumeOver(cnter))
+                        {
+                            cnter = 0;
+                            arLne.Add(strCol);
+                            strCol = new System.Text.StringBuilder();
+                        }
+                        else
+                        {
+                            strCol.Append(t);
+                        }
+                        break;
+                    case '\r':
+                        if (IsLineOver(cnter))
+                        {
+                            cnter = 0;
+                            arLne.Add(strCol);
+                            strCol = new System.Text.StringBuilder();
+                            arAll.Add(arLne);
+                            arLne = new ArrayList();
+                        }
+                        else
+                        {
+                            strCol.Append(t);
+                        }
+                        break;
+                    default:
+                        strCol.Append(t);
+                        break;
+                }
+            }
+            return arAll;
+        }
+
+        private static bool IsColumeOver(int cnter)
+        {
+            return System.Math.IEEERemainder((double)cnter, 2) == 0;
+        }
+
+        private static bool IsLineOver(int cnter)
+        {
+            return System.Math.IEEERemainder((double)cnter, 2) == 0;
         }
         #endregion Excel文件导入
 
