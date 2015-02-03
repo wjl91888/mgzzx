@@ -151,6 +151,10 @@ namespace RICH.Common.Base.WebUI
                 {
                     return Request.QueryString["ObjectID"];
                 }
+                else if(EditMode)
+                {
+                    return GetObjectID();
+                }
                 return string.Empty;
             }
         }

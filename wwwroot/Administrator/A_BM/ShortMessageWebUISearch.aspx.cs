@@ -535,22 +535,22 @@ DXXBT.Text = GetValue(appData.DXXBT);
         appData.CurrentPage = DEFAULT_CURRENT_PAGE;
       }
 
-        if(CurrentAccessPermission == SJX_PURVIEW_ID)
+        if(CustomPermission == SJX_PURVIEW_ID)
         {
             appData.DXXLX = "02";
         }
         
-        if(CurrentAccessPermission == SJX_PURVIEW_ID)
+        if(CustomPermission == SJX_PURVIEW_ID)
         {
             appData.JSR = CurrentUserInfo.UserID;
         }
         
-        if(CurrentAccessPermission == FJX_PURVIEW_ID)
+        if(CustomPermission == FJX_PURVIEW_ID)
         {
             appData.DXXLX = "01";
         }
         
-        if(CurrentAccessPermission == FJX_PURVIEW_ID)
+        if(CustomPermission == FJX_PURVIEW_ID)
         {
             appData.FSR = CurrentUserInfo.UserID;
         }
@@ -643,40 +643,40 @@ DXXBT.Text = GetValue(appData.DXXBT);
         if(AccessPermission)
         {
 
-            if(CurrentAccessPermission == SJX_PURVIEW_ID)
+            if(CustomPermission == SJX_PURVIEW_ID)
             {
             JSR_Area.Visible = false;
             }
-            if(CurrentAccessPermission == SJX_PURVIEW_ID)
+            if(CustomPermission == SJX_PURVIEW_ID)
             {
             gvList.Columns[intSFCKColumnIndex].Visible = 
             chkShowSFCK_Area.Visible =
             chkShowSFCK.Checked =
             chkShowSFCK.Enabled = false;
             }
-            if(CurrentAccessPermission == FJX_PURVIEW_ID)
+            if(CustomPermission == FJX_PURVIEW_ID)
             {
             gvList.Columns[intFSRColumnIndex].Visible = 
             chkShowFSR_Area.Visible =
             chkShowFSR.Checked =
             chkShowFSR.Enabled = false;
             }
-            if(CurrentAccessPermission == FJX_PURVIEW_ID)
+            if(CustomPermission == FJX_PURVIEW_ID)
             {
             FSR_Area.Visible = false;
             }
-            if(CurrentAccessPermission == FJX_PURVIEW_ID)
+            if(CustomPermission == FJX_PURVIEW_ID)
             {
             gvList.Columns[intFSBMColumnIndex].Visible = 
             chkShowFSBM_Area.Visible =
             chkShowFSBM.Checked =
             chkShowFSBM.Enabled = false;
             }
-            if(CurrentAccessPermission == FJX_PURVIEW_ID)
+            if(CustomPermission == FJX_PURVIEW_ID)
             {
             FSBM_Area.Visible = false;
             }
-            if(CurrentAccessPermission == FJX_PURVIEW_ID)
+            if(CustomPermission == FJX_PURVIEW_ID)
             {
             gvList.Columns[intSFCKColumnIndex].Visible = 
             chkShowSFCK_Area.Visible =

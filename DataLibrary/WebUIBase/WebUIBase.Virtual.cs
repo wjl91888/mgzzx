@@ -57,32 +57,32 @@ namespace RICH.Common.Base.WebUI
                 if (btnAddItem != null)
                 {
                     btnAddItem.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIAddAccessPurviewID());
-                    btnAddItem.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetAddPageUrl()));
+                    btnAddItem.Attributes.Add("onclick", OpenWindowJsCode.FormatInvariantCulture(GetAddPageUrl()));
                 }
                 var btnEditItem = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnEditItem");
                 if (btnEditItem != null)
                 {
                     btnEditItem.Visible = !EditMode && !AddMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIModifyAccessPurviewID());
-                    btnEditItem.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetEditPageUrl(ObjectID)));
+                    btnEditItem.Attributes.Add("onclick", OpenWindowJsCode.FormatInvariantCulture(GetEditPageUrl(ObjectID)));
                 }
                 var btnCopyItem = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnCopyItem");
                 var btnImportFromDoc = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnImportFromDoc");
                 if (btnImportFromDoc != null)
                 {
                     btnImportFromDoc.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_PURVIEW_ID);
-                    btnImportFromDoc.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetImportDocPageUrl()));
+                    btnImportFromDoc.Attributes.Add("onclick", OpenWindowJsCode.FormatInvariantCulture(GetImportDocPageUrl()));
                 }
                 var btnImportFromDataSet = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnImportFromDataSet");
                 if (btnImportFromDataSet != null)
                 {
                     btnImportFromDataSet.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, OPERATION_IMPORT_DS_PURVIEW_ID);
-                    btnImportFromDataSet.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetImportDocPageUrl()));
+                    btnImportFromDataSet.Attributes.Add("onclick", OpenWindowJsCode.FormatInvariantCulture(GetImportDocPageUrl()));
                 }
                 var btnStatisticItem = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnStatisticItem");
                 if (btnStatisticItem != null)
                 {
                     btnStatisticItem.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, WEBUI_STATISTIC_ACCESS_PURVIEW_ID);
-                    btnStatisticItem.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);".FormatInvariantCulture(GetStatisicPageUrl()));
+                    btnStatisticItem.Attributes.Add("onclick", OpenWindowJsCode.FormatInvariantCulture(GetStatisicPageUrl()));
                 }
                 if (MainContentPlaceHolder.FindControl("ddlOperation") != null)
                 {
@@ -270,13 +270,13 @@ namespace RICH.Common.Base.WebUI
                 #region search page
                 if (CurrentPageFileName.Equals(WEBUI_SEARCH_FILENAME, StringComparison.OrdinalIgnoreCase))
                 {
+                    var PageTitle = MainContentPlaceHolder.FindControl("PageTitle") as Literal;
+                    if (PageTitle != null)
+                    {
+                        PageTitle.Text = PageHeaderTitle;
+                    }
                     if (!AccessPermission)
                     {
-                        var divtree = MainContentPlaceHolder.FindControl("divtree");
-                        if (divtree != null)
-                        {
-                            divtree.Visible = false;
-                        }
                         var advancesearchpage = MainContentPlaceHolder.FindControl("advancesearchpage");
                         if (advancesearchpage != null)
                         {
@@ -482,6 +482,8 @@ namespace RICH.Common.Base.WebUI
         protected virtual Boolean GetQueryInputParameter() { return true; }
 
         protected virtual Boolean GetDeleteInputParameter() { return true; }
+
+        protected virtual string GetObjectID() { return string.Empty; }
 
     }
 }

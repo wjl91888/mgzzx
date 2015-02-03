@@ -117,7 +117,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
             <tr>
                 <td valign="top" id="tddivtree">
-                <div id="divtree" class="width240" runat="server">
+                <div id="divtree" class="width240">
             <div id="advancesearchpage" runat="server" class="advancesearchpage">
                 <div id="FilterReportContainer" runat="server" Visible="false">
                 <div class="main">
@@ -325,12 +325,12 @@
                     </div>
                 </td>
                 <td valign="top" width="100%">
-            <div id="listpage" runat="server" class="listpage">
-               <div id="toptoolsbar" runat="server" class="toptoolsbar">
+            <div id="listpage" runat="server" class="listpage listpageleftposition">
+               <div id="toptoolsbar" runat="server" class="toptoolsbar listpageleftposition">
                 <div class="title">
                     <div class="bar">
                         <div class="lefttitle">
-                            报表信息列表
+                            <asp:Literal ID="PageTitle" runat="server"></asp:Literal>
                         </div>
                     </div>
                 </div>
@@ -346,6 +346,7 @@
                          <asp:ListItem Text="WORD文件(.doc)" Value="doc"></asp:ListItem>
                      </asp:DropDownList>
                      <asp:Button runat="server" ID="btnExportAllToFile" Text="导出" CssClass="button" OnClick="btnExportAllToFile_Click" />
+                 <%=Convert.ToChar(38).ToString() +"nbsp;"%>
                  </div>
                 <div id="SearchPageTopToolBar" runat="server" class="SearchPageTopToolBar">
                     <table>

@@ -79,9 +79,11 @@ DXXNR.ImageGalleryPath = "~/Media/Image/FreeTextBox/" + Session[RICH.Common.Cons
         if(ViewMode || EditMode || CopyMode)
         {
             // 读取要修改记录详细资料
-            appData = new ShortMessageApplicationData();
-            appData.ObjectID = base.ObjectID;
-            appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID;
+            appData = new ShortMessageApplicationData
+                          {
+                              ObjectID = base.ObjectID,
+                              OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID
+                          };
             QueryRecord();
             // 控件赋值
             if (appData.RecordCount > 0)
@@ -591,30 +593,48 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 FSIP.Enabled = false;
                 FSIP_Area.Visible = false;
       JSR.ReadOnly = true;
-                JSR_Area.Visible = false;
-      SFCK.Enabled = false;
+                SFCK.Enabled = false;
                 SFCK_Area.Visible = false;
       CKSJ.Enabled = false;
                 CKSJ_Area.Visible = false;
       
-				if(CurrentAccessPermission == SJX_PURVIEW_ID)
+            }
+	
+				if(CustomPermission == SJX_PURVIEW_ID)
 				{
                 SFCK_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == FJX_PURVIEW_ID)
+				if(CustomPermission == FJX_PURVIEW_ID)
 				{
                 FSR_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == FJX_PURVIEW_ID)
+				if(CustomPermission == FJX_PURVIEW_ID)
 				{
                 FSBM_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == FJX_PURVIEW_ID)
+				if(CustomPermission == FJX_PURVIEW_ID)
 				{
                 SFCK_Area.Visible = false;
 				}
-            }
         }
+    }
+    
+    protected override string GetObjectID()
+    {
+		        appData = new ShortMessageApplicationData();
+	
+                appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
+                appData.PageSize = 1;
+                appData.CurrentPage = 1;
+                QueryRecord();
+                if (appData.RecordCount == 1)
+                {
+                    return GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
+                }
+                else
+                {
+                    return string.Empty;
+                }
     }
 }
 

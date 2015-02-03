@@ -10,6 +10,7 @@
         <telerik:RadComboBoxItem Text="" />
     </Items>
 </telerik:RadComboBox>
+<div class="clearboth"></div>
 <script language="javascript" type="text/javascript">
      Sys.Application.add_load(function () {
         SetComboTreeViewText_<%= TreeView.ClientID %>();

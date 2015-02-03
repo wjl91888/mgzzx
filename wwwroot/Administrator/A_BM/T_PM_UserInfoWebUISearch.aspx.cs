@@ -973,94 +973,94 @@ UserLoginName.Text = GetValue(appData.UserLoginName);
         if(AccessPermission)
         {
 
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             gvList.Columns[intUserIDColumnIndex].Visible = 
             chkShowUserID_Area.Visible =
             chkShowUserID.Checked =
             chkShowUserID.Enabled = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             gvList.Columns[intUserLoginNameColumnIndex].Visible = 
             chkShowUserLoginName_Area.Visible =
             chkShowUserLoginName.Checked =
             chkShowUserLoginName.Enabled = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             UserLoginName_Area.Visible = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             gvList.Columns[intUserGroupIDColumnIndex].Visible = 
             chkShowUserGroupID_Area.Visible =
             chkShowUserGroupID.Checked =
             chkShowUserGroupID.Enabled = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             UserGroupID_Area.Visible = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             XB_Area.Visible = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             MZ_Area.Visible = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             ZZMM_Area.Visible = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             gvList.Columns[intSFZHColumnIndex].Visible = 
             chkShowSFZH_Area.Visible =
             chkShowSFZH.Checked =
             chkShowSFZH.Enabled = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             SFZH_Area.Visible = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             gvList.Columns[intLoginTimeColumnIndex].Visible = 
             chkShowLoginTime_Area.Visible =
             chkShowLoginTime.Checked =
             chkShowLoginTime.Enabled = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             gvList.Columns[intLastLoginIPColumnIndex].Visible = 
             chkShowLastLoginIP_Area.Visible =
             chkShowLastLoginIP.Checked =
             chkShowLastLoginIP.Enabled = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             gvList.Columns[intLastLoginDateColumnIndex].Visible = 
             chkShowLastLoginDate_Area.Visible =
             chkShowLastLoginDate.Checked =
             chkShowLastLoginDate.Enabled = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             gvList.Columns[intLoginTimesColumnIndex].Visible = 
             chkShowLoginTimes_Area.Visible =
             chkShowLoginTimes.Checked =
             chkShowLoginTimes.Enabled = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             gvList.Columns[intUserStatusColumnIndex].Visible = 
             chkShowUserStatus_Area.Visible =
             chkShowUserStatus.Checked =
             chkShowUserStatus.Enabled = false;
             }
-            if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            if(CustomPermission == TXL_PURVIEW_ID)
             {
             UserStatus_Area.Visible = false;
             }

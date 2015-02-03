@@ -11,5 +11,6 @@ namespace RICH.Common.Base.WebUI
         public const string AndChar = "&";
         protected const Int32 DEFAULT_PAGE_SIZE = 50;
         protected const Int32 DEFAULT_CURRENT_PAGE = 1;
+        public const string OpenWindowJsCode = @"OpenWindow('{0}',770,600,window);";
     }
 }

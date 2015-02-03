@@ -340,6 +340,37 @@ public partial class ShortMessageWebUIDetail : RICH.Common.BM.ShortMessage.Short
                     tcFSBMContent.Style.Add("text-align", "center");
                     tDetailView.Rows[4].Cells.Add(tcFSBMContent);
               
+                    // 显示接收人标题
+                    TableCell tcJSRTitle = new TableCell();
+                    tcJSRTitle.Text = "接收人";
+                    tcJSRTitle.ColumnSpan = 4;
+                    tcJSRTitle.RowSpan = 1;
+                    tcJSRTitle.CssClass = "fieldname";
+                    tcJSRTitle.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 4 / intColumn));
+                    tcJSRTitle.Style.Add("border", "1px black solid");
+                    tDetailView.Rows[5].Cells.Add(tcJSRTitle);
+                    
+                    // 显示接收人值
+                    TableCell tcJSRContent = new TableCell();
+                      
+                    tcJSRContent.Text = ((HtmlContainerControl)hcTemp.FindControl("JSR")).InnerHtml;
+                    ((HtmlContainerControl)hcTemp.FindControl("JSR")).InnerHtml = "";
+                    tcJSRContent.ColumnSpan = 20;
+                    tcJSRContent.RowSpan = 1;
+                    tcJSRContent.CssClass = "fieldinput";
+                    tcJSRContent.Width = Unit.Pixel(FunctionManager.RoundInt(tDetailView.Width.Value * 20 / intColumn));
+                        
+                    tcJSRContent.Style.Add("border-top", "1px black solid");
+                        
+                    tcJSRContent.Style.Add("border-left", "1px black solid");
+                        
+                    tcJSRContent.Style.Add("border-bottom", "1px black solid");
+                        
+                    tcJSRContent.Style.Add("border-right", "1px black solid");
+                        
+                    tcJSRContent.Style.Add("text-align", "center");
+                    tDetailView.Rows[5].Cells.Add(tcJSRContent);
+              
                     // 生成一对一相关表表格
             
                     break;

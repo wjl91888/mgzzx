@@ -1040,7 +1040,7 @@ XM.Text = GetValue(appData.XM);
         appData.CurrentPage = DEFAULT_CURRENT_PAGE;
       }
 
-        if(CurrentAccessPermission == WDGZ_PURVIEW_ID)
+        if(CustomPermission == WDGZ_PURVIEW_ID)
         {
             appData.SFZH = CurrentUserInfo.SFZH;
         }
@@ -1166,34 +1166,34 @@ XM.Text = GetValue(appData.XM);
         if(AccessPermission)
         {
 
-            if(CurrentAccessPermission == WDGZ_PURVIEW_ID)
+            if(CustomPermission == WDGZ_PURVIEW_ID)
             {
             XM_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WDGZ_PURVIEW_ID)
+            if(CustomPermission == WDGZ_PURVIEW_ID)
             {
             XB_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WDGZ_PURVIEW_ID)
+            if(CustomPermission == WDGZ_PURVIEW_ID)
             {
             SFZH_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WDGZ_PURVIEW_ID)
+            if(CustomPermission == WDGZ_PURVIEW_ID)
             {
             YFX_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WDGZ_PURVIEW_ID)
+            if(CustomPermission == WDGZ_PURVIEW_ID)
             {
             SFGZ_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WDGZ_PURVIEW_ID)
+            if(CustomPermission == WDGZ_PURVIEW_ID)
             {
             gvList.Columns[intTJSJColumnIndex].Visible = 
             chkShowTJSJ_Area.Visible =
             chkShowTJSJ.Checked =
             chkShowTJSJ.Enabled = false;
             }
-            if(CurrentAccessPermission == WDGZ_PURVIEW_ID)
+            if(CustomPermission == WDGZ_PURVIEW_ID)
             {
             TJSJ_Area.Visible = false;
             }

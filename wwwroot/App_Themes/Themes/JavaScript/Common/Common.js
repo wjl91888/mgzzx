@@ -128,29 +128,6 @@ function OpenEditerWindow(Url,WindowName,Width,Height)
 {
     window.open(Url,WindowName,'toolbar=0,location=0,maximize=1,directories=0,status=1,menubar=0,scrollbars=1,resizable=1,top=50,left=50,width='+Width+',height='+Height);
 }
-//CSS背景控制
-function overColor(Obj)
-{
-    var elements=Obj.childNodes;
-    for(var i=0;i<elements.length;i++)
-    {
-        // elements[i].className="hback_1"
-        elements[i].style.backgroundColor = "#f5f5f5";
-        elements[i].style.cursor = "pointer";
-        Obj.bgColor = ""; //颜色要改
-    }
-    
-}
-function outColor(Obj)
-{
-    var elements=Obj.childNodes;
-    for(var i=0;i<elements.length;i++)
-    {
-        // elements[i].className="hback";
-        elements[i].style.backgroundColor = "";
-        Obj.bgColor = "";
-    }
-}
 
 function BtnMouseOver(Obj)
 {
@@ -243,27 +220,6 @@ function popMenu(menuDiv, width)
     return true;
 }
 
-var imgArrowLeft = new Image ( ) ;
-var imgArrowRight = new Image ( ) ;
-
-imgArrowLeft.src = "../../App_Themes/Themes/Image/arrow_left.gif" ;
-imgArrowRight.src = "../../App_Themes/Themes/Image/arrow_right.gif" ;
-
-function changeWin ( ) {
-    return; //关闭
-    if (document.getElementById('divtree').style.display == "none" )
-    {
-        document.getElementById('divtree').style.display = "block"; 
-        document.getElementById('menuSwitch').src = imgArrowLeft.src ;
-        document.getElementById('menuSwitch').alt = "隐藏" ;
-    }
-    else
-    {
-        document.getElementById('divtree').style.display = "none";
-        document.getElementById('menuSwitch').src = imgArrowRight.src ;
-        document.getElementById('menuSwitch').alt = "显示" ;
-    }
-}
 function setheight() {
     if (document.getElementById("tddivtree")) {
         document.getElementById("tddivtree").height = document.documentElement.clientHeight;

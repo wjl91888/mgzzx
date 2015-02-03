@@ -96,3 +96,44 @@ $(document).ready(function () {
 function CheckAll(object) {
     $(".checkboxbatch").attr("checked", object.checked);
 }
+
+//CSS±³¾°¿ØÖÆ
+function overColor(Obj) {
+    var elements = Obj.childNodes;
+    for (var i = 0; i < elements.length; i++) {
+        $(elements[i]).css("background-color", "#f5f5f5");
+        $(elements[i]).css("cursor", "pointer");
+    }
+
+}
+function outColor(Obj) {
+    var elements = Obj.childNodes;
+    for (var i = 0; i < elements.length; i++) {
+        $(elements[i]).css("background-color", "");
+    }
+}
+
+
+var imgArrowLeft = new Image();
+var imgArrowRight = new Image();
+
+imgArrowLeft.src = "../../App_Themes/Themes/Image/arrow_left.gif";
+imgArrowRight.src = "../../App_Themes/Themes/Image/arrow_right.gif";
+
+function changeWin() {
+    //return; //¹Ø±Õ
+    if (document.getElementById('divtree').style.display == "none") {
+        document.getElementById('divtree').style.display = "block";
+        document.getElementById('menuSwitch').src = imgArrowLeft.src;
+        document.getElementById('menuSwitch').alt = "Òþ²Ø";
+        $('.listpage').addClass('listpageleftposition');
+        $('.listpage .toptoolsbar').addClass('listpageleftposition');
+    }
+    else {
+        document.getElementById('divtree').style.display = "none";
+        document.getElementById('menuSwitch').src = imgArrowRight.src;
+        document.getElementById('menuSwitch').alt = "ÏÔÊ¾";
+        $('.listpage').removeClass('listpageleftposition');
+        $('.listpage .toptoolsbar').removeClass('listpageleftposition');
+    }
+}

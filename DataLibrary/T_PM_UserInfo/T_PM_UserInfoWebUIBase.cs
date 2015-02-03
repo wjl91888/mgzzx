@@ -31,6 +31,11 @@ namespace RICH.Common.BM.T_PM_UserInfo
         public string TXL_MODIFY_PURVIEW_ID { get { return "USER51_Modify";} }
         public string TXL_DETAIL_PURVIEW_ID { get { return "USER51_Detail";} }
         
+        /// <summary>
+        /// 个人资料权限
+        /// </summary>
+        public string GRZL_PURVIEW_ID { get { return "USER61";} }
+        public string GRZL_MODIFY_PURVIEW_ID { get { return "USER61_Modify";} }
         #endregion
         #endregion
 

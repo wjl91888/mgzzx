@@ -738,7 +738,7 @@ BT.Text = GetValue(appData.BT);
         appData.CurrentPage = DEFAULT_CURRENT_PAGE;
       }
 
-        if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+        if(CustomPermission == WFBD_PURVIEW_ID)
         {
             appData.FBRJGH = CurrentUserInfo.UserID;
         }
@@ -867,69 +867,69 @@ BT.Text = GetValue(appData.BT);
         if(AccessPermission)
         {
 
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             gvList.Columns[intFBHColumnIndex].Visible = 
             chkShowFBH_Area.Visible =
             chkShowFBH.Checked =
             chkShowFBH.Enabled = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             FBBM_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             XXLX_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             gvList.Columns[intXXZTColumnIndex].Visible = 
             chkShowXXZT_Area.Visible =
             chkShowXXZT.Checked =
             chkShowXXZT.Enabled = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             gvList.Columns[intIsTopColumnIndex].Visible = 
             chkShowIsTop_Area.Visible =
             chkShowIsTop.Checked =
             chkShowIsTop.Enabled = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             IsTop_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             gvList.Columns[intTopSortColumnIndex].Visible = 
             chkShowTopSort_Area.Visible =
             chkShowTopSort.Checked =
             chkShowTopSort.Enabled = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             gvList.Columns[intIsBestColumnIndex].Visible = 
             chkShowIsBest_Area.Visible =
             chkShowIsBest.Checked =
             chkShowIsBest.Enabled = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             IsBest_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             gvList.Columns[intFBRJGHColumnIndex].Visible = 
             chkShowFBRJGH_Area.Visible =
             chkShowFBRJGH.Checked =
             chkShowFBRJGH.Enabled = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             FBRJGH_Area.Visible = false;
             }
-            if(CurrentAccessPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
             gvList.Columns[intFBIPColumnIndex].Visible = 
             chkShowFBIP_Area.Visible =

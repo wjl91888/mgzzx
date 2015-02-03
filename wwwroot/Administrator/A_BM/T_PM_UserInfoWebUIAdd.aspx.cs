@@ -80,9 +80,11 @@ UserGroupID.RepeatColumns = 3;Password.TextMode = TextBoxMode.Password;
         if(ViewMode || EditMode || CopyMode)
         {
             // 读取要修改记录详细资料
-            appData = new T_PM_UserInfoApplicationData();
-            appData.ObjectID = base.ObjectID;
-            appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID;
+            appData = new T_PM_UserInfoApplicationData
+                          {
+                              ObjectID = base.ObjectID,
+                              OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID
+                          };
             QueryRecord();
             // 控件赋值
             if (appData.RecordCount > 0)
@@ -1188,44 +1190,107 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                 LastLoginDate.Enabled = false;
                 LoginTimes.Enabled = false;
                 
-				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+            }
+	
+				if(CustomPermission == TXL_PURVIEW_ID)
 				{
                 UserID_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				if(CustomPermission == TXL_PURVIEW_ID)
 				{
                 UserLoginName_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				if(CustomPermission == TXL_PURVIEW_ID)
 				{
                 UserGroupID_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				if(CustomPermission == TXL_PURVIEW_ID)
 				{
                 SFZH_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				if(CustomPermission == TXL_PURVIEW_ID)
 				{
                 LoginTime_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				if(CustomPermission == TXL_PURVIEW_ID)
 				{
                 LastLoginIP_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				if(CustomPermission == TXL_PURVIEW_ID)
 				{
                 LastLoginDate_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				if(CustomPermission == TXL_PURVIEW_ID)
 				{
                 LoginTimes_Area.Visible = false;
 				}
-				if(CurrentAccessPermission == TXL_PURVIEW_ID)
+				if(CustomPermission == TXL_PURVIEW_ID)
 				{
                 UserStatus_Area.Visible = false;
 				}
-            }
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                UserID.Enabled = false;
+				}
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                UserLoginName.Enabled = false;
+				}
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                UserGroupID.Enabled = false;
+				}
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                SFZH.Enabled = false;
+				}
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                LoginTime_Area.Visible = false;
+				}
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                LastLoginIP_Area.Visible = false;
+				}
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                LastLoginDate_Area.Visible = false;
+				}
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                LoginTimes_Area.Visible = false;
+				}
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                UserStatus_Area.Visible = false;
+				}
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                vcode_Area.Visible = false;
+				}
         }
+    }
+    
+    protected override string GetObjectID()
+    {
+		        appData = new T_PM_UserInfoApplicationData();
+	
+				if(CustomPermission == GRZL_PURVIEW_ID)
+				{
+                    appData.ObjectID = CurrentUserInfo.ObjectID;
+				}
+                appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
+                appData.PageSize = 1;
+                appData.CurrentPage = 1;
+                QueryRecord();
+                if (appData.RecordCount == 1)
+                {
+                    return GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
+                }
+                else
+                {
+                    return string.Empty;
+                }
     }
 }
 

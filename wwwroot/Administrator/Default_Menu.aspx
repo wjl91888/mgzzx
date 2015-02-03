@@ -8,9 +8,14 @@
         <%=RICH.Common.ConstantsManager.WEBSITE_NAME%></title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <meta content="IE=7" http-equiv="X-UA-Compatible" />
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js"
-        language="javascript" charset="gb2312"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js" language="javascript" charset="gb2312"></script>
     <link href="/App_Themes/Themes/Css/mainstyle.css" type="text/css" rel="stylesheet" />
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
 </head>
 <body class="leftback" style="margin: 0px;" topmargin="2" scroll="auto">
     <form id="submitForm" runat="server">
@@ -41,12 +46,12 @@
     </div>
     <div class="leftframetable" style="width: 95%; text-align: left; border-width: 1px;
         margin-left: 2px; margin-bottom: 3px;">
-            <telerik:RadComboBox ID="ddlUserGroupID" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlUserGroupID_OnSelectedIndexChanged"
+            <telerik:RadComboBox ID="ddlUserGroupID" runat="server" Font-Size="14px" AutoPostBack="true" OnSelectedIndexChanged="ddlUserGroupID_OnSelectedIndexChanged"
                 Width="100%">
             </telerik:RadComboBox>
     </div>
     <div id="AjaxArea" runat="server">
-        <telerik:RadTreeView ID="rtvMenu" runat="server" OnNodeDataBound="rtvMenu_NodeDataBound" Font-Size="14px" Font-Bold="true" ForeColor="#ffffff">
+        <telerik:RadTreeView ID="rtvMenu" runat="server" OnNodeDataBound="rtvMenu_NodeDataBound" Font-Size="14px" Font-Bold="true" ForeColor="#ffffff" CssClass="IndexMenuStyle">
         </telerik:RadTreeView>
     </div>
     </form>
