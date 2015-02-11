@@ -29,7 +29,11 @@ public partial class UploadFilesControl : System.Web.UI.UserControl
         }
         get
         {
-            return FileName.Value;
+            if (FileName.Value.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Length > 0)
+            {
+                return FileName.Value;
+            }
+            return null;
         }
     }
 
