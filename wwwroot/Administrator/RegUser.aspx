@@ -82,7 +82,7 @@
                             <asp:TextBox ID="UserLoginName" runat="server" CssClass="input" Width="200"></asp:TextBox>
                         </div>
                         <div class="fieldnote" id="UserLoginName_Note" runat="server" style="display:inline-block;">
-                        请输入有效的Email作为登陆用户名，请正确填写，注册后不可更改。
+                        请输入有效的Email作为登录用户名，请正确填写，注册后不可更改。
                         </div>
                     </div>
                 </div>

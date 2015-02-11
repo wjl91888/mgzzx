@@ -72,16 +72,18 @@ public partial class T_BG_0601WebUIAdd : RICH.Common.BM.T_BG_0601.T_BG_0601WebUI
     protected override void Initalize()
     {
         // 初始化界面
-XXTPDZ.Attributes.Add("onclick", "UplaodImageFile(this);");XXNR.ImageGalleryPath = "~/Media/Image/FreeTextBox/" + Session[RICH.Common.ConstantsManager.SESSION_USER_ID] + "/";FJXZDZ.Attributes.Add("onclick", "uploadfile(this);");
+XXNR.ImageGalleryPath = "~/Media/Image/FreeTextBox/" + Session[RICH.Common.ConstantsManager.SESSION_USER_ID] + "/";
 
         // 界面控件状态
 
         if(ViewMode || EditMode || CopyMode)
         {
             // 读取要修改记录详细资料
-            appData = new T_BG_0601ApplicationData();
-            appData.ObjectID = base.ObjectID;
-            appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID;
+            appData = new T_BG_0601ApplicationData
+                          {
+                              ObjectID = base.ObjectID,
+                              OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID
+                          };
             QueryRecord();
             // 控件赋值
             if (appData.RecordCount > 0)
@@ -267,22 +269,16 @@ FBBM.SelectedValue = CurrentUserInfo.SubjectID;
             boolReturn = validateData.Result;
         }
                 
-        validateData = ValidateXXTPDZ(XXTPDZ.Text, true, false);
-        if (validateData.Result)
-        {                
-            if (!validateData.IsNull)
-            {
-                appData.XXTPDZ = Convert.ToString(validateData.Value.ToString());
-            }
-            XXTPDZ.BackColor = System.Drawing.Color.Empty;
+        if (XXTPDZ.Upload())
+        {
+		    appData.XXTPDZ = XXTPDZ.Text;
         }
         else
         {
-            XXTPDZ.BackColor = System.Drawing.Color.YellowGreen;
-            MessageContent += @"<font color=""red"">" + validateData.Message + "</font>";
-            boolReturn = validateData.Result;
+            MessageContent += @"<font color=""red"">" + XXTPDZ.Message + "</font>";
+            boolReturn = false;
         }
-                
+        
         validateData = ValidateXXNR(XXNR.Text, false, false);
         if (validateData.Result)
         {                
@@ -299,22 +295,16 @@ FBBM.SelectedValue = CurrentUserInfo.SubjectID;
             boolReturn = validateData.Result;
         }
                 
-        validateData = ValidateFJXZDZ(FJXZDZ.Text, true, false);
-        if (validateData.Result)
-        {                
-            if (!validateData.IsNull)
-            {
-                appData.FJXZDZ = Convert.ToString(validateData.Value.ToString());
-            }
-            FJXZDZ.BackColor = System.Drawing.Color.Empty;
+        if (FJXZDZ.Upload())
+        {
+		    appData.FJXZDZ = FJXZDZ.Text;
         }
         else
         {
-            FJXZDZ.BackColor = System.Drawing.Color.YellowGreen;
-            MessageContent += @"<font color=""red"">" + validateData.Message + "</font>";
-            boolReturn = validateData.Result;
+            MessageContent += @"<font color=""red"">" + FJXZDZ.Message + "</font>";
+            boolReturn = false;
         }
-                
+        
         appData.XXZT = "02";
             
         validateData = ValidateIsTop(IsTop.SelectedValue, true, false);
@@ -506,27 +496,16 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             boolReturn = validateData.Result;
         }
                 
-        validateData = ValidateXXTPDZ(XXTPDZ.Text, true, false);
-        if (validateData.Result)
+        if (XXTPDZ.Upload())
         {
-            if (!validateData.IsNull)
-            {
-                appData.XXTPDZ = Convert.ToString(validateData.Value.ToString());
-            }
-                        
-            else
-            {
-                appData.XXTPDZ = null;
-            }
-            XXTPDZ.BackColor = System.Drawing.Color.Empty;
+		    appData.XXTPDZ = XXTPDZ.Text;
         }
         else
         {
-            XXTPDZ.BackColor = System.Drawing.Color.YellowGreen;
-            MessageContent += @"<font color=""red"">" + validateData.Message + "</font>";
-            boolReturn = validateData.Result;
+            MessageContent += @"<font color=""red"">" + XXTPDZ.Message + "</font>";
+            boolReturn = false;
         }
-                
+        
         validateData = ValidateXXNR(XXNR.Text, false, false);
         if (validateData.Result)
         {
@@ -548,27 +527,16 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
             boolReturn = validateData.Result;
         }
                 
-        validateData = ValidateFJXZDZ(FJXZDZ.Text, true, false);
-        if (validateData.Result)
+        if (FJXZDZ.Upload())
         {
-            if (!validateData.IsNull)
-            {
-                appData.FJXZDZ = Convert.ToString(validateData.Value.ToString());
-            }
-                        
-            else
-            {
-                appData.FJXZDZ = null;
-            }
-            FJXZDZ.BackColor = System.Drawing.Color.Empty;
+		    appData.FJXZDZ = FJXZDZ.Text;
         }
         else
         {
-            FJXZDZ.BackColor = System.Drawing.Color.YellowGreen;
-            MessageContent += @"<font color=""red"">" + validateData.Message + "</font>";
-            boolReturn = validateData.Result;
+            MessageContent += @"<font color=""red"">" + FJXZDZ.Message + "</font>";
+            boolReturn = false;
         }
-                
+        
         validateData = ValidateXXZT(XXZT.SelectedValue, true, false);
         if (validateData.Result)
         {
@@ -996,9 +964,9 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
                 FBBM.Enabled = false;
                 XXLX.Enabled = false;
                 XXLX_Area.Visible = false;
-      XXTPDZ.Enabled = false;
+      XXTPDZ.ReadOnly = true;
                 XXNR.ReadOnly = true;
-                FJXZDZ.Enabled = false;
+                FJXZDZ.ReadOnly = true;
                 XXZT.Enabled = false;
                 XXZT_Area.Visible = false;
       IsTop.Enabled = false;
@@ -1054,6 +1022,24 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
                 FBIP_Area.Visible = false;
 				}
         }
+    }
+    
+    protected override string GetObjectID()
+    {
+		        appData = new T_BG_0601ApplicationData();
+	
+                appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
+                appData.PageSize = 1;
+                appData.CurrentPage = 1;
+                QueryRecord();
+                if (appData.RecordCount == 1)
+                {
+                    return GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
+                }
+                else
+                {
+                    return string.Empty;
+                }
     }
 }
 

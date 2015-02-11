@@ -58,8 +58,8 @@ public partial class Administrator_Default_Menu : WebUIBase
 
     private void InitalPage()
     {
-        linkDefaultIndex.HRef = RICH.Common.ConstantsManager.DEFAULT_ADMINISTRATOR_INDEX;
-        if (!RICH.Common.DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_USER_GROUP_ID]))
+        linkDefaultIndex.HRef = ConstantsManager.DEFAULT_ADMINISTRATOR_INDEX;
+        if (!DataValidateManager.ValidateIsNull(Session[ConstantsManager.SESSION_USER_GROUP_ID]))
         {
             string[] strArrUserGroupID = ((string)Session[ConstantsManager.SESSION_USER_GROUP_ID]).Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (string strUserGroupID in strArrUserGroupID)
@@ -67,7 +67,7 @@ public partial class Administrator_Default_Menu : WebUIBase
                 string strUserGroupName;
                 RICH.Common.BM.T_PM_UserGroupInfo.T_PM_UserGroupInfoBusinessEntityBase t_PM_UserGroupInfoBusinessEntityBase = new RICH.Common.BM.T_PM_UserGroupInfo.T_PM_UserGroupInfoBusinessEntityBase();
                 strUserGroupName = (string)t_PM_UserGroupInfoBusinessEntityBase.GetValueByFixCondition("UserGroupID", strUserGroupID, "UserGroupName");
-                if (!RICH.Common.DataValidateManager.ValidateIsNull(strUserGroupName))
+                if (!DataValidateManager.ValidateIsNull(strUserGroupName))
                 {
                     ddlUserGroupID.Items.Add(new RadComboBoxItem(strUserGroupName, strUserGroupID));
                 }

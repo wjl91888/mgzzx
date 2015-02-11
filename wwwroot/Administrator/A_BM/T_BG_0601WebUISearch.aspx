@@ -615,7 +615,7 @@
                         
                                 <ItemTemplate>
                                         
-                               <%# DataBinder.Eval(Container.DataItem, "FJXZDZ") == DBNull.Value ? "" : "<a href='" + DataBinder.Eval(Container.DataItem, "FJXZDZ") + "' target='_blank'>обть</a>"%>
+                               <%# DataBinder.Eval(Container.DataItem, "FJXZDZ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?a=d"+ AndChar +"file=" + DataBinder.Eval(Container.DataItem, "FJXZDZ") + "' target='_blank'>обть</a>"%>
                                <%# DataBinder.Eval(Container.DataItem, "FJXZDZ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?file=" + DataBinder.Eval(Container.DataItem, "FJXZDZ") + "' target='_blank'>т╓юю</a>"%>
                                                 
                                 </ItemTemplate>

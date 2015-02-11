@@ -7,6 +7,7 @@ using System.IO;
 using System.Threading;
 using RICH.Common.Utilities;
 using RICH.Common;
+using Ionic.Zip;
 
 public partial class PreviewDocument : System.Web.UI.Page
 {
@@ -18,41 +19,84 @@ public partial class PreviewDocument : System.Web.UI.Page
     private string png2swfToolPath = HttpContext.Current.Server.MapPath("FlexPaper/png2swf.exe");
     private string jpeg2swfToolPath = HttpContext.Current.Server.MapPath("FlexPaper/jpeg2swf.exe");
     private string gif2swfToolPath = HttpContext.Current.Server.MapPath("FlexPaper/gif2swf.exe");
+    private string[] filelist
+    {
+        get
+        {
+            var fileUrls = HttpUtility.UrlDecode(Request.QueryString["file"]);
+            if (!fileUrls.IsNullOrWhiteSpace())
+            {
+                return fileUrls.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            }
+            return null;
+        }
+    }
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             FlexPaperViewerContainer.Visible = false;
-            var fileUrl = Request.QueryString["file"];
-            if (!fileUrl.IsHtmlNullOrWiteSpace())
+            PackageDownload.Visible = false;
+            if (filelist.IsNullOrEmpty())
             {
-                var filefullname = Server.MapPath(fileUrl);
-                if (File.Exists(filefullname))
+                return;
+            }
+            FilesList.DataSource = filelist;
+            FilesList.DataBind();
+            var fileUrl = filelist[0];
+            if (Request.QueryString["a"] == "d")
+            {
+                if (filelist.Length > 1)
                 {
-                    string filetype = Path.GetExtension(filefullname).ToLower();
-                    switch (filetype)
-                    {
-                        case ".pdf":
-                        case ".pptx":
-                        case ".ppt":
-                        case ".xlsx":
-                        case ".xls":
-                        case ".docx":
-                        case ".doc":
-                        case "jpeg":
-                        case "jpg":
-                        case "png":
-                        case "gif":
-                            FlexPaperViewerContainer.Visible = true;
-                            ConvertDocToSwf(filefullname);
-                            break;
-                        default:
-                            FlexPaperViewerContainer.Visible = false;
-                            MessageLabel.Text = "暂不支持{0}文件的预览，请直接下载。".FormatInvariantCulture(filetype);
-                            return;
-                    }
+                    DownloadPackage();
                 }
+                Response.Redirect(fileUrl);
+            }
+            if (filelist.Length > 1)
+            {
+                PackageDownload.Visible = true;
+            }
+            Prieview(fileUrl);
+        }
+    }
+
+    private void Prieview(string fileUrl)
+    {
+        var filefullname = Server.MapPath(fileUrl);
+        if (File.Exists(filefullname))
+        {
+            string filetype = Path.GetExtension(filefullname).ToLower();
+            switch (filetype)
+            {
+                case ".pdf":
+                case ".pptx":
+                case ".ppt":
+                case ".xlsx":
+                case ".xls":
+                case ".docx":
+                case ".doc":
+                case ".jpeg":
+                case ".jpg":
+                case ".png":
+                case ".gif":
+                    FlexPaperViewerContainer.Visible = true;
+                    try
+                    {
+                        ConvertDocToSwf(filefullname);
+                    }
+                    catch (Exception)
+                    {
+                        FlexPaperViewerContainer.Visible = false;
+                        MessageLabel.Text = "不支持此文件预览，请直接下载。".FormatInvariantCulture(filetype);
+                        Response.Redirect(fileUrl);
+                    }
+                    break;
+                default:
+                    FlexPaperViewerContainer.Visible = false;
+                    MessageLabel.Text = "暂不支持{0}文件的预览，请直接下载。".FormatInvariantCulture(filetype);
+                    Response.Redirect(fileUrl);
+                    return;
             }
         }
     }
@@ -97,14 +141,14 @@ public partial class PreviewDocument : System.Web.UI.Page
                         }
                     }
                     break;
-                case "jpeg":
-                case "jpg":
+                case ".jpeg":
+                case ".jpg":
                     SwfFileName = PictureToSwf(jpeg2swfToolPath, filefullname, SWFFilePath);
                     break;
-                case "png":
+                case ".png":
                     SwfFileName = PictureToSwf(png2swfToolPath, filefullname, SWFFilePath);
                     break;
-                case "gif":
+                case ".gif":
                     SwfFileName = PictureToSwf(gif2swfToolPath, filefullname, SWFFilePath);
                     break;
                 default:
@@ -167,7 +211,7 @@ public partial class PreviewDocument : System.Web.UI.Page
         }
         return returnValue;
     }
-    
+
     private string PictureToSwf(string toolpath, string fullPathName, string destPath)
     {
         string fileNameWithoutEx = Path.GetFileNameWithoutExtension(fullPathName);
@@ -183,5 +227,52 @@ public partial class PreviewDocument : System.Web.UI.Page
             PreviewDocumetHelper.PicturesToSwf(toolpath, fullPathName, saveName);
         }
         return returnValue;
+    }
+
+    protected string GetFileName(string url)
+    {
+        return url.Substring(url.LastIndexOf('/') + 1);
+    }
+
+    protected void FilesList_ItemCommand(object sender, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName.Equals("PREVIEW"))
+        {
+            var fileUrl = e.CommandArgument.ToString();
+            Prieview(fileUrl);
+        }
+    }
+
+    protected void PackageDownload_Click(object sender, EventArgs e)
+    {
+        DownloadPackage();
+    }
+
+    private void DownloadPackage()
+    {
+        if (filelist.IsNullOrEmpty())
+        {
+            return;
+        }
+        HttpContext.Current.Response.ClearContent();
+        HttpContext.Current.Response.BufferOutput = false;
+        HttpContext.Current.Response.ContentType = "application/zip";
+        HttpContext.Current.Response.AddHeader("content-disposition", @"attachment;filename=""{0}.zip""".FormatInvariantCulture(DateTime.Now.ToString("yyyyMMddhhmmssfff")));
+        using (var zip = new ZipFile(System.Text.Encoding.Default))
+        {
+            foreach (var fileUrl in filelist)
+            {
+                var filefullname = Server.MapPath(fileUrl);
+                if (File.Exists(filefullname))
+                {
+                    zip.AddFile(filefullname, "");
+                }
+            }
+            zip.Save(HttpContext.Current.Response.OutputStream);
+        }
+        HttpContext.Current.Response.Flush();
+        HttpContext.Current.Response.SuppressContent = true;
+        HttpContext.Current.Response.OutputStream.Close();
+        HttpContext.Current.ApplicationInstance.CompleteRequest();
     }
 }

@@ -79,7 +79,7 @@
                                       
                                             <div id = "LMTP" runat = "server" >
                                         
-                               <%# DataBinder.Eval(Container.DataItem, "LMTP") == DBNull.Value ? "" : "<a href='" + DataBinder.Eval(Container.DataItem, "LMTP") + "' target='_blank'><img src='" + DataBinder.Eval(Container.DataItem, "LMTP") + "' width = '130' border=0 /></a>"%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LMTP"), null) + Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                            </div>
                                       

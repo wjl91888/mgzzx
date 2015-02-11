@@ -66,7 +66,7 @@
                             <asp:TextBox ID="UserLoginName" runat="server" CssClass="input" Width="200"></asp:TextBox>
                         </div>
                         <div class="fieldnote" id="UserLoginName_Note" runat="server" style="display:inline-block;">
-                        请输入有效的登陆用户名。
+                        请输入有效的登录用户名。
                         </div>
                     </div>
                 </div>

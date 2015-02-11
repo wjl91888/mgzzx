@@ -23,182 +23,103 @@ namespace RICH.Common
         public string MessageInfo { get; private set; }
         public string UploadPath { get; private set; }
 
+        private string VirtualPath = string.Empty;
+        private string PhysicalPath = string.Empty;
+        private int FileSize = 0;
+        private string FileFormat = string.Empty;
+
         public FileUploadLibrary()
         {
             SuccessFlag = false;
         }
 
-        public void UploadFile(FileUpload uploadFile, int intFileType)
+        private void InitialUploadFileInfo(int intFileType)
         {
-            string strVirtualPath = string.Empty;
-            string strPhysicalPath = string.Empty;
-            string strFileName = string.Empty;
-            string strFileExtName = string.Empty;
-            string strFileFullName = string.Empty;
-            int intFileSize = 0;
-            string strFileFormat = string.Empty;
-
-            if (uploadFile.HasFile && DataValidateManager.ValidateFileNameFormat(uploadFile.FileName))
+            switch (intFileType)
             {
-                try
-                {
-                    switch (intFileType)
-                    {
-                            //图像文件
-                        case (int)UploadFileType.IMAGE_FILE_TYPE:
-                            strVirtualPath = "/" + ConstantsManager.UPLOAD_IMAGE_DIR + "/";
-                            strFileFormat = ConstantsManager.UPLOAD_IMAGE_FORMAT;
-                            intFileSize = ConstantsManager.UPLOAD_IMAGE_SIZE;
-                            break;
-                            //多媒体文件
-                        case (int)UploadFileType.MEDIA_FILE_TYPE:
-                            strVirtualPath = "/" + ConstantsManager.UPLOAD_VIDEO_DIR + "/";
-                            strFileFormat = ConstantsManager.UPLOAD_MEDIA_FORMAT;
-                            intFileSize = ConstantsManager.UPLOAD_MEDIA_SIZE;
-                            break;
-                            //文档文件
-                        case (int)UploadFileType.DOC_FILE_TYPE:
-                            strVirtualPath = "/" + ConstantsManager.UPLOAD_DOC_DIR + "/";
-                            strFileFormat = ConstantsManager.UPLOAD_DOC_FORMAT;
-                            intFileSize = ConstantsManager.UPLOAD_DOC_SIZE;
-                            break;
-                            //其他文件
-                        case (int)UploadFileType.ALL_FILE_TYPE:
-                            strVirtualPath = "/" + ConstantsManager.UPLOAD_OTHER_DIR + "/";
-                            strFileFormat = ConstantsManager.UPLOAD_ALL_FORMAT;
-                            intFileSize = ConstantsManager.UPLOAD_ALL_SIZE;
-                            break;
-                            //无类型限制
-                        case (int)UploadFileType.NO_RESTRICT:
-                            strVirtualPath = "/" + ConstantsManager.UPLOAD_OTHER_DIR + "/";
-                            intFileSize = ConstantsManager.UPLOAD_ALL_SIZE;
-                            break;
-                    }
-                    //strFileName = uploadFile.FileName.Split('.')[0];
-                    strVirtualPath = strVirtualPath + IDGenerateManager.UploadDirectoryNameGenerate();
-                    strFileName = IDGenerateManager.UploadFileNameGenerate();
-                    strFileExtName = Path.GetExtension(uploadFile.FileName).ToLower().Replace(".", "");
-                    if (strFileFormat.IndexOf(strFileExtName) >= 0 || intFileType == (int)UploadFileType.NO_RESTRICT)
-                    {
-                        if (uploadFile.FileBytes.Length <= intFileSize * 1024 * 1024)
-                        {
-                            strPhysicalPath = HostingEnvironment.MapPath(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + strVirtualPath);
-                            if (Directory.Exists(strPhysicalPath) == false)
-                            {
-                                Directory.CreateDirectory(strPhysicalPath);
-                            }
-                            strFileFullName = strPhysicalPath + strFileName + "." + strFileExtName;
-                            uploadFile.SaveAs(strFileFullName);
-                            UploadPath = ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + strVirtualPath + strFileName + "." + strFileExtName;
-                            SuccessFlag = true;
-                        }
-                        else
-                        {
-                            SuccessFlag = false;
-                            MessageInfo = "上传文件大小应在" + intFileSize.ToString() + "MB之内";
-                        }
-                    }
-                    else
-                    {
-                        SuccessFlag = false;
-                        MessageInfo = "上传文件格式应为" + strFileFormat;
-                    }
-                }
-                catch (Exception)
-                {
-                    SuccessFlag = false;
-                    MessageInfo = "上传文件出错";
-                }
-            }
-            else
-            {
-                // Notify the user that a file was not uploaded.
-                SuccessFlag = false;
-                MessageInfo = "没有可上传文件。";
+                //图像文件
+                case (int)UploadFileType.IMAGE_FILE_TYPE:
+                    VirtualPath = "/" + ConstantsManager.UPLOAD_IMAGE_DIR + "/";
+                    FileFormat = ConstantsManager.UPLOAD_IMAGE_FORMAT;
+                    FileSize = ConstantsManager.UPLOAD_IMAGE_SIZE;
+                    break;
+                //多媒体文件
+                case (int)UploadFileType.MEDIA_FILE_TYPE:
+                    VirtualPath = "/" + ConstantsManager.UPLOAD_VIDEO_DIR + "/";
+                    FileFormat = ConstantsManager.UPLOAD_MEDIA_FORMAT;
+                    FileSize = ConstantsManager.UPLOAD_MEDIA_SIZE;
+                    break;
+                //文档文件
+                case (int)UploadFileType.DOC_FILE_TYPE:
+                    VirtualPath = "/" + ConstantsManager.UPLOAD_DOC_DIR + "/";
+                    FileFormat = ConstantsManager.UPLOAD_DOC_FORMAT;
+                    FileSize = ConstantsManager.UPLOAD_DOC_SIZE;
+                    break;
+                //其他文件
+                case (int)UploadFileType.ALL_FILE_TYPE:
+                    VirtualPath = "/" + ConstantsManager.UPLOAD_OTHER_DIR + "/";
+                    FileFormat = ConstantsManager.UPLOAD_ALL_FORMAT;
+                    FileSize = ConstantsManager.UPLOAD_ALL_SIZE;
+                    break;
+                //无类型限制
+                case (int)UploadFileType.NO_RESTRICT:
+                    VirtualPath = "/" + ConstantsManager.UPLOAD_OTHER_DIR + "/";
+                    FileSize = ConstantsManager.UPLOAD_ALL_SIZE;
+                    break;
             }
         }
 
-        public void UploadFile(FileUpload uploadFile, int intFileType, bool boolOrgFileName)
+        public void UploadFile(FileUpload uploadFile, int intFileType, bool boolOrgFileName = false)
         {
-            string strVirtualPath = string.Empty;
-            string strPhysicalPath = string.Empty;
             string strFileName = string.Empty;
             string strFileExtName = string.Empty;
             string strFileFullName = string.Empty;
-            int intFileSize = 0;
-            string strFileFormat = string.Empty;
+            SuccessFlag = false;
 
-            if (uploadFile.HasFile == true && DataValidateManager.ValidateFileNameFormat(uploadFile.FileName) == true)
+            if (uploadFile.HasFile && !uploadFile.FileName.IsNullOrWhiteSpace())
             {
                 try
                 {
-                    switch (intFileType)
+                    InitialUploadFileInfo(intFileType);
+                    VirtualPath = VirtualPath + IDGenerateManager.UploadDirectoryNameGenerate();
+                    strFileExtName = Path.GetExtension(uploadFile.FileName).ToLower().Replace(".", "");
+                    strFileName = boolOrgFileName 
+                        ? uploadFile.FileName
+                        : "{0}.{1}".FormatInvariantCulture(IDGenerateManager.UploadFileNameGenerate(), strFileExtName);
+                    if (FileFormat.IndexOf(strFileExtName) >= 0 || intFileType == (int)UploadFileType.NO_RESTRICT)
                     {
-                            //图像文件
-                        case (int)UploadFileType.IMAGE_FILE_TYPE:
-                            strVirtualPath = "/" + ConstantsManager.UPLOAD_IMAGE_DIR + "/";
-                            strFileFormat = ConstantsManager.UPLOAD_IMAGE_FORMAT;
-                            intFileSize = ConstantsManager.UPLOAD_IMAGE_SIZE;
-                            break;
-                            //多媒体文件
-                        case (int)UploadFileType.MEDIA_FILE_TYPE:
-                            strVirtualPath = "/" + ConstantsManager.UPLOAD_VIDEO_DIR + "/";
-                            strFileFormat = ConstantsManager.UPLOAD_MEDIA_FORMAT;
-                            intFileSize = ConstantsManager.UPLOAD_MEDIA_SIZE;
-                            break;
-                            //文档文件
-                        case (int)UploadFileType.DOC_FILE_TYPE:
-                            strVirtualPath = "/" + ConstantsManager.UPLOAD_DOC_DIR + "/";
-                            strFileFormat = ConstantsManager.UPLOAD_DOC_FORMAT;
-                            intFileSize = ConstantsManager.UPLOAD_DOC_SIZE;
-                            break;
-                            //其他文件
-                        case (int)UploadFileType.ALL_FILE_TYPE:
-                            strVirtualPath = "/" + ConstantsManager.UPLOAD_OTHER_DIR + "/";
-                            strFileFormat = ConstantsManager.UPLOAD_ALL_FORMAT;
-                            intFileSize = ConstantsManager.UPLOAD_ALL_SIZE;
-                            break;
-                    }
-                    //strFileName = uploadFile.FileName.Split('.')[0];
-                    strVirtualPath = strVirtualPath + IDGenerateManager.UploadDirectoryNameGenerate();
-                    strFileName = IDGenerateManager.UploadFileNameGenerate().Substring(0, 8) + uploadFile.FileName.Split('.')[0].ToLowerInvariant();
-                    strFileExtName = uploadFile.FileName.Split('.')[1].ToLowerInvariant();
-                    if (strFileFormat.IndexOf(strFileExtName) >= 0)
-                    {
-                        if (uploadFile.FileBytes.Length <= intFileSize * 1024 * 1024)
+                        if (uploadFile.FileBytes.Length <= FileSize * 1024 * 1024)
                         {
-                            strPhysicalPath = HostingEnvironment.MapPath(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + strVirtualPath);
-                            if (Directory.Exists(strPhysicalPath) == false)
+                            PhysicalPath = HostingEnvironment.MapPath(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + VirtualPath);
+                            if (PhysicalPath != null)
                             {
-                                DirectoryInfo dirInfo = Directory.CreateDirectory(strPhysicalPath);
+                                if (!Directory.Exists(PhysicalPath))
+                                {
+                                    Directory.CreateDirectory(PhysicalPath);
+                                }
+                                strFileFullName = "{0}{1}".FormatInvariantCulture(PhysicalPath, strFileName);
+                                uploadFile.SaveAs(strFileFullName);
+                                UploadPath = "{0}{1}{2}".FormatInvariantCulture(ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR, VirtualPath, strFileName);
+                                SuccessFlag = true;
                             }
-                            strFileFullName = strPhysicalPath + strFileName + "." + strFileExtName;
-                            uploadFile.SaveAs(strFileFullName);
-                            UploadPath = ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + strVirtualPath + strFileName + "." + strFileExtName;
-                            SuccessFlag = true;
                         }
                         else
                         {
-                            SuccessFlag = false;
-                            MessageInfo = "上传文件大小应在" + intFileSize.ToString() + "MB之内";
+                            MessageInfo = "上传文件大小应在{0}MB之内".FormatInvariantCulture(FileSize);
                         }
                     }
                     else
                     {
-                        SuccessFlag = false;
-                        MessageInfo = "上传文件格式应为" + strFileFormat;
+                        MessageInfo = "上传文件格式应为：{0}".FormatInvariantCulture(FileFormat);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    SuccessFlag = false;
-                    MessageInfo = "上传文件出错";
+                    MessageInfo = "上传文件出错：{0}".FormatInvariantCulture(ex.Message);
                 }
             }
             else
             {
-                // Notify the user that a file was not uploaded.
-                SuccessFlag = false;
                 MessageInfo = "没有可上传文件。";
             }
         }

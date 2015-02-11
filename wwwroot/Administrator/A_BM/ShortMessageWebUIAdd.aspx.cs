@@ -72,7 +72,7 @@ public partial class ShortMessageWebUIAdd : RICH.Common.BM.ShortMessage.ShortMes
     protected override void Initalize()
     {
         // 初始化界面
-DXXNR.ImageGalleryPath = "~/Media/Image/FreeTextBox/" + Session[RICH.Common.ConstantsManager.SESSION_USER_ID] + "/";DXXFJ.Attributes.Add("onclick", "uploadfile(this);");
+DXXNR.ImageGalleryPath = "~/Media/Image/FreeTextBox/" + Session[RICH.Common.ConstantsManager.SESSION_USER_ID] + "/";
 
         // 界面控件状态
 
@@ -196,22 +196,16 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             boolReturn = validateData.Result;
         }
                     
-        validateData = ValidateDXXFJ(DXXFJ.Text, true, false);
-        if (validateData.Result)
+        if (DXXFJ.Upload())
         {
-            if (!validateData.IsNull)
-            {
-                appData.DXXFJ = Convert.ToString(validateData.Value.ToString());
-            }
-            DXXFJ.BackColor = System.Drawing.Color.Empty;
+		    appData.DXXFJ = DXXFJ.Text;
         }
         else
         {
-            DXXFJ.BackColor = System.Drawing.Color.YellowGreen;
-            MessageContent += @"<font color=""red"">" + validateData.Message + "</font>";
-            boolReturn = validateData.Result;
+            MessageContent += @"<font color=""red"">" + DXXFJ.Message + "</font>";
+            boolReturn = false;
         }
-                    
+        
         validateData = ValidateJSR(JSR.SelectedValues, false, false);
         if (validateData.Result)
         {
@@ -299,27 +293,16 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
             boolReturn = validateData.Result;
         }
                 
-        validateData = ValidateDXXFJ(DXXFJ.Text, true, false);
-        if (validateData.Result)
+        if (DXXFJ.Upload())
         {
-            if (!validateData.IsNull)
-            {
-                appData.DXXFJ = Convert.ToString(validateData.Value.ToString());
-            }
-                        
-            else
-            {
-                appData.DXXFJ = null;
-            }
-            DXXFJ.BackColor = System.Drawing.Color.Empty;
+		    appData.DXXFJ = DXXFJ.Text;
         }
         else
         {
-            DXXFJ.BackColor = System.Drawing.Color.YellowGreen;
-            MessageContent += @"<font color=""red"">" + validateData.Message + "</font>";
-            boolReturn = validateData.Result;
+            MessageContent += @"<font color=""red"">" + DXXFJ.Message + "</font>";
+            boolReturn = false;
         }
-                
+        
         validateData = ValidateJSR(JSR.SelectedValues, false, false);
         if (validateData.Result)
         {
@@ -536,7 +519,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
       DXXBT.Enabled = false;
                 DXXLX_Area.Visible = false;
       DXXNR.ReadOnly = true;
-                DXXFJ.Enabled = false;
+                DXXFJ.ReadOnly = true;
                 FSSJ_Area.Visible = false;
       FSR_Area.Visible = false;
       FSBM_Area.Visible = false;
@@ -586,7 +569,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 DXXLX.Enabled = false;
                 DXXLX_Area.Visible = false;
       DXXNR.ReadOnly = true;
-                DXXFJ.Enabled = false;
+                DXXFJ.ReadOnly = true;
                 FSSJ.Enabled = false;
                 FSR.Enabled = false;
                 FSBM.Enabled = false;

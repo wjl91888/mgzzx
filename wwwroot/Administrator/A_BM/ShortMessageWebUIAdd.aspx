@@ -3,6 +3,7 @@
 <%@ Register Assembly="CustomWebControls" Namespace="CustomWebControls" TagPrefix="RICH" %>
 <%@ Register TagPrefix="control" TagName="GridDataBind" Src="~/Control/GridControl.ascx" %>
 <%@ Register TagPrefix="control" TagName="ComboTreeView" Src="~/Control/ComboTreeViewControl.ascx" %>
+<%@ Register TagPrefix="control" TagName="FilesList" Src="~/Control/UploadFilesControl.ascx" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <asp:Content ID="ContentHeaderTitle" ContentPlaceHolderID="HeadTitleContentPlaceHolder" runat="server">ÏûÏ¢±à¼­</asp:Content>
 <asp:Content ID="ContentHeader" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
@@ -135,7 +136,7 @@
                          </div>
                          <div class="fieldinput"><div>
                                 
-                             <asp:TextBox ID="DXXFJ" runat="server" CssClass="input widthfull"></asp:TextBox>
+                             <control:FilesList ID="DXXFJ" runat="server" CssClass="input"></control:FilesList>
                                                  
                          </div><div class="fieldnote" id="DXXFJ_Note" runat="server">
                                       

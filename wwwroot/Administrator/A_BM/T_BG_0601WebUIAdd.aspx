@@ -3,6 +3,7 @@
 <%@ Register Assembly="CustomWebControls" Namespace="CustomWebControls" TagPrefix="RICH" %>
 <%@ Register TagPrefix="control" TagName="GridDataBind" Src="~/Control/GridControl.ascx" %>
 <%@ Register TagPrefix="control" TagName="ComboTreeView" Src="~/Control/ComboTreeViewControl.ascx" %>
+<%@ Register TagPrefix="control" TagName="FilesList" Src="~/Control/UploadFilesControl.ascx" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <asp:Content ID="ContentHeaderTitle" ContentPlaceHolderID="HeadTitleContentPlaceHolder" runat="server">公共信息编辑</asp:Content>
 <asp:Content ID="ContentHeader" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
@@ -160,7 +161,7 @@
                          </div>
                      </div>
   
-                     <div class="content" id="XXTPDZ_Area" runat="server">
+                     <div class="content clearboth" id="XXTPDZ_Area" runat="server">
                          <div class="field">
                              <div class="fieldname">
                                           信息图片
@@ -169,7 +170,7 @@
                          </div>
                          <div class="fieldinput"><div>
                                 
-                             <asp:TextBox ID="XXTPDZ" runat="server" CssClass="input"></asp:TextBox>
+                             <control:FilesList ID="XXTPDZ" runat="server" CssClass="input"></control:FilesList>
                                                  
                          </div><div class="fieldnote" id="XXTPDZ_Note" runat="server">
                                       
@@ -203,7 +204,7 @@
                          </div>
                          <div class="fieldinput"><div>
                                 
-                             <asp:TextBox ID="FJXZDZ" runat="server" CssClass="input widthfull"></asp:TextBox>
+                             <control:FilesList ID="FJXZDZ" runat="server" CssClass="input"></control:FilesList>
                                                  
                          </div><div class="fieldnote" id="FJXZDZ_Note" runat="server">
                                       

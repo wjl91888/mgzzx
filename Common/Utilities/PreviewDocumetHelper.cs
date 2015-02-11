@@ -30,8 +30,8 @@ namespace RICH.Common
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 result = false;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -76,8 +76,8 @@ namespace RICH.Common
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 result = false;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -122,8 +122,8 @@ namespace RICH.Common
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 result = false;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -157,7 +157,7 @@ namespace RICH.Common
             bool returnValue = true;
 
             string cmd = toolPah;
-            string args = " -t " + sourcePath + " -s flashversion=9 -o " + targetPath;
+            string args = @" -t ""{0}"" -s flashversion=9 -o ""{1}""".FormatInvariantCulture(sourcePath, targetPath);
             try
             {
                 ProcessStartInfo psi = new ProcessStartInfo(cmd, args);
@@ -192,7 +192,7 @@ namespace RICH.Common
             bool returnValue = true;
 
             string cmd = toolPah;
-            string args = " " + sourcePath + " -o " + targetPath+" -T 9";
+            string args = @" ""{0}"" -o ""{1}"" -T 9".FormatInvariantCulture(sourcePath, targetPath);
             //如果是多个图片转化为swf 格式为 ..jpeg2swf.exe C:\1.jpg C:\2.jpg -o C:\swf1.swf
             try
             {
@@ -227,7 +227,7 @@ namespace RICH.Common
             bool returnValue = true;
 
             string cmd = toolPah;
-            string args = " " + sourcePath + " -o " + targetPath;
+            string args = @" ""{0}"" -o ""{1}""".FormatInvariantCulture(sourcePath, targetPath);
             try
             {
                 ProcessStartInfo psi = new ProcessStartInfo(cmd, args);

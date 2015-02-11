@@ -79,9 +79,11 @@ public partial class T_BM_DWXXWebUIAdd : RICH.Common.BM.T_BM_DWXX.T_BM_DWXXWebUI
         if(ViewMode || EditMode || CopyMode)
         {
             // 读取要修改记录详细资料
-            appData = new T_BM_DWXXApplicationData();
-            appData.ObjectID = base.ObjectID;
-            appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID;
+            appData = new T_BM_DWXXApplicationData
+                          {
+                              ObjectID = base.ObjectID,
+                              OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID
+                          };
             QueryRecord();
             // 控件赋值
             if (appData.RecordCount > 0)
@@ -789,7 +791,26 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
                 SJ.Enabled = false;
                 
             }
+	
         }
+    }
+    
+    protected override string GetObjectID()
+    {
+		        appData = new T_BM_DWXXApplicationData();
+	
+                appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
+                appData.PageSize = 1;
+                appData.CurrentPage = 1;
+                QueryRecord();
+                if (appData.RecordCount == 1)
+                {
+                    return GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
+                }
+                else
+                {
+                    return string.Empty;
+                }
     }
 }
 

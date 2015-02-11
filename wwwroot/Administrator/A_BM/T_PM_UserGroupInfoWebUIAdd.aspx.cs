@@ -79,9 +79,11 @@ UserGroupContent.ImageGalleryPath = "~/Media/Image/FreeTextBox/" + Session[RICH.
         if(ViewMode || EditMode || CopyMode)
         {
             // 读取要修改记录详细资料
-            appData = new T_PM_UserGroupInfoApplicationData();
-            appData.ObjectID = base.ObjectID;
-            appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID;
+            appData = new T_PM_UserGroupInfoApplicationData
+                          {
+                              ObjectID = base.ObjectID,
+                              OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ID
+                          };
             QueryRecord();
             // 控件赋值
             if (appData.RecordCount > 0)
@@ -575,7 +577,26 @@ UpdateDate.Text = DateTime.Now.ToString();
                 UpdateDate.Enabled = false;
                 
             }
+	
         }
+    }
+    
+    protected override string GetObjectID()
+    {
+		        appData = new T_PM_UserGroupInfoApplicationData();
+	
+                appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
+                appData.PageSize = 1;
+                appData.CurrentPage = 1;
+                QueryRecord();
+                if (appData.RecordCount == 1)
+                {
+                    return GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
+                }
+                else
+                {
+                    return string.Empty;
+                }
     }
 }
 

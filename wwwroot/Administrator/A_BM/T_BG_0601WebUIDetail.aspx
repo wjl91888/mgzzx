@@ -77,7 +77,8 @@
                                       
                                             <div id = "XXTPDZ" runat = "server" >
                                         
-                               <%# DataBinder.Eval(Container.DataItem, "XXTPDZ") == DBNull.Value ? "" : "<a href='" + DataBinder.Eval(Container.DataItem, "XXTPDZ") + "' target='_blank'><img src='" + DataBinder.Eval(Container.DataItem, "XXTPDZ") + "' width = '130' border=0 /></a>"%>
+                               <%# DataBinder.Eval(Container.DataItem, "XXTPDZ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?a=d"+ AndChar +"file=" + DataBinder.Eval(Container.DataItem, "XXTPDZ") + "' target='_blank'>обть</a>"%>
+                               <%# DataBinder.Eval(Container.DataItem, "XXTPDZ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?file=" + DataBinder.Eval(Container.DataItem, "XXTPDZ") + "' target='_blank'>т╓юю</a>"%>
                                                 
                                            </div>
                                       
@@ -89,7 +90,7 @@
                                       
                                             <div id = "FJXZDZ" runat = "server" >
                                         
-                               <%# DataBinder.Eval(Container.DataItem, "FJXZDZ") == DBNull.Value ? "" : "<a href='" + DataBinder.Eval(Container.DataItem, "FJXZDZ") + "' target='_blank'>обть</a>"%>
+                               <%# DataBinder.Eval(Container.DataItem, "FJXZDZ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?a=d"+ AndChar +"file=" + DataBinder.Eval(Container.DataItem, "FJXZDZ") + "' target='_blank'>обть</a>"%>
                                <%# DataBinder.Eval(Container.DataItem, "FJXZDZ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?file=" + DataBinder.Eval(Container.DataItem, "FJXZDZ") + "' target='_blank'>т╓юю</a>"%>
                                                 
                                            </div>
