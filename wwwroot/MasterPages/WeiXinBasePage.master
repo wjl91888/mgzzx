@@ -1,0 +1,54 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="WeiXinBasePage.master.cs" Inherits="WeiXinBasePage_BasePage" %>
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head runat="server">
+    <title><asp:ContentPlaceHolder ID="HeadTitleContentPlaceHolder" runat="server"><%=System.Configuration.ConfigurationSettings.AppSettings["WEBSITE_NAME"]%></asp:ContentPlaceHolder></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="/weixin/css/normalize.css">
+    <link rel="stylesheet" href="/weixin/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/weixin/css/metro-bootstrap.css">
+    <link rel="stylesheet" href="/weixin/css/iconFont.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="/weixin/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/weixin/css/main.css">
+    <script src="/weixin/js/vendor/modernizr-2.6.2.min.js"></script>
+    <asp:ContentPlaceHolder ID="HeaderContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body class="metro">
+    <form id="SubmitForm" runat="server" autocomplete="off">
+    <div class="container">
+        <asp:ContentPlaceHolder ID="MainContainerPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+    </div>
+    <nav class="navigation-bar fixed-bottom bg-darkCyan">
+        <asp:ContentPlaceHolder ID="NavContainerPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+    </nav>
+    </form>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <script src="/weixin/js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="/weixin/js/bootstrap.min.js"></script>
+    <script src="/weixin/js/jquery/jquery.widget.min.js"></script>
+    <script src="/weixin/js/metro/metro.min.js"></script>
+    <!--<script src="/weixin/js/plugins.js"></script>
+    <script src="/weixin/js/main.js"></script>-->
+    <script>
+        $(function () {
+            $("#carousel1").carousel({
+                height: 200
+            });
+        })
+    </script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script></script>
+</body>
+</html>

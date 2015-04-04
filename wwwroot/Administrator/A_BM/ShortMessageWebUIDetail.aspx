@@ -71,8 +71,8 @@
                                       
                                             <div id = "DXXFJ" runat = "server" >
                                         
-                               <%# DataBinder.Eval(Container.DataItem, "DXXFJ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?a=d"+ AndChar +"file=" + DataBinder.Eval(Container.DataItem, "DXXFJ") + "' target='_blank'>œ¬‘ÿ</a>"%>
-                               <%# DataBinder.Eval(Container.DataItem, "DXXFJ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?file=" + DataBinder.Eval(Container.DataItem, "DXXFJ") + "' target='_blank'>‘§¿¿</a>"%>
+                               <%# DataBinder.Eval(Container.DataItem, "DXXFJ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?a=d"+ AndChar +"file=" + HttpUtility.UrlEncode((string)DataBinder.Eval(Container.DataItem, "DXXFJ")) + "' target='_blank'>œ¬‘ÿ</a>"%>
+                               <%# DataBinder.Eval(Container.DataItem, "DXXFJ") == DBNull.Value ? "" : "<a href='../../PreviewDocument/PreviewDocument.aspx?file=" + HttpUtility.UrlEncode((string)DataBinder.Eval(Container.DataItem, "DXXFJ")) + "' target='_blank'>‘§¿¿</a>"%>
                                                 
                                            </div>
                                       

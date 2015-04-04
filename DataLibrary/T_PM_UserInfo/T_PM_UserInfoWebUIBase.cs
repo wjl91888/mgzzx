@@ -2750,14 +2750,14 @@ namespace RICH.Common.BM.T_PM_UserInfo
                 validateData.Nullable = boolNullable;
                 validateData.Exist = boolExist;
                 validateData.Parameters[0] = "身份证号";
-                validateData.Parameters[1] = "18";
+                validateData.Parameters[1] = "15";
                 validateData.Parameters[2] = "18";
 
                 // 空验证
                 if (DataValidateManager.ValidateIsNull(validateData.Value) == false)
                 {
                     // 数值格式验证
-                    if (DataValidateManager.ValidateStringLengthRange(validateData.Value, 18, 18) == false)
+                    if (DataValidateManager.ValidateStringLengthRange(validateData.Value, 15, 18) == false)
                     {
                         validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0004, validateData.Parameters);
                         validateData.Result = false;

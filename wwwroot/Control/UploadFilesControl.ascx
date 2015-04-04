@@ -32,7 +32,7 @@
             <AlternatingItemTemplate>
                 <ul class="alter">
                     <li class="filename">
-                        <a href="../../PreviewDocument/PreviewDocument.aspx?a=d&<%# HttpUtility.UrlEncode((string)Container.DataItem)%>" target="_blank" title="<%# GetFileName((string)Container.DataItem)%>">
+                        <a href="../../PreviewDocument/PreviewDocument.aspx?a=d&file=<%# HttpUtility.UrlEncode((string)Container.DataItem)%>" target="_blank" title="<%# GetFileName((string)Container.DataItem)%>">
                         <%# GetFileName((string)Container.DataItem)%></a>
                     </li>
                     <li class="button"><a href="/PreviewDocument/PreviewDocument.aspx?file=<%# HttpUtility.UrlEncode((string)Container.DataItem)%>" target="_blank">‘§¿¿</a> </li>
