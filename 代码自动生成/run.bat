@@ -1,0 +1,1 @@
+for /f "delims=" %%i in ('dir %cd%\*CopyToProject.bat /b /s') do start %%~si
