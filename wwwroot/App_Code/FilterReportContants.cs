@@ -53,7 +53,7 @@ namespace RICH.Common.BM.FilterReport
         public static readonly bool AutoGenerateYear = false;
         public static readonly bool AutoGenerateOrder = false;
         public static readonly bool AutoGenerateIncludeDateTime = false;
-        public static readonly bool Sort = false;
+        public static readonly bool Sort = true;
         
         public static readonly bool NoTableBorder = false;
         public static readonly bool ExistPDFPageHeader = false;
@@ -71,12 +71,12 @@ namespace RICH.Common.BM.FilterReport
         public static readonly int ImportDataSetStartLineNum = 2;
         public static readonly bool ExportToDocumentTemplate = false;
         public static readonly bool ExportToPDF = false;
-        public static readonly bool CopyItem = true;
+        public static readonly bool CopyItem = false;
         public static readonly bool WebDetailPage = false;
         public static readonly bool UseFilterReport = false;
         
-        public static readonly string SortField = "BGCJSJ";
-        public static readonly string TitleField = "BGMC";
+        public static readonly string SortField = "LX";
+        public static readonly string TitleField = "DM";
         
         public static readonly string GetValueTextField = "";
         public static readonly string GetValueValueField = "";

@@ -63,7 +63,7 @@ namespace RICH.Common.BM.DictionaryType
         public static readonly bool WebDetailPage = false;
         public static readonly bool UseFilterReport = false;
         
-        public static readonly string SortField = "DM";
+        public static readonly string SortField = "LX";
         public static readonly string TitleField = "DM";
         
         public static readonly string GetValueTextField = "";

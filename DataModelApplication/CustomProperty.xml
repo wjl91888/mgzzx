@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Properties>
+  <Attributes>
+    <Attribute Name="Name" Remark="名称" DataType="String" ShowType="TextBox" DataBind="false" DataSource="" />
+    <Attribute Name="Remark" Remark="说明" DataType="String" ShowType="TextBox" DataBind="false" DataSource="" />
+    <Attribute Name="DataType" Remark="数据类型" DataType="String" ShowType="ComboBox" DataBind="true" DataSource="DataType" />
+    <Attribute Name="ShowType" Remark="表示类型" DataType="String" ShowType="ComboBox" DataBind="true" DataSource="ShowType" />
+    <Attribute Name="ReadOnly" Remark="只读" DataType="Boolean" ShowType="CheckBox" DataBind="false" DataSource="" />
+    <Attribute Name="Frozen" Remark="冻结" DataType="Boolean" ShowType="CheckBox" DataBind="false" DataSource="" />
+    <Attribute Name="Visible" Remark="可见" DataType="Boolean" ShowType="CheckBox" DataBind="false" DataSource="" />
+    <Attribute Name="DataBind" Remark="数据邦定" DataType="String" ShowType="CheckBox" DataBind="false" DataSource="" />
+    <Attribute Name="DataSource" Remark="数据源" DataType="String" ShowType="ComboBox" DataBind="true" DataSource="DataSource" />
+  </Attributes>
+  <Property Name="FieldName" Remark="字段名" DataType="String" ShowType="TextBox" ReadOnly="false" Frozen="false" Visible="true" DataBind="false" DataSource="" />
+  <Property Name="FieldRemark" Remark="字段中文名" DataType="Boolean" ShowType="CheckBox" ReadOnly="false" Frozen="false" Visible="true" DataBind="false" DataSource="" />
+  <Property Name="ControlType" Remark="控件类型" DataType="String" ShowType="ComboBox" ReadOnly="False" Frozen="false" Visible="True" DataBind="True" DataSource="ControlType" />
+</Properties>

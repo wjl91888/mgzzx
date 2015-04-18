@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataModelApplication</RootNamespace>
+    <AssemblyName>DataModelApplication</AssemblyName>
+    <ManifestCertificateThumbprint>953FB5864ED415B8D7AFA598DB635D01E87A70FE</ManifestCertificateThumbprint>
+    <ManifestKeyFile>DataModelApplication_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>E:\school_work\职业学院\200801职业学院\代码自动生成文件\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\CodeAutoGenerate\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.ConnectionUI">
+      <HintPath>..\dll\Microsoft.Data.ConnectionUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.ConnectionUI.Dialog">
+      <HintPath>..\dll\Microsoft.Data.ConnectionUI.Dialog.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.SmartTag, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\dll\Microsoft.Office.Interop.SmartTag.dll</HintPath>
+    </Reference>
+    <Reference Include="SandBar">
+      <HintPath>..\dll\SandBar.dll</HintPath>
+    </Reference>
+    <Reference Include="SandDock">
+      <HintPath>..\dll\SandDock.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINNT\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CommonFileLibrary.cs" />
+    <Compile Include="Common\CustomProperty.cs" />
+    <Compile Include="Common\ExcelFileLabrary.cs" />
+    <Compile Include="Common\FolderDialog.cs" />
+    <Compile Include="Common\GenerateCodeLibrary.cs" />
+    <Compile Include="Common\XMLFileLibrary.cs" />
+    <Compile Include="CustomDisplayFieldConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomDisplayFieldConfigForm.Designer.cs">
+      <DependentUpon>CustomDisplayFieldConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomOperateConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomOperateConfigForm.Designer.cs">
+      <DependentUpon>CustomOperateConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPermissionConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomPermissionConfigForm.Designer.cs">
+      <DependentUpon>CustomPermissionConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPermissionFieldsConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomPermissionFieldsConfigForm.Designer.cs">
+      <DependentUpon>CustomPermissionFieldsConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomRelatedTableConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomRelatedTableConfigForm.Designer.cs">
+      <DependentUpon>CustomRelatedTableConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataColumnConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataColumnConfig.Designer.cs">
+      <DependentUpon>DataColumnConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataModelForm.Designer.cs">
+      <DependentUpon>DataModelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCustomProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCustomProperty.Designer.cs">
+      <DependentUpon>EditCustomProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenerateCodeForm.Designer.cs">
+      <DependentUpon>GenerateCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateCodeParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenerateCodeParameter.Designer.cs">
+      <DependentUpon>GenerateCodeParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogDialogBox.Designer.cs">
+      <DependentUpon>LogDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomDisplayFieldConfigForm.resx">
+      <DependentUpon>CustomDisplayFieldConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomOperateConfigForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CustomOperateConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPermissionConfigForm.resx">
+      <DependentUpon>CustomPermissionConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPermissionFieldsConfigForm.resx">
+      <DependentUpon>CustomPermissionFieldsConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomRelatedTableConfigForm.resx">
+      <DependentUpon>CustomRelatedTableConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataColumnConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataColumnConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataModelForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataModelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCustomProperty.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EditCustomProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenerateCodeForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GenerateCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenerateCodeParameter.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GenerateCodeParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogDialogBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LogDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomConditionConfigForm.resx">
+      <DependentUpon>CustomConditionConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDataDict.resx">
+      <DependentUpon>EditDataDict.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="CustomConditionConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomConditionConfigForm.Designer.cs">
+      <DependentUpon>CustomConditionConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditDataDict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDataDict.Designer.cs">
+      <DependentUpon>EditDataDict.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\KeepMeAlive.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CustomPropertyDataDict.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CodeGenerated\KeepMeAlive.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\ApplicationData.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\ApplicationLogic.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\ApplicationLogicBase.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\BusinessEntity.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\BusinessEntityBase.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Contants.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\CopyToProject.bat.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Script.table.sql.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\ScriptPurview.PostDeployment.sql.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\ScriptProc.PostDeployment.sql.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\ScriptUpdateField.PostDeployment.sql.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUI.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIAdd.aspx.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIAdd.aspx.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIBase.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIDetail.aspx.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIDetail.aspx.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIImage.aspx.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIImage.aspx.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUISearch.aspx.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUISearch.aspx.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIStatistic.aspx.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIStatistic.aspx.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="DataModelApplication_TemporaryKey.pfx" />
+    <None Include="Resources\23.ico" />
+    <None Include="Resources\24.ico" />
+    <None Include="Resources\25.ico" />
+    <None Include="Resources\27.ico" />
+    <None Include="Resources\28.ico" />
+    <None Include="Resources\29.ico" />
+    <None Include="Resources\30.ico" />
+    <None Include="Resources\31.ico" />
+    <None Include="Resources\32.ico" />
+    <None Include="Resources\33.ico" />
+    <None Include="Resources\34.ico" />
+    <None Include="Resources\35.ico" />
+    <None Include="Resources\36.ico" />
+    <None Include="Resources\37.ico" />
+    <None Include="Resources\38.ico" />
+    <None Include="Resources\39.ico" />
+    <None Include="Resources\40.ico" />
+    <None Include="Resources\41.ico" />
+    <None Include="Resources\42.ico" />
+    <None Include="Resources\43.ico" />
+    <None Include="Resources\44.ico" />
+    <None Include="Resources\45.ico" />
+    <None Include="Resources\46.ico" />
+    <None Include="Resources\47.ico" />
+    <None Include="Resources\48.ico" />
+    <None Include="Resources\49.ico" />
+    <None Include="Resources\50.ico" />
+    <None Include="Resources\51.ico" />
+    <None Include="Resources\52.ico" />
+    <None Include="Resources\53.ico" />
+    <None Include="Resources\54.ico" />
+    <None Include="Resources\55.ico" />
+    <None Include="Resources\56.ico" />
+    <None Include="Resources\261.ico" />
+    <None Include="Resources\2222.ico" />
+    <None Include="Resources\ActiveX Cache.ico" />
+    <None Include="Resources\Administrative Tools.ico" />
+    <None Include="Resources\Audio CD.ico" />
+    <None Include="Resources\Bitmap Image.ico" />
+    <None Include="Resources\CD-ROM Drive.ico" />
+    <None Include="Resources\Computer.ico" />
+    <None Include="Resources\Configuration Settings.ico" />
+    <None Include="Resources\Control Panel2.ico" />
+    <None Include="Resources\Control Panel.ico" />
+    <None Include="Resources\Default Document.ico" />
+    <None Include="Resources\Desktop.ico" />
+    <None Include="Resources\Dial-Up Networking.ico" />
+    <None Include="Resources\Documents.ico" />
+    <None Include="Resources\Entire Network.ico" />
+    <None Include="Resources\FAVORITES.ico" />
+    <None Include="Resources\Find.ico" />
+    <None Include="Resources\Floppy Drive2.ico" />
+    <None Include="Resources\Floppy Drive.ico" />
+    <None Include="Resources\Fonts.ico" />
+    <None Include="Resources\GIF Image.ico" />
+    <None Include="Resources\Hard Drive.ico" />
+    <None Include="Resources\Help.ico" />
+    <None Include="Resources\In Box.ico" />
+    <None Include="Resources\Internet Document.ico" />
+    <None Include="Resources\Jpeg.ico" />
+    <None Include="Resources\Log Off.ico" />
+    <None Include="Resources\Media Clip.ico" />
+    <None Include="Resources\MIDI Sequence.ico" />
+    <None Include="Resources\Movie Clip.ico" />
+    <None Include="Resources\MS-DOS Application.ico" />
+    <None Include="Resources\MS-DOS Batch File.ico" />
+    <None Include="Resources\My Briefcase.ico" />
+    <None Include="Resources\My Computer.ico" />
+    <None Include="Resources\My Documents.ico" />
+    <None Include="Resources\Network Drive Connected.ico" />
+    <None Include="Resources\Network Drive Offline.ico" />
+    <None Include="Resources\Network Neighborhood.ico" />
+    <None Include="Resources\Printers2.ico" />
+    <None Include="Resources\Printers.ico" />
+    <None Include="Resources\Program Group.ico" />
+    <None Include="Resources\Programs.ico" />
+    <None Include="Resources\RAM Drive.ico" />
+    <None Include="Resources\Recycle Bin empty.ico" />
+    <None Include="Resources\Recycle Bin Full.ico" />
+    <None Include="Resources\Removable Drive.ico" />
+    <None Include="Resources\Rich Text Format.ico" />
+    <None Include="Resources\Run.ico" />
+    <None Include="Resources\Scheduled Tasks.ico" />
+    <None Include="Resources\Settings.ico" />
+    <None Include="Resources\Sharing Overlay.ico" />
+    <None Include="Resources\Shortcut Overlay.ico" />
+    <None Include="Resources\Shut Down.ico" />
+    <None Include="Resources\Subscriptions.ico" />
+    <None Include="Resources\Text Document.ico" />
+    <None Include="Resources\The Internet.ico" />
+    <None Include="Resources\Thumbs.db" />
+    <None Include="Resources\Url History.ico" />
+    <None Include="Resources\Video Clip.ico" />
+    <None Include="Resources\Wave Sound.ico" />
+    <None Include="Resources\Workgroup.ico" />
+    <None Include="Resources\Write Document.ico" />
+    <None Include="Resources\XP Set.iptheme" />
+    <None Include="Resources\Zip File.ico" />
+    <None Include="Resources\1.ico" />
+    <None Include="Resources\2.ico" />
+    <None Include="Resources\3.ico" />
+    <None Include="Resources\4.ico" />
+    <None Include="Resources\5.ico" />
+    <None Include="Resources\6.ico" />
+    <None Include="Resources\7.ico" />
+    <None Include="Resources\8.ico" />
+    <None Include="Resources\9.ico" />
+    <None Include="Resources\10.ico" />
+    <None Include="Resources\11.ico" />
+    <None Include="Resources\12.ico" />
+    <None Include="Resources\13.ico" />
+    <None Include="Resources\14.ico" />
+    <None Include="Resources\15.ico" />
+    <None Include="Resources\16.ico" />
+    <None Include="Resources\17.ico" />
+    <None Include="Resources\18.ico" />
+    <None Include="Resources\19.ico" />
+    <None Include="Resources\20.ico" />
+    <None Include="Resources\21.ico" />
+    <None Include="Resources\22.ico" />
+    <None Include="Resources\Default Icon.ico" />
+    <None Include="Resources\Open Folder.ico" />
+    <None Include="Resources\Closed Folder.ico" />
+    <Content Include="CustomProperty.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

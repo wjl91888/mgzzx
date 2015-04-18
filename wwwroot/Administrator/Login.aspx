@@ -8,7 +8,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <title>
-        <%=System.Configuration.ConfigurationSettings.AppSettings["WEBSITE_NAME"]%></title>
+        <%=System.Configuration.ConfigurationManager.AppSettings["WEBSITE_NAME"]%></title>
     <link href="../App_Themes/Themes/Css/mainstyle.css" rev="stylesheet" rel="stylesheet"
         type="text/css" media="screen" charset="gb2312" />
     <link href="../App_Themes/Themes/JavaScript/fancybox/jquery.fancybox-1.3.4.css" rev="stylesheet"
@@ -96,7 +96,7 @@
                             <tbody>
                                 <tr align="middle" bgcolor="#ffffff">
                                     <td colspan="2" height="38">
-                                        <h1><%=System.Configuration.ConfigurationSettings.AppSettings["WEBSITE_NAME"]%></h1>
+                                        <h1><%=ConfigurationManager.AppSettings["WEBSITE_NAME"]%></h1>
                                     </td>
                                 </tr>
                                 <tr align="middle" bgcolor="#ffffff">

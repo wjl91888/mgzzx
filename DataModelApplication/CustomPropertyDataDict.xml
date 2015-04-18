@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataDicts>
+  <DataDict Name="DataType" Remark="数据类型">
+    <Attributes>
+      <Attribute Name="Name" Remark="名称" />
+      <Attribute Name="Remark" Remark="说明" />
+    </Attributes>
+    <Data Name="String" Remark="字符" />
+    <Data Name="Boolean" Remark="布尔" />
+    <Data Name="Int" Remark="整型数" />
+  </DataDict>
+  <DataDict Name="DBType" Remark="数据库数据类型">
+    <Attributes>
+      <Attribute Name="Name" Remark="名称" />
+      <Attribute Name="Remark" Remark="说明" />
+      <Attribute Name="SqlTypes" Remark=".NetSQL数据类型" />
+      <Attribute Name="SqlDbType" Remark=".NetSQL数据库数据类型" />
+      <Attribute Name="FieldType" Remark="字段数据类型" />
+    </Attributes>
+    <Data Name="binary" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="bigint" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="char" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="datetime" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="decimal" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="float" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="image" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="int" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="money" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="nchar" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="ntext" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="nvarchar" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="numeric" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="real" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="smalldatetime" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="smallint" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="smallmoney" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="sql_variant" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="sysname" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="text" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="timestamp" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="tinyint" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="varbinary" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="varchar" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="uniqueidentifier" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="bit" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+    <Data Name="xml" Remark="" SqlTypes="" SqlDbType="" FieldType="" />
+  </DataDict>
+  <DataDict Name="SqlDbType" Remark=".NetSQL数据库数据类型">
+    <Attributes>
+      <Attribute Name="Name" Remark="名称" />
+      <Attribute Name="Remark" Remark="说明" />
+    </Attributes>
+    <Data Name="Binary" Remark="" />
+    <Data Name="BigInt" Remark="" />
+    <Data Name="Char" Remark="" />
+    <Data Name="DateTime" Remark="" />
+    <Data Name="Decimal" Remark="" />
+    <Data Name="Float" Remark="" />
+    <Data Name="Image" Remark="" />
+    <Data Name="Int" Remark="" />
+    <Data Name="Money" Remark="" />
+    <Data Name="NChar" Remark="" />
+    <Data Name="NText" Remark="" />
+    <Data Name="NVarChar" Remark="" />
+    <Data Name="Numeric" Remark="" />
+    <Data Name="Real" Remark="" />
+    <Data Name="SmallDateTime" Remark="" />
+    <Data Name="SmallInt" Remark="" />
+    <Data Name="SmallMoney" Remark="" />
+    <Data Name="Variant" Remark="" />
+    <Data Name="VarChar" Remark="" />
+    <Data Name="Text" Remark="" />
+    <Data Name="TimeStamp" Remark="" />
+    <Data Name="TinyInt" Remark="" />
+    <Data Name="VarBinary" Remark="" />
+    <Data Name="VarChar" Remark="" />
+    <Data Name="UniqueId" Remark="" />
+    <Data Name="Bit" Remark="" />
+    <Data Name="Xml" Remark="" />
+  </DataDict>
+  <DataDict Name="SqlTypes" Remark=".NetSQL数据类型">
+    <Attributes>
+      <Attribute Name="Name" Remark="名称" />
+      <Attribute Name="Remark" Remark="说明" />
+    </Attributes>
+    <Data Name="System.Data.SqlTypes.SqlBinary" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlInt64" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlString" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlDateTime" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlDecimal" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlDouble" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlBinary" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlInt32" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlMoney" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlSingle" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlInt16" Remark="" />
+    <Data Name="System.Data.SqlTypes.Object" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlByte" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlGuid" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlBoolean" Remark="" />
+    <Data Name="System.Data.SqlTypes.SqlXml" Remark="" />
+  </DataDict>
+  <DataDict Name="FieldType" Remark="字段数据类型">
+    <Attributes>
+      <Attribute Name="Name" Remark="名称" />
+      <Attribute Name="Remark" Remark="说明" />
+    </Attributes>
+    <Data Name="Byte" Remark="" />
+    <Data Name="Byte[]" Remark="" />
+    <Data Name="Binary" Remark="" />
+    <Data Name="Boolean" Remark="" />
+    <Data Name="DateTime" Remark="" />
+    <Data Name="Decimal" Remark="" />
+    <Data Name="Double" Remark="" />
+    <Data Name="Int16" Remark="" />
+    <Data Name="Int32" Remark="" />
+    <Data Name="Int64" Remark="" />
+    <Data Name="Guid" Remark="" />
+    <Data Name="Object" Remark="" />
+    <Data Name="String" Remark="" />
+    <Data Name="Single" Remark="" />
+  </DataDict>
+  <DataDict Name="ShowType" Remark="表示类型">
+    <Data Name="TextBox" Remark="文本框">
+    </Data>
+    <Data Name="CheckBox" Remark="选择框">
+    </Data>
+    <Data Name="ComboBox" Remark="下拉框">
+    </Data>
+    <Attributes>
+      <Attribute Name="Name" Remark="名称" />
+      <Attribute Name="Remark" Remark="说明" />
+    </Attributes>
+  </DataDict>
+  <DataDict Name="ControlType" Remark="控件类型">
+    <Attributes>
+      <Attribute Name="Name" Remark="名称" />
+      <Attribute Name="Remark" Remark="说明" />
+      <Attribute Name="Prefix" Remark="前缀" />
+      <Attribute Name="ValueSuffix" Remark="赋值属性" />
+      <Attribute Name="ControlType" Remark="控件名称" />
+    </Attributes>
+    <Data Name="单行文本框" Remark="单行文本框" Prefix="asp" ValueSuffix="Text" ControlType="TextBox" />
+    <Data Name="多行文本框" Remark="多行文本框" Prefix="asp" ValueSuffix="Text" ControlType="TextBox" />
+    <Data Name="HTML编辑器" Remark="HTML编辑器" Prefix="FTB" ValueSuffix="Text" ControlType="FreeTextBox" />
+    <Data Name="下拉列表框" Remark="下拉列表框" Prefix="asp" ValueSuffix="SelectedValue" ControlType="DropDownList" />
+    <Data Name="单选框" Remark="单选框" Prefix="asp" ValueSuffix="SelectedValue" ControlType="RadioButtonList" />
+    <Data Name="多选框" Remark="多选框" Prefix="asp" ValueSuffix="SelectedValue" ControlType="CheckBoxList" />
+    <Data Name="RICH多选框" Remark="RICH多选框" Prefix="RICH" ValueSuffix="SelectedValues" ControlType="CheckBoxListEx" />
+    <Data Name="单个单选框" Remark="单个单选框" Prefix="asp" ValueSuffix="Checked" ControlType="RadioButton" />
+    <Data Name="单个多选框" Remark="单个多选框" Prefix="asp" ValueSuffix="Checked" ControlType="CheckBox" />
+    <Data Name="文本标签" Remark="文本标签" Prefix="asp" ValueSuffix="Text" ControlType="Label" />
+    <Data Name="文件上传" Remark="文件上传" Prefix="asp" ValueSuffix="Text" ControlType="TextBox" />
+    <Data Name="图片上传" Remark="图片上传" Prefix="asp" ValueSuffix="Text" ControlType="TextBox" />
+    <Data Name="时间输入" Remark="时间输入" Prefix="asp" ValueSuffix="Text" ControlType="TextBox" />
+    <Data Name="时间日期输入" Remark="时间日期输入" Prefix="asp" ValueSuffix="Text" ControlType="TextBox" />
+  </DataDict>
+  <DataDict Name="DataSource" Remark="数据源">
+    <Attributes>
+      <Attribute Name="Name" Remark="名称" />
+      <Attribute Name="Remark" Remark="说明" />
+    </Attributes>
+    <Data Name="DataType" Remark="数据类型" />
+    <Data Name="ShowType" Remark="表示类型" />
+    <Data Name="ControlType" Remark="控件类型" />
+    <Data Name="FieldType" Remark="字段类型" />
+    <Data Name="DBType" Remark="数据库数据类型" />
+  </DataDict>
+  <Relations>
+    <Relation>
+    </Relation>
+  </Relations>
+</DataDicts>

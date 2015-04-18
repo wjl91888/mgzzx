@@ -242,7 +242,7 @@ public partial class ComboTreeViewControl : System.Web.UI.UserControl
 
     public void ClearCheckedNodes()
     {
-        TreeView.ClearCheckedNodes();
+        TreeView.UncheckAllNodes();
     }
 
     public void ExpandAllNodes()
@@ -250,9 +250,9 @@ public partial class ComboTreeViewControl : System.Web.UI.UserControl
         TreeView.ExpandAllNodes();
     }
 
-    public void DataBind()
+    public override void DataBind()
     {
-        TreeView.ClearCheckedNodes();
+        TreeView.UncheckAllNodes();
         TreeView.DataBind();
         ExpandNodes();
         
