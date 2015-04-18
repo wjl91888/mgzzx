@@ -1,8 +1,0 @@
-E:\MyWork\richsoft\蒙古族中学\Source\Database\sql\debug\Database.deploymanifest
-E:\MyWork\richsoft\蒙古族中学\Source\Database\sql\debug\Database.dbschema
-E:\MyWork\richsoft\蒙古族中学\Source\Database\obj\Debug\Database.dbschema
-E:\MyWork\richsoft\蒙古族中学\Source\Database\sql\debug\DB_NMGSKL_Script.PreDeployment.sql
-E:\MyWork\richsoft\蒙古族中学\Source\Database\sql\debug\DB_NMGSKL_Script.PostDeployment.sql
-E:\MyWork\richsoft\蒙古族中学\Source\Database\sql\debug\DB_NMGSKL_Database.sqlsettings
-E:\MyWork\richsoft\蒙古族中学\Source\Database\sql\debug\DB_NMGSKL_Database.sqldeployment
-E:\MyWork\richsoft\蒙古族中学\Source\Database\sql\debug\DB_NMGSKL_Database.sqlcmdvars
