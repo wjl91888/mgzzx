@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>n9xk/6XiAs2vJd9407DRfvyJgjI=</dsig:DigestValue>
+        <dsig:DigestValue>TitDlQTeeW9EU2NoxrlgxSNdKyk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -200,13 +200,13 @@
       <dsig:DigestValue>X06wNdxAdD45LX2uzrbTmOXFe4U=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Template\CopyToProject.bat.xsl" size="5239">
+  <file name="Template\CopyToProject.bat.xsl" size="5204">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Ke/27S5lzxIRoGSozBPq/+K1Ncs=</dsig:DigestValue>
+      <dsig:DigestValue>tWQ5L5YPicLj23z2KpW1/7Wquu8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Template\Script.table.sql.xsl" size="3284">
@@ -218,7 +218,7 @@
       <dsig:DigestValue>fZ4WlF5C8UHzSQUdS8p5VRBYqHQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Template\ScriptProc.PostDeployment.sql.xsl" size="124903">
+  <file name="Template\ScriptProc.sql.xsl" size="124903">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -227,7 +227,7 @@
       <dsig:DigestValue>VF5wQZClWg5T8Sis2hKsEG/KzkY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Template\ScriptPurview.PostDeployment.sql.xsl" size="18379">
+  <file name="Template\ScriptPurview.sql.xsl" size="18379">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -236,7 +236,7 @@
       <dsig:DigestValue>SIDxykCxBVNQzLtvvc3qlKKWisA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Template\ScriptUpdateField.PostDeployment.sql.xsl" size="3535">
+  <file name="Template\ScriptUpdateField.sql.xsl" size="3535">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />

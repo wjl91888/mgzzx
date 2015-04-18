@@ -57,7 +57,9 @@
     <Folder Include="Scripts\Post-Deployment" />
     <Folder Include="Properties\" />
     <Folder Include="Scripts\Tables" />
-    <Folder Include="Scripts\StoreProcedures" />
+    <Folder Include="Scripts\Post-Deployment\Proc" />
+    <Folder Include="Scripts\Post-Deployment\Purview" />
+    <Folder Include="Scripts\Post-Deployment\UpdateField" />
   </ItemGroup>
   <ItemGroup>
     <PropertiesFile Include="Properties\Database.sqlsettings">
@@ -115,103 +117,103 @@
     </Build>
   </ItemGroup>
   <ItemGroup>
-    <NotInBuild Include="Scripts\Post-Deployment\DictionaryScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\DictionaryScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_PM_UserInfoScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\T_PM_UserInfoScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\DictionaryScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\DictionaryTypeScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\DictionaryTypeScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\FilterReportScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\DictionaryTypeScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\ShortMessageScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\FilterReportScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\T_BG_0601ScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\FilterReportScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\T_BG_0602ScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\ShortMessageScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\T_BM_DWXXScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\ShortMessageScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\T_BM_GZXXScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_BG_0601ScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\T_PM_PurviewInfoScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_BG_0601ScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\UpdateField\T_PM_UserGroupInfoScriptUpdateField.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_BG_0602ScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\DictionaryScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_BG_0602ScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\T_PM_UserInfoScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_BM_DWXXScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\DictionaryTypeScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_BM_DWXXScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\FilterReportScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_BM_GZXXScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\ShortMessageScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_BM_GZXXScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\T_BG_0601ScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_PM_PurviewInfoScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\T_BG_0602ScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_PM_PurviewInfoScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\T_BM_DWXXScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_PM_UserGroupInfoScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\T_BM_GZXXScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_PM_UserGroupInfoScriptUpdateField.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\T_PM_PurviewInfoScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\Post-Deployment\T_PM_UserInfoScriptPurview.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Purview\T_PM_UserGroupInfoScriptPurview.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\DictionaryScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\DictionaryScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\T_PM_UserInfoScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\T_PM_UserInfoScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\DictionaryTypeScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\DictionaryTypeScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\FilterReportScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\FilterReportScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\ShortMessageScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\ShortMessageScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\T_BG_0601ScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\T_BG_0601ScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\T_BG_0602ScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\T_BG_0602ScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\T_BM_DWXXScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\T_BM_DWXXScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\T_BM_GZXXScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\T_BM_GZXXScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\T_PM_PurviewInfoScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\T_PM_PurviewInfoScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
-    <NotInBuild Include="Scripts\StoreProcedures\T_PM_UserGroupInfoScriptProc.PostDeployment.sql">
+    <NotInBuild Include="Scripts\Post-Deployment\Proc\T_PM_UserGroupInfoScriptProc.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
   </ItemGroup>

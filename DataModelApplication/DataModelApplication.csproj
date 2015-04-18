@@ -280,13 +280,13 @@
     <Content Include="Template\Script.table.sql.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Template\ScriptPurview.PostDeployment.sql.xsl">
+    <Content Include="Template\ScriptPurview.sql.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Template\ScriptProc.PostDeployment.sql.xsl">
+    <Content Include="Template\ScriptProc.sql.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Template\ScriptUpdateField.PostDeployment.sql.xsl">
+    <Content Include="Template\ScriptUpdateField.sql.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Template\WebUI.cs.xsl">

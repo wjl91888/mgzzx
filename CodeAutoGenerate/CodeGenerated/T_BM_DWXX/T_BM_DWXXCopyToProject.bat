@@ -23,12 +23,12 @@ IF NOT EXIST ..\..\..\DataLibrary\T_BM_DWXX\T_BM_DWXXWebUI.cs copy T_BM_DWXXWebU
 copy T_BM_DWXXWebUIBase.cs ..\..\..\DataLibrary\T_BM_DWXX\
 @ECHO 开始复制T_BM_DWXX数据库脚本文件
 copy T_BM_DWXXScript.table.sql ..\..\..\Database\Scripts\Tables\
-copy T_BM_DWXXScriptProc.PostDeployment.sql ..\..\..\Database\Scripts\StoreProcedures\
-copy T_BM_DWXXScriptPurview.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
-copy T_BM_DWXXScriptUpdateField.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
+copy T_BM_DWXXScriptProc.sql ..\..\..\Database\Scripts\Post-Deployment\Proc\
+copy T_BM_DWXXScriptPurview.sql ..\..\..\Database\Scripts\Post-Deployment\Purview\
+copy T_BM_DWXXScriptUpdateField.sql ..\..\..\Database\Scripts\Post-Deployment\UpdateField\
 @ECHO 开始安装T_BM_DWXX数据库脚本
 echo Begin > log.log
-for /f "delims=" %%a in ('dir T_BM_DWXXScriptProc.PostDeployment.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
+for /f "delims=" %%a in ('dir T_BM_DWXXScriptProc.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
 echo End >> log.log
 @ECHO 完成安装T_BM_DWXX数据库脚本
 @ECHO 完成部署T_BM_DWXX

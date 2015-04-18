@@ -23,12 +23,12 @@ IF NOT EXIST ..\..\..\DataLibrary\T_BG_0602\T_BG_0602WebUI.cs copy T_BG_0602WebU
 copy T_BG_0602WebUIBase.cs ..\..\..\DataLibrary\T_BG_0602\
 @ECHO 开始复制T_BG_0602数据库脚本文件
 copy T_BG_0602Script.table.sql ..\..\..\Database\Scripts\Tables\
-copy T_BG_0602ScriptProc.PostDeployment.sql ..\..\..\Database\Scripts\StoreProcedures\
-copy T_BG_0602ScriptPurview.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
-copy T_BG_0602ScriptUpdateField.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
+copy T_BG_0602ScriptProc.sql ..\..\..\Database\Scripts\Post-Deployment\Proc\
+copy T_BG_0602ScriptPurview.sql ..\..\..\Database\Scripts\Post-Deployment\Purview\
+copy T_BG_0602ScriptUpdateField.sql ..\..\..\Database\Scripts\Post-Deployment\UpdateField\
 @ECHO 开始安装T_BG_0602数据库脚本
 echo Begin > log.log
-for /f "delims=" %%a in ('dir T_BG_0602ScriptProc.PostDeployment.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
+for /f "delims=" %%a in ('dir T_BG_0602ScriptProc.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
 echo End >> log.log
 @ECHO 完成安装T_BG_0602数据库脚本
 @ECHO 完成部署T_BG_0602

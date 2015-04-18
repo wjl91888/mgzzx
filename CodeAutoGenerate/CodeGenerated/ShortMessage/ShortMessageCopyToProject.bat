@@ -23,12 +23,12 @@ IF NOT EXIST ..\..\..\DataLibrary\ShortMessage\ShortMessageWebUI.cs copy ShortMe
 copy ShortMessageWebUIBase.cs ..\..\..\DataLibrary\ShortMessage\
 @ECHO 开始复制ShortMessage数据库脚本文件
 copy ShortMessageScript.table.sql ..\..\..\Database\Scripts\Tables\
-copy ShortMessageScriptProc.PostDeployment.sql ..\..\..\Database\Scripts\StoreProcedures\
-copy ShortMessageScriptPurview.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
-copy ShortMessageScriptUpdateField.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
+copy ShortMessageScriptProc.sql ..\..\..\Database\Scripts\Post-Deployment\Proc\
+copy ShortMessageScriptPurview.sql ..\..\..\Database\Scripts\Post-Deployment\Purview\
+copy ShortMessageScriptUpdateField.sql ..\..\..\Database\Scripts\Post-Deployment\UpdateField\
 @ECHO 开始安装ShortMessage数据库脚本
 echo Begin > log.log
-for /f "delims=" %%a in ('dir ShortMessageScriptProc.PostDeployment.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
+for /f "delims=" %%a in ('dir ShortMessageScriptProc.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
 echo End >> log.log
 @ECHO 完成安装ShortMessage数据库脚本
 @ECHO 完成部署ShortMessage

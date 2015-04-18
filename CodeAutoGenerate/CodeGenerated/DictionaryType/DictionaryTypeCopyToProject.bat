@@ -23,12 +23,12 @@ IF NOT EXIST ..\..\..\DataLibrary\DictionaryType\DictionaryTypeWebUI.cs copy Dic
 copy DictionaryTypeWebUIBase.cs ..\..\..\DataLibrary\DictionaryType\
 @ECHO 开始复制DictionaryType数据库脚本文件
 copy DictionaryTypeScript.table.sql ..\..\..\Database\Scripts\Tables\
-copy DictionaryTypeScriptProc.PostDeployment.sql ..\..\..\Database\Scripts\StoreProcedures\
-copy DictionaryTypeScriptPurview.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
-copy DictionaryTypeScriptUpdateField.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
+copy DictionaryTypeScriptProc.sql ..\..\..\Database\Scripts\Post-Deployment\Proc\
+copy DictionaryTypeScriptPurview.sql ..\..\..\Database\Scripts\Post-Deployment\Purview\
+copy DictionaryTypeScriptUpdateField.sql ..\..\..\Database\Scripts\Post-Deployment\UpdateField\
 @ECHO 开始安装DictionaryType数据库脚本
 echo Begin > log.log
-for /f "delims=" %%a in ('dir DictionaryTypeScriptProc.PostDeployment.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
+for /f "delims=" %%a in ('dir DictionaryTypeScriptProc.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
 echo End >> log.log
 @ECHO 完成安装DictionaryType数据库脚本
 @ECHO 完成部署DictionaryType

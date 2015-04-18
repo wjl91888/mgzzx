@@ -23,12 +23,12 @@ IF NOT EXIST ..\..\..\DataLibrary\FilterReport\FilterReportWebUI.cs copy FilterR
 copy FilterReportWebUIBase.cs ..\..\..\DataLibrary\FilterReport\
 @ECHO 开始复制FilterReport数据库脚本文件
 copy FilterReportScript.table.sql ..\..\..\Database\Scripts\Tables\
-copy FilterReportScriptProc.PostDeployment.sql ..\..\..\Database\Scripts\StoreProcedures\
-copy FilterReportScriptPurview.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
-copy FilterReportScriptUpdateField.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
+copy FilterReportScriptProc.sql ..\..\..\Database\Scripts\Post-Deployment\Proc\
+copy FilterReportScriptPurview.sql ..\..\..\Database\Scripts\Post-Deployment\Purview\
+copy FilterReportScriptUpdateField.sql ..\..\..\Database\Scripts\Post-Deployment\UpdateField\
 @ECHO 开始安装FilterReport数据库脚本
 echo Begin > log.log
-for /f "delims=" %%a in ('dir FilterReportScriptProc.PostDeployment.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
+for /f "delims=" %%a in ('dir FilterReportScriptProc.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
 echo End >> log.log
 @ECHO 完成安装FilterReport数据库脚本
 @ECHO 完成部署FilterReport

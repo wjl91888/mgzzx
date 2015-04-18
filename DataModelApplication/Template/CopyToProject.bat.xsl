@@ -28,12 +28,12 @@ IF NOT EXIST <xsl:value-of select="/NewDataSet/ProjectPath"/>\DataLibrary\<xsl:v
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIBase.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\DataLibrary\<xsl:value-of select="/NewDataSet/TableName"/>\
 @ECHO 开始复制<xsl:value-of select="/NewDataSet/TableName"/>数据库脚本文件
 copy <xsl:value-of select="/NewDataSet/TableName"/>Script.table.sql <xsl:value-of select="/NewDataSet/ProjectPath"/>\Database\Scripts\Tables\
-copy <xsl:value-of select="/NewDataSet/TableName"/>ScriptProc.PostDeployment.sql <xsl:value-of select="/NewDataSet/ProjectPath"/>\Database\Scripts\StoreProcedures\
-copy <xsl:value-of select="/NewDataSet/TableName"/>ScriptPurview.PostDeployment.sql <xsl:value-of select="/NewDataSet/ProjectPath"/>\Database\Scripts\Post-Deployment\
-copy <xsl:value-of select="/NewDataSet/TableName"/>ScriptUpdateField.PostDeployment.sql <xsl:value-of select="/NewDataSet/ProjectPath"/>\Database\Scripts\Post-Deployment\
+copy <xsl:value-of select="/NewDataSet/TableName"/>ScriptProc.sql <xsl:value-of select="/NewDataSet/ProjectPath"/>\Database\Scripts\Post-Deployment\Proc\
+copy <xsl:value-of select="/NewDataSet/TableName"/>ScriptPurview.sql <xsl:value-of select="/NewDataSet/ProjectPath"/>\Database\Scripts\Post-Deployment\Purview\
+copy <xsl:value-of select="/NewDataSet/TableName"/>ScriptUpdateField.sql <xsl:value-of select="/NewDataSet/ProjectPath"/>\Database\Scripts\Post-Deployment\UpdateField\
 @ECHO 开始安装<xsl:value-of select="/NewDataSet/TableName"/>数据库脚本
 echo Begin > log.log
-for /f "delims=" %%a in ('dir <xsl:value-of select="/NewDataSet/TableName"/>ScriptProc.PostDeployment.sql /s /b') do (sqlcmd -d <xsl:value-of select="/NewDataSet/DataBaseName"/> -i %%a >> log.log)
+for /f "delims=" %%a in ('dir <xsl:value-of select="/NewDataSet/TableName"/>ScriptProc.sql /s /b') do (sqlcmd -d <xsl:value-of select="/NewDataSet/DataBaseName"/> -i %%a >> log.log)
 echo End >> log.log
 @ECHO 完成安装<xsl:value-of select="/NewDataSet/TableName"/>数据库脚本
 @ECHO 完成部署<xsl:value-of select="/NewDataSet/TableName"/>

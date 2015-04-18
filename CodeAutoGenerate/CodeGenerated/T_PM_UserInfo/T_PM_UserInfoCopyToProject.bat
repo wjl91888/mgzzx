@@ -23,12 +23,12 @@ IF NOT EXIST ..\..\..\DataLibrary\T_PM_UserInfo\T_PM_UserInfoWebUI.cs copy T_PM_
 copy T_PM_UserInfoWebUIBase.cs ..\..\..\DataLibrary\T_PM_UserInfo\
 @ECHO 开始复制T_PM_UserInfo数据库脚本文件
 copy T_PM_UserInfoScript.table.sql ..\..\..\Database\Scripts\Tables\
-copy T_PM_UserInfoScriptProc.PostDeployment.sql ..\..\..\Database\Scripts\StoreProcedures\
-copy T_PM_UserInfoScriptPurview.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
-copy T_PM_UserInfoScriptUpdateField.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
+copy T_PM_UserInfoScriptProc.sql ..\..\..\Database\Scripts\Post-Deployment\Proc\
+copy T_PM_UserInfoScriptPurview.sql ..\..\..\Database\Scripts\Post-Deployment\Purview\
+copy T_PM_UserInfoScriptUpdateField.sql ..\..\..\Database\Scripts\Post-Deployment\UpdateField\
 @ECHO 开始安装T_PM_UserInfo数据库脚本
 echo Begin > log.log
-for /f "delims=" %%a in ('dir T_PM_UserInfoScriptProc.PostDeployment.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
+for /f "delims=" %%a in ('dir T_PM_UserInfoScriptProc.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
 echo End >> log.log
 @ECHO 完成安装T_PM_UserInfo数据库脚本
 @ECHO 完成部署T_PM_UserInfo

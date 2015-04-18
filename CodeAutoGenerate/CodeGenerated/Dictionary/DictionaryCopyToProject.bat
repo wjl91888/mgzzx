@@ -23,12 +23,12 @@ IF NOT EXIST ..\..\..\DataLibrary\Dictionary\DictionaryWebUI.cs copy DictionaryW
 copy DictionaryWebUIBase.cs ..\..\..\DataLibrary\Dictionary\
 @ECHO 开始复制Dictionary数据库脚本文件
 copy DictionaryScript.table.sql ..\..\..\Database\Scripts\Tables\
-copy DictionaryScriptProc.PostDeployment.sql ..\..\..\Database\Scripts\StoreProcedures\
-copy DictionaryScriptPurview.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
-copy DictionaryScriptUpdateField.PostDeployment.sql ..\..\..\Database\Scripts\Post-Deployment\
+copy DictionaryScriptProc.sql ..\..\..\Database\Scripts\Post-Deployment\Proc\
+copy DictionaryScriptPurview.sql ..\..\..\Database\Scripts\Post-Deployment\Purview\
+copy DictionaryScriptUpdateField.sql ..\..\..\Database\Scripts\Post-Deployment\UpdateField\
 @ECHO 开始安装Dictionary数据库脚本
 echo Begin > log.log
-for /f "delims=" %%a in ('dir DictionaryScriptProc.PostDeployment.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
+for /f "delims=" %%a in ('dir DictionaryScriptProc.sql /s /b') do (sqlcmd -d DB_MGZZX -i %%a >> log.log)
 echo End >> log.log
 @ECHO 完成安装Dictionary数据库脚本
 @ECHO 完成部署Dictionary

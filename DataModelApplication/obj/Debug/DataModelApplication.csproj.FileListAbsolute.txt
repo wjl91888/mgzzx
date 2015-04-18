@@ -82,6 +82,6 @@ E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\DataModelApplication.
 E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\Config\KeepMeAlive.txt
 E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\CodeGenerated\KeepMeAlive.txt
 E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\Template\Script.table.sql.xsl
-E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\Template\ScriptPurview.PostDeployment.sql.xsl
-E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\Template\ScriptProc.PostDeployment.sql.xsl
-E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\Template\ScriptUpdateField.PostDeployment.sql.xsl
+E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\Template\ScriptPurview.sql.xsl
+E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\Template\ScriptProc.sql.xsl
+E:\MyWork\richsoft\蒙古族中学\Source\CodeAutoGenerate\Template\ScriptUpdateField.sql.xsl
