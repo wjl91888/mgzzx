@@ -2,7 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
-    <PublishUrlHistory>..\CodeAutoGenerate\|E:\school_work\职业学院\200801职业学院\代码自动生成文件\</PublishUrlHistory>
+    <PublishUrlHistory>..\CodeAutoGenerate\Publish\|..\CodeAutoGenerate\|E:\school_work\职业学院\200801职业学院\代码自动生成文件\</PublishUrlHistory>
     <InstallUrlHistory>
     </InstallUrlHistory>
     <SupportUrlHistory>

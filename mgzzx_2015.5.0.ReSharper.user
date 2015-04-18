@@ -368,29 +368,7 @@
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/f:IDGenerateManager.cs" caret="687" fromTop="14" />
-      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/f:FileUploadLibrary.cs" caret="3404" fromTop="26" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Page/f:UplaodFile.aspx.cs" caret="261" fromTop="8" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:UploadFileControl.ascx.cs" caret="8932" fromTop="27" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="970" fromTop="22" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUIAdd.aspx" caret="11656" fromTop="22" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUIAdd.aspx.cs" caret="3576" fromTop="23" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx" caret="0" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:GridControl.ascx.cs" caret="9411" fromTop="58" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:GridControl.ascx" caret="1119" fromTop="17" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:UploadFilesControl.ascx" caret="343" fromTop="4" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:UploadFilesControl.ascx.cs" caret="1228" fromTop="41" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/d:css/d:less/f:docs.less" caret="0" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:robots.txt" caret="0" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:humans.txt" caret="0" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:crossdomain.xml" caret="0" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:index.html" caret="6818" fromTop="33" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx.cs" caret="260" fromTop="9" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/f:Global.asax" caret="724" fromTop="21" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master.cs" caret="300" fromTop="13" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="4393" fromTop="26" />
-      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Schema Objects/d:Schemas/d:dbo/d:Tables/f:Table1.table.sql" caret="81" fromTop="4" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_PM_UserInfoWebUIAdd.aspx.cs" caret="34300" fromTop="23" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="5807" fromTop="26" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUIStatistic.aspx.cs" caret="1236" fromTop="23" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="1792" fromTop="27" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default.aspx" caret="355" fromTop="4" />
@@ -398,38 +376,44 @@
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:BasePage.master" caret="627" fromTop="5" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="1467" fromTop="24" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:ComboTreeViewControl.ascx.cs" caret="5361" fromTop="15" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_PM_UserInfoWebUIAdd.aspx.cs" caret="34300" fromTop="23" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/f:DataModelForm.cs" caret="1639" fromTop="27" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Config/f:KeepMeAlive.txt" caret="0" fromTop="0" />
+      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Pre-Deployment/f:Script.PreDeployment.sql" caret="0" fromTop="0" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:ScriptProc.sql.xsl" caret="1672" fromTop="27" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:DictionaryTypeWebUIDetail.aspx.cs" caret="5071" fromTop="8" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:ScriptPurview.sql.xsl" caret="266" fromTop="4" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:Script.table.sql.xsl" caret="267" fromTop="0" />
+      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Post-Deployment/f:Script.PostDeployment.sql" caret="836" fromTop="17" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:CopyToProject.bat.xsl" caret="4702" fromTop="32" />
+      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Tables/f:FilterReportScript.table.sql" caret="82" fromTop="1" />
+      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:FilterReport/f:FilterReportWebUIBase.cs" caret="2373" fromTop="18" />
     </RecentFiles>
     <RecentEdits>
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:index.html" caret="7472" fromTop="36" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="2618" fromTop="39" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="2510" fromTop="32" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx.cs" caret="0" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="5826" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="2510" fromTop="39" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="2510" fromTop="31" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="5826" fromTop="5" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="2510" fromTop="16" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="5826" fromTop="2" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="5794" fromTop="34" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="547" fromTop="9" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="5203" fromTop="46" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx.cs" caret="344" fromTop="21" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx.cs" caret="209" fromTop="5" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="184" fromTop="1" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="2510" fromTop="9" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master.cs" caret="191" fromTop="6" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="123" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="2510" fromTop="13" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="4049" fromTop="17" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:Index.aspx" caret="3797" fromTop="11" />
-      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Schema Objects/d:Schemas/d:dbo/d:Tables/f:Table1.table.sql" caret="81" fromTop="4" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="691" fromTop="9" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4328" fromTop="23" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default.aspx" caret="355" fromTop="4" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:BasePage.master" caret="627" fromTop="5" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:WeiXinBasePage.master" caret="564" fromTop="10" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:ComboTreeViewControl.ascx.cs" caret="5360" fromTop="13" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:ComboTreeViewControl.ascx.cs" caret="5477" fromTop="23" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/f:DataModelForm.cs" caret="7898" fromTop="28" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/f:DataModelForm.cs" caret="1639" fromTop="27" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Config/f:KeepMeAlive.txt" caret="0" fromTop="0" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:CopyToProject.bat.xsl" caret="1915" fromTop="22" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:CopyToProject.bat.xsl" caret="1915" fromTop="18" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:Script.table.sql.xsl" caret="267" fromTop="4" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:ScriptProc.sql.xsl" caret="270" fromTop="4" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:ScriptPurview.sql.xsl" caret="266" fromTop="4" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:CopyToProject.bat.xsl" caret="5152" fromTop="29" />
+      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Tables/f:FilterReportScript.table.sql" caret="82" fromTop="1" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:CopyToProject.bat.xsl" caret="4873" fromTop="34" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:CopyToProject.bat.xsl" caret="1170" fromTop="12" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:CopyToProject.bat.xsl" caret="4702" fromTop="32" />
+      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Post-Deployment/f:Script.PostDeployment.sql" caret="1956" fromTop="22" />
+      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Post-Deployment/f:Script.PostDeployment.sql" caret="1956" fromTop="34" />
+      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Post-Deployment/f:Script.PostDeployment.sql" caret="2004" fromTop="46" />
+      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Post-Deployment/f:Script.PostDeployment.sql" caret="670" fromTop="13" />
+      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Post-Deployment/f:Script.PostDeployment.sql" caret="1870" fromTop="43" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

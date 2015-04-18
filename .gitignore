@@ -218,3 +218,108 @@ CodeAutoGenerate/Template/WebUISearch.aspx.cs.xsl
 CodeAutoGenerate/Template/WebUISearch.aspx.xsl
 CodeAutoGenerate/Template/WebUIStatistic.aspx.cs.xsl
 CodeAutoGenerate/Template/WebUIStatistic.aspx.xsl
+DataModelApplication/bin/Debug/CodeGenerated/KeepMeAlive.txt
+DataModelApplication/bin/Debug/Config/KeepMeAlive.txt
+DataModelApplication/bin/Debug/CustomProperty.xml
+DataModelApplication/bin/Debug/CustomPropertyDataDict.xml
+DataModelApplication/bin/Debug/DataModelApplication.application
+DataModelApplication/bin/Debug/DataModelApplication.exe
+DataModelApplication/bin/Debug/DataModelApplication.exe.config
+DataModelApplication/bin/Debug/DataModelApplication.exe.manifest
+DataModelApplication/bin/Debug/DataModelApplication.pdb
+DataModelApplication/bin/Debug/Microsoft.Data.ConnectionUI.Dialog.dll
+DataModelApplication/bin/Debug/Microsoft.Data.ConnectionUI.dll
+DataModelApplication/bin/Debug/SandBar.dll
+DataModelApplication/bin/Debug/SandDock.dll
+DataModelApplication/bin/Debug/Template/ApplicationData.cs.xsl
+DataModelApplication/bin/Debug/Template/ApplicationLogic.cs.xsl
+DataModelApplication/bin/Debug/Template/ApplicationLogicBase.cs.xsl
+DataModelApplication/bin/Debug/Template/BusinessEntity.cs.xsl
+DataModelApplication/bin/Debug/Template/BusinessEntityBase.cs.xsl
+DataModelApplication/bin/Debug/Template/Contants.cs.xsl
+DataModelApplication/bin/Debug/Template/CopyToProject.bat.xsl
+DataModelApplication/bin/Debug/Template/Script.table.sql.xsl
+DataModelApplication/bin/Debug/Template/ScriptProc.sql.xsl
+DataModelApplication/bin/Debug/Template/ScriptPurview.sql.xsl
+DataModelApplication/bin/Debug/Template/ScriptUpdateField.sql.xsl
+DataModelApplication/bin/Debug/Template/WebUI.cs.xsl
+DataModelApplication/bin/Debug/Template/WebUIAdd.aspx.cs.xsl
+DataModelApplication/bin/Debug/Template/WebUIAdd.aspx.xsl
+DataModelApplication/bin/Debug/Template/WebUIBase.cs.xsl
+DataModelApplication/bin/Debug/Template/WebUIDetail.aspx.cs.xsl
+DataModelApplication/bin/Debug/Template/WebUIDetail.aspx.xsl
+DataModelApplication/bin/Debug/Template/WebUIImage.aspx.cs.xsl
+DataModelApplication/bin/Debug/Template/WebUIImage.aspx.xsl
+DataModelApplication/bin/Debug/Template/WebUISearch.aspx.cs.xsl
+DataModelApplication/bin/Debug/Template/WebUISearch.aspx.xsl
+DataModelApplication/bin/Debug/Template/WebUIStatistic.aspx.cs.xsl
+DataModelApplication/bin/Debug/Template/WebUIStatistic.aspx.xsl
+Common/obj/Release/build.force
+Common/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+Controls/CustomWebControls/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+DataLibrary/obj/Debug/build.force
+DataLibrary/obj/Release/build.force
+DataLibrary/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+DataLibraryBase/obj/Debug/build.force
+DataLibraryBase/obj/Release/build.force
+DataLibraryBase/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/CodeGenerated/KeepMeAlive.txt.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Config/KeepMeAlive.txt.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/CustomProperty.xml.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/CustomPropertyDataDict.xml.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/DataModelApplication.exe.config.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/DataModelApplication.exe.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/DataModelApplication.exe.manifest
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Microsoft.Data.ConnectionUI.Dialog.dll.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Microsoft.Data.ConnectionUI.dll.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/SandBar.dll.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/SandDock.dll.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/ApplicationData.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/ApplicationLogic.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/ApplicationLogicBase.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/BusinessEntity.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/BusinessEntityBase.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/Contants.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/CopyToProject.bat.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/Script.table.sql.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/ScriptProc.sql.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/ScriptPurview.sql.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/ScriptUpdateField.sql.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUI.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUIAdd.aspx.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUIAdd.aspx.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUIBase.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUIDetail.aspx.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUIDetail.aspx.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUIImage.aspx.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUIImage.aspx.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUISearch.aspx.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUISearch.aspx.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUIStatistic.aspx.cs.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/Application Files/DataModelApplication_1_0_0_1/Template/WebUIStatistic.aspx.xsl.deploy
+DataModelApplication/bin/Debug/app.publish/DataModelApplication.application
+DataModelApplication/bin/Debug/app.publish/setup.exe
+DataModelApplication/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+DataModelApplication/obj/Release/DataModelApplication.application
+DataModelApplication/obj/Release/DataModelApplication.csproj.FileListAbsolute.txt
+DataModelApplication/obj/Release/DataModelApplication.CustomConditionConfigForm.resources
+DataModelApplication/obj/Release/DataModelApplication.CustomDisplayFieldConfigForm.resources
+DataModelApplication/obj/Release/DataModelApplication.CustomOperateConfigForm.resources
+DataModelApplication/obj/Release/DataModelApplication.CustomPermissionConfigForm.resources
+DataModelApplication/obj/Release/DataModelApplication.CustomPermissionFieldsConfigForm.resources
+DataModelApplication/obj/Release/DataModelApplication.CustomRelatedTableConfigForm.resources
+DataModelApplication/obj/Release/DataModelApplication.DataColumnConfig.resources
+DataModelApplication/obj/Release/DataModelApplication.DataModelForm.resources
+DataModelApplication/obj/Release/DataModelApplication.EditCustomProperty.resources
+DataModelApplication/obj/Release/DataModelApplication.EditDataDict.resources
+DataModelApplication/obj/Release/DataModelApplication.exe
+DataModelApplication/obj/Release/DataModelApplication.exe.manifest
+DataModelApplication/obj/Release/DataModelApplication.GenerateCodeForm.resources
+DataModelApplication/obj/Release/DataModelApplication.GenerateCodeParameter.resources
+DataModelApplication/obj/Release/DataModelApplication.LogDialogBox.resources
+DataModelApplication/obj/Release/DataModelApplication.pdb
+DataModelApplication/obj/Release/DataModelApplication.Properties.Resources.resources
+DataModelApplication/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+DataModelApplication/obj/Release/GenerateResource.read.1.tlog
+DataModelApplication/obj/Release/GenerateResource.write.1.tlog
+DataModelApplication/obj/Release/TempPE/Properties.Resources.Designer.cs.dll
