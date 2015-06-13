@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "wwwroot", "wwwroot", "{036750DF-DB19-4831-8CBF-938721172DB9}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "wwwroot", "wwwroot\", "{036750DF-DB19-4831-8CBF-938721172DB9}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		ProjectReferences = "{3F0F291E-6FF0-4580-ADD4-63A107C34FF4}|Common.dll;{4E1D33F7-BE9F-4CBA-94DF-A47A786D5534}|DataLibrary.dll;{53705C01-D554-4539-8B0A-7101BAACB6B3}|DataLibraryBase.dll;{024FE5BB-D66D-48D8-B816-FCD43B23CDD0}|CustomWebControls.dll;"
@@ -34,6 +34,10 @@ EndProject
 Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "Database", "Database\Database.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModelApplication", "DataModelApplication\DataModelApplication.csproj", "{7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{3F1B6FFD-B2E1-4BA8-BE12-4F4549CB94F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp.Tests", "WebApp.Tests\WebApp.Tests.csproj", "{F8636C8B-8F46-4ACA-8367-6951AE485DD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +74,14 @@ Global
 		{7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F1B6FFD-B2E1-4BA8-BE12-4F4549CB94F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F1B6FFD-B2E1-4BA8-BE12-4F4549CB94F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F1B6FFD-B2E1-4BA8-BE12-4F4549CB94F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F1B6FFD-B2E1-4BA8-BE12-4F4549CB94F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8636C8B-8F46-4ACA-8367-6951AE485DD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8636C8B-8F46-4ACA-8367-6951AE485DD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8636C8B-8F46-4ACA-8367-6951AE485DD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8636C8B-8F46-4ACA-8367-6951AE485DD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
