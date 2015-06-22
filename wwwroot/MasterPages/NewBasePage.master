@@ -1,6 +1,6 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeFile="NewBasePage.master.cs"
     Inherits="MasterPages_NewBasePage" %>
-
+<%@ Register TagPrefix="control" TagName="Nav" Src="~/Control/NavControl.ascx" %>
 <%@ Register Assembly="CustomWebControls" Namespace="CustomWebControls" TagPrefix="RICH" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <html lang="cn">
@@ -59,7 +59,7 @@
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="ddlUserGroupID">
                 <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="AjaxArea" LoadingPanelID="ralpMenu" />
+                    <telerik:AjaxUpdatedControl ControlID="NavList" LoadingPanelID="ralpMenu" />
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>
@@ -78,34 +78,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a id="linkDefaultIndex" runat="server">Ê×Ò³</a></li>
-                    <li>
-                        <div id="AjaxArea" runat="server">
-                            <telerik:RadTreeView ID="rtvMenu" runat="server" OnNodeDataBound="rtvMenu_NodeDataBound"
-                                Font-Size="14px" Font-Bold="true" ForeColor="#ffffff" CssClass="IndexMenuStyle">
-                            </telerik:RadTreeView>
-                        </div>
-                    </li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-                        <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
+                    <control:Nav ID="NavList" runat="server"></control:Nav>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <telerik:RadComboBox ID="ddlUserGroupID" runat="server" Font-Size="14px" AutoPostBack="true"
-                            OnSelectedIndexChanged="ddlUserGroupID_OnSelectedIndexChanged" Width="100%">
-                        </telerik:RadComboBox>
+                        <asp:DropDownList ID="ddlUserGroupID" runat="server" AutoPostBack="true"
+                            OnSelectedIndexChanged="ddlUserGroupID_OnSelectedIndexChanged" class="form-control select select-primary" data-toggle="select">
+                        </asp:DropDownList>
                     </li>
                     <li><a href="/Administrator/LoginOut.aspx">ÍË³ö</a></li>
                 </ul>
