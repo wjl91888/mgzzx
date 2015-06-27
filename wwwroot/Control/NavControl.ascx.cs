@@ -32,15 +32,27 @@ public partial class NavControl : System.Web.UI.UserControl
         UserPurviewLibrary instanceUserPurviewLibrary = new UserPurviewLibrary();
         htOutputParameter = instanceUserPurviewLibrary.GetUserPurviewInfoForMenu(htInputParameter);
         dsRecordInfo = (DataSet)htOutputParameter[ConstantsManager.QUERY_DATASET_NAME];
-
-        //rtvMenu.DataNavigateUrlField = "PageFileName";
-        //rtvMenu.DataFieldParentID = "PurviewTypeID";
-        //rtvMenu.DataFieldID = "PurviewID";
-        //rtvMenu.DataTextField = "PurviewName";
-        //rtvMenu.DataValueField = "PurviewID";
-        dsRecordInfo.Tables[0].DefaultView.RowFilter = "UserGroupID='{0}'".FormatInvariantCulture(groupID);
+        dsRecordInfo.Tables[0].DefaultView.RowFilter = "UserGroupID='{0}' AND IsPageMenu=0".FormatInvariantCulture(groupID);
         NavList.DataSource = dsRecordInfo.Tables[0].DefaultView;
         NavList.DataBind();
+    }
+
+    public DataView GetSubMenu(string groupID, string purviewType)
+    {
+        htInputParameter = new Hashtable();
+        dsRecordInfo = new DataSet();
+        htInputParameter.Add(ConstantsManager.QUERY_DATASET_NAME, dsRecordInfo);
+        htInputParameter.Add(ConstantsManager.MESSAGE_ID, "");
+        htInputParameter.Add("UserID", Session["UserID"]);
+        htInputParameter.Add("IsPageMenu", "true");
+        htInputParameter.Add("PurviewType", purviewType);
+        htInputParameter.Add("PurviewPRI", 1);
+
+        UserPurviewLibrary instanceUserPurviewLibrary = new UserPurviewLibrary();
+        htOutputParameter = instanceUserPurviewLibrary.GetUserPurviewInfo(htInputParameter);
+        dsRecordInfo = (DataSet)htOutputParameter[ConstantsManager.QUERY_DATASET_NAME];
+        dsRecordInfo.Tables[0].DefaultView.RowFilter = "UserGroupID='{0}' AND PurviewTypeID='{1}' AND IsPageMenu=1".FormatInvariantCulture(groupID, purviewType);
+        return dsRecordInfo.Tables[0].DefaultView;
     }
 
 }

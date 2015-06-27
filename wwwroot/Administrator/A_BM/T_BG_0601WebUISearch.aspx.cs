@@ -62,7 +62,7 @@ FBLM.SelectedValue = (string)Request.QueryString["FBLM"];
             InitalizeCoupledDataSource();
         }
         gvPrint.Visible = false;
-        ramT_BG_0601.AjaxRequest += AjaxManager_AjaxRequest;
+        RadAjaxManager.GetCurrent(Page).AjaxRequest += AjaxManager_AjaxRequest;
         base.Page_Load(sender, e);
     }
 

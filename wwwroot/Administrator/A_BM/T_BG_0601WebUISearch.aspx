@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/BasePage.master" EnableEventValidation = "false" validateRequest="false" AutoEventWireup="true" CodeFile="T_BG_0601WebUISearch.aspx.cs" Inherits="T_BG_0601WebUISearch" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NewBasePage.master" EnableEventValidation = "false" validateRequest="false" AutoEventWireup="true" CodeFile="T_BG_0601WebUISearch.aspx.cs" Inherits="T_BG_0601WebUISearch" %>
 <%@ Register Assembly="CustomWebControls" Namespace="CustomWebControls" TagPrefix="RICH" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register TagPrefix="control" TagName="ComboTreeView" Src="~/Control/ComboTreeViewControl.ascx" %>
@@ -19,9 +19,7 @@
     });
     </script>
     </telerik:RadCodeBlock>
-    <telerik:RadScriptManager ID="rsmT_BG_0601" runat="server">
-    </telerik:RadScriptManager>
-    <telerik:RadAjaxManager ID="ramT_BG_0601" runat="server">
+    <telerik:RadAjaxManagerProxy ID="ramT_BG_0601" runat="server">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="btnOperate">
                 <UpdatedControls>
@@ -111,7 +109,7 @@
                 </UpdatedControls>
             </telerik:AjaxSetting>
         </AjaxSettings>
-    </telerik:RadAjaxManager>
+    </telerik:RadAjaxManagerProxy>
     <telerik:RadAjaxLoadingPanel ID="ralpT_BG_0601" runat="server" Skin="Vista"></telerik:RadAjaxLoadingPanel>
         <center>
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
