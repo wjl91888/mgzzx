@@ -37,21 +37,9 @@ public partial class NavControl : System.Web.UI.UserControl
         NavList.DataBind();
     }
 
-    public DataView GetSubMenu(string groupID, string purviewType)
+    public DataView GetSubMenu(string groupID, string menulevelID)
     {
-        htInputParameter = new Hashtable();
-        dsRecordInfo = new DataSet();
-        htInputParameter.Add(ConstantsManager.QUERY_DATASET_NAME, dsRecordInfo);
-        htInputParameter.Add(ConstantsManager.MESSAGE_ID, "");
-        htInputParameter.Add("UserID", Session["UserID"]);
-        htInputParameter.Add("IsPageMenu", "true");
-        htInputParameter.Add("PurviewType", purviewType);
-        htInputParameter.Add("PurviewPRI", 1);
-
-        UserPurviewLibrary instanceUserPurviewLibrary = new UserPurviewLibrary();
-        htOutputParameter = instanceUserPurviewLibrary.GetUserPurviewInfo(htInputParameter);
-        dsRecordInfo = (DataSet)htOutputParameter[ConstantsManager.QUERY_DATASET_NAME];
-        dsRecordInfo.Tables[0].DefaultView.RowFilter = "UserGroupID='{0}' AND PurviewTypeID='{1}' AND IsPageMenu=1".FormatInvariantCulture(groupID, purviewType);
+        dsRecordInfo.Tables[0].DefaultView.RowFilter = "UserGroupID='{0}' AND MenuLevelID='{1}' AND IsPageMenu=1".FormatInvariantCulture(groupID, menulevelID);
         return dsRecordInfo.Tables[0].DefaultView;
     }
 

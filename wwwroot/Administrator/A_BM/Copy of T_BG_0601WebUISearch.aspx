@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NewBasePage.master" EnableEventValidation = "false" validateRequest="false" AutoEventWireup="true" CodeFile="T_BG_0601WebUISearch.aspx.cs" Inherits="T_BG_0601WebUISearch" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/NewBasePage.master" EnableEventValidation = "false" validateRequest="false" AutoEventWireup="true" CodeFile="Copy of T_BG_0601WebUISearch.aspx.cs" Inherits="T_BG_0601WebUISearch" %>
 <%@ Register Assembly="CustomWebControls" Namespace="CustomWebControls" TagPrefix="RICH" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register TagPrefix="control" TagName="ComboTreeView" Src="~/Control/ComboTreeViewControl.ascx" %>
@@ -11,7 +11,7 @@
         RefreshGrid();
     }
     function RefreshGrid() {
-        $find("<%= BaseAjaxManager.ClientID %>").ajaxRequest("Refresh");
+        $find("<%= ramT_BG_0601.ClientID %>").ajaxRequest("Refresh");
     }
     $(document).ready(function () {
         $(".needrefresh").live("change", function () { RefreshGrid(); });
@@ -150,17 +150,25 @@
                 </div>
                 </div>
                 <div class="main">
-                <div class="row">
-                <form class="form-horizontal" role="form">
-                    <legend>查询条件</legend>
-            <div class="form-group form-group-sm" id="BT_Area" runat="server">
-              <label for="BT" class="col-sm-1 control-label">标题</label>
-              <div class="col-sm-11">
-              <asp:TextBox ID="BT" runat="server" CssClass="form-control"></asp:TextBox>
-              </div>
-            </div>
-            </form>
-            </div>
+                    <div class="block">
+                        <ul>
+                            <li>查询条件</li>
+                        </ul>
+                    </div>
+
+                       <div class="content" id="BT_Area" runat="server">
+                           <div class="field">
+                               <div class="fieldname">
+                                            标题
+                               </div>
+                           </div>
+                           <div class="fieldinput">
+                                
+                             <asp:TextBox ID="BT" runat="server" CssClass="input needrefresh"></asp:TextBox>
+                                        
+                           </div>
+                       </div>
+  
                        <div class="content clearboth clearboth" id="FBLM_Area" runat="server">
                            <div class="field">
                                <div class="fieldname">
@@ -422,13 +430,13 @@
                            </div>
                        </div>
                    </div>
-                </div>
-                </div>
+                    
+                </div></div>
                 <div class="operation" id="operation" runat="server">
                     <center>
-                        <asp:Button Text="查询" ID="btnAdvanceSearch" runat="server" CssClass="btn btn-primary btn-xs" OnClick="btnAdvanceSearch_Click" />
-                        <asp:Button Text="高级界面" ID="btnShowAdvanceSearchItem" runat="server" CssClass="btn btn-primary btn-xs" OnClick="btnShowAdvanceSearchItem_Click" />
-                        <asp:Button Text="简单界面" ID="btnShowSimpleSearchItem" runat="server" CssClass="btn btn-primary btn-xs" OnClick="btnShowSimpleSearchItem_Click" />
+                        <asp:Button Text="查询" ID="btnAdvanceSearch" runat="server" CssClass="button floatright" OnClick="btnAdvanceSearch_Click" />
+                        <asp:Button Text="高级界面" ID="btnShowAdvanceSearchItem" runat="server" CssClass="button floatright" OnClick="btnShowAdvanceSearchItem_Click" />
+                        <asp:Button Text="简单界面" ID="btnShowSimpleSearchItem" runat="server" CssClass="button floatright" OnClick="btnShowSimpleSearchItem_Click" />
                     </center>
                 </div>
             </div>
@@ -457,16 +465,16 @@
                 </div>
                 <asp:Literal ID="MessageBox" runat="server"></asp:Literal>
                 <div id="SearchPageTopButtonBar" runat="server" class="quicksearch">
-                    <input type="button" id="btnAddItem" runat="server" value="添加" class="btn btn-primary btn-xs" />
+                    <input type="button" id="btnAddItem" runat="server" value="添加" class="button" />
 
-                     <input type="button" id="btnStatisticItem" runat="server" value="统计" class="btn btn-primary btn-xs" />
-                     <input type="button" value="关闭" onclick="CloseWindow();" class="btn btn-primary btn-xs displaynone" />
+                     <input type="button" id="btnStatisticItem" runat="server" value="统计" class="button" />
+                     <input type="button" value="关闭" onclick="CloseWindow();" class="button displaynone" />
                      <asp:DropDownList runat="server" ID="ddlExportFileFormat">
                          <asp:ListItem Text="文件类型" Value="xls"></asp:ListItem>
                          <asp:ListItem Text="EXCEL文件(.xls)" Value="xls"></asp:ListItem>
                          <asp:ListItem Text="WORD文件(.doc)" Value="doc"></asp:ListItem>
                      </asp:DropDownList>
-                     <asp:Button runat="server" ID="btnExportAllToFile" Text="导出" CssClass="btn btn-primary btn-xs" OnClick="btnExportAllToFile_Click" />
+                     <asp:Button runat="server" ID="btnExportAllToFile" Text="导出" CssClass="button" OnClick="btnExportAllToFile_Click" />
                  <%=Convert.ToChar(38).ToString() +"nbsp;"%>
                  </div>
                 <div id="SearchPageTopToolBar" runat="server" class="SearchPageTopToolBar">
@@ -477,11 +485,11 @@
                         <asp:ListItem Text="操作" Value=""></asp:ListItem>
                         <asp:ListItem Text="删除" Value="remove"></asp:ListItem>
                     </asp:DropDownList>
-                    <asp:Button runat="server" ID="btnOperate" Text="执行" CssClass="btn btn-primary btn-xs" OnClick="btnOperate_Click" /></td>
-                    <td><asp:Button ID="btnFirstPage" runat="server" Text="|<" OnClick="btnFirstPage_Click" CssClass="btn btn-primary btn-xs" /></td>
-                    <td><asp:Button ID="btnPrePage" runat="server" Text="<" OnClick="btnPrePage_Click" CssClass="btn btn-primary btn-xs" /></td>
-                    <td><asp:Button ID="btnNextPage" runat="server" Text=">" OnClick="btnNextPage_Click" CssClass="btn btn-primary btn-xs" /></td>
-                    <td><asp:Button ID="btnLastPage" runat="server" Text=">|" OnClick="btnLastPage_Click" CssClass="btn btn-primary btn-xs" /></td>
+                    <asp:Button runat="server" ID="btnOperate" Text="执行" CssClass="button" OnClick="btnOperate_Click" /></td>
+                    <td><asp:Button ID="btnFirstPage" runat="server" Text="第一页" OnClick="btnFirstPage_Click" CssClass="button" /></td>
+                    <td><asp:Button ID="btnPrePage" runat="server" Text="上一页" OnClick="btnPrePage_Click" CssClass="button" /></td>
+                    <td><asp:Button ID="btnNextPage" runat="server" Text="下一页" OnClick="btnNextPage_Click" CssClass="button" /></td>
+                    <td><asp:Button ID="btnLastPage" runat="server" Text="最后一页" OnClick="btnLastPage_Click" CssClass="button" /></td>
                     <td><asp:DropDownList ID="ddlPageCount" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPageCount_SelectedIndexChanged"></asp:DropDownList></td>
                     <td><asp:DropDownList ID="ddlPageSize" runat="server" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
                     <td><asp:Label ID="lblPageInfo" runat="server" Text=""></asp:Label></td>

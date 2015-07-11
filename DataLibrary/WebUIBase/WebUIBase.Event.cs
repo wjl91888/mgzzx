@@ -304,11 +304,15 @@ namespace RICH.Common.Base.WebUI
                 e.Row.Attributes.Add("onmouseout", "outColor(this);");
                 if (DetailAccessPermission)
                 {
-                    e.Row.Attributes.Add("ondblclick", "OpenWindow('{0}',770,600,window);return false;".FormatInvariantCulture(DetailPage ? GetDetailPageUrl(strObjectID) : GetViewPageUrl(strObjectID)));
+                    //e.Row.Attributes.Add("ondblclick", "OpenWindow('{0}',770,600,window);return false;".FormatInvariantCulture(DetailPage ? GetDetailPageUrl(strObjectID) : GetViewPageUrl(strObjectID)));
+                    //e.Row.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);return false;".FormatInvariantCulture(DetailPage ? GetDetailPageUrl(strObjectID) : GetViewPageUrl(strObjectID)));
+                    e.Row.Attributes.Add("onclick", "window.location='{0}';".FormatInvariantCulture(DetailPage ? GetDetailPageUrl(strObjectID) : GetViewPageUrl(strObjectID)));
                 }
                 else if (ModifyAccessPermission)
                 {
-                    e.Row.Attributes.Add("ondblclick", "OpenWindow('{0}',770,600,window);return false;".FormatInvariantCulture(GetEditPageUrl(strObjectID)));
+                    //e.Row.Attributes.Add("ondblclick", "OpenWindow('{0}',770,600,window);return false;".FormatInvariantCulture(GetEditPageUrl(strObjectID)));
+                    //e.Row.Attributes.Add("onclick", "OpenWindow('{0}',770,600,window);return false;".FormatInvariantCulture(GetEditPageUrl(strObjectID)));
+                    e.Row.Attributes.Add("onclick", "window.location='{0}';".FormatInvariantCulture(GetEditPageUrl(strObjectID)));
                 }
             }
         }

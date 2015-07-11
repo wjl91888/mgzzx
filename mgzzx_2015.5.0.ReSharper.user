@@ -389,6 +389,11 @@
       <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:FilterReport/f:FilterReportWebUIBase.cs" caret="2373" fromTop="18" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:index.html" caret="1457" fromTop="34" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default.aspx" caret="1076" fromTop="25" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="3684" fromTop="16" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx" caret="854" fromTop="2" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUISearch.aspx" caret="0" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:NavControl.ascx" caret="466" fromTop="6" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:NavControl.ascx.cs" caret="1566" fromTop="34" />
     </RecentFiles>
     <RecentEdits>
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4328" fromTop="23" />
@@ -415,6 +420,8 @@
       <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Post-Deployment/f:Script.PostDeployment.sql" caret="2004" fromTop="46" />
       <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Post-Deployment/f:Script.PostDeployment.sql" caret="670" fromTop="13" />
       <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Post-Deployment/f:Script.PostDeployment.sql" caret="1870" fromTop="43" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:NavControl.ascx" caret="466" fromTop="6" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:NavControl.ascx.cs" caret="1566" fromTop="34" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

@@ -31,14 +31,6 @@ public partial class T_BG_0601WebUISearch : RICH.Common.BM.T_BG_0601.T_BG_0601We
     static int intFBIPColumnIndex;
     #endregion
 
-    public RadAjaxManager BaseAjaxManager 
-    {
-        get
-        {
-            return RadAjaxManager.GetCurrent(Page);
-        }
-    }
-
     protected override void Page_Init(object sender, EventArgs e)
     {
         
@@ -70,7 +62,7 @@ FBLM.SelectedValue = (string)Request.QueryString["FBLM"];
             InitalizeCoupledDataSource();
         }
         gvPrint.Visible = false;
-        BaseAjaxManager.AjaxRequest += AjaxManager_AjaxRequest;
+        RadAjaxManager.GetCurrent(Page).AjaxRequest += AjaxManager_AjaxRequest;
         base.Page_Load(sender, e);
     }
 

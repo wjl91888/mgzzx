@@ -90,7 +90,7 @@ public partial class Administrator_Default_Menu : WebUIBase
         dsRecordInfo = (DataSet)htOutputParameter[ConstantsManager.QUERY_DATASET_NAME];
 
         rtvMenu.DataNavigateUrlField = "PageFileName";
-        rtvMenu.DataFieldParentID = "PurviewTypeID";
+        rtvMenu.DataFieldParentID = "MenuLevelID";
         rtvMenu.DataFieldID = "PurviewID";
         rtvMenu.DataTextField = "PurviewName";
         rtvMenu.DataValueField = "PurviewID";
