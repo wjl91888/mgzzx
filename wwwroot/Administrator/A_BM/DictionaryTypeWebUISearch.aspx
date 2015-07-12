@@ -288,10 +288,10 @@
                         <asp:ListItem Text="删除" Value="remove"></asp:ListItem>
                     </asp:DropDownList>
                     <asp:Button runat="server" ID="btnOperate" Text="执行" CssClass="button" OnClick="btnOperate_Click" /></td>
-                    <td><asp:Button ID="btnFirstPage" runat="server" Text="第一页" OnClick="btnFirstPage_Click" CssClass="button" /></td>
-                    <td><asp:Button ID="btnPrePage" runat="server" Text="上一页" OnClick="btnPrePage_Click" CssClass="button" /></td>
-                    <td><asp:Button ID="btnNextPage" runat="server" Text="下一页" OnClick="btnNextPage_Click" CssClass="button" /></td>
-                    <td><asp:Button ID="btnLastPage" runat="server" Text="最后一页" OnClick="btnLastPage_Click" CssClass="button" /></td>
+                    <td><asp:Button ID="btnFirstPage" runat="server" Text="|<" alt="第一页" OnClick="btnFirstPage_Click" CssClass="linkbutton" /></td>
+                    <td><asp:Button ID="btnPrePage" runat="server" Text="<" alt="上一页" OnClick="btnPrePage_Click" CssClass="linkbutton" /></td>
+                    <td><asp:Button ID="btnNextPage" runat="server" Text=">" alt="下一页" OnClick="btnNextPage_Click" CssClass="linkbutton" /></td>
+                    <td><asp:Button ID="btnLastPage" runat="server" Text=">|" alt="最后一页" OnClick="btnLastPage_Click" CssClass="linkbutton" /></td>
                     <td><asp:DropDownList ID="ddlPageCount" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPageCount_SelectedIndexChanged"></asp:DropDownList></td>
                     <td><asp:DropDownList ID="ddlPageSize" runat="server" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
                     <td><asp:Label ID="lblPageInfo" runat="server" Text=""></asp:Label></td>

@@ -40,11 +40,11 @@ END
 IF (NOT EXISTS(SELECT 1 FROM [<xsl:value-of select="/NewDataSet/DataBaseName"/>].[dbo].[T_PM_PurviewInfo] WHERE [PurviewTypeID] = '<xsl:value-of select="/NewDataSet/PurviewPrefix"/>' AND [PurviewID] = '<xsl:value-of select="/NewDataSet/PurviewPrefix"/>04'))
 BEGIN
     INSERT INTO T_PM_PurviewInfo(PurviewID,PurviewName,PurviewTypeID,PurviewContent,IsPageMenu,PageFileName,PageFilePath)
-    VALUES('<xsl:value-of select="/NewDataSet/PurviewPrefix"/>04','<xsl:value-of select="/NewDataSet/TableRemark"/>浏览','<xsl:value-of select="/NewDataSet/PurviewPrefix"/>','<xsl:value-of select="/NewDataSet/TableRemark"/>浏览',1,'<xsl:value-of select="/NewDataSet/TableName"/>WebUISearch.aspx','/Administrator/A_BM')
+    VALUES('<xsl:value-of select="/NewDataSet/PurviewPrefix"/>04','<xsl:value-of select="/NewDataSet/TableRemark"/>','<xsl:value-of select="/NewDataSet/PurviewPrefix"/>','<xsl:value-of select="/NewDataSet/TableRemark"/>浏览',1,'<xsl:value-of select="/NewDataSet/TableName"/>WebUISearch.aspx','/Administrator/A_BM')
 END
 ELSE
 BEGIN
-    UPDATE [T_PM_PurviewInfo] SET [PurviewName] = '<xsl:value-of select="/NewDataSet/TableRemark"/>浏览' 
+    UPDATE [T_PM_PurviewInfo] SET [PurviewName] = '<xsl:value-of select="/NewDataSet/TableRemark"/>' 
     WHERE [PurviewTypeID] = '<xsl:value-of select="/NewDataSet/PurviewPrefix"/>' AND [PurviewID] = '<xsl:value-of select="/NewDataSet/PurviewPrefix"/>04'
 END
 --插入<xsl:value-of select="/NewDataSet/TableRemark"/>详情权限

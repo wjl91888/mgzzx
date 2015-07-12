@@ -7,13 +7,13 @@
     <title>
         <%=RICH.Common.ConstantsManager.WEBSITE_NAME%></title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <meta content="IE=7" http-equiv="X-UA-Compatible" />
-    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/Common/Common.js" language="javascript" charset="gb2312"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/jQuery/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/Common/Common.js"></script>
     <link href="../App_Themes/Themes/Css/mainstyle.css" type="text/css" rel="stylesheet" />
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css" />
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" />
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="../bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
 </head>

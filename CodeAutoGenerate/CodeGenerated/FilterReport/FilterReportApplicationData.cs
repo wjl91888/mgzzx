@@ -362,7 +362,7 @@ namespace RICH.Common.BM.FilterReport
         /// </summary>
         private static string[] nullableList
                 = new string[] {
-                              "ObjectID"
+                              
                                 };
 
 

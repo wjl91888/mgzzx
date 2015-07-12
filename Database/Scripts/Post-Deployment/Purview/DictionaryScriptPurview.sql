@@ -35,11 +35,11 @@ END
 IF (NOT EXISTS(SELECT 1 FROM [DB_MGZZX].[dbo].[T_PM_PurviewInfo] WHERE [PurviewTypeID] = 'DICT' AND [PurviewID] = 'DICT04'))
 BEGIN
     INSERT INTO T_PM_PurviewInfo(PurviewID,PurviewName,PurviewTypeID,PurviewContent,IsPageMenu,PageFileName,PageFilePath)
-    VALUES('DICT04','Dictionary‰Ø¿¿','DICT','Dictionary‰Ø¿¿',1,'DictionaryWebUISearch.aspx','/Administrator/A_BM')
+    VALUES('DICT04','Dictionary','DICT','Dictionary‰Ø¿¿',1,'DictionaryWebUISearch.aspx','/Administrator/A_BM')
 END
 ELSE
 BEGIN
-    UPDATE [T_PM_PurviewInfo] SET [PurviewName] = 'Dictionary‰Ø¿¿' 
+    UPDATE [T_PM_PurviewInfo] SET [PurviewName] = 'Dictionary' 
     WHERE [PurviewTypeID] = 'DICT' AND [PurviewID] = 'DICT04'
 END
 --≤Â»ÎDictionaryœÍ«È»®œﬁ

@@ -7,27 +7,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
     <title>
         <%=System.Configuration.ConfigurationManager.AppSettings["WEBSITE_NAME"]%></title>
-    <link href="../App_Themes/Themes/Css/mainstyle.css" rev="stylesheet" rel="stylesheet"
-        type="text/css" media="screen" charset="gb2312" />
+    <link href="../App_Themes/Themes/Css/mainstyle.css" type="text/css" rel="stylesheet" />
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="../bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" />
     <link href="../App_Themes/Themes/JavaScript/fancybox/jquery.fancybox-1.3.4.css" rev="stylesheet"
         rel="stylesheet" type="text/css" media="screen" />
-    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/jQuery/jquery-1.4.2.js"
-        language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"
-        language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/Common/Common.js"
-        language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/Common/CommonNew.js"
-        language="javascript" charset="gb2312"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/jQuery/jquery-1.11.3.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="../bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/Common/Common.js"></script>
+    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/Common/CommonNew.js"></script>
     <style type="text/css">
         BODY
         {
             margin-top: 0px;
             font-size:14px !important;
         }
-        input
+        input[type=text]
         {
             font-size:14px;
             min-height:24px;
@@ -70,7 +72,7 @@
             //名=值;名=值;   
             var aCookie = document.cookie.split("; ");
             for (var i = 0; i < aCookie.length; i++) {
-                //alert(unescape(aCookie[i])) ;
+                // alert(unescape(aCookie[i])) ;
                 //   名=值   
                 var aCrumb = aCookie[i].split("=");
                 if (sName == aCrumb[0]) {
@@ -78,7 +80,7 @@
                 }
             }
             return "";
-        }   
+        }
     </script>
     <center>
         <table class="a12" cellspacing="0" cellpadding="0" width="476" align="center" background="../App_Themes/Themes/Image/login_bg.gif"
@@ -131,6 +133,13 @@
                                         <asp:TextBox ID="txtIdentifyCode" runat="server" CssClass="textline" MaxLength="10"
                                             Style="width: 80px" size="10" name="VerifyCode"></asp:TextBox>
                                         &nbsp;&nbsp;请输入<asp:Image ID="imgIdentifyCode" runat="server" Height="20" style="margin-top:5px;" />
+                                    </td>
+                                </tr>
+                                <tr bgcolor="#ffffff" height="35">
+                                    <td align="right" width="140" bgcolor="#ffffff" height="28">
+                                    </td>
+                                    <td align="left" width="280" height="28">
+                                        <asp:CheckBox ID="chkSaveLoginStatus" runat="server" Text="保存登录状态" />
                                     </td>
                                 </tr>
                                 <tr bgcolor="#ffffff" height="35">

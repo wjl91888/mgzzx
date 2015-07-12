@@ -20,6 +20,10 @@ public partial class LoginOut : Page
         //记录日志结束
         Request.Cookies.Remove(ConstantsManager.COOKIE_USER_ID);
         Response.Cookies[ConstantsManager.COOKIE_USER_ID].Expires = DateTime.Now.AddDays(-1);
+        Request.Cookies.Remove(ConstantsManager.COOKIE_PASSWORD);
+        Response.Cookies[ConstantsManager.COOKIE_PASSWORD].Expires = DateTime.Now.AddDays(-1);
+        Request.Cookies.Remove(ConstantsManager.COOKIE_SAVE_LOGIN_STATUS);
+        Response.Cookies[ConstantsManager.COOKIE_SAVE_LOGIN_STATUS].Expires = DateTime.Now.AddDays(-1);
         Session.Abandon();
         Response.Redirect("Login.Aspx");
     }

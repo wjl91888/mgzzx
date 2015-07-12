@@ -34,6 +34,12 @@ public partial class Administrator_Login : Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_SAVE_LOGIN_STATUS]))
+        {
+            txtUserLoginName.Text = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_USER_LOGIN_NAME].Value);
+            txtPassword.Text = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_PASSWORD].Value);
+            ValidateUserLogin();
+        }
         imgIdentifyCode.ImageUrl = ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + "/Page/IdentifyCode.aspx";
         if (!IsPostBack)
         {
@@ -103,9 +109,12 @@ public partial class Administrator_Login : Page
         htInputParameter.Add("UserNickName", null);
 
         //对输入参数进行检验
-        if (ValidateInputParameter())
+        if (ValidateInputParameter() || !DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_SAVE_LOGIN_STATUS]))
         {
-            htInputParameter["Password"] = SecurityManager.MD5(htInputParameter["Password"].ToString(), 32);
+            if (((string)htInputParameter["Password"]).Length != 32)
+            {
+                htInputParameter["Password"] = SecurityManager.MD5(htInputParameter["Password"].ToString(), 32);
+            }
             htOutputParameter = SystemValidateLibrary.ValidateUserLogin(htInputParameter);
             if (htOutputParameter[ConstantsManager.MESSAGE_ID] == DBNull.Value)
             {
@@ -121,6 +130,13 @@ public partial class Administrator_Login : Page
                 Response.Cookies[ConstantsManager.COOKIE_USER_LOGIN_NAME].Expires = DateTime.Now.AddDays(20);
                 Response.Cookies.Add(new HttpCookie(ConstantsManager.COOKIE_USER_NICK_NAME, Server.UrlEncode(htOutputParameter["UserNickName"].ToString())));
                 Response.Cookies.Add(new HttpCookie(ConstantsManager.COOKIE_SSDW_ID, Server.UrlEncode(htOutputParameter["SubjectID"].ToString())));
+                if (chkSaveLoginStatus.Checked)
+                {
+                    Response.Cookies.Add(new HttpCookie(ConstantsManager.COOKIE_PASSWORD, Server.UrlEncode((string)htInputParameter["Password"])));
+                    Response.Cookies[ConstantsManager.COOKIE_PASSWORD].Expires = DateTime.Now.AddDays(180);
+                    Response.Cookies.Add(new HttpCookie(ConstantsManager.COOKIE_SAVE_LOGIN_STATUS, Server.UrlEncode("true")));
+                    Response.Cookies[ConstantsManager.COOKIE_SAVE_LOGIN_STATUS].Expires = DateTime.Now.AddDays(180);
+                }
                 //得到登录成功消息
                 strMessageInfo = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0001, strMessageInfo);
 

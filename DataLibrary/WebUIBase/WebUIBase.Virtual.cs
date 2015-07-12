@@ -460,12 +460,12 @@ namespace RICH.Common.Base.WebUI
                     ddlPageCount.Items.Clear();
                     for (int i = 1; i <= ((int)ViewState["PageCount"] <= 100 ? (int)ViewState["PageCount"] : 100); i++)
                     {
-                        ddlPageCount.Items.Add(new ListItem("当前第" + i.ToString() + "页", i.ToString()));
+                        ddlPageCount.Items.Add(new ListItem("第" + i.ToString() + "页", i.ToString()));
                     }
                     ddlPageSize.Items.Clear();
-                    for (int i = 10; i <= 500; i = i + 10)
+                    for (int i = 50; i <= 500; i = i + 50)
                     {
-                        ddlPageSize.Items.Add(new ListItem("每页" + i.ToString() + "条记录", i.ToString()));
+                        ddlPageSize.Items.Add(new ListItem(i.ToString() + "/页", i.ToString()));
                     }
                     ddlPageCount.SelectedValue = ViewState["CurrentPage"].ToString();
                     ddlPageSize.SelectedValue = ViewState["PageSize"].ToString();

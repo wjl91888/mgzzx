@@ -231,6 +231,8 @@ namespace RICH.Common
         /// 所属单位编号Cookie名
         /// </summary>
         public const string COOKIE_SSDW_ID = "cookie_SubjectID";
+        public const string COOKIE_SAVE_LOGIN_STATUS = "sls";
+        public const string COOKIE_PASSWORD = "pwd";
         #endregion
 
         public const string FieldSplitString = "||";

@@ -35,11 +35,11 @@ END
 IF (NOT EXISTS(SELECT 1 FROM [DB_MGZZX].[dbo].[T_PM_PurviewInfo] WHERE [PurviewTypeID] = 'FR' AND [PurviewID] = 'FR04'))
 BEGIN
     INSERT INTO T_PM_PurviewInfo(PurviewID,PurviewName,PurviewTypeID,PurviewContent,IsPageMenu,PageFileName,PageFilePath)
-    VALUES('FR04','报表信息浏览','FR','报表信息浏览',1,'FilterReportWebUISearch.aspx','/Administrator/A_BM')
+    VALUES('FR04','报表信息','FR','报表信息浏览',1,'FilterReportWebUISearch.aspx','/Administrator/A_BM')
 END
 ELSE
 BEGIN
-    UPDATE [T_PM_PurviewInfo] SET [PurviewName] = '报表信息浏览' 
+    UPDATE [T_PM_PurviewInfo] SET [PurviewName] = '报表信息' 
     WHERE [PurviewTypeID] = 'FR' AND [PurviewID] = 'FR04'
 END
 --插入报表信息详情权限
