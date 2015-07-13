@@ -7,17 +7,14 @@
     <title><asp:ContentPlaceHolder ID="HeadTitleContentPlaceHolder" runat="server"><%=System.Configuration.ConfigurationManager.AppSettings["WEBSITE_NAME"]%></asp:ContentPlaceHolder></title>
     <meta content="IE=7" http-equiv="X-UA-Compatible" />
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <link href="/App_Themes/Themes/Css/mainstyle.css" rev="stylesheet" rel="stylesheet" type="text/css" media="screen" charset="gb2312" />
-    <link href="/App_Themes/Themes/JavaScript/fancybox/jquery.fancybox-1.3.4.css" rev="stylesheet" rel="stylesheet" type="text/css" media="screen" />
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/jQuery/jquery-1.4.2.js" language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js" language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js" language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/CommonNew.js" language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/DateControl/DateControl.js" language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/UploadFile/UploadFile.js" language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/UploadFile/UploadImageFile.js" language="javascript" charset="gb2312"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Suggest/Suggest.js" language="javascript" charset="gb2312"></script>
+    <link href="/App_Themes/Themes/Css/mainstyle.css" rel="stylesheet" />
+    <link href="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css" rel="stylesheet" />
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/jQuery/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js" charset="gb2312"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/CommonNew.js"></script>
     <asp:ContentPlaceHolder ID="HeaderContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+
 </head>
 <body>
     <form id="SubmitForm" runat="server" autocomplete="off">

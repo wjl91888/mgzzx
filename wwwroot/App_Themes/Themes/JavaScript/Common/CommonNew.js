@@ -21,19 +21,22 @@ function getscreenheight() {
 $(document).ready(function () {
     $("a.fancyboxlink").fancybox({
         'type': 'iframe',
-        'width': '100%',
-        'height': '100%',
+        'padding': 0,
+        'margin': 0,
         'fitToView': false,
         'autoScale': true,
+        'autoSize': true,
+        'autoHeight': true,
+        'autoWidth': true,
         'autoDimensions': true,
         'scrolling': 'auto',
         'transitionOut': 'none',
-        'showCloseButton': false,
-        'hideOnOverlayClick': false,
+        'closeBtn': false,
+        'modal': true,
         'onComplete': function () {
             $("body").css("overflow", "hidden");
         },
-        'onClosed': function () {
+        'afterClose': function () {
             if ($_cancelfancybox == false) {
                 if (typeof(EditorWindowClose) != 'undefined') {
                     EditorWindowClose();
