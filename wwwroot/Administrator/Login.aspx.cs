@@ -38,6 +38,7 @@ public partial class Administrator_Login : Page
         {
             txtUserLoginName.Text = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_USER_LOGIN_NAME].Value);
             txtPassword.Text = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_PASSWORD].Value);
+            chkSaveLoginStatus.Checked = true;
             ValidateUserLogin();
         }
         imgIdentifyCode.ImageUrl = ConstantsManager.WEBSITE_VIRTUAL_ROOT_DIR + "/Page/IdentifyCode.aspx";
@@ -191,11 +192,11 @@ public partial class Administrator_Login : Page
         Boolean boolReturn = true;
         //UserLoginName输入检验
         if (DataValidateManager.ValidateIsNull(htInputParameter["UserLoginName"])
-            || DataValidateManager.ValidateStringLengthRange(htInputParameter["UserLoginName"], 1, 20) == false)
+            || DataValidateManager.ValidateStringLengthRange(htInputParameter["UserLoginName"], 1, 50) == false)
         {
             strMessageParam[0] = "用户登录名";
             strMessageParam[1] = "1";
-            strMessageParam[1] = "20";
+            strMessageParam[2] = "50";
             strMessageInfo = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0004, strMessageParam, strMessageInfo);
             boolReturn = false;
         }
@@ -205,7 +206,7 @@ public partial class Administrator_Login : Page
         {
             strMessageParam[0] = "用户密码";
             strMessageParam[1] = "1";
-            strMessageParam[1] = "20";
+            strMessageParam[2] = "20";
             strMessageInfo = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0004, strMessageParam, strMessageInfo);
             boolReturn = false;
         }

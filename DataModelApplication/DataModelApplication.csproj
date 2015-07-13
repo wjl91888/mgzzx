@@ -323,6 +323,7 @@
     </Content>
     <Content Include="Template\WebUIStatistic.aspx.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Template\WebUIStatistic.aspx.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

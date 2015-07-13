@@ -376,12 +376,6 @@
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:CopyToProject.bat.xsl" caret="4702" fromTop="32" />
-      <File id="67CBC824-A49E-4E9B-A947-360F3DFE65C3/d:Scripts/d:Tables/f:FilterReportScript.table.sql" caret="82" fromTop="1" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:FilterReport/f:FilterReportWebUIBase.cs" caret="2373" fromTop="18" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:weixin/f:index.html" caret="1457" fromTop="34" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default.aspx" caret="1076" fromTop="25" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0602WebUISearch.aspx" caret="0" fromTop="0" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Left.aspx.cs" caret="0" fromTop="0" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:ShortMessageWebUISearch.aspx.cs" caret="1941" fromTop="27" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:App_Themes/d:Themes/d:JavaScript/d:jQuery/f:jquery-1.4.2.js" caret="3105" fromTop="19" />
@@ -391,7 +385,6 @@
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUISearch.aspx" caret="10797" fromTop="26" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="3316" fromTop="31" />
       <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:ScriptPurview.sql.xsl" caret="4104" fromTop="0" />
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUIStatistic.aspx.cs.xsl" caret="0" fromTop="0" />
       <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Designer.cs" caret="566" fromTop="23" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/f:Global.asax" caret="724" fromTop="21" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUISearch.aspx.cs" caret="9789" fromTop="22" />
@@ -399,45 +392,52 @@
       <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="12851" fromTop="21" />
       <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearch.aspx.xsl" caret="34879" fromTop="19" />
       <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/f:SystemValidateLibrary.cs" caret="341" fromTop="6" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx.cs" caret="5031" fromTop="89" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:RegUser.aspx.cs" caret="0" fromTop="0" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:LoginOut.aspx.cs" caret="1021" fromTop="17" />
       <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/f:ConstantsManager.cs" caret="7880" fromTop="28" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:BasePage.master" caret="1247" fromTop="10" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx" caret="1325" fromTop="14" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="1794" fromTop="22" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:bootstrap-3.3.2-dist/d:css/f:bootstrap-theme.css" caret="0" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:BasePage.master" caret="1247" fromTop="10" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUIStatistic.aspx.cs.xsl" caret="0" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:bootstrap-3.3.2-dist/d:css/f:bootstrap.css" caret="425" fromTop="0" />
+      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/f:MessageManager.cs" caret="664" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx.cs" caret="10447" fromTop="29" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:fancyapps-fancyBox-18d1712/d:demo/f:index.html" caret="272" fromTop="6" />
+      <File id="d:Miscellaneous Files/f:forms.html/l:E!?MyWork?richsoft?New folder?Flat-UI-master?docs?examples?forms.html" caret="1625" fromTop="24" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/f:Web.config" caret="1743" fromTop="24" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="2534" fromTop="23" />
     </RecentFiles>
     <RecentEdits>
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUISearch.aspx" caret="9746" fromTop="6" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUISearch.aspx" caret="10207" fromTop="16" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx.cs" caret="3316" fromTop="31" />
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:ScriptPurview.sql.xsl" caret="3788" fromTop="32" />
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:ScriptPurview.sql.xsl" caret="4104" fromTop="36" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Virtual.cs" caret="26174" fromTop="33" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Virtual.cs" caret="26070" fromTop="31" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Virtual.cs" caret="25537" fromTop="22" />
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearch.aspx.xsl" caret="35705" fromTop="26" />
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearch.aspx.xsl" caret="34911" fromTop="19" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="13076" fromTop="34" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="13071" fromTop="34" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="13427" fromTop="41" />
-      <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:WebUIBase/f:WebUIBase.Event.cs" caret="13578" fromTop="43" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="765" fromTop="9" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="7546" fromTop="22" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="2484" fromTop="13" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4064" fromTop="32" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="7910" fromTop="30" />
-      <File id="3F0F291E-6FF0-4580-ADD4-63A107C34FF4/f:ConstantsManager.cs" caret="8275" fromTop="41" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:LoginOut.aspx.cs" caret="1021" fromTop="17" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx.cs" caret="6674" fromTop="34" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx.cs" caret="4999" fromTop="89" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:RegUser.aspx.cs" caret="0" fromTop="0" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="3790" fromTop="14" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx" caret="1203" fromTop="11" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:BasePage.master" caret="1247" fromTop="10" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Default_Menu.aspx" caret="751" fromTop="5" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="1581" fromTop="17" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="1212" fromTop="16" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4844" fromTop="23" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4844" fromTop="33" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4844" fromTop="19" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4844" fromTop="26" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4844" fromTop="22" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4844" fromTop="27" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4844" fromTop="36" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4479" fromTop="12" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4479" fromTop="22" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4479" fromTop="11" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4479" fromTop="17" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4479" fromTop="21" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4689" fromTop="26" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4844" fromTop="35" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="2654" fromTop="14" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4479" fromTop="41" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx.cs" caret="10961" fromTop="24" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx.cs" caret="10305" fromTop="10" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx.cs" caret="10447" fromTop="14" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="3248" fromTop="14" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="2965" fromTop="9" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="3833" fromTop="25" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="3578" fromTop="20" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="870" fromTop="11" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4713" fromTop="24" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="1543" fromTop="20" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="4459" fromTop="17" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="1192" fromTop="12" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/f:Login.aspx" caret="2642" fromTop="28" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/f:Web.config" caret="1743" fromTop="24" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
