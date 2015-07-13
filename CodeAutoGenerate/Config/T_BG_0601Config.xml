@@ -1804,7 +1804,7 @@
     <IsBatchSearch>false</IsBatchSearch>
     <IsShowDetail>false</IsShowDetail>
     <IsPDFShow>false</IsPDFShow>
-    <DisplayFormatString>null</DisplayFormatString>
+    <DisplayFormatString>"yy-MM-dd"</DisplayFormatString>
     <IsPDFNextSeparateLine>false</IsPDFNextSeparateLine>
     <IsStatisticalData>false</IsStatisticalData>
     <IsStatisticalCondition>false</IsStatisticalCondition>
@@ -1998,7 +1998,7 @@
     <IsBatchSearch>false</IsBatchSearch>
     <IsShowDetail>true</IsShowDetail>
     <IsPDFShow>false</IsPDFShow>
-    <DisplayFormatString>null</DisplayFormatString>
+    <DisplayFormatString>"yy-MM-dd"</DisplayFormatString>
     <IsPDFNextSeparateLine>false</IsPDFNextSeparateLine>
     <IsStatisticalData>false</IsStatisticalData>
     <IsStatisticalCondition>false</IsStatisticalCondition>

@@ -14,8 +14,8 @@
         $find("<%= ramT_PM_UserGroupInfo.ClientID %>").ajaxRequest("Refresh");
     }
     $(document).ready(function () {
-        $(".needrefresh").live("change", function () { RefreshGrid(); });
-        $("input.needrefresh[type='text']").live("keyup", function () { RefreshGrid(); });
+        $(".needrefresh").on("change", function () { RefreshGrid(); });
+        $("input.needrefresh[type='text']").on("keyup", function () { RefreshGrid(); });
     });
     </script>
     </telerik:RadCodeBlock>

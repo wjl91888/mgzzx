@@ -19,8 +19,8 @@
 <![CDATA[        $find("<%= ram]]><xsl:value-of select="/NewDataSet/TableName"/><![CDATA[.ClientID %>").ajaxRequest("Refresh");]]>
 <![CDATA[    }]]>
 <![CDATA[    $(document).ready(function () {]]>
-<![CDATA[        $(".needrefresh").live("change", function () { RefreshGrid(); });]]>
-<![CDATA[        $("input.needrefresh[type='text']").live("keyup", function () { RefreshGrid(); });]]>
+<![CDATA[        $(".needrefresh").on("change", function () { RefreshGrid(); });]]>
+<![CDATA[        $("input.needrefresh[type='text']").on("keyup", function () { RefreshGrid(); });]]>
 <![CDATA[    });]]>
 <![CDATA[    </script>]]>
 <![CDATA[    </telerik:RadCodeBlock>]]>

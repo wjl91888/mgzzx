@@ -57,7 +57,11 @@ function CloseWindowTimeout() {
     $_cancelfancybox = false; 
     $(document).ready(function () {
         setTimeout(function () {
-            parent.$.fancybox.close(); 
+            if (parent.$) {
+                if (parent.$.fancybox) {
+                    parent.$.fancybox.close();
+                }
+            }
         }, 2000);
     });
 }
