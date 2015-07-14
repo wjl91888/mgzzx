@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/jQuery/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="../App_Themes/Themes/JavaScript/jQuery/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="../App_Themes/Themes/JavaScript/FlexPaper/flexpaper_flash.js"></script>
     <style>
         .previewfileslist
@@ -73,8 +73,7 @@
             <ItemTemplate>
                 <ul>
                     <li class="filename">
-                        <asp:LinkButton ID="Preview" runat="server" CommandName="PREVIEW" ToolTip="<%# GetFileName((string)Container.DataItem)%>"
-                            CommandArgument="<%# Container.DataItem%>">
+                        <asp:LinkButton ID="Preview" runat="server" CommandName="PREVIEW" ToolTip="<%# GetFileName((string)Container.DataItem)%>" CommandArgument="<%# Container.DataItem%>">
                         <%# GetFileName((string)Container.DataItem)%>
                         </asp:LinkButton>
                     </li>
@@ -85,8 +84,9 @@
         <div style="text-align:right;"><asp:Button ID="PackageDownload" runat="server" OnClick="PackageDownload_Click" Width="120" Height="30" Text="文件打包下载"/></div>
     </div>
     <div id="FlexPaperViewerContainer" runat="server" class="flexpaperviewer">
-        <div id="viewerPlaceHolder" style="max-width: 1024px; height: 100%; display: block; margin: 0 auto; padding-top:20px;">
+        <div id="viewerPlaceHolder" style="max-width: 1024px; height:600px; display: block; margin: 0 auto; padding-top:20px;">
         </div>
+        <div style="clear:both"></div>
         <script type="text/javascript">
             var fp = new FlexPaperViewer(
                          'FlexPaper/FlexPaperViewer',

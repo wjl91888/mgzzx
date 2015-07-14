@@ -13,8 +13,14 @@
     <script type="text/javascript" src="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js"></script>
     <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js" charset="gb2312"></script>
     <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/CommonNew.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (isMobile.any()) {
+                //alert("It's a moblie client.");
+            }
+        });
+    </script>
     <asp:ContentPlaceHolder ID="HeaderContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
-
 </head>
 <body>
     <form id="SubmitForm" runat="server" autocomplete="off">
