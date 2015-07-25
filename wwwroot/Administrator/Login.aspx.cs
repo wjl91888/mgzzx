@@ -105,6 +105,7 @@ public partial class Administrator_Login : Page
         htInputParameter.Add("UserLoginName", txtUserLoginName.Text);
         htInputParameter.Add("Password", txtPassword.Text);
         htInputParameter.Add("LastLoginIP", Request.ServerVariables["REMOTE_ADDR"]);
+        htInputParameter.Add("lcodeFromUrl", Request.QueryString["lcode"]);
         htInputParameter.Add("UserID", null);
         htInputParameter.Add("UserGroupID", null);
         htInputParameter.Add("UserNickName", null);
@@ -163,7 +164,9 @@ public partial class Administrator_Login : Page
 
                 //对正确消息进行处理
                 Response.Write(strMessageInfo);
-                Response.Redirect("Default.aspx");
+                Response.Redirect(this.IsMobileDevice() && chkSaveLoginStatus.Checked
+                                      ? "Default.aspx?lcode={0}".FormatInvariantCulture(htOutputParameter["lcode"])
+                                      : "Default.aspx");
             }
             else
             {

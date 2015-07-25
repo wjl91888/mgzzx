@@ -28,6 +28,7 @@ CREATE   PROCEDURE [dbo].[SP_InsertT_PM_UserInfo]
 ,@LoginTimes Int   = NULL
 ,@UserStatus NVarChar (2)
 ,@vcode UniqueIdentifier   = NULL
+,@lcode UniqueIdentifier   = NULL
 
 AS
 
@@ -75,6 +76,8 @@ IF @UserStatus IS NULL
     SET @UserStatus = '01'
 IF @vcode IS NULL
     SET @vcode = newid()
+IF @lcode IS NULL
+    SET @lcode = newid()
 SET XACT_ABORT ON
 BEGIN TRANSACTION
     --插入主表信息
@@ -103,6 +106,7 @@ BEGIN TRANSACTION
     ,[LoginTimes]
     ,[UserStatus]
     ,[vcode]
+    ,[lcode]
     )
     VALUES
     (
@@ -129,6 +133,7 @@ BEGIN TRANSACTION
     ,@LoginTimes
     ,@UserStatus
     ,@vcode
+    ,@lcode
     )
     
     --更新相关表信息
@@ -265,6 +270,11 @@ CREATE   PROCEDURE [dbo].[SP_UpdateT_PM_UserInfoByAnyCondition]
         
 , @vcodeValue nvarchar(50) = NULL
 , @vcodeBatch nvarchar(1000) = NULL
+
+, @lcode nvarchar(50) = NULL
+        
+, @lcodeValue nvarchar(50) = NULL
+, @lcodeBatch nvarchar(1000) = NULL
 
 , @QueryType nvarchar(50) = 'AND'
 , @RecordCount int Output
@@ -427,6 +437,12 @@ BEGIN
     IF @vcodeBatch IS NOT NULL
       SET @ConditionText = @ConditionText + ' AND '''+CAST(@vcodeBatch AS nvarchar(4000))+''' LIKE ''%''+CONVERT(nvarchar(50), [dbo].[T_PM_UserInfo].vcode)+''%'' '
     
+    IF @lcode IS NOT NULL
+      SET @ConditionText = @ConditionText + ' AND [dbo].[T_PM_UserInfo].lcode = '''+CAST(@lcode AS nvarchar(100))+''' '
+            
+    IF @lcodeBatch IS NOT NULL
+      SET @ConditionText = @ConditionText + ' AND '''+CAST(@lcodeBatch AS nvarchar(4000))+''' LIKE ''%''+CONVERT(nvarchar(50), [dbo].[T_PM_UserInfo].lcode)+''%'' '
+    
     SET @ConditionText = @ConditionText + ')'
 END
 ELSE IF @QueryType = 'OR'
@@ -573,6 +589,12 @@ BEGIN
     IF @vcodeBatch IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR '''+CAST(@vcodeBatch AS nvarchar(4000))+''' LIKE ''%''+CONVERT(nvarchar(50), [dbo].[T_PM_UserInfo].vcode)+''%'' '
     
+    IF @lcode IS NOT NULL
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].lcode LIKE '''+CAST(@lcode AS nvarchar(100))+'%'' '
+        
+    IF @lcodeBatch IS NOT NULL
+      SET @ConditionText = @ConditionText + ' OR '''+CAST(@lcodeBatch AS nvarchar(4000))+''' LIKE ''%''+CONVERT(nvarchar(50), [dbo].[T_PM_UserInfo].lcode)+''%'' '
+    
     SET @ConditionText = @ConditionText + ')'
 END
 SET @SqlText = 'SELECT @RecordCount=COUNT(*) FROM [DB_MGZZX].[dbo].[T_PM_UserInfo] WHERE ' + @ConditionText
@@ -692,6 +714,11 @@ BEGIN TRANSACTION
     ELSE
         SET @SqlText = @SqlText + ' ,vcode = [DB_MGZZX].[dbo].[T_PM_UserInfo].vcode'
   
+    IF @lcodeValue IS NOT NULL
+        SET @SqlText = @SqlText + ' ,lcode = @lcodeValue'
+    ELSE
+        SET @SqlText = @SqlText + ' ,lcode = [DB_MGZZX].[dbo].[T_PM_UserInfo].lcode'
+  
 SET @SqlText = @SqlText + ' FROM [DB_MGZZX].[dbo].[T_PM_UserInfo] WHERE ' + @ConditionText
 PRINT @SqlText
 EXECUTE(@SqlText)
@@ -736,6 +763,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateT_PM_UserInfoByObjectID]
 ,@LoginTimes Int = NULL
 ,@UserStatus NVarChar(2) = NULL
 ,@vcode nvarchar(50) = NULL
+,@lcode nvarchar(50) = NULL
 
 AS
 SET XACT_ABORT ON
@@ -768,6 +796,7 @@ BEGIN TRANSACTION
     , [LoginTimes] = @LoginTimes
     , [UserStatus] = @UserStatus
     , [vcode] = @vcode
+    , [lcode] = @lcode
     WHERE ObjectID = @ObjectID
 COMMIT TRANSACTION
 
@@ -811,6 +840,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateT_PM_UserInfoByKey]
 ,@LoginTimes Int = NULL
 ,@UserStatus NVarChar(2) = NULL
 ,@vcode nvarchar(50) = NULL
+,@lcode nvarchar(50) = NULL
 
 AS
 SET XACT_ABORT ON
@@ -1015,6 +1045,15 @@ BEGIN TRANSACTION
         [UserID] = @UserID
     END
     
+    IF @lcode IS NOT NULL
+    BEGIN
+        UPDATE [dbo].[T_PM_UserInfo]
+        SET [lcode] = @lcode
+        WHERE
+        
+        [UserID] = @UserID
+    END
+    
 COMMIT TRANSACTION
 
 
@@ -1079,6 +1118,8 @@ CREATE   PROCEDURE [dbo].[SP_UpdateT_PM_UserInfoByObjectIDBatch]
 ,@UserStatus NVarChar(2) = NULL
 
 ,@vcode nvarchar(50) = NULL
+
+,@lcode nvarchar(50) = NULL
 
 
 AS
@@ -1218,6 +1259,12 @@ BEGIN TRANSACTION
     BEGIN
         UPDATE [dbo].[T_PM_UserInfo]
         SET [vcode] = @vcode WHERE (@ObjectIDBatch) LIKE '%'+CONVERT(varchar(36), [ObjectID])+'%'
+    END
+    
+    IF @lcode IS NOT NULL
+    BEGIN
+        UPDATE [dbo].[T_PM_UserInfo]
+        SET [lcode] = @lcode WHERE (@ObjectIDBatch) LIKE '%'+CONVERT(varchar(36), [ObjectID])+'%'
     END
     
 COMMIT TRANSACTION
@@ -1413,6 +1460,10 @@ CREATE   PROCEDURE [dbo].[SP_SelectT_PM_UserInfoByAnyCondition]
         
 , @vcodeBatch nvarchar(4000) = NULL
 
+, @lcode nvarchar(50) = NULL
+        
+, @lcodeBatch nvarchar(4000) = NULL
+
 --一对一相关表参数
 
 , @QueryType nvarchar(50) = 'AND'
@@ -1527,6 +1578,9 @@ BEGIN
     IF @vcode IS NOT NULL
       SET @ConditionText = @ConditionText + ' AND [dbo].[T_PM_UserInfo].[vcode] = '''+CAST(@vcode AS nvarchar(100))+''' '
             
+    IF @lcode IS NOT NULL
+      SET @ConditionText = @ConditionText + ' AND [dbo].[T_PM_UserInfo].[lcode] = '''+CAST(@lcode AS nvarchar(100))+''' '
+            
     --一对一相关表查询条件
     
     SET @ConditionText = @ConditionText + ')'
@@ -1602,6 +1656,9 @@ BEGIN
     IF @vcode IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[vcode] LIKE '''+CAST(@vcode AS nvarchar(100))+'%'' '
         
+    IF @lcode IS NOT NULL
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[lcode] LIKE '''+CAST(@lcode AS nvarchar(100))+'%'' '
+        
     --一对一相关表查询条件
     
     SET @ConditionText = @ConditionText + ')'
@@ -1655,6 +1712,8 @@ BEGIN
       , [dbo].[T_PM_UserInfo].[UserStatus]
         
       , [dbo].[T_PM_UserInfo].[vcode]
+        
+      , [dbo].[T_PM_UserInfo].[lcode]
         
         ,[dbo].[F_T_PM_UserInfo_GetUserGroupNameByUserGroupID]([dbo].[T_PM_UserInfo].[UserGroupID]) AS [UserGroupID_T_PM_UserGroupInfo_UserGroupName]
         ,[SubjectID_T_BM_DWXX].[DWMC] AS [SubjectID_T_BM_DWXX_DWMC]
@@ -1835,6 +1894,11 @@ IF @vcodeBatch IS NOT NULL
       INNER JOIN [dbo].F_SplitStr('''+CAST(@vcodeBatch AS nvarchar(4000))+''', '','') AS T_PM_UserInfo_vcode_Batch ON '','' + [dbo].[T_PM_UserInfo].[vcode] + '','' LIKE ''%,'' + T_PM_UserInfo_vcode_Batch.col +'',%''
 '
     
+IF @lcodeBatch IS NOT NULL
+  SET @FromText = @FromText + '
+      INNER JOIN [dbo].F_SplitStr('''+CAST(@lcodeBatch AS nvarchar(4000))+''', '','') AS T_PM_UserInfo_lcode_Batch ON '','' + [dbo].[T_PM_UserInfo].[lcode] + '','' LIKE ''%,'' + T_PM_UserInfo_lcode_Batch.col +'',%''
+'
+    
 
 --查询条件
 SET @InnerSortText = '
@@ -1922,6 +1986,8 @@ SELECT
     
       , [dbo].[T_PM_UserInfo].[vcode]
     
+      , [dbo].[T_PM_UserInfo].[lcode]
+    
         ,[dbo].[F_T_PM_UserInfo_GetUserGroupNameByUserGroupID]([dbo].[T_PM_UserInfo].[UserGroupID]) AS [UserGroupID_T_PM_UserGroupInfo_UserGroupName]
         ,[SubjectID_T_BM_DWXX].[DWMC] AS [SubjectID_T_BM_DWXX_DWMC]
         ,[XB_Dictionary].[MC] AS [XB_Dictionary_MC]
@@ -2004,6 +2070,8 @@ SELECT
       , [UserStatus]
     
       , [vcode]
+    
+      , [lcode]
     
 FROM [dbo].[T_PM_UserInfo]
 WHERE

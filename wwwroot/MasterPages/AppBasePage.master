@@ -1,0 +1,82 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AppBasePage.master.cs" Inherits="MasterPages_AppBasePage" %>
+
+<%@ Register Assembly="CustomWebControls" Namespace="CustomWebControls" TagPrefix="RICH" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="HeadTitleContentPlaceHolder" runat="server">
+            <%=System.Configuration.ConfigurationManager.AppSettings["WEBSITE_NAME"]%></asp:ContentPlaceHolder>
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <link href="/App_Themes/Themes/Css/mainstyle.css" rel="stylesheet" />
+    <link href="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css" rel="stylesheet" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="/responsive-nav/responsive-nav.css" /><![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/responsive-nav/demos/advanced-left-navigation/styles.css" />
+    <!--<![endif]-->
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/jQuery/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js"
+        charset="gb2312"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/CommonNew.js"></script>
+    <script src="/responsive-nav/responsive-nav.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (isMobile.any()) {
+                //alert("It's a moblie client.");
+            }
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="HeaderContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="SubmitForm" runat="server" autocomplete="off">
+    <telerik:RadScriptManager ID="RadScriptManager" runat="server">
+    </telerik:RadScriptManager>
+    <telerik:RadAjaxManager ID="ramMenu" runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="ddlUserGroupID">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="AjaxArea" LoadingPanelID="ralpMenu" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxLoadingPanel ID="ralpMenu" runat="server" Skin="Vista">
+    </telerik:RadAjaxLoadingPanel>
+    <div role="navigation" id="foo" class="nav-collapse">
+        <h3>
+            <asp:Literal ID="websiteName" runat="server"></asp:Literal></h3>
+        <ul>
+            <li class="active"><a id="linkDefaultIndex" runat="server" target="ContentFrame">首页</a></li>
+            <li>
+                <telerik:RadComboBox ID="ddlUserGroupID" runat="server" Font-Size="14px" AutoPostBack="true"
+                    OnSelectedIndexChanged="ddlUserGroupID_OnSelectedIndexChanged" Width="100%">
+                </telerik:RadComboBox>
+            </li>
+            <li>
+                <div id="AjaxArea" runat="server">
+                    <telerik:RadTreeView ID="rtvMenu" runat="server" OnNodeDataBound="rtvMenu_NodeDataBound"
+                        Font-Size="14px" Font-Bold="true" ForeColor="#ffffff" CssClass="IndexMenuStyle">
+                    </telerik:RadTreeView>
+                </div>
+            </li>
+            <li><a href="/Administrator/LoginOut.aspx" target="_top">退出</a></li>
+        </ul>
+    </div>
+    <div role="main" class="main">
+        <a href="#nav" class="nav-toggle">Menu</a>
+        <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+        </asp:ContentPlaceHolder>
+        <a class="fancyboxlink" style="display: none;"></a>
+    </div>
+    <script>
+        var navigation = responsiveNav("foo", { customToggle: ".nav-toggle" });
+    </script>
+    </form>
+</body>
+</html>

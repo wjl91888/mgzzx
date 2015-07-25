@@ -19,6 +19,7 @@ namespace RICH.Common
             db.AddInParameter(cmdProc, "@UserLoginName", DbType.String);
             db.AddInParameter(cmdProc, "@Password", DbType.String);
             db.AddInParameter(cmdProc, "@LastLoginIP", DbType.String);
+            db.AddInParameter(cmdProc, "@lcodeFromUrl", DbType.String);
 
             db.AddOutParameter(cmdProc, "@UserID", DbType.String, 50);
             db.AddOutParameter(cmdProc, "@UserGroupID", DbType.String, 4000);
@@ -26,10 +27,12 @@ namespace RICH.Common
             db.AddOutParameter(cmdProc, "@UserNickName", DbType.String, 50);
             db.AddOutParameter(cmdProc, "@MessageID", DbType.String, 50);
             db.AddOutParameter(cmdProc, "@LastLoginDate", DbType.DateTime, 16);
+            db.AddOutParameter(cmdProc, "@lcode", DbType.String, 50);
 
             db.SetParameterValue(cmdProc, "@UserLoginName", (string)htInputParameter["UserLoginName"]);
             db.SetParameterValue(cmdProc, "@Password", (string)htInputParameter["Password"]);
             db.SetParameterValue(cmdProc, "@LastLoginIP", (string)htInputParameter["LastLoginIP"]);
+            db.SetParameterValue(cmdProc, "@lcodeFromUrl", (string)htInputParameter["lcode"]);
 
             db.ExecuteNonQuery(cmdProc);
 
@@ -39,6 +42,7 @@ namespace RICH.Common
             htInputParameter["UserNickName"] = db.GetParameterValue(cmdProc, "@UserNickName");
             htInputParameter[ConstantsManager.MESSAGE_ID] = db.GetParameterValue(cmdProc, "@MessageID");
             htInputParameter["LastLoginDate"] = db.GetParameterValue(cmdProc, "@LastLoginDate");
+            htInputParameter["lcode"] = db.GetParameterValue(cmdProc, "@lcode");
 
             return htInputParameter;
         }

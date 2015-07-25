@@ -80,6 +80,9 @@ namespace RICH.Common.BM.T_PM_UserInfo
     
         public static readonly string vcodeFieldName = "vcode";
         public static readonly string vcodeFieldRemark = "ÑéÖ¤Âë";
+    
+        public static readonly string lcodeFieldName = "lcode";
+        public static readonly string lcodeFieldRemark = "µÇÂ¼Âë";
         
     
         public static readonly string AutoGenerateField = "UserID";

@@ -2336,6 +2336,94 @@
     <IsFromDoc>false</IsFromDoc>
     <IsFromDataSet>false</IsFromDataSet>
   </RecordInfo>
+  <RecordInfo>
+    <OrderID>23</OrderID>
+    <FieldName>lcode</FieldName>
+    <FieldRemark xsi:type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">登录码</FieldRemark>
+    <DBType>UniqueIdentifier</DBType>
+    <DataSize>16</DataSize>
+    <IsUse>true</IsUse>
+    <IsString>true</IsString>
+    <IsPrimaryKey>false</IsPrimaryKey>
+    <IsNull>true</IsNull>
+    <IsAdd>false</IsAdd>
+    <IsModify>false</IsModify>
+    <IsNonModifiable>false</IsNonModifiable>
+    <IsList>false</IsList>
+    <IsDefaultList>false</IsDefaultList>
+    <IsListSort>false</IsListSort>
+    <IsSearch>false</IsSearch>
+    <IsAdvanceSearch>false</IsAdvanceSearch>
+    <PrefixMatch>false</PrefixMatch>
+    <IsApproximateSearch>false</IsApproximateSearch>
+    <IsRangeSearch>false</IsRangeSearch>
+    <IsMoreItemSearch>false</IsMoreItemSearch>
+    <IsSubItemSearch>false</IsSubItemSearch>
+    <IsBatchSearch>false</IsBatchSearch>
+    <IsShowDetail>false</IsShowDetail>
+    <IsPDFShow>false</IsPDFShow>
+    <DisplayFormatString>null</DisplayFormatString>
+    <IsPDFNextSeparateLine>false</IsPDFNextSeparateLine>
+    <IsStatisticalData>false</IsStatisticalData>
+    <IsStatisticalCondition>false</IsStatisticalCondition>
+    <IsSum>false</IsSum>
+    <IsRelatedOperateParam>false</IsRelatedOperateParam>
+    <IsSuggestItem>false</IsSuggestItem>
+    <ControlType>单行文本框</ControlType>
+    <IsUseTab>false</IsUseTab>
+    <IsDataBind>false</IsDataBind>
+    <IsMoreItemDisplay>false</IsMoreItemDisplay>
+    <IsDataDict>false</IsDataDict>
+    <IsTreeStyle>false</IsTreeStyle>
+    <MutilInsertField>false</MutilInsertField>
+    <MutilInsertCondition>false</MutilInsertCondition>
+    <IsRestrictedViewCondition>false</IsRestrictedViewCondition>
+    <IsRestrictedViewSubItem>false</IsRestrictedViewSubItem>
+    <IsCustomAdd>false</IsCustomAdd>
+    <IsAddDefaultValue>false</IsAddDefaultValue>
+    <IsFixed>false</IsFixed>
+    <IsUpdateFixed>false</IsUpdateFixed>
+    <ControlTypeName>TextBox</ControlTypeName>
+    <FieldType>String</FieldType>
+    <ControlTypePrefix>asp</ControlTypePrefix>
+    <ControlTypeValueSuffix>Text</ControlTypeValueSuffix>
+    <DataValidateType>ObjectID格式验证</DataValidateType>
+    <DataValidateFaildMessage>HINT_MSGID_0012</DataValidateFaildMessage>
+    <DataValidateMethod>ValidateUniqueIdentifierFormat</DataValidateMethod>
+    <DataValidateMethodByViewState>ValidateUniqueIdentifierFormat(ViewState["lcode"].ToString())</DataValidateMethodByViewState>
+    <DataValidateParameterOne>null</DataValidateParameterOne>
+    <DataValidateParameterTwo>null</DataValidateParameterTwo>
+    <IsAllOneRow>false</IsAllOneRow>
+    <IsHideTitle>false</IsHideTitle>
+    <TextAlign>Center</TextAlign>
+    <IsNoBorderTop>false</IsNoBorderTop>
+    <IsNoBorderLeft>false</IsNoBorderLeft>
+    <IsNoBorderBottom>false</IsNoBorderBottom>
+    <IsNoBorderRight>false</IsNoBorderRight>
+    <DefaultValue>(newid())</DefaultValue>
+    <SPDefaultValue>newid()</SPDefaultValue>
+    <SPSelectDataType>nvarchar(50)</SPSelectDataType>
+    <SPUpdateDataType>nvarchar(50)</SPUpdateDataType>
+    <SPDataSize />
+    <IsUseSuggest>false</IsUseSuggest>
+    <IsUseSuggestSearch>false</IsUseSuggestSearch>
+    <IsAJAXExist>false</IsAJAXExist>
+    <IsCoupled>false</IsCoupled>
+    <IsCoupledNext>false</IsCoupledNext>
+    <IsComboTree>false</IsComboTree>
+    <OnlyDisplayUsedNode>false</OnlyDisplayUsedNode>
+    <IsComboTreeNoParent>false</IsComboTreeNoParent>
+    <IsComboTreeLink>false</IsComboTreeLink>
+    <IsComboTreeParentLink>false</IsComboTreeParentLink>
+    <IsComboTreeRelatedParent>false</IsComboTreeRelatedParent>
+    <IsComboTreeRelatedParentIndependent>false</IsComboTreeRelatedParentIndependent>
+    <IsComboTreeRelatedParentLink>false</IsComboTreeRelatedParentLink>
+    <IsDispose>false</IsDispose>
+    <IsDisposeOtherTable>false</IsDisposeOtherTable>
+    <IsDisposeReverse>false</IsDisposeReverse>
+    <IsFromDoc>false</IsFromDoc>
+    <IsFromDataSet>false</IsFromDataSet>
+  </RecordInfo>
   <CustomPermissionConfig>
     <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
     <CustomPermissionType>SearchPage</CustomPermissionType>

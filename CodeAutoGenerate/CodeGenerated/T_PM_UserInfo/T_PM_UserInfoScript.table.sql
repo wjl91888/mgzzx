@@ -44,6 +44,8 @@ CREATE TABLE [dbo].[T_PM_UserInfo](
         
           ,[vcode] [UniqueIdentifier]  NULL
         
+          ,[lcode] [UniqueIdentifier]  NULL
+        
 CONSTRAINT [PK_T_PM_UserInfo] PRIMARY KEY CLUSTERED
 (
 
@@ -119,6 +121,9 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'ÑéÖ¤Âë' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'T_PM_UserInfo', @level2type=N'COLUMN',@level2name=N'vcode'
 GO
 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'µÇÂ¼Âë' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'T_PM_UserInfo', @level2type=N'COLUMN',@level2name=N'lcode'
+GO
+
 ALTER TABLE [dbo].[T_PM_UserInfo] ADD  CONSTRAINT [DF_T_PM_UserInfo_ObjectID]  DEFAULT (newid()) FOR [ObjectID]
 GO
     
@@ -129,5 +134,8 @@ ALTER TABLE [dbo].[T_PM_UserInfo] ADD  CONSTRAINT [DF_T_PM_UserInfo_UserStatus] 
 GO
     
 ALTER TABLE [dbo].[T_PM_UserInfo] ADD  CONSTRAINT [DF_T_PM_UserInfo_vcode]  DEFAULT (newid()) FOR [vcode]
+GO
+    
+ALTER TABLE [dbo].[T_PM_UserInfo] ADD  CONSTRAINT [DF_T_PM_UserInfo_lcode]  DEFAULT (newid()) FOR [lcode]
 GO
     

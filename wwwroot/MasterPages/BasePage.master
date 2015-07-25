@@ -1,17 +1,22 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeFile="BasePage.master.cs" Inherits="MasterPages_BasePage" %>
+
 <%@ Register Assembly="CustomWebControls" Namespace="CustomWebControls" TagPrefix="RICH" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head runat="server">
-    <title><asp:ContentPlaceHolder ID="HeadTitleContentPlaceHolder" runat="server"><%=System.Configuration.ConfigurationManager.AppSettings["WEBSITE_NAME"]%></asp:ContentPlaceHolder></title>
-    <meta content="IE=7" http-equiv="X-UA-Compatible" />
+    <title>
+        <asp:ContentPlaceHolder ID="HeadTitleContentPlaceHolder" runat="server">
+            <%=System.Configuration.ConfigurationManager.AppSettings["WEBSITE_NAME"]%></asp:ContentPlaceHolder>
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <link href="/App_Themes/Themes/Css/mainstyle.css" rel="stylesheet" />
     <link href="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css" rel="stylesheet" />
     <script type="text/javascript" src="/App_Themes/Themes/JavaScript/jQuery/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js" charset="gb2312"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js"
+        charset="gb2312"></script>
     <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/CommonNew.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -20,12 +25,14 @@
             }
         });
     </script>
-    <asp:ContentPlaceHolder ID="HeaderContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="HeaderContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="SubmitForm" runat="server" autocomplete="off">
-    <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
-    <a class="fancyboxlink" style="display:none;"></a>
+    <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    <a class="fancyboxlink" style="display: none;"></a>
     </form>
 </body>
 </html>

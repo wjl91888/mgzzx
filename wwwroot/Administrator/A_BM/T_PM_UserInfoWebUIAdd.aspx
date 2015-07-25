@@ -367,6 +367,23 @@
                          </div>
                      </div>
   
+                     <div class="content" id="lcode_Area" runat="server">
+                         <div class="field">
+                             <div class="fieldname">
+                                          µÇÂ¼Âë
+                             </div>
+                             <div class="redstar"></div>
+                         </div>
+                         <div class="fieldinput"><div>
+                                
+                             <asp:TextBox ID="lcode" runat="server" CssClass="input"></asp:TextBox>
+                                                 
+                         </div><div class="fieldnote" id="lcode_Note" runat="server">
+                                      
+                         </div>
+                         </div>
+                     </div>
+  
                      <div class="content" id="LoginTime_Area" runat="server">
                          <div class="field">
                              <div class="fieldname">

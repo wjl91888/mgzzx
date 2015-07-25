@@ -1222,6 +1222,10 @@ namespace RICH.Common.BM.T_PM_UserInfo
                         appData.vcode = Convert.ToString(strFieldValue);
                         break;
             
+                    case "lcode":
+                        appData.lcode = Convert.ToString(strFieldValue);
+                        break;
+            
                     default:
                         appData.PageSize = 0;
                         break;
@@ -1349,6 +1353,10 @@ namespace RICH.Common.BM.T_PM_UserInfo
                         appData.vcode = Convert.ToString(strFieldValue);
                         break;
             
+                    case "lcode":
+                        appData.lcode = Convert.ToString(strFieldValue);
+                        break;
+            
                     default:
                         appData.PageSize = 0;
                         break;
@@ -1474,6 +1482,10 @@ namespace RICH.Common.BM.T_PM_UserInfo
             
                     case "vcode":
                         appData.vcode = Convert.ToString(strFieldValue);
+                        break;
+            
+                    case "lcode":
+                        appData.lcode = Convert.ToString(strFieldValue);
                         break;
             
                     }
@@ -1648,6 +1660,10 @@ namespace RICH.Common.BM.T_PM_UserInfo
             
                     case "vcode":
                         appData.vcode = Convert.ToString(strFieldValue);
+                        break;
+            
+                    case "lcode":
+                        appData.lcode = Convert.ToString(strFieldValue);
                         break;
             
                     default:
@@ -3601,6 +3617,81 @@ namespace RICH.Common.BM.T_PM_UserInfo
                             else
                             {
                                 validateData.Message = @"验证码不存在，可以使用。";
+                                validateData.Result = true;
+                            }
+                        }
+                        else
+                        {
+                            validateData.Result = true;
+                        }
+                    }
+                }
+                else
+                {
+                    validateData.IsNull = true;
+                    if (validateData.Nullable == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0002, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                validateData.Result = false;
+            }
+            return validateData;
+        }
+    
+        //=====================================================================
+        //  FunctionName : Validatelcode
+        /// <summary>
+        /// 登录码数值验证方法
+        /// </summary>
+        //=====================================================================        
+        protected virtual ValidateData Validatelcode(object objValidateData, bool boolNullable, bool boolExist)
+        {
+            ValidateData validateData = new ValidateData();
+            try
+            {
+                // 初始化参数
+                validateData.Result = true;
+                validateData.Message = string.Empty;
+                validateData.Parameters = new string[5];
+                validateData.IsNull = false;
+                validateData.IsExist = false;
+                
+                // 传入参数赋值
+                validateData.Value = objValidateData;
+                validateData.Nullable = boolNullable;
+                validateData.Exist = boolExist;
+                validateData.Parameters[0] = "登录码";
+                validateData.Parameters[1] = "null";
+                validateData.Parameters[2] = "null";
+
+                // 空验证
+                if (DataValidateManager.ValidateIsNull(validateData.Value) == false)
+                {
+                    // 数值格式验证
+                    if (DataValidateManager.ValidateUniqueIdentifierFormat(validateData.Value, null, null) == false)
+                    {
+                        validateData.Message = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0012, validateData.Parameters);
+                        validateData.Result = false;
+                    }
+                    else
+                    {
+                        // 数据存在验证
+                        if (validateData.Exist == true)
+                        {
+                            if (AJAX_IsExist("lcode", validateData.Value.ToString()) == true)
+                            {
+                                 validateData.IsExist = true;
+                                 validateData.Message = @"登录码已存在，请再换一个。";
+                                 validateData.Result = false;
+                            }
+                            else
+                            {
+                                validateData.Message = @"登录码不存在，可以使用。";
                                 validateData.Result = true;
                             }
                         }

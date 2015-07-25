@@ -1,4 +1,5 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Administrator_Default" %>
+<%@ Import Namespace="RICH.Common" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -30,7 +31,7 @@
     <FRAME id="TopFrame" name="TopFrame" src="Default_Top.Aspx" noresize="yes" scrolling="no">
     <FRAMESET id="MainFrame" border="0" framespacing="0" frameborder="no" cols="200,*"  noresize="yes" scrolling="no">
 		<FRAME id="LeftFrame" name="LeftFrame" framespacing="0" src="Default_Left.Aspx" frameborder="0"  noresize="yes" scrolling="no">
-        <FRAME id="ContentFrame" name="ContentFrame" marginwidth="0" marginheight="0" src="<%=RICH.Common.ConstantsManager.DEFAULT_ADMINISTRATOR_INDEX%>" frameborder="0" scrolling="yes">
+        <FRAME id="ContentFrame" name="ContentFrame" marginwidth="0" marginheight="0" src="<%="{0}?lcode={1}".FormatInvariantCulture(RICH.Common.ConstantsManager.DEFAULT_ADMINISTRATOR_INDEX, Request.QueryString["lcode"])%>" frameborder="0" scrolling="yes">
     </FRAMESET>
 	<FRAME id="BottomFrame" name="BottomFrame" framespacing="0" frameborder="0" noresize="no" scrolling="no"  src="Default_Bottom.Aspx">
 </frameset>

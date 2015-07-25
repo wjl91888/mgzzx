@@ -78,6 +78,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.AddInParameter(cmdProc, "@LoginTimes", DbType.Int32);
             db.AddInParameter(cmdProc, "@UserStatus", DbType.String);
             db.AddInParameter(cmdProc, "@vcode", DbType.String);
+            db.AddInParameter(cmdProc, "@lcode", DbType.String);
             // 对存储过程参数赋值
 
             db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
@@ -102,6 +103,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.SetParameterValue(cmdProc, "@LoginTimes", AppData.LoginTimes);
             db.SetParameterValue(cmdProc, "@UserStatus", AppData.UserStatus);
             db.SetParameterValue(cmdProc, "@vcode", AppData.vcode);
+            db.SetParameterValue(cmdProc, "@lcode", AppData.lcode);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
         }
@@ -209,6 +211,10 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.AddInParameter(cmdProc, "@vcodeBatch", DbType.String);
             db.AddInParameter(cmdProc, "@vcodeValue", DbType.String);
                 
+            db.AddInParameter(cmdProc, "@lcode", DbType.String);
+            db.AddInParameter(cmdProc, "@lcodeBatch", DbType.String);
+            db.AddInParameter(cmdProc, "@lcodeValue", DbType.String);
+                
             // 设定存储过程输出参数
             db.AddOutParameter(cmdProc, "@RecordCount", DbType.Int32, 4);
             // 对存储过程参数赋值
@@ -302,6 +308,10 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.SetParameterValue(cmdProc, "@vcodeBatch", AppData.vcodeBatch);
             db.SetParameterValue(cmdProc, "@vcodeValue", AppData.vcodeValue);
                 
+            db.SetParameterValue(cmdProc, "@lcode", AppData.lcode);
+            db.SetParameterValue(cmdProc, "@lcodeBatch", AppData.lcodeBatch);
+            db.SetParameterValue(cmdProc, "@lcodeValue", AppData.lcodeValue);
+                
             // 执行存储过程
             AppData.ResultSet = (DataSet)db.ExecuteDataSet(cmdProc);
             // 得到更新的记录数
@@ -344,6 +354,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.AddInParameter(cmdProc, "@LoginTimes", DbType.Int32);
             db.AddInParameter(cmdProc, "@UserStatus", DbType.String);
             db.AddInParameter(cmdProc, "@vcode", DbType.String);
+            db.AddInParameter(cmdProc, "@lcode", DbType.String);
             // 对存储过程参数赋值
 
             db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
@@ -368,6 +379,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.SetParameterValue(cmdProc, "@LoginTimes", AppData.LoginTimes);
             db.SetParameterValue(cmdProc, "@UserStatus", AppData.UserStatus);
             db.SetParameterValue(cmdProc, "@vcode", AppData.vcode);
+            db.SetParameterValue(cmdProc, "@lcode", AppData.lcode);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
         }
@@ -408,6 +420,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.AddInParameter(cmdProc, "@LoginTimes", DbType.Int32);
             db.AddInParameter(cmdProc, "@UserStatus", DbType.String);
             db.AddInParameter(cmdProc, "@vcode", DbType.String);
+            db.AddInParameter(cmdProc, "@lcode", DbType.String);
             // 对存储过程参数赋值
 
             db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
@@ -432,6 +445,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.SetParameterValue(cmdProc, "@LoginTimes", AppData.LoginTimes);
             db.SetParameterValue(cmdProc, "@UserStatus", AppData.UserStatus);
             db.SetParameterValue(cmdProc, "@vcode", AppData.vcode);
+            db.SetParameterValue(cmdProc, "@lcode", AppData.lcode);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
         }
@@ -473,6 +487,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.AddInParameter(cmdProc, "@LoginTimes", DbType.Int32);
             db.AddInParameter(cmdProc, "@UserStatus", DbType.String);
             db.AddInParameter(cmdProc, "@vcode", DbType.String);
+            db.AddInParameter(cmdProc, "@lcode", DbType.String);
             // 对存储过程参数赋值
             db.SetParameterValue(cmdProc, "@ObjectIDBatch", AppData.ObjectIDBatch);
 
@@ -498,6 +513,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.SetParameterValue(cmdProc, "@LoginTimes", AppData.LoginTimes);
             db.SetParameterValue(cmdProc, "@UserStatus", AppData.UserStatus);
             db.SetParameterValue(cmdProc, "@vcode", AppData.vcode);
+            db.SetParameterValue(cmdProc, "@lcode", AppData.lcode);
             // 执行存储过程
             db.ExecuteNonQuery(cmdProc);
         }
@@ -677,6 +693,9 @@ namespace  RICH.Common.BM.T_PM_UserInfo
             db.AddInParameter(cmdProc, "@vcode", DbType.String);
             db.AddInParameter(cmdProc, "@vcodeBatch", DbType.String);
                 
+            db.AddInParameter(cmdProc, "@lcode", DbType.String);
+            db.AddInParameter(cmdProc, "@lcodeBatch", DbType.String);
+                
             // 一对一相关表
             
             // 设定存储过程输出参数
@@ -756,6 +775,9 @@ namespace  RICH.Common.BM.T_PM_UserInfo
                 
             db.SetParameterValue(cmdProc, "@vcode", AppData.vcode);
             db.SetParameterValue(cmdProc, "@vcodeBatch", AppData.vcodeBatch);
+                
+            db.SetParameterValue(cmdProc, "@lcode", AppData.lcode);
+            db.SetParameterValue(cmdProc, "@lcodeBatch", AppData.lcodeBatch);
                 
             // 一对一相关表
             
@@ -951,6 +973,7 @@ namespace  RICH.Common.BM.T_PM_UserInfo
                     db.AddInParameter(cmdProc, "@LoginTimes", DbType.Int32);
                     db.AddInParameter(cmdProc, "@UserStatus", DbType.String);
                     db.AddInParameter(cmdProc, "@vcode", DbType.String);
+                    db.AddInParameter(cmdProc, "@lcode", DbType.String);
                     // 设定存储过程输出参数
                     db.AddOutParameter(cmdProc, "@RecordCount", DbType.Int32, 4);
                 

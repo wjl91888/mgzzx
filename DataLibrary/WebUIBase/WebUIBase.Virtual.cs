@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.BM.FilterReport;
 using RICH.Common.BM.T_PM_UserInfo;
 using RICH.Common.LM;
+using RICH.Common;
 
 namespace RICH.Common.Base.WebUI
 {
-    public partial class WebUIBase
+    public partial class WebUIBase : System.Web.UI.Page
     {
         public virtual string CURRENT_PATH { get { return "/Administrator/A_BM"; } }
 
@@ -342,6 +344,19 @@ namespace RICH.Common.Base.WebUI
                 {
                     UserID = (string)Session[ConstantsManager.SESSION_USER_ID],
                 });
+                return true;
+            }
+            if (!string.IsNullOrWhiteSpace(Request.QueryString["lcode"]))
+            {
+                currentUserInfo = T_PM_UserInfoBusinessEntity.GetDataByKey(new T_PM_UserInfoApplicationData()
+                {
+                    UserID = (string)(new T_PM_UserInfoBusinessEntity()).GetValueByFixCondition("lcode", (string)Request.QueryString["lcode"], "UserID"),
+                });
+                Session[ConstantsManager.SESSION_USER_ID] = currentUserInfo.UserID;
+                Session[ConstantsManager.SESSION_USER_GROUP_ID] = currentUserInfo.UserGroupID;
+                Session[ConstantsManager.SESSION_USER_LOGIN_NAME] = currentUserInfo.UserLoginName;
+                Session[ConstantsManager.SESSION_SSDW_ID] = currentUserInfo.SubjectID;
+                Session[ConstantsManager.SESSION_USER_NICK_NAME] = currentUserInfo.UserNickName;
                 return true;
             }
             if (DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_USER_ID]) == false

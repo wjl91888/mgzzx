@@ -1101,3 +1101,53 @@ BEGIN
 END
 GO
 
+ IF (NOT EXISTS(SELECT 1 FROM [DB_MGZZX].[dbo].[T_PM_FieldInfo] WHERE [FieldName] = 'lcode' AND [TableName] = 'T_PM_UserInfo'))
+ BEGIN
+	 INSERT INTO [DB_MGZZX].[dbo].[T_PM_FieldInfo]
+			   ([ObjectID]
+			   ,[FieldName]
+			   ,[TableName]
+			   ,[PurviewTypeID]
+			   ,[FieldRemark]
+			   ,[IsUse]
+			   ,[IsAdd]
+			   ,[Nullable]
+			   ,[IsModify]
+			   ,[Modifiable]
+			   ,[IsList]
+			   ,[IsSearch]
+			   ,[IsDetail])
+		 VALUES
+			   (newid()
+			   ,'lcode'
+			   ,'T_PM_UserInfo'
+			   ,'USER'
+			   ,'µÇÂ¼Âë'
+			   ,1
+			   ,0
+			   ,1
+			   ,0
+			   ,1
+			   ,0
+			   ,0
+			   ,0
+			   )
+END
+ELSE
+BEGIN
+	UPDATE [DB_MGZZX].[dbo].[T_PM_FieldInfo]
+	   SET 
+		  [PurviewTypeID] = 'USER'
+		  ,[FieldRemark] = 'µÇÂ¼Âë'
+		  ,[IsUse] = 1
+		  ,[IsAdd] = 0
+		  ,[Nullable] = 1
+		  ,[IsModify] = 0
+		  ,[Modifiable] = 1
+		  ,[IsList] = 0
+		  ,[IsSearch] = 0
+		  ,[IsDetail] = 0
+	 WHERE [FieldName] = 'lcode' AND [TableName] = 'T_PM_UserInfo'
+END
+GO
+

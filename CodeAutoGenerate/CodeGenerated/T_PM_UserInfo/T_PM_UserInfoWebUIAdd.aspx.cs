@@ -110,6 +110,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                     LoginTimes.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["LoginTimes"]); 
                     UserStatus.SelectedValue = GetValue(appData.ResultSet.Tables[0].Rows[0]["UserStatus"]); 
                     vcode.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["vcode"]); 
+                    lcode.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["lcode"]); 
                     
             }
         }
@@ -1107,6 +1108,7 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
       LastLoginIP_Area.Visible = false;
       LastLoginDate_Area.Visible = false;
       LoginTimes_Area.Visible = false;
+      lcode_Area.Visible = false;
       
             }
             else if(AddMode || CopyMode)
@@ -1117,6 +1119,7 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
       LastLoginIP_Area.Visible = false;
       LastLoginDate_Area.Visible = false;
       LoginTimes_Area.Visible = false;
+      lcode_Area.Visible = false;
       
             }
             if(ImportDSMode)
@@ -1159,6 +1162,7 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
       UserStatus_Area.Visible = true;
       vcode_Area.Visible = false;
       vcode_Area.Visible = true;
+      lcode_Area.Visible = false;
       
             }
             if (ViewMode)
@@ -1185,6 +1189,8 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
       QQH.Enabled = false;
                 vcode.Enabled = false;
                 vcode_Area.Visible = false;
+      lcode.Enabled = false;
+                lcode_Area.Visible = false;
       LoginTime.Enabled = false;
                 LastLoginIP.Enabled = false;
                 LastLoginDate.Enabled = false;

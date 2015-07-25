@@ -154,6 +154,12 @@ namespace RICH.Common.BM.T_PM_UserInfo
         public String vcode { get; set; }
     
         /// <summary>
+        /// 登录码lcode
+        /// </summary>
+        /// <value>lcode</value>
+        public String lcode { get; set; }
+    
+        /// <summary>
         /// ObjectIDBatch
         /// </summary>
         /// <value>ObjectID</value>
@@ -286,6 +292,12 @@ namespace RICH.Common.BM.T_PM_UserInfo
         public String vcodeBatch { get; set; }
 
         /// <summary>
+        /// 登录码lcodeBatch
+        /// </summary>
+        /// <value>lcode</value>
+        public String lcodeBatch { get; set; }
+
+        /// <summary>
         /// 批量更新ObjectIDValue
         /// </summary>
         /// <value>ObjectIDValue</value>
@@ -416,6 +428,12 @@ namespace RICH.Common.BM.T_PM_UserInfo
         /// </summary>
         /// <value>vcodeValue</value>
         public String vcodeValue { get; set; }
+    
+        /// <summary>
+        /// 登录码批量更新lcodeValue
+        /// </summary>
+        /// <value>lcodeValue</value>
+        public String lcodeValue { get; set; }
         
         #endregion
         #region 一对一相关表
@@ -562,6 +580,7 @@ namespace RICH.Common.BM.T_PM_UserInfo
                               ,"LoginTimes"
                               ,"UserStatus"
                               ,"vcode"
+                              ,"lcode"
                                 };
 
         //=====================================================================
@@ -602,6 +621,7 @@ namespace RICH.Common.BM.T_PM_UserInfo
                               ,SqlDbType.DateTime
                               ,SqlDbType.Int
                               ,SqlDbType.NVarChar
+                              ,SqlDbType.UniqueIdentifier
                               ,SqlDbType.UniqueIdentifier
                                   };
 
@@ -652,6 +672,7 @@ namespace RICH.Common.BM.T_PM_UserInfo
                               ,"LastLoginDate"
                               ,"LoginTimes"
                               ,"vcode"
+                              ,"lcode"
                                 };
 
 
@@ -696,6 +717,7 @@ ObjectID = (dr.ReadGuidNullable("ObjectID") == null ? null : dr.ReadGuidNullable
     LoginTimes = dr.ReadInt32Nullable("LoginTimes"),
     UserStatus = dr.ReadString("UserStatus"),
     vcode = (dr.ReadGuidNullable("vcode") == null ? null : dr.ReadGuidNullable("vcode").ToString()),
+    lcode = (dr.ReadGuidNullable("lcode") == null ? null : dr.ReadGuidNullable("lcode").ToString()),
     
                 };
                 collection.Add(applicationData);
@@ -735,6 +757,7 @@ ObjectID = (reader.ReadGuidNullable(fromImportDataSet ? "ObjectID" : "ObjectID")
     LoginTimes = reader.ReadInt32Nullable(fromImportDataSet ? "LoginTimes" : "LoginTimes"),
     UserStatus = reader.ReadString("UserStatus"),
     vcode = (reader.ReadGuidNullable(fromImportDataSet ? "vcode" : "vcode") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "vcode" : "vcode").ToString()),
+    lcode = (reader.ReadGuidNullable(fromImportDataSet ? "lcode" : "lcode") == null ? null : reader.ReadGuidNullable(fromImportDataSet ? "lcode" : "lcode").ToString()),
     
                 };
             }
