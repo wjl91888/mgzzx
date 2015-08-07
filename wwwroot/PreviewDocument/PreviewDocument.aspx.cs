@@ -66,6 +66,10 @@ public partial class PreviewDocument : System.Web.UI.Page
         var filefullname = Server.MapPath(fileUrl);
         if (File.Exists(filefullname))
         {
+            if (this.IsMobileDevice())
+            {
+                Response.Redirect(fileUrl);
+            }
             string filetype = Path.GetExtension(filefullname).ToLower();
             switch (filetype)
             {

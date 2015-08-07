@@ -9,6 +9,7 @@ using RICH.Common;
 using RICH.Common.BM.T_PM_PurviewInfo;
 using RICH.Common.BM.T_PM_UserInfo;
 using RICH.Common.PM;
+using Telerik.Web.UI;
 
 namespace RICH.Common.Base.WebUI
 {
@@ -198,6 +199,38 @@ namespace RICH.Common.Base.WebUI
             }
         }
 
+        public virtual Control MainContainerPlaceHolder
+        {
+            get
+            {
+                if (BaseMaster != null)
+                {
+                    return BaseMaster.FindControl("MainContainerPlaceHolder") as Control;
+                }
+                return null;
+            }
+        }
+
+        public virtual Control NavContainerPlaceHolder
+        {
+            get
+            {
+                if (BaseMaster != null)
+                {
+                    return BaseMaster.FindControl("NavContainerPlaceHolder") as Control;
+                }
+                return null;
+            }
+        }
+
+        public virtual RadAjaxManager CurrentAjaxManager
+        {
+            get
+            {
+                return RadAjaxManager.GetCurrent(this.Page);
+            }
+        }
+
         public string DomainUrl
         {
             get
@@ -212,6 +245,22 @@ namespace RICH.Common.Base.WebUI
             get
             {
                 return Path.GetFileName(Request.PhysicalPath);
+            }
+        }
+
+        public string CurrentUrl
+        {
+            get
+            {
+                return Request.Url.AbsoluteUri;
+            }
+        }
+
+        public string CurrentUrlWithoutQueryString
+        {
+            get
+            {
+                return "{0}://{1}{2}".FormatInvariantCulture(Request.Url.Scheme, Request.Url.Authority, Request.Url.AbsolutePath); 
             }
         }
 

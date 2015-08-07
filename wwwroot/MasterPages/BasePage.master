@@ -15,9 +15,8 @@
     <link href="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css" rel="stylesheet" />
     <script type="text/javascript" src="/App_Themes/Themes/JavaScript/jQuery/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js"
-        charset="gb2312"></script>
-    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/CommonNew.js"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js" charset="gb2312"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/CommonNew.js" charset="gb2312"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             if (isMobile.any()) {

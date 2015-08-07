@@ -25,7 +25,7 @@
                     <li class="button"><a href="../../PreviewDocument/PreviewDocument.aspx?file=<%# HttpUtility.UrlEncode((string)Container.DataItem)%>" target="_blank">预览</a> </li>
                     <li class="button">
                         <asp:LinkButton ID="Remove" runat="server" CommandName="REMOVE" CommandArgument="<%# Container.DataItem%>"
-                            OnClientClick="return confirm('您确定要删除此条数据吗？');">删除</asp:LinkButton>
+                            OnClientClick="return confirm('您确定要删除此条数据吗？');" Visible='<%# !ReadOnly%>'>删除</asp:LinkButton>
                     </li>
                 </ul>
             </ItemTemplate>
@@ -38,7 +38,7 @@
                     <li class="button"><a href="/PreviewDocument/PreviewDocument.aspx?file=<%# HttpUtility.UrlEncode((string)Container.DataItem)%>" target="_blank">预览</a> </li>
                     <li class="button">
                         <asp:LinkButton ID="Remove" runat="server" CommandName="REMOVE" CommandArgument="<%# Container.DataItem%>"
-                            OnClientClick="return confirm('您确定要删除此条数据吗？');">删除</asp:LinkButton>
+                            OnClientClick="return confirm('您确定要删除此条数据吗？');" Visible='<%# !ReadOnly%>'>删除</asp:LinkButton>
                     </li>
                 </ul>
             </AlternatingItemTemplate>
@@ -47,7 +47,7 @@
     <div class="clearboth"></div>
     <div class="uploadcontrol">
         <telerik:RadAsyncUpload ID="RadAsyncUploadControl" runat="server" MultipleFileSelection="Automatic"
-            AutoAddFileInputs="true">
+            AutoAddFileInputs="true" Visible='<%# !ReadOnly%>'>
         </telerik:RadAsyncUpload>
     </div>
 </div>

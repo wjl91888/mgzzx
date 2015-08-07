@@ -9,6 +9,7 @@ using RICH.Common.BM.FilterReport;
 using RICH.Common.BM.T_PM_UserInfo;
 using RICH.Common.LM;
 using RICH.Common;
+using Telerik.Web.UI;
 
 namespace RICH.Common.Base.WebUI
 {
@@ -431,17 +432,18 @@ namespace RICH.Common.Base.WebUI
 
         protected virtual void InitPageInfo()
         {
-            if (MainContentPlaceHolder != null)
+            if (MainContentPlaceHolder != null || NavContainerPlaceHolder != null)
             {
-                var btnFirstPage = MainContentPlaceHolder.FindControl("btnFirstPage") as Button;
-                var btnPrePage = MainContentPlaceHolder.FindControl("btnPrePage") as Button;
-                var btnNextPage = MainContentPlaceHolder.FindControl("btnNextPage") as Button;
-                var btnLastPage = MainContentPlaceHolder.FindControl("btnLastPage") as Button;
-                var ddlPageCount = MainContentPlaceHolder.FindControl("ddlPageCount") as DropDownList;
-                var ddlPageSize = MainContentPlaceHolder.FindControl("ddlPageSize") as DropDownList;
-                var lblPageInfo = MainContentPlaceHolder.FindControl("lblPageInfo") as Label;
-                if (btnFirstPage != null && btnPrePage != null && btnNextPage != null && btnLastPage != null
-                    && ddlPageCount != null && ddlPageSize != null && lblPageInfo != null)
+                var container = MainContentPlaceHolder ?? NavContainerPlaceHolder;
+                var btnFirstPage = container.FindControl("btnFirstPage") as Button;
+                var btnPrePage = container.FindControl("btnPrePage") as Button;
+                var btnNextPage = container.FindControl("btnNextPage") as Button;
+                var btnLastPage = container.FindControl("btnLastPage") as Button;
+                var ddlPageCount = container.FindControl("ddlPageCount") as DropDownList;
+                var ddlPageSize = container.FindControl("ddlPageSize") as DropDownList;
+                var lblPageInfo = container.FindControl("lblPageInfo") as Label;
+                var rcbPageCount = container.FindControl("ddlPageCount") as RadComboBox;
+                if (btnFirstPage != null && btnPrePage != null && btnNextPage != null && btnLastPage != null)
                 {
                     if ((int)ViewState["PageCount"] == 1 || (int)ViewState["PageCount"] == 0 || (int)ViewState["CurrentPage"] == 0)
                     {
@@ -472,20 +474,44 @@ namespace RICH.Common.Base.WebUI
                     {
                         btnFirstPage.Enabled = btnPrePage.Enabled = btnNextPage.Enabled = btnLastPage.Enabled = true;
                     }
-                    ddlPageCount.Items.Clear();
-                    for (int i = 1; i <= ((int)ViewState["PageCount"] <= 100 ? (int)ViewState["PageCount"] : 100); i++)
+                    if (ddlPageCount != null && ddlPageSize != null && lblPageInfo != null)
                     {
-                        ddlPageCount.Items.Add(new ListItem("第" + i.ToString() + "页", i.ToString()));
+                        ddlPageCount.Items.Clear();
+                        for (int i = 1; i <= ((int)ViewState["PageCount"] <= 100 ? (int)ViewState["PageCount"] : 100); i++)
+                        {
+                            ddlPageCount.Items.Add(new ListItem("第" + i.ToString() + "页", i.ToString()));
+                        }
+                        ddlPageSize.Items.Clear();
+                        for (int i = 50; i <= 500; i = i + 50)
+                        {
+                            ddlPageSize.Items.Add(new ListItem(i.ToString() + "/页", i.ToString()));
+                        }
+                        ddlPageCount.SelectedValue = ViewState["CurrentPage"].ToString();
+                        ddlPageSize.SelectedValue = ViewState["PageSize"].ToString();
+                        lblPageInfo.Text =
+                            "共<b>{0}</b>页<b><span id=recordcount>{1}</span></b>条记录。".FormatInvariantCulture(
+                                ViewState["PageCount"], ViewState["RecordCount"]);
                     }
-                    ddlPageSize.Items.Clear();
-                    for (int i = 50; i <= 500; i = i + 50)
+                    else if (ddlPageCount != null)
                     {
-                        ddlPageSize.Items.Add(new ListItem(i.ToString() + "/页", i.ToString()));
+                        ddlPageCount.Items.Clear();
+                        for (int i = 1; i <= ((int)ViewState["PageCount"] <= 100 ? (int)ViewState["PageCount"] : 100); i++)
+                        {
+                            ddlPageCount.Items.Add(new ListItem("{0}/{1},{2}条".FormatInvariantCulture(
+                                i, ViewState["PageCount"], ViewState["RecordCount"]), i.ToString()));
+                        }
+                        ddlPageCount.SelectedValue = ViewState["CurrentPage"].ToString();
                     }
-                    ddlPageCount.SelectedValue = ViewState["CurrentPage"].ToString();
-                    ddlPageSize.SelectedValue = ViewState["PageSize"].ToString();
-                    lblPageInfo.Text = "共<b>{0}</b>页<b><span id=recordcount>{1}</span></b>条记录。";
-                    lblPageInfo.Text = string.Format(lblPageInfo.Text, ViewState["PageCount"], ViewState["RecordCount"]);
+                    else if (rcbPageCount != null)
+                    {
+                        rcbPageCount.Items.Clear();
+                        for (int i = 1; i <= ((int)ViewState["PageCount"] <= 100 ? (int)ViewState["PageCount"] : 100); i++)
+                        {
+                            rcbPageCount.Items.Add(new RadComboBoxItem("{0}/{1}页,共{2}条".FormatInvariantCulture(
+                                i, ViewState["PageCount"], ViewState["RecordCount"]), i.ToString()));
+                        }
+                        rcbPageCount.SelectedValue = ViewState["CurrentPage"].ToString();
+                    }
                 }
             }
         }

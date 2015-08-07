@@ -26,11 +26,9 @@
         }
         else
         {
-            string error = "发生系统异常页: " + Request.Url.ToString() + "<br>";
-            error += "系统异常信息: " + objErr.Message + "<br>";
-            error += "发生时间: " + DateTime.Now.ToString() + "<br>";
-            error += "发生IP: " + Request.ServerVariables["REMOTE_ADDR"] + "<br>";
-            Server.ClearError();
+            string error = "Message: " + objErr.Message + "\r\n";
+            error += "StackTrace: " + objErr.StackTrace;
+            //Server.ClearError();
             //记录日志开始
             string strLogTypeID = "SYSTEM_ERROR ";
             string strLogContent = error;

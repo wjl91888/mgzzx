@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using RICH.Common.BM.FilterReport;
 using RICH.Common.BM.T_PM_UserInfo;
 using RICH.Common.LM;
+using Telerik.Web.UI;
 
 namespace RICH.Common.Base.WebUI
 {
@@ -221,16 +222,25 @@ namespace RICH.Common.Base.WebUI
 
         protected void ddlPageCount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList ddlTemp = new DropDownList();
-            ddlTemp = (DropDownList)sender;
-            ViewState["CurrentPage"] = int.Parse(ddlTemp.SelectedValue);
+            var ddlTemp = sender as DropDownList;
+            if (ddlTemp == null)
+            {
+                var rcbTemp = sender as RadComboBox;
+                if (rcbTemp != null)
+                {
+                    ViewState["CurrentPage"] = int.Parse(rcbTemp.SelectedValue);
+                }
+            }
+            else
+            {
+                ViewState["CurrentPage"] = int.Parse(ddlTemp.SelectedValue);
+            }
             Initalize();
         }
 
         protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList ddlTemp = new DropDownList();
-            ddlTemp = (DropDownList)sender;
+            var ddlTemp = (DropDownList)sender;
             ViewState["PageSize"] = int.Parse(ddlTemp.SelectedValue);
             ViewState["CurrentPage"] = 1;
             Initalize();
