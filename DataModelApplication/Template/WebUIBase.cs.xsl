@@ -46,35 +46,14 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         #endregion
 
         #region 变量定义
-        /// <summary>
-        /// 数据实体对象
-        /// </summary>
         protected <xsl:value-of select="/NewDataSet/TableName"/>ApplicationData appData;
-        /// <summary>
-        /// 消息信息
-        /// </summary>
         protected string strMessageInfo = string.Empty;
-        /// <summary>
-        /// 消息参数
-        /// </summary>
         protected string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-        /// <summary>
-        /// AJAX操作返回值
-        /// </summary>
         protected string strAJAXReturnValue = string.Empty;
-        /// <summary>
-        /// 弹出消息信息
-        /// </summary>
         protected string strPopupMessageInfo = string.Empty;
         #endregion
 
         #region 数据操作方法
-        //=====================================================================
-        //  FunctionName : AddRecord
-        /// <summary>
-        /// 添加记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void AddRecord()
         {
             if (GetAddInputParameter())
@@ -100,12 +79,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             }
         }
 
-        //=====================================================================
-        //  FunctionName : ModifyRecord
-        /// <summary>
-        /// 修改记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyRecord()
         {
             if (GetModifyInputParameter())
@@ -123,12 +96,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             }
         }
 
-        //=====================================================================
-        //  FunctionName : QueryRecord
-        /// <summary>
-        /// 查询记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void QueryRecord()
         {
             if (GetQueryInputParameter())
@@ -145,12 +112,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             }
         }
 
-        //=====================================================================
-        //  FunctionName : DeleteRecord
-        /// <summary>
-        /// 删除记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void DeleteRecord()
         {
             if (GetDeleteInputParameter())
@@ -169,12 +130,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             }
         }
 
-        //=====================================================================
-        //  FunctionName : CountRecord
-        /// <summary>
-        /// 统计记录数操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountRecord()
         {
             if (GetCountInputParameter())
@@ -191,12 +146,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetCountInputParameter
-        /// <summary>
-        /// 得到统计记录数用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
         protected virtual Boolean GetCountInputParameter()
         {
             Boolean boolReturn = true;
@@ -350,12 +299,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         #endregion
 
         #region 页面控件相关方法
-        //=====================================================================
-        //  FunctionName : btnAddConfirm_Click
-        /// <summary>
-        /// 确认添加按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnAddConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -364,12 +307,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             AddRecord();
         }
         
-        //=====================================================================
-        //  FunctionName : btnModifyConfirm_Click
-        /// <summary>
-        /// 确认修改按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnModifyConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -379,12 +316,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             ModifyRecord();
         }
 
-        //=====================================================================
-        //  FunctionName : btnOperate_Click
-        /// <summary>
-        /// 操作选中记录控件Click事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnOperate_Click(object sender, EventArgs e)
         {
             switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
@@ -405,12 +336,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         #region 取得数据源
 <xsl:for-each select="/NewDataSet/RecordInfo">
     <xsl:if test="IsDataBind = 'true'">
-        //=====================================================================
-        //  FunctionName : GetTree_<xsl:value-of select="FieldName"/>
-        /// <summary>
-        /// 根据指定条件取得<xsl:value-of select="FieldRemark"/>(<xsl:value-of select="FieldName"/>)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_<xsl:value-of select="FieldName"/>(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -505,12 +430,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_<xsl:value-of select="FieldName"/>
-        /// <summary>
-        /// 取得<xsl:value-of select="FieldRemark"/>(<xsl:value-of select="FieldName"/>)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_<xsl:value-of select="FieldName"/>(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -521,12 +440,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_<xsl:value-of select="FieldName"/>_AdvanceSearch
-        /// <summary>
-        /// 取得<xsl:value-of select="FieldRemark"/>(<xsl:value-of select="FieldName"/>)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_<xsl:value-of select="FieldName"/>_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -537,13 +450,18 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return dsReturn;
         }
 
+        protected virtual List<![CDATA[<Triples<string, string, string>>]]> GetList_<xsl:value-of select="FieldName"/>_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("<xsl:value-of select="DataBindTableName"/>");
+            dsReturn.Tables["<xsl:value-of select="DataBindTableName"/>"].Columns.Add("<xsl:value-of select="DataBindValueField"/>");
+            dsReturn.Tables["<xsl:value-of select="DataBindTableName"/>"].Columns.Add("<xsl:value-of select="DataBindTextField"/>");
+            GetTree_<xsl:value-of select="FieldName"/>("<xsl:value-of select="DataBindCondition"/>", "<xsl:value-of select="DataBindConditionValue"/>", true, "<xsl:value-of select="TreeParentNode"/>", <xsl:value-of select="TreeParentNodeValue"/>, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new <![CDATA[<Triples<string, string, string>>]]>(GetValue(dr["<xsl:value-of select="DataBindValueField"/>"]), GetValue(dr["<xsl:value-of select="DataBindTextField"/>"]), "<xsl:value-of select="FieldName"/>")).ToList();
+        }
+
         <xsl:if test="IsSubItemSearch = 'true'">
-        //=====================================================================
-        //  FunctionName : GetSubItem_<xsl:value-of select="FieldName"/>
-        /// <summary>
-        /// 取得<xsl:value-of select="FieldRemark"/>(<xsl:value-of select="FieldName"/>)指定条件的子项目信息
-        /// </summary>
-        //=====================================================================
         protected virtual String GetSubItem_<xsl:value-of select="FieldName"/>(String str<xsl:value-of select="TreeParentNode"/>, bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             System.Text.StringBuilder sbReturn = new System.Text.StringBuilder(string.Empty);
@@ -565,12 +483,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         }
         </xsl:if>
         <xsl:if test="IsCoupledNext = 'true'">
-        //=====================================================================
-        //  FunctionName : GetDataSource_<xsl:value-of select="FieldName"/>
-        /// <summary>
-        /// 取得指定条件的<xsl:value-of select="FieldRemark"/>(<xsl:value-of select="FieldName"/>)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_<xsl:value-of select="FieldName"/>(string strFieldName, string strFieldValue, bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -587,12 +499,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
 <xsl:for-each select="/NewDataSet/CustomDisplayFieldConfig">
     <xsl:if test="IsAdvanceSearch = 'true'">
         <xsl:if test="IsBindData = 'true'">
-        //=====================================================================
-        //  FunctionName : GetTree_<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>
-        /// <summary>
-        /// 根据指定条件取得<xsl:value-of select="DisplayName"/>(<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel
@@ -672,12 +578,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>
-        /// <summary>
-        /// 取得<xsl:value-of select="DisplayName"/>(<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>()
         {
             DataSet dsReturn = new DataSet();
@@ -688,13 +588,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return dsReturn;
         }
 
-
-        //=====================================================================
-        //  FunctionName : GetDataSource_<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>_AdvanceSearch
-        /// <summary>
-        /// 取得<xsl:value-of select="DisplayName"/>(<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>_AdvanceSearch()
         {
             DataSet dsReturn = new DataSet();
@@ -705,12 +598,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return dsReturn;
         }
             <xsl:if test="IsSubItemSearch = 'true'">
-        //=====================================================================
-        //  FunctionName : GetSubItem_<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>
-        /// <summary>
-        /// 取得<xsl:value-of select="DisplayName"/>(<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>)指定条件的子项目信息
-        /// </summary>
-        //=====================================================================
         protected virtual String GetSubItem_<xsl:value-of select="TableWithField"/>_<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="DisplayFieldName"/>(String str<xsl:value-of select="TreeParentNode"/>)
         {
             System.Text.StringBuilder sbReturn = new System.Text.StringBuilder(string.Empty);
@@ -737,12 +624,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         #endregion
 
         #region 修改任意字段
-        //=====================================================================
-        //  FunctionName : ModifyAnyField
-        /// <summary>
-        /// 修改一个字段的值
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyAnyField()
         {
             <xsl:value-of select="/NewDataSet/TableName"/>ApplicationLogic instance<xsl:value-of select="/NewDataSet/TableName"/>ApplicationLogic
@@ -752,12 +633,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         #endregion
 
         #region 统计任意字段
-        //=====================================================================
-        //  FunctionName : CountAnyField
-        /// <summary>
-        /// 统计操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountAnyField()
         {
             <xsl:value-of select="/NewDataSet/TableName"/>ApplicationLogic instance<xsl:value-of select="/NewDataSet/TableName"/>ApplicationLogic
@@ -767,12 +642,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         #endregion
 
         #region AJAX相关方法
-        //=====================================================================
-        //  FunctionName : AJAX_QuerySingle
-        /// <summary>
-        /// AJAX调用的读取指定记录指定字段的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QuerySingle(string strFieldName, string strFieldValue, string strReturnFieldName)
         {
             string strReturn = string.Empty;
@@ -818,12 +687,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_QueryDataSet
-        /// <summary>
-        /// AJAX调用的读取记录集的XML代码的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QueryDataSet(string strFieldName, string strFieldValue)
         {
             string strReturn = string.Empty;
@@ -869,12 +732,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Modify
-        /// <summary>
-        /// AJAX调用的更新方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Modify(string strFieldName, string strFieldValue, string strObjectID)
         {
             bool boolReturn = false;
@@ -926,12 +783,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Delete
-        /// <summary>
-        /// AJAX调用的删除方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Delete(string strObjectID)
         {
             bool boolReturn = false;
@@ -967,12 +818,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_IsExist
-        /// <summary>
-        /// AJAX调用的存在方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_IsExist(string strFieldName, string strFieldValue)
         {
             bool boolReturn = false;
@@ -1022,13 +867,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return boolReturn;
         }
 
-        
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override void RaiseCallbackEvent(string eventArgument)
         {
             try
@@ -1099,12 +937,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             }
         }
 
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override string GetCallbackResult()
         {
             return strAJAXReturnValue;
@@ -1113,12 +945,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
 
         #region 验证数据
 <xsl:for-each select="/NewDataSet/RecordInfo">
-        //=====================================================================
-        //  FunctionName : Validate<xsl:value-of select="FieldName"/>
-        /// <summary>
-        /// <xsl:value-of select="FieldRemark"/>数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData Validate<xsl:value-of select="FieldName"/>(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1189,12 +1015,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         }
     <xsl:choose>
         <xsl:when test="IsBatchSearch = 'true'">
-        //=====================================================================
-        //  FunctionName : Validate<xsl:value-of select="FieldName"/>Batch
-        /// <summary>
-        /// <xsl:value-of select="FieldRemark"/>Batch数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData Validate<xsl:value-of select="FieldName"/>Batch(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1233,12 +1053,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         }
         </xsl:when>
         <xsl:when test="IsMoreItemSearch = 'true'">
-        //=====================================================================
-        //  FunctionName : Validate<xsl:value-of select="FieldName"/>Batch
-        /// <summary>
-        /// <xsl:value-of select="FieldRemark"/>Batch数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData Validate<xsl:value-of select="FieldName"/>Batch(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1277,12 +1091,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         }
         </xsl:when>
         <xsl:when test="IsRangeSearch = 'true'">
-        //=====================================================================
-        //  FunctionName : Validate<xsl:value-of select="FieldName"/>
-        /// <summary>
-        /// <xsl:value-of select="FieldRemark"/>Begin数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData Validate<xsl:value-of select="FieldName"/>Begin(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1352,12 +1160,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             return validateData;
         }
 
-        //=====================================================================
-        //  FunctionName : Validate<xsl:value-of select="FieldName"/>
-        /// <summary>
-        /// <xsl:value-of select="FieldRemark"/>End数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData Validate<xsl:value-of select="FieldName"/>End(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1437,12 +1239,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
 <xsl:for-each select="/NewDataSet/CustomRelatedTableConfig">
     <xsl:sort data-type="number" order="ascending" select="SerialNumber"/>    
     <xsl:if test="RelatedTableType = '1_to_n'">
-        //=====================================================================
-        //  FunctionName : Get<xsl:value-of select="RelatedTableName"/>
-        /// <summary>
-        /// 获得<xsl:value-of select="RelatedInfoName"/>(<xsl:value-of select="RelatedTableName"/>)
-        /// </summary>
-        //=====================================================================
         protected DataSet Get<xsl:value-of select="RelatedTableName"/>(object obj<xsl:value-of select="TableWithField"/>)
         {
             RICH.Common.BM.<xsl:value-of select="RelatedTableName"/>.<xsl:value-of select="RelatedTableName"/>ApplicationLogic instance<xsl:value-of select="RelatedTableName"/>ApplicationLogic
@@ -1465,12 +1261,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
     <xsl:sort data-type="number" order="ascending" select="SerialNumber"/>    
     <xsl:if test="IsAddBatch = 'true'">
         <xsl:if test="IsAddBatchTemplate = 'true'">
-        //=====================================================================
-        //  FunctionName : Get<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="AddBatchTemplateTableName"/>
-        /// <summary>
-        /// 获得<xsl:value-of select="RelatedInfoName"/>批量添加模板(<xsl:value-of select="AddBatchTemplateTableName"/>)
-        /// </summary>
-        //=====================================================================
         protected DataSet Get<xsl:value-of select="RelatedTableName"/>_<xsl:value-of select="AddBatchTemplateTableName"/>(object obj<xsl:value-of select="TemplateMainField"/>)
         {
             RICH.Common.BM.<xsl:value-of select="AddBatchTemplateTableName"/>.<xsl:value-of select="AddBatchTemplateTableName"/>ApplicationLogic <xsl:value-of select="AddBatchTemplateTableName"/>ApplicationLogic
@@ -1490,23 +1280,11 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
         #endregion    
 
         #region 相关表批量操作
-        //=====================================================================
-        //  FunctionName : RelatedTableAddBatch()
-        /// <summary>
-        /// 相关表批量添加
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableAddBatch()
         {
 
         }
         
-        //=====================================================================
-        //  FunctionName : RelatedTableModifyBatch()
-        /// <summary>
-        /// 相关表批量修改
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableModifyBatch()
         {
 
@@ -1517,12 +1295,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
     <xsl:sort data-type="number" order="ascending" select="SerialNumber"/>    
     <xsl:if test="IsAddBatch = 'true'">
         <xsl:if test="IsAddBatchTemplate = 'true'">
-        //=====================================================================
-        //  FunctionName : <xsl:value-of select="RelatedTableName"/>AddBatch()
-        /// <summary>
-        /// <xsl:value-of select="RelatedInfoName"/>批量添加
-        /// </summary>
-        //=====================================================================
         protected void <xsl:value-of select="RelatedTableName"/>AddBatch(GridView gvAddBatch)
         {
             // 保存相关表<xsl:value-of select="RelatedInfoName"/>
@@ -1552,12 +1324,6 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
     <xsl:sort data-type="number" order="ascending" select="SerialNumber"/>    
     <xsl:if test="IsAddBatch = 'true'">
         <xsl:if test="IsAddBatchTemplate = 'true'">
-        //=====================================================================
-        //  FunctionName : <xsl:value-of select="RelatedTableName"/>ModifyBatch()
-        /// <summary>
-        /// <xsl:value-of select="RelatedInfoName"/>批量修改
-        /// </summary>
-        //=====================================================================
         protected void <xsl:value-of select="RelatedTableName"/>ModifyBatch(GridView gvModifyBatch)
         {
             // 保存相关表<xsl:value-of select="RelatedInfoName"/>

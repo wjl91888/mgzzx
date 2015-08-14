@@ -9,7 +9,7 @@
                 <ul class="dropdown-menu">
                     <asp:Repeater ID="SubNavList" runat="server" DataSource='<%# GetSubMenu((string)DataBinder.Eval(Container.DataItem, "UserGroupID"), (string)DataBinder.Eval(Container.DataItem, "PurviewID")) %>'>
                         <ItemTemplate>
-                            <li><a href="<%# "{0}/{1}".FormatInvariantCulture(((string)DataBinder.Eval(Container.DataItem, "PageFilePath")).Replace("Administrator", this.Page.IsMobileDevice()?"App":"Administrator" ), DataBinder.Eval(Container.DataItem, "PageFileName"))%>">
+                            <li><a href="<%# GetAppUrl((string)DataBinder.Eval(Container.DataItem, "PageFilePath"), (string)DataBinder.Eval(Container.DataItem, "PageFileName"))%>">
                                 <%# DataBinder.Eval(Container.DataItem, "PurviewName")%></a></li></ItemTemplate>
                     </asp:Repeater>
                 </ul>

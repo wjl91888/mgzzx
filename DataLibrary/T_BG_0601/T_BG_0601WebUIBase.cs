@@ -2,13 +2,16 @@
 FileName:T_BG_0601WebUIBase.cs
 ******************************************************/
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
 
 namespace RICH.Common.BM.T_BG_0601
 {
@@ -442,6 +445,16 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_FBLM_AdvanceSearch()
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_BG_0602");
+            dsReturn.Tables["T_BG_0602"].Columns.Add("LMH");
+            dsReturn.Tables["T_BG_0602"].Columns.Add("LMM");
+            GetTree_FBLM("null", "null", true, "SJLMH", null, ref dsReturn, 0, true, false);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["LMH"]), GetValue(dr["LMM"]), "FBLM")).ToList();
+        }
         
         //=====================================================================
         //  FunctionName : GetSubItem_FBLM
@@ -587,6 +600,17 @@ namespace RICH.Common.BM.T_BG_0601
             dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWMC");
             GetTree_FBBM("null", "null", true, "SJDWBH", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return dsReturn;
+        }
+
+        protected virtual List<Triples<string, string, string>> GetList_FBBM_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_BM_DWXX");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWBH");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWMC");
+            GetTree_FBBM("null", "null", true, "SJDWBH", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DWBH"]), GetValue(dr["DWMC"]), "FBBM")).ToList();
         }
 
         

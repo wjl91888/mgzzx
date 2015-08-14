@@ -1,5 +1,6 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeFile="AppBasePage111.master.cs" Inherits="MasterPages_AppBasePage111" %>
 
+<%@ Register TagPrefix="control" TagName="Nav" Src="~/Control/CommonNavControl.ascx" %>
 <%@ Register Assembly="CustomWebControls" Namespace="CustomWebControls" TagPrefix="RICH" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <!DOCTYPE html>
@@ -11,18 +12,22 @@
     </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <link href="/App_Themes/Themes/Css/mainstyle.css" rel="stylesheet" />
     <link href="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css" rel="stylesheet" />
     <!--[if lte IE 8]><link rel="stylesheet" href="/responsive-nav/responsive-nav.css" /><![endif]-->
     <!--[if gt IE 8]><!-->
     <link rel="stylesheet" href="/responsive-nav/demos/advanced-left-navigation/styles.css" />
     <!--<![endif]-->
+    <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="/App_Themes/Themes/JavaScript/jQuery/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js"></script>
+    <script src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/Common.js"
         charset="gb2312"></script>
     <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/CommonNew.js"></script>
     <script src="/responsive-nav/responsive-nav.js"></script>
+    <script type="text/javascript" src="/App_Themes/Themes/JavaScript/Common/appcommon.js"
+        charset="gb2312"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             if (isMobile.any()) {
@@ -70,9 +75,15 @@
     </div>
     <div role="main" class="main">
         <a href="#nav" class="nav-toggle">Menu</a>
-        <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+        <div class="container" style="margin-top: 40px; margin-bottom: 90px;">
+        <asp:ContentPlaceHolder ID="MainContainerPlaceHolder" runat="server">
         </asp:ContentPlaceHolder>
-        <a class="fancyboxlink" style="display: none;"></a>
+        </div>
+        <nav class="navbar-fixed-bottom">
+            <asp:ContentPlaceHolder ID="NavContainerPlaceHolder" runat="server">
+            <control:Nav ID="NavList" runat="server"></control:Nav>
+            </asp:ContentPlaceHolder>
+        </nav>
     </div>
     <script>
         var navigation = responsiveNav("foo", { customToggle: ".nav-toggle" });

@@ -12,7 +12,6 @@ public partial class AppBasePage_BasePage : System.Web.UI.MasterPage
     {
         if (!IsPostBack)
         {
-            NavContainerPlaceHolder.DataBind();
         }
     }
 }

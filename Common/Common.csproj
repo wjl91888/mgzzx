@@ -122,6 +122,7 @@
     <Compile Include="DB\DataTableExtension.cs" />
     <Compile Include="Extension\ArrayListExtensions.cs" />
     <Compile Include="Utilities\Base64.cs" />
+    <Compile Include="Utilities\Triples.cs" />
     <Compile Include="Utilities\PreviewDocumetHelper.cs" />
     <Compile Include="SystemNotification.cs" />
     <Compile Include="Mail.cs" />

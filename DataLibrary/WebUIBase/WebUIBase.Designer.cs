@@ -211,13 +211,13 @@ namespace RICH.Common.Base.WebUI
             }
         }
 
-        public virtual Control NavContainerPlaceHolder
+        public virtual Control PageNavContainerPlaceHolder
         {
             get
             {
                 if (BaseMaster != null)
                 {
-                    return BaseMaster.FindControl("NavContainerPlaceHolder") as Control;
+                    return BaseMaster.FindControl("PageNavContainerPlaceHolder") as Control;
                 }
                 return null;
             }

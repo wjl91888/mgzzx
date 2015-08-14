@@ -256,13 +256,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\website_org\Common\Common.csproj">
-      <Project>{3F0F291E-6FF0-4580-ADD4-63A107C34FF4}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\website_org\DataLibraryBase\DataLibraryBase.csproj">
       <Project>{53705C01-D554-4539-8B0A-7101BAACB6B3}</Project>
       <Name>DataLibraryBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{3F0F291E-6FF0-4580-ADD4-63A107C34FF4}</Project>
+      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

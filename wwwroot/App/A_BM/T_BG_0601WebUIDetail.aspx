@@ -8,6 +8,8 @@
     公共信息详情</asp:Content>
 <asp:Content ID="ContentHeader" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
 </asp:Content>
+<asp:Content ID="TopNavContainer" ContentPlaceHolderID="TopNavContainerPlaceHolder" runat="server">
+</asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="MainContainerPlaceHolder" runat="server">
 <div id="AppDetailPage">
     <asp:Repeater ID="rptDetail" runat="server">
@@ -68,7 +70,5 @@
         </ItemTemplate>
     </asp:Repeater>
 </div>
-</asp:Content>
-<asp:Content ID="NavContainer" ContentPlaceHolderID="NavContainerPlaceHolder" runat="server">
 </asp:Content>
 

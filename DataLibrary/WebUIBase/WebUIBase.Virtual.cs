@@ -432,9 +432,9 @@ namespace RICH.Common.Base.WebUI
 
         protected virtual void InitPageInfo()
         {
-            if (MainContentPlaceHolder != null || NavContainerPlaceHolder != null)
+            if (MainContentPlaceHolder != null || PageNavContainerPlaceHolder != null)
             {
-                var container = MainContentPlaceHolder ?? NavContainerPlaceHolder;
+                var container = MainContentPlaceHolder ?? PageNavContainerPlaceHolder;
                 var btnFirstPage = container.FindControl("btnFirstPage") as Button;
                 var btnPrePage = container.FindControl("btnPrePage") as Button;
                 var btnNextPage = container.FindControl("btnNextPage") as Button;

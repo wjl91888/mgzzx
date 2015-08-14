@@ -83,4 +83,11 @@ public partial class CommonNavControl : System.Web.UI.UserControl
             Response.Cookies.Add(new HttpCookie("LAST_MENU_USERGROUPID", Server.UrlEncode(link.CommandArgument)));
         }
     }
+
+    protected string GetAppUrl(string filePath, string fileName)
+    {
+        string url = "{0}/{1}".FormatInvariantCulture(filePath.Replace("Administrator", this.Page.IsMobileDevice() ? "App" : "Administrator"), fileName);
+        url = url.IndexOf("?") >= 0 ? "{0}&lcode={1}".FormatInvariantCulture(url, Request["lcode"]) : "{0}?lcode={1}".FormatInvariantCulture(url, Request["lcode"]);
+        return url;
+    }
 }
