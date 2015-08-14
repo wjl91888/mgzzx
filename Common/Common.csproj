@@ -63,13 +63,13 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="iTextAsian">
-      <HintPath>..\wwwroot\Bin\iTextAsian.dll</HintPath>
+      <HintPath>..\dll\iTextAsian.dll</HintPath>
     </Reference>
     <Reference Include="iTextAsianCmaps">
-      <HintPath>..\wwwroot\Bin\iTextAsianCmaps.dll</HintPath>
+      <HintPath>..\dll\iTextAsianCmaps.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp">
-      <HintPath>..\wwwroot\Bin\itextsharp.dll</HintPath>
+      <HintPath>..\dll\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Access, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -91,10 +91,14 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=2.9.9.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=2.9.9.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=2.9.9.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\dll\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=2.9.9.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\dll\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\0474114\Json50r4\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\dll\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
