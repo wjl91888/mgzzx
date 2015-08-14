@@ -106,6 +106,10 @@ namespace DataModelApplication
             this.IsFromDataSet.ValueType = System.Type.GetType("System.Boolean");
             this.MutilInsertField.ValueType = System.Type.GetType("System.Boolean");
             this.MutilInsertCondition.ValueType = System.Type.GetType("System.Boolean");
+            this.IsAppList.ValueType = System.Type.GetType("System.Boolean");
+            this.IsAppFilter.ValueType = System.Type.GetType("System.Boolean");
+            this.IsAppDetail.ValueType = System.Type.GetType("System.Boolean");
+
             this.dgvColumn.ScrollBars = ScrollBars.Both;
         }
 
@@ -146,18 +150,6 @@ namespace DataModelApplication
                 chkAutoGenerateMSecond.Enabled = false;
                 chkAutoGenerateSecond.Enabled = false;
                 chkAutoGenerateYear.Enabled = false;
-            }
-        }
-
-        private void btnConnectTest_Click(object sender, EventArgs e)
-        {
-            if (ValidateConnection(txtConnectionString.Text) == true)
-            {
-                MessageBox.Show("测试连接成功。");
-            }
-            else
-            {
-                MessageBox.Show("测试连接失败，请检查输入连接字符串。");
             }
         }
 
@@ -311,7 +303,7 @@ namespace DataModelApplication
                         txtTableRemark.Text = lbDatabaseObject.SelectedValue.ToString();
                     }
                 }
-                else if (rbProcedure.Checked == true)
+                else if (rbProcedure.Checked)
                 {
 
                 }
@@ -1320,73 +1312,6 @@ namespace DataModelApplication
             return strReturn;
         }
 
-        private string GetCSharpSQLDataTypeString(string strDataTypeName)
-        {
-            string strReturn;
-            switch (strDataTypeName.ToLower())
-            {
-                case "char":
-                case "varchar":
-                case "text":
-                case "ntext":
-                case "nchar":
-                case "nvarchar":
-                    strReturn = "SqlString";
-                    break;
-                case "datetime":
-                case "smalldatetime":
-                    strReturn = "SqlDateTime";
-                    break;
-                case "tinyint":
-                    strReturn = "SqlByte";
-                    break;
-                case "smallint":
-                    strReturn = "SqlInt16";
-                    break;
-                case "int":
-                    strReturn = "SqlInt32";
-                    break;
-                case "bigint":
-                    strReturn = "SqlInt64";
-                    break;
-                case "real":
-                    strReturn = "SqlSingle";
-                    break;
-                case "money":
-                    strReturn = "SqlMoney";
-                    break;
-                case "float":
-                    strReturn = "SqlDouble";
-                    break;
-                case "decimal":
-                case "numeric":
-                    strReturn = "SqlDecimal";
-                    break;
-                case "bit":
-                    strReturn = "SqlBoolean";
-                    break;
-                case "uniqueidentifier":
-                    strReturn = "SqlGuid";
-                    break;
-                case "timestamp":
-                case "image":
-                case "binary":
-                case "varbinary":
-                    strReturn = "SqlBinary";
-                    break;
-                case "sysname":
-                    strReturn = "SqlString";
-                    break;
-                case "sql_variant":
-                    strReturn = "SqlObject";
-                    break;
-                default:
-                    strReturn = "SqlString";
-                    break;
-            }
-            return strReturn;
-        }
-
         private string GetDBDataTypeString(string strDataTypeName)
         {
             string strReturn = string.Empty;
@@ -1598,20 +1523,6 @@ namespace DataModelApplication
             return strReturn;
         }
 
-        private string GetNullValue(int intIsNull)
-        {
-            string strReturn;
-            if (intIsNull == 1)
-            {
-                strReturn = " = NULL";
-            }
-            else
-            {
-                strReturn = "";
-            }
-            return strReturn;
-        }
-
         private string RemoveOuterSymbol(string strSource)
         {
             string strReturn;
@@ -1623,16 +1534,6 @@ namespace DataModelApplication
         {
             GenerateCodeForm generateCodeForm = new GenerateCodeForm(lbDatabaseObject.SelectedValue + "Config" + ".xml");
             generateCodeForm.ShowDialog(this);
-        }
-
-        private void 文件ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void 连接字符串ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenConnectionDialog();
         }
 
         private void OpenConnectionDialog()
@@ -1659,12 +1560,6 @@ namespace DataModelApplication
         private void btnConnectionConfig_Click(object sender, EventArgs e)
         {
             OpenConnectionDialog();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            DataColumnConfig dataColumnConfig = new DataColumnConfig();
-            dataColumnConfig.ShowDialog();
         }
 
         private void btnSelectCodeFilePath_Click(object sender, EventArgs e)
@@ -1796,35 +1691,6 @@ namespace DataModelApplication
 
                 MessageBox.Show("请检查模版文件" + strTemplateFileName + "格式是否正确。\r\n 错误如下：\r\n" + ex.InnerException);
             }
-        }
-
-        private void chkAutoGenerateIncludeDateTime_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkAutoGenerateIncludeDateTime.Checked == true)
-            {
-                chkAutoGenerateDay.Enabled = true;
-                chkAutoGenerateHour.Enabled = true;
-                chkAutoGenerateMinute.Enabled = true;
-                chkAutoGenerateMonth.Enabled = true;
-                chkAutoGenerateMSecond.Enabled = true;
-                chkAutoGenerateSecond.Enabled = true;
-                chkAutoGenerateYear.Enabled = true;
-            }
-            else
-            {
-                chkAutoGenerateDay.Enabled = false;
-                chkAutoGenerateHour.Enabled = false;
-                chkAutoGenerateMinute.Enabled = false;
-                chkAutoGenerateMonth.Enabled = false;
-                chkAutoGenerateMSecond.Enabled = false;
-                chkAutoGenerateSecond.Enabled = false;
-                chkAutoGenerateYear.Enabled = false;
-            }
-        }
-
-        private void gb_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCustomOperateConfig_Click(object sender, EventArgs e)
@@ -2219,7 +2085,7 @@ namespace DataModelApplication
                     dgvColumn = commonFileLibrary.XmlDataGridView;
 
                 }
-                else if (rbProcedure.Checked == true)
+                else if (rbProcedure.Checked)
                 {
 
                 }

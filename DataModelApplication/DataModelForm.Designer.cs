@@ -127,6 +127,7 @@
             this.txtPDFPageHeader = new System.Windows.Forms.TextBox();
             this.chkExistPDFPageHeader = new System.Windows.Forms.CheckBox();
             this.dockControl11 = new TD.SandDock.DockControl();
+            this.chkMutilInsert = new System.Windows.Forms.CheckBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtImportDataSetStartLineNum = new System.Windows.Forms.TextBox();
             this.chkImportFromDataSet = new System.Windows.Forms.CheckBox();
@@ -175,7 +176,6 @@
             this.buttonItem4 = new TD.SandBar.ButtonItem();
             this.buttonItem5 = new TD.SandBar.ButtonItem();
             this.buttonItem6 = new TD.SandBar.ButtonItem();
-            this.chkMutilInsert = new System.Windows.Forms.CheckBox();
             this.OrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -191,6 +191,11 @@
             this.IsList = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IsDefaultList = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IsListSort = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IsAppList = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.AppListColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsAppFilter = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IsAppDetail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.AppDetailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsSearch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IsAdvanceSearch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PrefixMatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -773,6 +778,11 @@
             this.IsList,
             this.IsDefaultList,
             this.IsListSort,
+            this.IsAppList,
+            this.AppListColumn,
+            this.IsAppFilter,
+            this.IsAppDetail,
+            this.AppDetailColumn,
             this.IsSearch,
             this.IsAdvanceSearch,
             this.PrefixMatch,
@@ -1141,7 +1151,7 @@
                         this.dockControl7,
                         this.dockControl10,
                         this.dockControl11,
-                        this.dockControl4}, this.dockControl11)))});
+                        this.dockControl4}, this.dockControl6)))});
             this.rightSandDock.Location = new System.Drawing.Point(628, 70);
             this.rightSandDock.Manager = this.sandDockManager3;
             this.rightSandDock.Name = "rightSandDock";
@@ -1565,6 +1575,16 @@
             this.dockControl11.TabText = "导入";
             this.dockControl11.Text = "导入参数设置";
             // 
+            // chkMutilInsert
+            // 
+            this.chkMutilInsert.AutoSize = true;
+            this.chkMutilInsert.Location = new System.Drawing.Point(13, 235);
+            this.chkMutilInsert.Name = "chkMutilInsert";
+            this.chkMutilInsert.Size = new System.Drawing.Size(98, 17);
+            this.chkMutilInsert.TabIndex = 13;
+            this.chkMutilInsert.Text = "同表多条插入";
+            this.chkMutilInsert.UseVisualStyleBackColor = true;
+            // 
             // label18
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1922,16 +1942,6 @@
             this.buttonItem6.Text = "工程路径";
             this.buttonItem6.Activate += new System.EventHandler(this.buttonItem6_Activate);
             // 
-            // chkMutilInsert
-            // 
-            this.chkMutilInsert.AutoSize = true;
-            this.chkMutilInsert.Location = new System.Drawing.Point(13, 235);
-            this.chkMutilInsert.Name = "chkMutilInsert";
-            this.chkMutilInsert.Size = new System.Drawing.Size(98, 17);
-            this.chkMutilInsert.TabIndex = 13;
-            this.chkMutilInsert.Text = "同表多条插入";
-            this.chkMutilInsert.UseVisualStyleBackColor = true;
-            // 
             // OrderID
             // 
             this.OrderID.Frozen = true;
@@ -2038,6 +2048,36 @@
             this.IsListSort.HeaderText = "列表排序";
             this.IsListSort.Name = "IsListSort";
             this.IsListSort.Width = 60;
+            // 
+            // IsAppList
+            // 
+            this.IsAppList.HeaderText = "IsAppList";
+            this.IsAppList.Name = "IsAppList";
+            this.IsAppList.Width = 60;
+            // 
+            // AppListColumn
+            // 
+            this.AppListColumn.HeaderText = "AppListColumn";
+            this.AppListColumn.Name = "AppListColumn";
+            this.AppListColumn.Width = 60;
+            // 
+            // IsAppFilter
+            // 
+            this.IsAppFilter.HeaderText = "IsAppFilter";
+            this.IsAppFilter.Name = "IsAppFilter";
+            this.IsAppFilter.Width = 60;
+            // 
+            // IsAppDetail
+            // 
+            this.IsAppDetail.HeaderText = "IsAppDetail";
+            this.IsAppDetail.Name = "IsAppDetail";
+            this.IsAppDetail.Width = 60;
+            // 
+            // AppDetailColumn
+            // 
+            this.AppDetailColumn.HeaderText = "AppDetailColumn";
+            this.AppDetailColumn.Name = "AppDetailColumn";
+            this.AppDetailColumn.Width = 60;
             // 
             // IsSearch
             // 
@@ -3075,6 +3115,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtImportDataSetStartLineNum;
         private System.Windows.Forms.Button btnCustomPermissionConfig;
+        private System.Windows.Forms.CheckBox chkMutilInsert;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FieldName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FieldRemark;
@@ -3090,6 +3131,11 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsList;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsDefaultList;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsListSort;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsAppList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppListColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsAppFilter;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsAppDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppDetailColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsSearch;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAdvanceSearch;
         private System.Windows.Forms.DataGridViewCheckBoxColumn PrefixMatch;
@@ -3223,7 +3269,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DocCell;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsFromDataSet;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataSetMapColumnName;
-        private System.Windows.Forms.CheckBox chkMutilInsert;
 
     }
 }

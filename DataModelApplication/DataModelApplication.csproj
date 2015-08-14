@@ -275,6 +275,12 @@
     <Content Include="Template\Contants.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Template\WebUIDetailForApp.aspx.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIDetailForApp.aspx.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Template\WebUISearchForApp.aspx.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
