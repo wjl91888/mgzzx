@@ -12,6 +12,12 @@ copy T_PM_UserInfoWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_PM_UserInfoWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy T_PM_UserInfoWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_PM_UserInfoWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
+copy T_PM_UserInfoWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\
+copy T_PM_UserInfoWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\
+copy T_PM_UserInfoWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\
+copy T_PM_UserInfoWebUIImage.aspx.cs ..\..\..\wwwroot\App\A_BM\
+copy T_PM_UserInfoWebUISearchForApp.aspx ..\..\..\wwwroot\App\A_BM\
+copy T_PM_UserInfoWebUISearchForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\
 @ECHO 开始复制T_PM_UserInfo类文件
 IF NOT EXIST ..\..\..\DataLibrary\T_PM_UserInfo MD ..\..\..\DataLibrary\T_PM_UserInfo
 copy T_PM_UserInfoApplicationData.cs ..\..\..\DataLibrary\T_PM_UserInfo\

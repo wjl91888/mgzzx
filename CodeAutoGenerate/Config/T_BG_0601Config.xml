@@ -24,6 +24,10 @@
                 <xs:element name="IsListSort" type="xs:boolean" minOccurs="0" />
                 <xs:element name="IsAppList" type="xs:boolean" minOccurs="0" />
                 <xs:element name="AppListColumn" type="xs:string" minOccurs="0" />
+                <xs:element name="IsAppFilter" type="xs:boolean" minOccurs="0" />
+                <xs:element name="IsAppDetail" type="xs:boolean" minOccurs="0" />
+                <xs:element name="AppDetailCaptionColumn" type="xs:string" minOccurs="0" />
+                <xs:element name="AppDetailContentColumn" type="xs:string" minOccurs="0" />
                 <xs:element name="IsSearch" type="xs:boolean" minOccurs="0" />
                 <xs:element name="IsAdvanceSearch" type="xs:boolean" minOccurs="0" />
                 <xs:element name="PrefixMatch" type="xs:boolean" minOccurs="0" />
@@ -231,6 +235,8 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -320,6 +326,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -417,6 +427,10 @@
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>true</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -514,6 +528,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -610,6 +628,10 @@
     <IsListSort>true</IsListSort>
     <IsAppList>true</IsAppList>
     <AppListColumn>4</AppListColumn>
+    <IsAppFilter>true</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -718,6 +740,10 @@
     <IsListSort>false</IsListSort>
     <IsAppList>true</IsAppList>
     <AppListColumn>4</AppListColumn>
+    <IsAppFilter>true</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -824,6 +850,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -917,6 +947,10 @@
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1022,6 +1056,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>12</AppDetailCaptionColumn>
+    <AppDetailContentColumn>12</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1119,6 +1157,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>true</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>12</AppDetailCaptionColumn>
+    <AppDetailContentColumn>12</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1216,6 +1258,10 @@
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>12</AppDetailCaptionColumn>
+    <AppDetailContentColumn>12</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1313,6 +1359,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1402,6 +1452,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1508,6 +1562,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1613,6 +1671,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1710,6 +1772,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1815,6 +1881,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1904,6 +1974,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2012,6 +2086,10 @@
     <IsListSort>true</IsListSort>
     <IsAppList>true</IsAppList>
     <AppListColumn>4</AppListColumn>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2110,6 +2188,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2209,6 +2291,10 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <IsAppFilter>false</IsAppFilter>
+    <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
+    <AppDetailContentColumn>8</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>

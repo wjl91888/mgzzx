@@ -17,6 +17,12 @@ copy <xsl:value-of select="/NewDataSet/TableName"/>WebUISearch.aspx <xsl:value-o
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUISearch.aspx.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\Administrator\A_BM\
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIStatistic.aspx <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\Administrator\A_BM\
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIStatistic.aspx.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\Administrator\A_BM\
+copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIDetailForApp.aspx <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\
+copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIDetailForApp.aspx.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\
+copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIImage.aspx <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\
+copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIImage.aspx.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\
+copy <xsl:value-of select="/NewDataSet/TableName"/>WebUISearchForApp.aspx <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\
+copy <xsl:value-of select="/NewDataSet/TableName"/>WebUISearchForApp.aspx.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\
 @ECHO 开始复制<xsl:value-of select="/NewDataSet/TableName"/>类文件
 IF NOT EXIST <xsl:value-of select="/NewDataSet/ProjectPath"/>\DataLibrary\<xsl:value-of select="/NewDataSet/TableName"/> MD <xsl:value-of select="/NewDataSet/ProjectPath"/>\DataLibrary\<xsl:value-of select="/NewDataSet/TableName"/>
 copy <xsl:value-of select="/NewDataSet/TableName"/>ApplicationData.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\DataLibrary\<xsl:value-of select="/NewDataSet/TableName"/>\

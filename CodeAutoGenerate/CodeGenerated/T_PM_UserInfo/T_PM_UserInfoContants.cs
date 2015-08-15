@@ -121,7 +121,7 @@ namespace RICH.Common.BM.T_PM_UserInfo
         public static readonly bool UseFilterReport = false;
         
         public static readonly string SortField = "UserID";
-        public static readonly string TitleField = "UserLoginName";
+        public static readonly string TitleField = "UserNickName";
         
         public static readonly string GetValueTextField = "";
         public static readonly string GetValueValueField = "";

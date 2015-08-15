@@ -271,7 +271,7 @@ FBBM.SelectedValue = CurrentUserInfo.SubjectID;
                 
         if (XXTPDZ.Upload())
         {
-		    appData.XXTPDZ = XXTPDZ.Text;
+            appData.XXTPDZ = XXTPDZ.Text;
         }
         else
         {
@@ -297,7 +297,7 @@ FBBM.SelectedValue = CurrentUserInfo.SubjectID;
                 
         if (FJXZDZ.Upload())
         {
-		    appData.FJXZDZ = FJXZDZ.Text;
+            appData.FJXZDZ = FJXZDZ.Text;
         }
         else
         {
@@ -498,7 +498,7 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
                 
         if (XXTPDZ.Upload())
         {
-		    appData.XXTPDZ = XXTPDZ.Text;
+            appData.XXTPDZ = XXTPDZ.Text;
         }
         else
         {
@@ -529,7 +529,7 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
                 
         if (FJXZDZ.Upload())
         {
-		    appData.FJXZDZ = FJXZDZ.Text;
+            appData.FJXZDZ = FJXZDZ.Text;
         }
         else
         {
@@ -980,54 +980,54 @@ T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
                 FBIP.Enabled = false;
                 
             }
-	
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+    
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 FBH_Area.Visible = false;
-				}
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 FBLM.Enabled = false;
-				}
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 FBBM.Enabled = false;
-				}
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 XXZT_Area.Visible = false;
-				}
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 IsTop_Area.Visible = false;
-				}
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 TopSort_Area.Visible = false;
-				}
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 IsBest_Area.Visible = false;
-				}
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 FBRJGH_Area.Visible = false;
-				}
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 FBRJGH.Enabled = false;
-				}
-				if(CustomPermission == WFBD_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == WFBD_PURVIEW_ID)
+                {
                 FBIP_Area.Visible = false;
-				}
+                }
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new T_BG_0601ApplicationData();
-	
+                appData = new T_BG_0601ApplicationData();
+    
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

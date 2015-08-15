@@ -195,7 +195,8 @@
             this.AppListColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsAppFilter = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IsAppDetail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.AppDetailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppDetailCaptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppDetailContentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsSearch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IsAdvanceSearch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PrefixMatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -782,7 +783,8 @@
             this.AppListColumn,
             this.IsAppFilter,
             this.IsAppDetail,
-            this.AppDetailColumn,
+            this.AppDetailCaptionColumn,
+            this.AppDetailContentColumn,
             this.IsSearch,
             this.IsAdvanceSearch,
             this.PrefixMatch,
@@ -2073,11 +2075,17 @@
             this.IsAppDetail.Name = "IsAppDetail";
             this.IsAppDetail.Width = 60;
             // 
-            // AppDetailColumn
+            // AppDetailCaptionColumn
             // 
-            this.AppDetailColumn.HeaderText = "AppDetailColumn";
-            this.AppDetailColumn.Name = "AppDetailColumn";
-            this.AppDetailColumn.Width = 60;
+            this.AppDetailCaptionColumn.HeaderText = "AppDetailCaptionColumn";
+            this.AppDetailCaptionColumn.Name = "AppDetailCaptionColumn";
+            this.AppDetailCaptionColumn.Width = 60;
+            // 
+            // AppDetailContentColumn
+            // 
+            this.AppDetailContentColumn.HeaderText = "AppDetailContentColumn";
+            this.AppDetailContentColumn.Name = "AppDetailContentColumn";
+            this.AppDetailContentColumn.Width = 60;
             // 
             // IsSearch
             // 
@@ -3135,7 +3143,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AppListColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAppFilter;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAppDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AppDetailColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppDetailCaptionColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppDetailContentColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsSearch;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAdvanceSearch;
         private System.Windows.Forms.DataGridViewCheckBoxColumn PrefixMatch;

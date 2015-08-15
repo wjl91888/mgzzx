@@ -324,7 +324,7 @@ public partial class <xsl:value-of select="/NewDataSet/TableName"/>WebUIAdd : RI
         <xsl:when test="ControlTypeName = 'FilesList'">
         if (<xsl:value-of select="FieldName"/>.Upload())
         {
-		    appData.<xsl:value-of select="FieldName"/> = <xsl:value-of select="FieldName"/>.<xsl:value-of select="ControlTypeValueSuffix"/>;
+            appData.<xsl:value-of select="FieldName"/> = <xsl:value-of select="FieldName"/>.<xsl:value-of select="ControlTypeValueSuffix"/>;
         }
         else
         {
@@ -411,7 +411,7 @@ public partial class <xsl:value-of select="/NewDataSet/TableName"/>WebUIAdd : RI
         <xsl:when test="ControlTypeName = 'FilesList'">
         if (<xsl:value-of select="FieldName"/>.Upload())
         {
-		    appData.<xsl:value-of select="FieldName"/> = <xsl:value-of select="FieldName"/>.<xsl:value-of select="ControlTypeValueSuffix"/>;
+            appData.<xsl:value-of select="FieldName"/> = <xsl:value-of select="FieldName"/>.<xsl:value-of select="ControlTypeValueSuffix"/>;
         }
         else
         {
@@ -557,7 +557,7 @@ public partial class <xsl:value-of select="/NewDataSet/TableName"/>WebUIAdd : RI
         <xsl:when test="ControlTypeName = 'FilesList'">
         if (<xsl:value-of select="FieldName"/>.Upload())
         {
-		    appData.<xsl:value-of select="FieldName"/> = <xsl:value-of select="FieldName"/>.<xsl:value-of select="ControlTypeValueSuffix"/>;
+            appData.<xsl:value-of select="FieldName"/> = <xsl:value-of select="FieldName"/>.<xsl:value-of select="ControlTypeValueSuffix"/>;
         }
         else
         {
@@ -1137,47 +1137,47 @@ public partial class <xsl:value-of select="/NewDataSet/TableName"/>WebUIAdd : RI
       </xsl:if>
     </xsl:for-each>
             }
-	<xsl:for-each select="/NewDataSet/CustomPermissionFieldConfig">
-		<xsl:if test="CustomPermissionType = 'SearchPage'">
-			<xsl:if test="Hidden = 'true'">
-				if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
-				{
+    <xsl:for-each select="/NewDataSet/CustomPermissionFieldConfig">
+        <xsl:if test="CustomPermissionType = 'SearchPage'">
+            <xsl:if test="Hidden = 'true'">
+                if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
+                {
                 <xsl:value-of select="FieldName"/>_Area.Visible = false;
-				}</xsl:if>
-			<xsl:if test="View = 'true'">
-				if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
-				{
+                }</xsl:if>
+            <xsl:if test="View = 'true'">
+                if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
+                {
                 <xsl:value-of select="FieldName"/>.Enabled = false;
-				}</xsl:if>
-		</xsl:if>
-		<xsl:if test="CustomPermissionType = 'AddPage'">
-			<xsl:if test="Hidden = 'true'">
-				if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
-				{
+                }</xsl:if>
+        </xsl:if>
+        <xsl:if test="CustomPermissionType = 'AddPage'">
+            <xsl:if test="Hidden = 'true'">
+                if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
+                {
                 <xsl:value-of select="FieldName"/>_Area.Visible = false;
-				}</xsl:if>
-			<xsl:if test="View = 'true'">
-				if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
-				{
+                }</xsl:if>
+            <xsl:if test="View = 'true'">
+                if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
+                {
                 <xsl:value-of select="FieldName"/>.Enabled = false;
-				}</xsl:if>
-		</xsl:if>
-	</xsl:for-each>
+                }</xsl:if>
+        </xsl:if>
+    </xsl:for-each>
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new <xsl:value-of select="/NewDataSet/TableName"/>ApplicationData();
-	<xsl:for-each select="/NewDataSet/CustomPermissionFieldConfig">
-		<xsl:if test="CustomPermissionType = 'AddPage'">
-			<xsl:if test="Condition = 'true'">
-				if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
-				{
+                appData = new <xsl:value-of select="/NewDataSet/TableName"/>ApplicationData();
+    <xsl:for-each select="/NewDataSet/CustomPermissionFieldConfig">
+        <xsl:if test="CustomPermissionType = 'AddPage'">
+            <xsl:if test="Condition = 'true'">
+                if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
+                {
                     appData.<xsl:value-of select="FieldName"/> = <xsl:value-of select="ConditionValue"/>;
-				}</xsl:if>
-		</xsl:if>
-	</xsl:for-each>
+                }</xsl:if>
+        </xsl:if>
+    </xsl:for-each>
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

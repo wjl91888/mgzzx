@@ -43,35 +43,14 @@ namespace RICH.Common.BM.ShortMessage
         #endregion
 
         #region 变量定义
-        /// <summary>
-        /// 数据实体对象
-        /// </summary>
         protected ShortMessageApplicationData appData;
-        /// <summary>
-        /// 消息信息
-        /// </summary>
         protected string strMessageInfo = string.Empty;
-        /// <summary>
-        /// 消息参数
-        /// </summary>
         protected string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-        /// <summary>
-        /// AJAX操作返回值
-        /// </summary>
         protected string strAJAXReturnValue = string.Empty;
-        /// <summary>
-        /// 弹出消息信息
-        /// </summary>
         protected string strPopupMessageInfo = string.Empty;
         #endregion
 
         #region 数据操作方法
-        //=====================================================================
-        //  FunctionName : AddRecord
-        /// <summary>
-        /// 添加记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void AddRecord()
         {
             if (GetAddInputParameter())
@@ -97,12 +76,6 @@ namespace RICH.Common.BM.ShortMessage
             }
         }
 
-        //=====================================================================
-        //  FunctionName : ModifyRecord
-        /// <summary>
-        /// 修改记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyRecord()
         {
             if (GetModifyInputParameter())
@@ -120,12 +93,6 @@ namespace RICH.Common.BM.ShortMessage
             }
         }
 
-        //=====================================================================
-        //  FunctionName : QueryRecord
-        /// <summary>
-        /// 查询记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void QueryRecord()
         {
             if (GetQueryInputParameter())
@@ -142,12 +109,6 @@ namespace RICH.Common.BM.ShortMessage
             }
         }
 
-        //=====================================================================
-        //  FunctionName : DeleteRecord
-        /// <summary>
-        /// 删除记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void DeleteRecord()
         {
             if (GetDeleteInputParameter())
@@ -166,12 +127,6 @@ namespace RICH.Common.BM.ShortMessage
             }
         }
 
-        //=====================================================================
-        //  FunctionName : CountRecord
-        /// <summary>
-        /// 统计记录数操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountRecord()
         {
             if (GetCountInputParameter())
@@ -188,12 +143,6 @@ namespace RICH.Common.BM.ShortMessage
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetCountInputParameter
-        /// <summary>
-        /// 得到统计记录数用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
         protected virtual Boolean GetCountInputParameter()
         {
             Boolean boolReturn = true;
@@ -276,12 +225,6 @@ namespace RICH.Common.BM.ShortMessage
         #endregion
 
         #region 页面控件相关方法
-        //=====================================================================
-        //  FunctionName : btnAddConfirm_Click
-        /// <summary>
-        /// 确认添加按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnAddConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -290,12 +233,6 @@ namespace RICH.Common.BM.ShortMessage
             AddRecord();
         }
         
-        //=====================================================================
-        //  FunctionName : btnModifyConfirm_Click
-        /// <summary>
-        /// 确认修改按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnModifyConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -305,12 +242,6 @@ namespace RICH.Common.BM.ShortMessage
             ModifyRecord();
         }
 
-        //=====================================================================
-        //  FunctionName : btnOperate_Click
-        /// <summary>
-        /// 操作选中记录控件Click事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnOperate_Click(object sender, EventArgs e)
         {
             switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
@@ -330,12 +261,6 @@ namespace RICH.Common.BM.ShortMessage
 
         #region 取得数据源
 
-        //=====================================================================
-        //  FunctionName : GetTree_FSR
-        /// <summary>
-        /// 根据指定条件取得发送人(FSR)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_FSR(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -418,12 +343,6 @@ namespace RICH.Common.BM.ShortMessage
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FSR
-        /// <summary>
-        /// 取得发送人(FSR)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FSR(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -434,12 +353,6 @@ namespace RICH.Common.BM.ShortMessage
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FSR_AdvanceSearch
-        /// <summary>
-        /// 取得发送人(FSR)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FSR_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -450,13 +363,18 @@ namespace RICH.Common.BM.ShortMessage
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_FSR_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_PM_UserInfo");
+            dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserID");
+            dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserNickName");
+            GetTree_FSR("null", "null", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new <Triples<string, string, string>>(GetValue(dr["UserID"]), GetValue(dr["UserNickName"]), "FSR")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_FSBM
-        /// <summary>
-        /// 根据指定条件取得发送部门(FSBM)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_FSBM(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -539,12 +457,6 @@ namespace RICH.Common.BM.ShortMessage
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FSBM
-        /// <summary>
-        /// 取得发送部门(FSBM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FSBM(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -555,12 +467,6 @@ namespace RICH.Common.BM.ShortMessage
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FSBM_AdvanceSearch
-        /// <summary>
-        /// 取得发送部门(FSBM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FSBM_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -571,13 +477,18 @@ namespace RICH.Common.BM.ShortMessage
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_FSBM_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_BM_DWXX");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWBH");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWMC");
+            GetTree_FSBM("null", "null", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new <Triples<string, string, string>>(GetValue(dr["DWBH"]), GetValue(dr["DWMC"]), "FSBM")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_JSR
-        /// <summary>
-        /// 根据指定条件取得接收人(JSR)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_JSR(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -660,12 +571,6 @@ namespace RICH.Common.BM.ShortMessage
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_JSR
-        /// <summary>
-        /// 取得接收人(JSR)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_JSR(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -676,12 +581,6 @@ namespace RICH.Common.BM.ShortMessage
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_JSR_AdvanceSearch
-        /// <summary>
-        /// 取得接收人(JSR)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_JSR_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -692,16 +591,21 @@ namespace RICH.Common.BM.ShortMessage
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_JSR_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_PM_UserInfo");
+            dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserID");
+            dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserNickName");
+            GetTree_JSR("null", "null", true, "SubjectID", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new <Triples<string, string, string>>(GetValue(dr["UserID"]), GetValue(dr["UserNickName"]), "JSR")).ToList();
+        }
+
         
         #endregion
 
         #region 修改任意字段
-        //=====================================================================
-        //  FunctionName : ModifyAnyField
-        /// <summary>
-        /// 修改一个字段的值
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyAnyField()
         {
             ShortMessageApplicationLogic instanceShortMessageApplicationLogic
@@ -711,12 +615,6 @@ namespace RICH.Common.BM.ShortMessage
         #endregion
 
         #region 统计任意字段
-        //=====================================================================
-        //  FunctionName : CountAnyField
-        /// <summary>
-        /// 统计操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountAnyField()
         {
             ShortMessageApplicationLogic instanceShortMessageApplicationLogic
@@ -726,12 +624,6 @@ namespace RICH.Common.BM.ShortMessage
         #endregion
 
         #region AJAX相关方法
-        //=====================================================================
-        //  FunctionName : AJAX_QuerySingle
-        /// <summary>
-        /// AJAX调用的读取指定记录指定字段的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QuerySingle(string strFieldName, string strFieldValue, string strReturnFieldName)
         {
             string strReturn = string.Empty;
@@ -813,12 +705,6 @@ namespace RICH.Common.BM.ShortMessage
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_QueryDataSet
-        /// <summary>
-        /// AJAX调用的读取记录集的XML代码的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QueryDataSet(string strFieldName, string strFieldValue)
         {
             string strReturn = string.Empty;
@@ -900,12 +786,6 @@ namespace RICH.Common.BM.ShortMessage
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Modify
-        /// <summary>
-        /// AJAX调用的更新方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Modify(string strFieldName, string strFieldValue, string strObjectID)
         {
             bool boolReturn = false;
@@ -993,12 +873,6 @@ namespace RICH.Common.BM.ShortMessage
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Delete
-        /// <summary>
-        /// AJAX调用的删除方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Delete(string strObjectID)
         {
             bool boolReturn = false;
@@ -1034,12 +908,6 @@ namespace RICH.Common.BM.ShortMessage
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_IsExist
-        /// <summary>
-        /// AJAX调用的存在方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_IsExist(string strFieldName, string strFieldValue)
         {
             bool boolReturn = false;
@@ -1125,13 +993,6 @@ namespace RICH.Common.BM.ShortMessage
             return boolReturn;
         }
 
-        
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override void RaiseCallbackEvent(string eventArgument)
         {
             try
@@ -1202,12 +1063,6 @@ namespace RICH.Common.BM.ShortMessage
             }
         }
 
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override string GetCallbackResult()
         {
             return strAJAXReturnValue;
@@ -1216,12 +1071,6 @@ namespace RICH.Common.BM.ShortMessage
 
         #region 验证数据
 
-        //=====================================================================
-        //  FunctionName : ValidateObjectID
-        /// <summary>
-        /// 数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateObjectID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1291,12 +1140,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDXXBT
-        /// <summary>
-        /// 标题数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDXXBT(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1366,12 +1209,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDXXLX
-        /// <summary>
-        /// 类型数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDXXLX(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1441,12 +1278,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDXXNR
-        /// <summary>
-        /// 内容数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDXXNR(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1516,12 +1347,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDXXFJ
-        /// <summary>
-        /// 附件数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDXXFJ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1591,12 +1416,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFSSJ
-        /// <summary>
-        /// 发送时间数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFSSJ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1666,12 +1485,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFSSJ
-        /// <summary>
-        /// 发送时间Begin数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFSSJBegin(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1741,12 +1554,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
 
-        //=====================================================================
-        //  FunctionName : ValidateFSSJ
-        /// <summary>
-        /// 发送时间End数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFSSJEnd(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1816,12 +1623,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateFSR
-        /// <summary>
-        /// 发送人数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFSR(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1891,12 +1692,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFSBM
-        /// <summary>
-        /// 发送部门数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFSBM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1966,12 +1761,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFSIP
-        /// <summary>
-        /// 发送IP数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFSIP(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2041,12 +1830,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJSR
-        /// <summary>
-        /// 接收人数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJSR(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2116,12 +1899,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJSRBatch
-        /// <summary>
-        /// 接收人Batch数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJSRBatch(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2159,12 +1936,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateSFCK
-        /// <summary>
-        /// 查看状态数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSFCK(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2234,12 +2005,6 @@ namespace RICH.Common.BM.ShortMessage
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateCKSJ
-        /// <summary>
-        /// 查看时间数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateCKSJ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2320,23 +2085,11 @@ namespace RICH.Common.BM.ShortMessage
         #endregion    
 
         #region 相关表批量操作
-        //=====================================================================
-        //  FunctionName : RelatedTableAddBatch()
-        /// <summary>
-        /// 相关表批量添加
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableAddBatch()
         {
 
         }
         
-        //=====================================================================
-        //  FunctionName : RelatedTableModifyBatch()
-        /// <summary>
-        /// 相关表批量修改
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableModifyBatch()
         {
 

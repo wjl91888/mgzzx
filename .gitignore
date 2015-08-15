@@ -541,3 +541,7 @@ Common/bin/Debug/Telerik.Web.UI.dll
 Common/bin/Debug/Telerik.Web.UI.Skins.dll
 Common/bin/Debug/Telerik.Web.UI.xml
 DataLibraryBase/bin/Debug/Microsoft.Practices.ObjectBuilder.dll
+DataModelApplication/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+DataModelApplication/obj/Debug/ResolveAssemblyReference.cache
+CodeAutoGenerate/Template/WebUISearchForApp.aspx.cs.xsl
+CodeAutoGenerate/Template/WebUISearchForApp.aspx.xsl

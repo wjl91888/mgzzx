@@ -486,8 +486,6 @@
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:AppDetailBasePage.master" caret="2603" fromTop="30" />
-      <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:App_Themes/d:Themes/d:Css/f:appmain.css" caret="178" fromTop="2" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:App_Themes/d:Themes/d:JavaScript/d:Common/f:appcommon.js" caret="789" fromTop="23" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Control/f:UploadFilesControlForApp.ascx" caret="527" fromTop="7" />
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:MasterPages/f:AppBasePage111.master" caret="4309" fromTop="23" />
@@ -514,8 +512,10 @@
       <File id="036750DF-DB19-4831-8CBF-938721172DB9/d:Administrator/d:A_BM/f:T_BG_0601WebUISearch.aspx" caret="4733" fromTop="0" />
       <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUIBase.cs.xsl" caret="83939" fromTop="48" />
       <File id="4E1D33F7-BE9F-4CBA-94DF-A47A786D5534/d:T_BG_0601/f:T_BG_0601WebUIBase.cs" caret="20702" fromTop="16" />
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearch.aspx.xsl" caret="259" fromTop="4" />
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearchForApp.aspx.xsl" caret="684" fromTop="7" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearch.aspx.xsl" caret="798" fromTop="6" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearchForApp.aspx.xsl" caret="1906" fromTop="22" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/f:licenses.licx" caret="0" fromTop="0" />
+      <File id="036750DF-DB19-4831-8CBF-938721172DB9/f:Global.asax" caret="129" fromTop="2" />
     </RecentFiles>
     <RecentEdits>
       <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUIBase.cs.xsl" caret="3520" fromTop="32" />
@@ -546,8 +546,8 @@
       <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUIBase.cs.xsl" caret="75089" fromTop="42" />
       <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUIBase.cs.xsl" caret="75411" fromTop="28" />
       <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUIBase.cs.xsl" caret="77778" fromTop="40" />
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearchForApp.aspx.xsl" caret="7601" fromTop="48" />
-      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearchForApp.aspx.xsl" caret="594" fromTop="6" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearchForApp.aspx.xsl" caret="8768" fromTop="48" />
+      <File id="7F3A8FF8-76C7-4A7B-A362-8A20E788C2E1/d:Template/f:WebUISearchForApp.aspx.xsl" caret="484" fromTop="0" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

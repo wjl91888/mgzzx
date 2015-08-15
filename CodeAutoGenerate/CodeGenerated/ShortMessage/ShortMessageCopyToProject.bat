@@ -12,6 +12,12 @@ copy ShortMessageWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy ShortMessageWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy ShortMessageWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy ShortMessageWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
+copy ShortMessageWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\
+copy ShortMessageWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\
+copy ShortMessageWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\
+copy ShortMessageWebUIImage.aspx.cs ..\..\..\wwwroot\App\A_BM\
+copy ShortMessageWebUISearchForApp.aspx ..\..\..\wwwroot\App\A_BM\
+copy ShortMessageWebUISearchForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\
 @ECHO 开始复制ShortMessage类文件
 IF NOT EXIST ..\..\..\DataLibrary\ShortMessage MD ..\..\..\DataLibrary\ShortMessage
 copy ShortMessageApplicationData.cs ..\..\..\DataLibrary\ShortMessage\
