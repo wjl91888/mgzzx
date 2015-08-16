@@ -545,3 +545,5 @@ DataModelApplication/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 DataModelApplication/obj/Debug/ResolveAssemblyReference.cache
 CodeAutoGenerate/Template/WebUISearchForApp.aspx.cs.xsl
 CodeAutoGenerate/Template/WebUISearchForApp.aspx.xsl
+DB_MGZZX.mdf
+DB_MGZZX_log.ldf

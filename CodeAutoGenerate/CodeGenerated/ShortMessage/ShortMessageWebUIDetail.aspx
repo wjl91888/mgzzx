@@ -78,7 +78,7 @@
                                       
                                             <div id = "FSSJ" runat = "server" >
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "FSSJ"), null) + Convert.ToChar(38).ToString() +"nbsp;"%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "FSSJ"), "yy-MM-dd HH:mm") + Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                            </div>
                                       

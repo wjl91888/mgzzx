@@ -2458,126 +2458,129 @@ BEGIN
     SET @ConditionText = '( [dbo].[T_BM_GZXX].ObjectID IS NULL '
     
     IF @ObjectID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[ObjectID] LIKE '''+CAST(@ObjectID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[ObjectID] = '''+CAST(@ObjectID AS nvarchar(100))+''' '
+            
     IF @XM IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[XM] LIKE '''+CAST(@XM AS nvarchar(100))+'%'' '
-        
+            
     IF @XB IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[XB] LIKE '''+CAST(@XB AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[XB] = '''+CAST(@XB AS nvarchar(100))+''' '
+            
     IF @SFZH IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SFZH] LIKE '''+CAST(@SFZH AS nvarchar(100))+'%'' '
-        
+            
     IF @FFGZNY IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[FFGZNY] LIKE '''+CAST(@FFGZNY AS nvarchar(100))+'%'' '
-        
+            
     IF @JCGZ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JCGZ] LIKE '''+CAST(@JCGZ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JCGZ] = '''+CAST(@JCGZ AS nvarchar(100))+''' '
+            
     IF @JSDJGZ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JSDJGZ] LIKE '''+CAST(@JSDJGZ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JSDJGZ] = '''+CAST(@JSDJGZ AS nvarchar(100))+''' '
+            
     IF @ZWGZ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[ZWGZ] LIKE '''+CAST(@ZWGZ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[ZWGZ] = '''+CAST(@ZWGZ AS nvarchar(100))+''' '
+            
     IF @JBGZ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JBGZ] LIKE '''+CAST(@JBGZ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JBGZ] = '''+CAST(@JBGZ AS nvarchar(100))+''' '
+            
     IF @JKDQJT IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JKDQJT] LIKE '''+CAST(@JKDQJT AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JKDQJT] = '''+CAST(@JKDQJT AS nvarchar(100))+''' '
+            
     IF @JKTSGWJT IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JKTSGWJT] LIKE '''+CAST(@JKTSGWJT AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JKTSGWJT] = '''+CAST(@JKTSGWJT AS nvarchar(100))+''' '
+            
     IF @GLGZ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[GLGZ] LIKE '''+CAST(@GLGZ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[GLGZ] = '''+CAST(@GLGZ AS nvarchar(100))+''' '
+            
     IF @XJGZ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[XJGZ] LIKE '''+CAST(@XJGZ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[XJGZ] = '''+CAST(@XJGZ AS nvarchar(100))+''' '
+            
     IF @TGBF IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[TGBF] LIKE '''+CAST(@TGBF AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[TGBF] = '''+CAST(@TGBF AS nvarchar(100))+''' '
+            
     IF @DHF IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[DHF] LIKE '''+CAST(@DHF AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[DHF] = '''+CAST(@DHF AS nvarchar(100))+''' '
+            
     IF @DSZNF IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[DSZNF] LIKE '''+CAST(@DSZNF AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[DSZNF] = '''+CAST(@DSZNF AS nvarchar(100))+''' '
+            
     IF @FNWSHLF IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[FNWSHLF] LIKE '''+CAST(@FNWSHLF AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[FNWSHLF] = '''+CAST(@FNWSHLF AS nvarchar(100))+''' '
+            
     IF @HLF IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[HLF] LIKE '''+CAST(@HLF AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[HLF] = '''+CAST(@HLF AS nvarchar(100))+''' '
+            
     IF @JJ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JJ] LIKE '''+CAST(@JJ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JJ] = '''+CAST(@JJ AS nvarchar(100))+''' '
+            
     IF @JTF IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JTF] LIKE '''+CAST(@JTF AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JTF] = '''+CAST(@JTF AS nvarchar(100))+''' '
+            
     IF @JHLGZ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JHLGZ] LIKE '''+CAST(@JHLGZ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JHLGZ] = '''+CAST(@JHLGZ AS nvarchar(100))+''' '
+            
     IF @JT IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JT] LIKE '''+CAST(@JT AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[JT] = '''+CAST(@JT AS nvarchar(100))+''' '
+            
     IF @BF IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[BF] LIKE '''+CAST(@BF AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[BF] = '''+CAST(@BF AS nvarchar(100))+''' '
+            
     IF @QTBT IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[QTBT] LIKE '''+CAST(@QTBT AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[QTBT] = '''+CAST(@QTBT AS nvarchar(100))+''' '
+            
     IF @DFXJT IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[DFXJT] LIKE '''+CAST(@DFXJT AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[DFXJT] = '''+CAST(@DFXJT AS nvarchar(100))+''' '
+            
     IF @YFX IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[YFX] = '''+CAST(@YFX AS nvarchar(100))+''' '
+            
     IF @YFXBegin IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[YFX] >= '''+CAST(@YFXBegin AS nvarchar(100))+''' '
     IF @YFXEnd IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[YFX] <= '''+CAST(@YFXEnd AS nvarchar(100))+''' '
         
     IF @QTKK IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[QTKK] LIKE '''+CAST(@QTKK AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[QTKK] = '''+CAST(@QTKK AS nvarchar(100))+''' '
+            
     IF @SYBX IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SYBX] LIKE '''+CAST(@SYBX AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SYBX] = '''+CAST(@SYBX AS nvarchar(100))+''' '
+            
     IF @SDNQF IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SDNQF] LIKE '''+CAST(@SDNQF AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SDNQF] = '''+CAST(@SDNQF AS nvarchar(100))+''' '
+            
     IF @SDS IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SDS] LIKE '''+CAST(@SDS AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SDS] = '''+CAST(@SDS AS nvarchar(100))+''' '
+            
     IF @YLBX IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[YLBX] LIKE '''+CAST(@YLBX AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[YLBX] = '''+CAST(@YLBX AS nvarchar(100))+''' '
+            
     IF @YLIBX IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[YLIBX] LIKE '''+CAST(@YLIBX AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[YLIBX] = '''+CAST(@YLIBX AS nvarchar(100))+''' '
+            
     IF @YSSHF IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[YSSHF] LIKE '''+CAST(@YSSHF AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[YSSHF] = '''+CAST(@YSSHF AS nvarchar(100))+''' '
+            
     IF @ZFGJJ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[ZFGJJ] LIKE '''+CAST(@ZFGJJ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[ZFGJJ] = '''+CAST(@ZFGJJ AS nvarchar(100))+''' '
+            
     IF @KFX IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[KFX] LIKE '''+CAST(@KFX AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[KFX] = '''+CAST(@KFX AS nvarchar(100))+''' '
+            
     IF @SFGZ IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SFGZ] = '''+CAST(@SFGZ AS nvarchar(100))+''' '
+            
     IF @SFGZBegin IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SFGZ] >= '''+CAST(@SFGZBegin AS nvarchar(100))+''' '
     IF @SFGZEnd IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[SFGZ] <= '''+CAST(@SFGZEnd AS nvarchar(100))+''' '
         
     IF @GZKKSM IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[GZKKSM] LIKE '''+CAST(@GZKKSM AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[GZKKSM] = '''+CAST(@GZKKSM AS nvarchar(100))+''' '
+            
     IF @TJSJ IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[TJSJ] = '''+CAST(@TJSJ AS nvarchar(100))+''' '
+            
     IF @TJSJBegin IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_GZXX].[TJSJ] >= '''+CAST(@TJSJBegin AS nvarchar(100))+''' '
     IF @TJSJEnd IS NOT NULL

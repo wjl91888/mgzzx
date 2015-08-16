@@ -3,12 +3,15 @@ FileName:T_BM_GZXXWebUIBase.cs
 ******************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.T_BM_GZXX
 {
@@ -35,35 +38,14 @@ namespace RICH.Common.BM.T_BM_GZXX
         #endregion
 
         #region 变量定义
-        /// <summary>
-        /// 数据实体对象
-        /// </summary>
         protected T_BM_GZXXApplicationData appData;
-        /// <summary>
-        /// 消息信息
-        /// </summary>
         protected string strMessageInfo = string.Empty;
-        /// <summary>
-        /// 消息参数
-        /// </summary>
         protected string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-        /// <summary>
-        /// AJAX操作返回值
-        /// </summary>
         protected string strAJAXReturnValue = string.Empty;
-        /// <summary>
-        /// 弹出消息信息
-        /// </summary>
         protected string strPopupMessageInfo = string.Empty;
         #endregion
 
         #region 数据操作方法
-        //=====================================================================
-        //  FunctionName : AddRecord
-        /// <summary>
-        /// 添加记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void AddRecord()
         {
             if (GetAddInputParameter())
@@ -89,12 +71,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : ModifyRecord
-        /// <summary>
-        /// 修改记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyRecord()
         {
             if (GetModifyInputParameter())
@@ -112,12 +88,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : QueryRecord
-        /// <summary>
-        /// 查询记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void QueryRecord()
         {
             if (GetQueryInputParameter())
@@ -134,12 +104,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : DeleteRecord
-        /// <summary>
-        /// 删除记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void DeleteRecord()
         {
             if (GetDeleteInputParameter())
@@ -158,12 +122,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : CountRecord
-        /// <summary>
-        /// 统计记录数操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountRecord()
         {
             if (GetCountInputParameter())
@@ -180,12 +138,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetCountInputParameter
-        /// <summary>
-        /// 得到统计记录数用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
         protected virtual Boolean GetCountInputParameter()
         {
             Boolean boolReturn = true;
@@ -268,12 +220,6 @@ namespace RICH.Common.BM.T_BM_GZXX
         #endregion
 
         #region 页面控件相关方法
-        //=====================================================================
-        //  FunctionName : btnAddConfirm_Click
-        /// <summary>
-        /// 确认添加按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnAddConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -282,12 +228,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             AddRecord();
         }
         
-        //=====================================================================
-        //  FunctionName : btnModifyConfirm_Click
-        /// <summary>
-        /// 确认修改按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnModifyConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -297,12 +237,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             ModifyRecord();
         }
 
-        //=====================================================================
-        //  FunctionName : btnOperate_Click
-        /// <summary>
-        /// 操作选中记录控件Click事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnOperate_Click(object sender, EventArgs e)
         {
             switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
@@ -325,12 +259,6 @@ namespace RICH.Common.BM.T_BM_GZXX
         #endregion
 
         #region 修改任意字段
-        //=====================================================================
-        //  FunctionName : ModifyAnyField
-        /// <summary>
-        /// 修改一个字段的值
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyAnyField()
         {
             T_BM_GZXXApplicationLogic instanceT_BM_GZXXApplicationLogic
@@ -340,12 +268,6 @@ namespace RICH.Common.BM.T_BM_GZXX
         #endregion
 
         #region 统计任意字段
-        //=====================================================================
-        //  FunctionName : CountAnyField
-        /// <summary>
-        /// 统计操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountAnyField()
         {
             T_BM_GZXXApplicationLogic instanceT_BM_GZXXApplicationLogic
@@ -355,12 +277,6 @@ namespace RICH.Common.BM.T_BM_GZXX
         #endregion
 
         #region AJAX相关方法
-        //=====================================================================
-        //  FunctionName : AJAX_QuerySingle
-        /// <summary>
-        /// AJAX调用的读取指定记录指定字段的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QuerySingle(string strFieldName, string strFieldValue, string strReturnFieldName)
         {
             string strReturn = string.Empty;
@@ -546,12 +462,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_QueryDataSet
-        /// <summary>
-        /// AJAX调用的读取记录集的XML代码的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QueryDataSet(string strFieldName, string strFieldValue)
         {
             string strReturn = string.Empty;
@@ -737,12 +647,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Modify
-        /// <summary>
-        /// AJAX调用的更新方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Modify(string strFieldName, string strFieldValue, string strObjectID)
         {
             bool boolReturn = false;
@@ -934,12 +838,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Delete
-        /// <summary>
-        /// AJAX调用的删除方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Delete(string strObjectID)
         {
             bool boolReturn = false;
@@ -975,12 +873,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_IsExist
-        /// <summary>
-        /// AJAX调用的存在方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_IsExist(string strFieldName, string strFieldValue)
         {
             bool boolReturn = false;
@@ -1170,13 +1062,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return boolReturn;
         }
 
-        
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override void RaiseCallbackEvent(string eventArgument)
         {
             try
@@ -1247,12 +1132,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override string GetCallbackResult()
         {
             return strAJAXReturnValue;
@@ -1261,12 +1140,6 @@ namespace RICH.Common.BM.T_BM_GZXX
 
         #region 验证数据
 
-        //=====================================================================
-        //  FunctionName : ValidateObjectID
-        /// <summary>
-        /// 数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateObjectID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1336,12 +1209,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXM
-        /// <summary>
-        /// 姓名数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1411,12 +1278,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXB
-        /// <summary>
-        /// 性别数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXB(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1486,12 +1347,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSFZH
-        /// <summary>
-        /// 身份证号数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSFZH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1561,12 +1416,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFFGZNY
-        /// <summary>
-        /// 日期数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFFGZNY(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1636,12 +1485,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJCGZ
-        /// <summary>
-        /// 基础工资数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJCGZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1711,12 +1554,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJSDJGZ
-        /// <summary>
-        /// 技术等级工资数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJSDJGZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1786,12 +1623,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateZWGZ
-        /// <summary>
-        /// 职务工资数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateZWGZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1861,12 +1692,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJBGZ
-        /// <summary>
-        /// 级别工资数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJBGZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1936,12 +1761,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJKDQJT
-        /// <summary>
-        /// 艰苦地区津贴数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJKDQJT(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2011,12 +1830,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJKTSGWJT
-        /// <summary>
-        /// 艰苦特岗津贴数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJKTSGWJT(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2086,12 +1899,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateGLGZ
-        /// <summary>
-        /// 工龄工资数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateGLGZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2161,12 +1968,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXJGZ
-        /// <summary>
-        /// 薪级工资数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXJGZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2236,12 +2037,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateTGBF
-        /// <summary>
-        /// 10%提高部分数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateTGBF(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2311,12 +2106,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDHF
-        /// <summary>
-        /// 电话费数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDHF(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2386,12 +2175,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDSZNF
-        /// <summary>
-        /// 独生子女费数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDSZNF(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2461,12 +2244,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFNWSHLF
-        /// <summary>
-        /// 妇女卫生费数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFNWSHLF(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2536,12 +2313,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateHLF
-        /// <summary>
-        /// 护理费数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateHLF(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2611,12 +2382,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJJ
-        /// <summary>
-        /// 取暖补贴数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJJ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2686,12 +2451,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJTF
-        /// <summary>
-        /// 交通费数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJTF(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2761,12 +2520,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJHLGZ
-        /// <summary>
-        /// 教护龄工资数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJHLGZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2836,12 +2589,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJT
-        /// <summary>
-        /// 津贴数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJT(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2911,12 +2658,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateBF
-        /// <summary>
-        /// 补发数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateBF(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2986,12 +2727,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateQTBT
-        /// <summary>
-        /// 其他补贴数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateQTBT(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3061,12 +2796,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDFXJT
-        /// <summary>
-        /// 地方性津贴数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDFXJT(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3136,12 +2865,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateYFX
-        /// <summary>
-        /// 应发项数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateYFX(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3211,12 +2934,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateYFX
-        /// <summary>
-        /// 应发项Begin数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateYFXBegin(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3286,12 +3003,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
 
-        //=====================================================================
-        //  FunctionName : ValidateYFX
-        /// <summary>
-        /// 应发项End数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateYFXEnd(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3361,12 +3072,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateQTKK
-        /// <summary>
-        /// 其他扣款数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateQTKK(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3436,12 +3141,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSYBX
-        /// <summary>
-        /// 失业保险数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSYBX(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3511,12 +3210,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSDNQF
-        /// <summary>
-        /// 水电暖气费数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSDNQF(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3586,12 +3279,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSDS
-        /// <summary>
-        /// 所得税数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSDS(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3661,12 +3348,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateYLBX
-        /// <summary>
-        /// 养老保险数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateYLBX(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3736,12 +3417,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateYLIBX
-        /// <summary>
-        /// 医疗保险数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateYLIBX(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3811,12 +3486,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateYSSHF
-        /// <summary>
-        /// 遗属生活费数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateYSSHF(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3886,12 +3555,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateZFGJJ
-        /// <summary>
-        /// 住房公积金数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateZFGJJ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3961,12 +3624,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateKFX
-        /// <summary>
-        /// 扣发项数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateKFX(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -4036,12 +3693,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSFGZ
-        /// <summary>
-        /// 实发工资数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSFGZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -4111,12 +3762,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSFGZ
-        /// <summary>
-        /// 实发工资Begin数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSFGZBegin(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -4186,12 +3831,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
 
-        //=====================================================================
-        //  FunctionName : ValidateSFGZ
-        /// <summary>
-        /// 实发工资End数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSFGZEnd(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -4261,12 +3900,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateGZKKSM
-        /// <summary>
-        /// 说明数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateGZKKSM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -4336,12 +3969,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateTJSJ
-        /// <summary>
-        /// 添加时间数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateTJSJ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -4411,12 +4038,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateTJSJ
-        /// <summary>
-        /// 添加时间Begin数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateTJSJBegin(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -4486,12 +4107,6 @@ namespace RICH.Common.BM.T_BM_GZXX
             return validateData;
         }
 
-        //=====================================================================
-        //  FunctionName : ValidateTJSJ
-        /// <summary>
-        /// 添加时间End数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateTJSJEnd(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -4572,23 +4187,11 @@ namespace RICH.Common.BM.T_BM_GZXX
         #endregion    
 
         #region 相关表批量操作
-        //=====================================================================
-        //  FunctionName : RelatedTableAddBatch()
-        /// <summary>
-        /// 相关表批量添加
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableAddBatch()
         {
 
         }
         
-        //=====================================================================
-        //  FunctionName : RelatedTableModifyBatch()
-        /// <summary>
-        /// 相关表批量修改
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableModifyBatch()
         {
 

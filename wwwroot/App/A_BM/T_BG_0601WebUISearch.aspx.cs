@@ -1,3 +1,6 @@
+/****************************************************** 
+FileName:T_BG_0601WebUISearchForApp.aspx.cs
+******************************************************/
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
@@ -24,7 +27,6 @@ namespace App
 
         protected override void Initalize()
         {
-
             DetailPage = true;
             // 数据查询
             appData = new T_BG_0601ApplicationData();
@@ -41,8 +43,13 @@ namespace App
         protected void InitFilterData()
         {
             var dataSourceCollection = new List<Pair<string, List<Triples<string, string, string>>>>();
+
+    
             dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("栏目", GetList_FBLM_AdvanceSearch()));
+                      
             dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("部门", GetList_FBBM_AdvanceSearch()));
+                      
+
             NavList.DataSource = dataSourceCollection;
         }
 
@@ -64,15 +71,6 @@ namespace App
             ValidateData validateData = new ValidateData();
             // 验证输入参数
 
-            validateData = ValidateFBH(Request["FBH"], true, false);
-            if (validateData.Result)
-            {
-                if (!validateData.IsNull)
-                {
-                    appData.FBH = Convert.ToString(validateData.Value.ToString());
-                }
-            }
-
             validateData = ValidateBT(Request["BT"], true, false);
             if (validateData.Result)
             {
@@ -81,7 +79,7 @@ namespace App
                     appData.BT = Convert.ToString(validateData.Value.ToString());
                 }
             }
-
+      
             validateData = ValidateFBLMBatch(Request["FBLM"], true, false);
             if (validateData.Result)
             {
@@ -90,7 +88,17 @@ namespace App
                     appData.FBLMBatch = Convert.ToString(validateData.Value.ToString());
                 }
             }
-
+      
+            validateData = ValidateFBLM(Request["FBLM"], true, false);
+            if (validateData.Result)
+            {
+                if (!validateData.IsNull)
+                {
+                        appData.FBLM = null;
+                        appData.FBLMBatch = GetSubItem_FBLM(validateData.Value.ToString()) + "," + validateData.Value.ToString();
+                }
+            }
+        
             validateData = ValidateFBBM(Request["FBBM"], true, false);
             if (validateData.Result)
             {
@@ -99,7 +107,17 @@ namespace App
                     appData.FBBM = Convert.ToString(validateData.Value.ToString());
                 }
             }
-
+      
+            validateData = ValidateFBBM(Request["FBBM"], true, false);
+            if (validateData.Result)
+            {
+                if (!validateData.IsNull)
+                {
+                        appData.FBBM = null;
+                        appData.FBBMBatch = GetSubItem_FBBM(validateData.Value.ToString()) + "," + validateData.Value.ToString();
+                }
+            }
+        
             validateData = ValidateXXNR(Request["XXNR"], true, false);
             if (validateData.Result)
             {
@@ -108,40 +126,16 @@ namespace App
                     appData.XXNR = Convert.ToString(validateData.Value.ToString());
                 }
             }
-
-            validateData = ValidateFBSJRQBegin(Request["FBSJRQBegin"], true, false);
-            if (validateData.Result)
-            {
-                if (!validateData.IsNull)
-                {
-                    appData.FBSJRQBegin = Convert.ToDateTime(validateData.Value.ToString());
-                }
-            }
-            validateData = ValidateFBSJRQEnd(Request["FBSJRQEnd"], true, false);
-            if (validateData.Result)
-            {
-                if (!validateData.IsNull)
-                {
-                    appData.FBSJRQEnd = Convert.ToDateTime(validateData.Value.ToString());
-                }
-            }
-
-            validateData = ValidateFBSJRQ(Request["FBSJRQ"], true, false);
-            if (validateData.Result)
-            {
-                if (!validateData.IsNull)
-                {
-                    appData.FBSJRQ = Convert.ToDateTime(validateData.Value.ToString());
-                }
-            }
-
+      
             if (!string.IsNullOrWhiteSpace(Request["SearchKeywords"]))
             {
-                appData.BT = Convert.ToString(Request["SearchKeywords"]);
-                appData.XXNR = Convert.ToString(Request["SearchKeywords"]);
+    
+                appData.FBLM = Convert.ToString(Request["SearchKeywords"]);
+                
+                appData.FBBM = Convert.ToString(Request["SearchKeywords"]);
+                
                 ViewState["QueryType"] = "OR";
             }
-
 
             if (!DataValidateManager.ValidateIsNull(ViewState["QueryType"]))
             {
@@ -219,13 +213,13 @@ namespace App
                 appData.CurrentPage = DEFAULT_CURRENT_PAGE;
             }
 
-            if (CustomPermission == WFBD_PURVIEW_ID)
+            if(CustomPermission == WFBD_PURVIEW_ID)
             {
                 appData.FBRJGH = CurrentUserInfo.UserID;
             }
+        
             return boolReturn;
         }
-
     }
 }
 

@@ -53,7 +53,14 @@ namespace App
         <xsl:if test="IsAppFilter = 'true'">
             <xsl:if test="IsAdvanceSearch = 'true'">
                 <xsl:if test="IsDataBind = 'true'">
+                    <xsl:choose>
+                      <xsl:when test="AppFilterRemarkName = ''">
 <![CDATA[            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("]]><xsl:value-of select="FieldRemark"/><![CDATA[", GetList_]]><xsl:value-of select="FieldName"/><![CDATA[_AdvanceSearch()));]]>
+                      </xsl:when>
+                      <xsl:otherwise>
+<![CDATA[            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("]]><xsl:value-of select="AppFilterRemarkName"/><![CDATA[", GetList_]]><xsl:value-of select="FieldName"/><![CDATA[_AdvanceSearch()));]]>
+                      </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:if></xsl:if></xsl:if></xsl:for-each>
 <![CDATA[
             NavList.DataSource = dataSourceCollection;
@@ -164,7 +171,7 @@ namespace App
                 if (!validateData.IsNull)
                 {
                         appData.<xsl:value-of select="FieldName"/> = null;
-                        appData.<xsl:value-of select="FieldName"/>Batch = GetSubItem_<xsl:value-of select="FieldName"/>(validateData.Value.ToString()) + "," + validateData.Value.ToString()"];
+                        appData.<xsl:value-of select="FieldName"/>Batch = GetSubItem_<xsl:value-of select="FieldName"/>(validateData.Value.ToString()) + "," + validateData.Value.ToString();
                 }
             }
         </xsl:if>

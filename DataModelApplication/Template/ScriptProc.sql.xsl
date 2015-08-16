@@ -837,8 +837,16 @@ BEGIN
     <xsl:for-each select="/NewDataSet/RecordInfo">
       <xsl:choose>
         <xsl:when test="IsRangeSearch = 'true'">
+          <xsl:choose>
+            <xsl:when test="IsApproximateSearch = 'true'">
+    IF @<xsl:value-of select="FieldName"/> IS NOT NULL
+      SET @ConditionText = @ConditionText + ' OR [<xsl:value-of select="/NewDataSet/TableOnwer"/>].[<xsl:value-of select="/NewDataSet/TableName"/>].[<xsl:value-of select="FieldName"/>] LIKE ''<xsl:if test="PrefixMatch = 'false'">%</xsl:if>'+CAST(@<xsl:value-of select="FieldName"/> AS nvarchar(100))+'%'' '
+            </xsl:when>
+            <xsl:otherwise>
     IF @<xsl:value-of select="FieldName"/> IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [<xsl:value-of select="/NewDataSet/TableOnwer"/>].[<xsl:value-of select="/NewDataSet/TableName"/>].[<xsl:value-of select="FieldName"/>] = '''+CAST(@<xsl:value-of select="FieldName"/> AS nvarchar(100))+''' '
+            </xsl:otherwise>
+          </xsl:choose>
     IF @<xsl:value-of select="FieldName"/>Begin IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [<xsl:value-of select="/NewDataSet/TableOnwer"/>].[<xsl:value-of select="/NewDataSet/TableName"/>].[<xsl:value-of select="FieldName"/>] >= '''+CAST(@<xsl:value-of select="FieldName"/>Begin AS nvarchar(100))+''' '
     IF @<xsl:value-of select="FieldName"/>End IS NOT NULL
@@ -847,8 +855,16 @@ BEGIN
         <xsl:when test="DBType = 'Image'">
         </xsl:when>
         <xsl:otherwise>
+          <xsl:choose>
+            <xsl:when test="IsApproximateSearch = 'true'">
     IF @<xsl:value-of select="FieldName"/> IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [<xsl:value-of select="/NewDataSet/TableOnwer"/>].[<xsl:value-of select="/NewDataSet/TableName"/>].[<xsl:value-of select="FieldName"/>] LIKE '''+CAST(@<xsl:value-of select="FieldName"/> AS nvarchar(100))+'%'' '
+      SET @ConditionText = @ConditionText + ' OR [<xsl:value-of select="/NewDataSet/TableOnwer"/>].[<xsl:value-of select="/NewDataSet/TableName"/>].[<xsl:value-of select="FieldName"/>] LIKE ''<xsl:if test="PrefixMatch = 'false'">%</xsl:if>'+CAST(@<xsl:value-of select="FieldName"/> AS nvarchar(100))+'%'' '
+            </xsl:when>
+            <xsl:otherwise>
+    IF @<xsl:value-of select="FieldName"/> IS NOT NULL
+      SET @ConditionText = @ConditionText + ' OR [<xsl:value-of select="/NewDataSet/TableOnwer"/>].[<xsl:value-of select="/NewDataSet/TableName"/>].[<xsl:value-of select="FieldName"/>] = '''+CAST(@<xsl:value-of select="FieldName"/> AS nvarchar(100))+''' '
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:for-each>

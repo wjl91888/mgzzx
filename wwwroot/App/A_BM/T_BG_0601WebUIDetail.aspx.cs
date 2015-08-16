@@ -10,7 +10,7 @@ namespace App
     {
         protected override void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack != true)
+            if (!IsPostBack)
             {
                 Initalize();
             }
@@ -28,7 +28,7 @@ namespace App
             rptDetail.DataSource = appData.ResultSet;
             rptDetail.DataBind();
 
-            if (IsPostBack != true)
+            if (!IsPostBack)
             {
                 foreach (DataRow drTemp in appData.ResultSet.Tables[0].Rows)
                 {
@@ -43,5 +43,14 @@ namespace App
                 }
             }
         }
+
+        protected override void CheckPermission()
+        {
+            if (AccessPermission)
+            {
+        
+            }
+        }
     }
 }
+

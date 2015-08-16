@@ -25,6 +25,7 @@
                 <xs:element name="IsAppList" type="xs:boolean" minOccurs="0" />
                 <xs:element name="AppListColumn" type="xs:string" minOccurs="0" />
                 <xs:element name="IsAppFilter" type="xs:boolean" minOccurs="0" />
+                <xs:element name="AppFilterRemarkName" type="xs:string" minOccurs="0" />
                 <xs:element name="IsAppDetail" type="xs:boolean" minOccurs="0" />
                 <xs:element name="AppDetailCaptionColumn" type="xs:string" minOccurs="0" />
                 <xs:element name="AppDetailContentColumn" type="xs:string" minOccurs="0" />
@@ -235,8 +236,11 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
+    <AppDetailCaptionColumn />
+    <AppDetailContentColumn />
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -326,6 +330,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -427,6 +432,7 @@
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>true</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -528,6 +534,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -629,6 +636,7 @@
     <IsAppList>true</IsAppList>
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>true</IsAppFilter>
+    <AppFilterRemarkName>栏目</AppFilterRemarkName>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
     <AppDetailContentColumn>8</AppDetailContentColumn>
@@ -741,6 +749,7 @@
     <IsAppList>true</IsAppList>
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>true</IsAppFilter>
+    <AppFilterRemarkName>部门</AppFilterRemarkName>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
     <AppDetailContentColumn>8</AppDetailContentColumn>
@@ -850,6 +859,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -947,6 +957,7 @@
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -1056,6 +1067,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>12</AppDetailCaptionColumn>
@@ -1157,6 +1169,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>true</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>12</AppDetailCaptionColumn>
@@ -1258,6 +1271,7 @@
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>12</AppDetailCaptionColumn>
@@ -1359,6 +1373,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -1452,6 +1467,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -1562,6 +1578,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -1671,6 +1688,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -1772,6 +1790,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -1881,6 +1900,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -1974,6 +1994,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -2188,6 +2209,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
@@ -2291,6 +2313,7 @@
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>false</IsAppList>
+    <AppListColumn />
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>4</AppDetailCaptionColumn>

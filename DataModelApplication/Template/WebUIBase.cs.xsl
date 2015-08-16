@@ -8,12 +8,15 @@ FileName:<xsl:value-of select="/NewDataSet/TableName"/>WebUIBase.cs
 ******************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
 {
@@ -458,7 +461,7 @@ namespace RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             dsReturn.Tables["<xsl:value-of select="DataBindTableName"/>"].Columns.Add("<xsl:value-of select="DataBindTextField"/>");
             GetTree_<xsl:value-of select="FieldName"/>("<xsl:value-of select="DataBindCondition"/>", "<xsl:value-of select="DataBindConditionValue"/>", true, "<xsl:value-of select="TreeParentNode"/>", <xsl:value-of select="TreeParentNodeValue"/>, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <![CDATA[<Triples<string, string, string>>]]>(GetValue(dr["<xsl:value-of select="DataBindValueField"/>"]), GetValue(dr["<xsl:value-of select="DataBindTextField"/>"]), "<xsl:value-of select="FieldName"/>")).ToList();
+                    select new <![CDATA[Triples<string, string, string>]]>(GetValue(dr["<xsl:value-of select="DataBindValueField"/>"]), GetValue(dr["<xsl:value-of select="DataBindTextField"/>"]), "<xsl:value-of select="FieldName"/>")).ToList();
         }
 
         <xsl:if test="IsSubItemSearch = 'true'">

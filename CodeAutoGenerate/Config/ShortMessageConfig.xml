@@ -25,6 +25,7 @@
                 <xs:element name="IsAppList" type="xs:boolean" minOccurs="0" />
                 <xs:element name="AppListColumn" type="xs:string" minOccurs="0" />
                 <xs:element name="IsAppFilter" type="xs:boolean" minOccurs="0" />
+                <xs:element name="AppFilterRemarkName" type="xs:string" minOccurs="0" />
                 <xs:element name="IsAppDetail" type="xs:boolean" minOccurs="0" />
                 <xs:element name="AppDetailCaptionColumn" type="xs:string" minOccurs="0" />
                 <xs:element name="AppDetailContentColumn" type="xs:string" minOccurs="0" />
@@ -740,7 +741,7 @@
     <IsBatchSearch>false</IsBatchSearch>
     <IsShowDetail>true</IsShowDetail>
     <IsPDFShow>false</IsPDFShow>
-    <DisplayFormatString>null</DisplayFormatString>
+    <DisplayFormatString>"yy-MM-dd HH:mm"</DisplayFormatString>
     <IsPDFNextSeparateLine>false</IsPDFNextSeparateLine>
     <IsStatisticalData>false</IsStatisticalData>
     <IsStatisticalCondition>false</IsStatisticalCondition>
@@ -1365,7 +1366,7 @@
     <IsBatchSearch>false</IsBatchSearch>
     <IsShowDetail>false</IsShowDetail>
     <IsPDFShow>false</IsPDFShow>
-    <DisplayFormatString>null</DisplayFormatString>
+    <DisplayFormatString>"yy-MM-dd HH:mm"</DisplayFormatString>
     <IsPDFNextSeparateLine>false</IsPDFNextSeparateLine>
     <IsStatisticalData>false</IsStatisticalData>
     <IsStatisticalCondition>false</IsStatisticalCondition>

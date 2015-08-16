@@ -1661,18 +1661,18 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 TJSJ_Area.Visible = false;
       
             }
-	
-				if(CustomPermission == WDGZ_PURVIEW_ID)
-				{
+    
+                if(CustomPermission == WDGZ_PURVIEW_ID)
+                {
                 TJSJ_Area.Visible = false;
-				}
+                }
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new T_BM_GZXXApplicationData();
-	
+                appData = new T_BM_GZXXApplicationData();
+    
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

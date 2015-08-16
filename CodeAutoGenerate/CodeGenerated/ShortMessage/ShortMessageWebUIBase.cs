@@ -3,12 +3,15 @@ FileName:ShortMessageWebUIBase.cs
 ******************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.ShortMessage
 {
@@ -371,7 +374,7 @@ namespace RICH.Common.BM.ShortMessage
             dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserNickName");
             GetTree_FSR("null", "null", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["UserID"]), GetValue(dr["UserNickName"]), "FSR")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["UserID"]), GetValue(dr["UserNickName"]), "FSR")).ToList();
         }
 
         
@@ -485,7 +488,7 @@ namespace RICH.Common.BM.ShortMessage
             dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWMC");
             GetTree_FSBM("null", "null", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["DWBH"]), GetValue(dr["DWMC"]), "FSBM")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["DWBH"]), GetValue(dr["DWMC"]), "FSBM")).ToList();
         }
 
         
@@ -599,7 +602,7 @@ namespace RICH.Common.BM.ShortMessage
             dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserNickName");
             GetTree_JSR("null", "null", true, "SubjectID", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["UserID"]), GetValue(dr["UserNickName"]), "JSR")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["UserID"]), GetValue(dr["UserNickName"]), "JSR")).ToList();
         }
 
         

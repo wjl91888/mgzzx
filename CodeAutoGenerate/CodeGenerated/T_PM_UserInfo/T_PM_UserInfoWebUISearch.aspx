@@ -865,7 +865,7 @@
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LoginTime"), null)%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LoginTime"), "yy-MM-dd HH:mm:ss")%>
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>
@@ -903,7 +903,7 @@
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LastLoginDate"), null)%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LastLoginDate"), "yy-MM-dd HH:mm:ss")%>
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>
@@ -1158,7 +1158,7 @@
                                 <FooterStyle CssClass="fieldname" />
                                 <ItemTemplate>
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LoginTime"), null)+ Convert.ToChar(38).ToString() +"nbsp;"%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LoginTime"), "yy-MM-dd HH:mm:ss")+ Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>
@@ -1186,7 +1186,7 @@
                                 <FooterStyle CssClass="fieldname" />
                                 <ItemTemplate>
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LastLoginDate"), null)+ Convert.ToChar(38).ToString() +"nbsp;"%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LastLoginDate"), "yy-MM-dd HH:mm:ss")+ Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>

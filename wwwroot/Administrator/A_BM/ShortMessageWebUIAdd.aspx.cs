@@ -198,7 +198,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                     
         if (DXXFJ.Upload())
         {
-		    appData.DXXFJ = DXXFJ.Text;
+            appData.DXXFJ = DXXFJ.Text;
         }
         else
         {
@@ -295,7 +295,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 
         if (DXXFJ.Upload())
         {
-		    appData.DXXFJ = DXXFJ.Text;
+            appData.DXXFJ = DXXFJ.Text;
         }
         else
         {
@@ -582,30 +582,30 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 CKSJ_Area.Visible = false;
       
             }
-	
-				if(CustomPermission == SJX_PURVIEW_ID)
-				{
+    
+                if(CustomPermission == SJX_PURVIEW_ID)
+                {
                 SFCK_Area.Visible = false;
-				}
-				if(CustomPermission == FJX_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == FJX_PURVIEW_ID)
+                {
                 FSR_Area.Visible = false;
-				}
-				if(CustomPermission == FJX_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == FJX_PURVIEW_ID)
+                {
                 FSBM_Area.Visible = false;
-				}
-				if(CustomPermission == FJX_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == FJX_PURVIEW_ID)
+                {
                 SFCK_Area.Visible = false;
-				}
+                }
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new ShortMessageApplicationData();
-	
+                appData = new ShortMessageApplicationData();
+    
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

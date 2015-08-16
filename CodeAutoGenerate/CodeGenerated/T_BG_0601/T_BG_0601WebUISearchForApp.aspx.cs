@@ -45,10 +45,10 @@ namespace App
             var dataSourceCollection = new List<Pair<string, List<Triples<string, string, string>>>>();
 
     
-            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("发布栏目", GetList_FBLM_AdvanceSearch()));
-                
-            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("发布部门", GetList_FBBM_AdvanceSearch()));
-                
+            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("栏目", GetList_FBLM_AdvanceSearch()));
+                      
+            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("部门", GetList_FBBM_AdvanceSearch()));
+                      
 
             NavList.DataSource = dataSourceCollection;
         }
@@ -95,7 +95,7 @@ namespace App
                 if (!validateData.IsNull)
                 {
                         appData.FBLM = null;
-                        appData.FBLMBatch = GetSubItem_FBLM(validateData.Value.ToString()) + "," + validateData.Value.ToString()"];
+                        appData.FBLMBatch = GetSubItem_FBLM(validateData.Value.ToString()) + "," + validateData.Value.ToString();
                 }
             }
         
@@ -114,7 +114,7 @@ namespace App
                 if (!validateData.IsNull)
                 {
                         appData.FBBM = null;
-                        appData.FBBMBatch = GetSubItem_FBBM(validateData.Value.ToString()) + "," + validateData.Value.ToString()"];
+                        appData.FBBMBatch = GetSubItem_FBBM(validateData.Value.ToString()) + "," + validateData.Value.ToString();
                 }
             }
         

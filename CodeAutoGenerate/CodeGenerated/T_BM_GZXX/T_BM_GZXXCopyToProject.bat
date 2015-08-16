@@ -12,13 +12,13 @@ copy T_BM_GZXXWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BM_GZXXWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BM_GZXXWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BM_GZXXWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
-copy T_BM_GZXXWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\
-copy T_BM_GZXXWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\
+copy T_BM_GZXXWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BM_GZXXWebUIDetail.aspx
+copy T_BM_GZXXWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BM_GZXXWebUIDetail.aspx.cs
 copy T_BM_GZXXWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\
 copy T_BM_GZXXWebUIImage.aspx.cs ..\..\..\wwwroot\App\A_BM\
-copy T_BM_GZXXWebUISearchForApp.aspx ..\..\..\wwwroot\App\A_BM\
-copy T_BM_GZXXWebUISearchForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\
-@ECHO 开始复制T_BM_GZXX类文件
+copy T_BM_GZXXWebUISearchForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BM_GZXXWebUISearch.aspx
+copy T_BM_GZXXWebUISearchForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BM_GZXXWebUISearch.aspx.cs
+    @ECHO 开始复制T_BM_GZXX类文件
 IF NOT EXIST ..\..\..\DataLibrary\T_BM_GZXX MD ..\..\..\DataLibrary\T_BM_GZXX
 copy T_BM_GZXXApplicationData.cs ..\..\..\DataLibrary\T_BM_GZXX\
 IF NOT EXIST ..\..\..\DataLibrary\T_BM_GZXX\T_BM_GZXXApplicationLogic.cs copy T_BM_GZXXApplicationLogic.cs ..\..\..\DataLibrary\T_BM_GZXX\

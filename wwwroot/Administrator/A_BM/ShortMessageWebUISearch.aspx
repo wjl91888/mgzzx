@@ -429,7 +429,7 @@
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "FSSJ"), null)%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "FSSJ"), "yy-MM-dd HH:mm")%>
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>
@@ -535,7 +535,7 @@
                                 <FooterStyle CssClass="fieldname" />
                                 <ItemTemplate>
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "FSSJ"), null)+ Convert.ToChar(38).ToString() +"nbsp;"%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "FSSJ"), "yy-MM-dd HH:mm")+ Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                 </ItemTemplate>
                                 <FooterTemplate>

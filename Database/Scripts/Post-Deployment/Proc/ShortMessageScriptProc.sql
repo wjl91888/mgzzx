@@ -1041,45 +1041,46 @@ BEGIN
     SET @ConditionText = '( [dbo].[ShortMessage].ObjectID IS NULL '
     
     IF @ObjectID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[ObjectID] LIKE '''+CAST(@ObjectID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[ObjectID] = '''+CAST(@ObjectID AS nvarchar(100))+''' '
+            
     IF @DXXBT IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[DXXBT] LIKE '''+CAST(@DXXBT AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[DXXBT] LIKE ''%'+CAST(@DXXBT AS nvarchar(100))+'%'' '
+            
     IF @DXXLX IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[DXXLX] LIKE '''+CAST(@DXXLX AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[DXXLX] = '''+CAST(@DXXLX AS nvarchar(100))+''' '
+            
     IF @DXXNR IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[DXXNR] LIKE '''+CAST(@DXXNR AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[DXXNR] LIKE ''%'+CAST(@DXXNR AS nvarchar(100))+'%'' '
+            
     IF @DXXFJ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[DXXFJ] LIKE '''+CAST(@DXXFJ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[DXXFJ] = '''+CAST(@DXXFJ AS nvarchar(100))+''' '
+            
     IF @FSSJ IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[FSSJ] = '''+CAST(@FSSJ AS nvarchar(100))+''' '
+            
     IF @FSSJBegin IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[FSSJ] >= '''+CAST(@FSSJBegin AS nvarchar(100))+''' '
     IF @FSSJEnd IS NOT NULL
       SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[FSSJ] <= '''+CAST(@FSSJEnd AS nvarchar(100))+''' '
         
     IF @FSR IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[FSR] LIKE '''+CAST(@FSR AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[FSR] = '''+CAST(@FSR AS nvarchar(100))+''' '
+            
     IF @FSBM IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[FSBM] LIKE '''+CAST(@FSBM AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[FSBM] = '''+CAST(@FSBM AS nvarchar(100))+''' '
+            
     IF @FSIP IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[FSIP] LIKE '''+CAST(@FSIP AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[FSIP] = '''+CAST(@FSIP AS nvarchar(100))+''' '
+            
     IF @JSR IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[JSR] LIKE '''+CAST(@JSR AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[JSR] = '''+CAST(@JSR AS nvarchar(100))+''' '
+            
     IF @SFCK IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[SFCK] LIKE '''+CAST(@SFCK AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[SFCK] = '''+CAST(@SFCK AS nvarchar(100))+''' '
+            
     IF @CKSJ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[CKSJ] LIKE '''+CAST(@CKSJ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[ShortMessage].[CKSJ] = '''+CAST(@CKSJ AS nvarchar(100))+''' '
+            
     --一对一相关表查询条件
     
     SET @ConditionText = @ConditionText + ')'

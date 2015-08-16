@@ -3,12 +3,15 @@ FileName:T_PM_UserInfoWebUIBase.cs
 ******************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.T_PM_UserInfo
 {
@@ -40,35 +43,14 @@ namespace RICH.Common.BM.T_PM_UserInfo
         #endregion
 
         #region 变量定义
-        /// <summary>
-        /// 数据实体对象
-        /// </summary>
         protected T_PM_UserInfoApplicationData appData;
-        /// <summary>
-        /// 消息信息
-        /// </summary>
         protected string strMessageInfo = string.Empty;
-        /// <summary>
-        /// 消息参数
-        /// </summary>
         protected string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-        /// <summary>
-        /// AJAX操作返回值
-        /// </summary>
         protected string strAJAXReturnValue = string.Empty;
-        /// <summary>
-        /// 弹出消息信息
-        /// </summary>
         protected string strPopupMessageInfo = string.Empty;
         #endregion
 
         #region 数据操作方法
-        //=====================================================================
-        //  FunctionName : AddRecord
-        /// <summary>
-        /// 添加记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void AddRecord()
         {
             if (GetAddInputParameter())
@@ -82,7 +64,7 @@ namespace RICH.Common.BM.T_PM_UserInfo
                 if (appData.ResultCode == ApplicationDataBase.ResultState.Succeed)
                 {
                     MessageContent = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0015, new string[] {"用户信息", "添加"}, strMessageInfo);
-                    string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, new string[] {(string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], "用户信息", appData.UserLoginName.ToString(), "添加"});
+                    string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, new string[] {(string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], "用户信息", appData.UserNickName.ToString(), "添加"});
                     LogLibrary.LogWrite("A02", strLogContent, null, null, null);
                     Page.CloseWindow(true);
                 }
@@ -94,12 +76,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : ModifyRecord
-        /// <summary>
-        /// 修改记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyRecord()
         {
             if (GetModifyInputParameter())
@@ -111,18 +87,12 @@ namespace RICH.Common.BM.T_PM_UserInfo
                 // 相关表批量修改
                 RelatedTableModifyBatch();
                 MessageContent = MessageManager.GetMessageInfo(MessageManager.HINT_MSGID_0015, new string[] {"用户信息", "修改"}, strMessageInfo);
-                string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, new string[] {(string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], "用户信息", appData.UserLoginName.ToString(), "修改"});
+                string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0003, new string[] {(string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME], "用户信息", appData.UserNickName.ToString(), "修改"});
                 LogLibrary.LogWrite("A02", strLogContent, null, null, null);
                 Page.CloseWindow(true);
             }
         }
 
-        //=====================================================================
-        //  FunctionName : QueryRecord
-        /// <summary>
-        /// 查询记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void QueryRecord()
         {
             if (GetQueryInputParameter())
@@ -139,12 +109,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : DeleteRecord
-        /// <summary>
-        /// 删除记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void DeleteRecord()
         {
             if (GetDeleteInputParameter())
@@ -163,12 +127,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : CountRecord
-        /// <summary>
-        /// 统计记录数操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountRecord()
         {
             if (GetCountInputParameter())
@@ -185,12 +143,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetCountInputParameter
-        /// <summary>
-        /// 得到统计记录数用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
         protected virtual Boolean GetCountInputParameter()
         {
             Boolean boolReturn = true;
@@ -273,12 +225,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
         #endregion
 
         #region 页面控件相关方法
-        //=====================================================================
-        //  FunctionName : btnAddConfirm_Click
-        /// <summary>
-        /// 确认添加按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnAddConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -287,12 +233,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             AddRecord();
         }
         
-        //=====================================================================
-        //  FunctionName : btnModifyConfirm_Click
-        /// <summary>
-        /// 确认修改按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnModifyConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -302,12 +242,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             ModifyRecord();
         }
 
-        //=====================================================================
-        //  FunctionName : btnOperate_Click
-        /// <summary>
-        /// 操作选中记录控件Click事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnOperate_Click(object sender, EventArgs e)
         {
             switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
@@ -327,12 +261,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
 
         #region 取得数据源
 
-        //=====================================================================
-        //  FunctionName : GetTree_UserGroupID
-        /// <summary>
-        /// 根据指定条件取得用户组(UserGroupID)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_UserGroupID(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -415,12 +343,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_UserGroupID
-        /// <summary>
-        /// 取得用户组(UserGroupID)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_UserGroupID(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -431,12 +353,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_UserGroupID_AdvanceSearch
-        /// <summary>
-        /// 取得用户组(UserGroupID)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_UserGroupID_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -447,13 +363,18 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_UserGroupID_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_PM_UserGroupInfo");
+            dsReturn.Tables["T_PM_UserGroupInfo"].Columns.Add("UserGroupID");
+            dsReturn.Tables["T_PM_UserGroupInfo"].Columns.Add("UserGroupName");
+            GetTree_UserGroupID("null", "null", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["UserGroupID"]), GetValue(dr["UserGroupName"]), "UserGroupID")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_SubjectID
-        /// <summary>
-        /// 根据指定条件取得所属单位(SubjectID)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_SubjectID(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -536,12 +457,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_SubjectID
-        /// <summary>
-        /// 取得所属单位(SubjectID)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_SubjectID(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -552,12 +467,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_SubjectID_AdvanceSearch
-        /// <summary>
-        /// 取得所属单位(SubjectID)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_SubjectID_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -568,13 +477,18 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_SubjectID_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_BM_DWXX");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWBH");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWMC");
+            GetTree_SubjectID("null", "null", true, "SJDWBH", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DWBH"]), GetValue(dr["DWMC"]), "SubjectID")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetSubItem_SubjectID
-        /// <summary>
-        /// 取得所属单位(SubjectID)指定条件的子项目信息
-        /// </summary>
-        //=====================================================================
         protected virtual String GetSubItem_SubjectID(String strSJDWBH, bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             System.Text.StringBuilder sbReturn = new System.Text.StringBuilder(string.Empty);
@@ -595,12 +509,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return sbReturn.ToString();
         }
         
-        //=====================================================================
-        //  FunctionName : GetTree_XB
-        /// <summary>
-        /// 根据指定条件取得性别(XB)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_XB(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -683,12 +591,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_XB
-        /// <summary>
-        /// 取得性别(XB)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_XB(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -699,12 +601,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_XB_AdvanceSearch
-        /// <summary>
-        /// 取得性别(XB)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_XB_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -715,13 +611,18 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_XB_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_XB("LX", "0001", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "XB")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_MZ
-        /// <summary>
-        /// 根据指定条件取得民族(MZ)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_MZ(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -804,12 +705,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_MZ
-        /// <summary>
-        /// 取得民族(MZ)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_MZ(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -820,12 +715,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_MZ_AdvanceSearch
-        /// <summary>
-        /// 取得民族(MZ)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_MZ_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -836,13 +725,18 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_MZ_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_MZ("LX", "0002", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "MZ")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_ZZMM
-        /// <summary>
-        /// 根据指定条件取得政治面貌(ZZMM)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_ZZMM(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -925,12 +819,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_ZZMM
-        /// <summary>
-        /// 取得政治面貌(ZZMM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_ZZMM(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -941,12 +829,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_ZZMM_AdvanceSearch
-        /// <summary>
-        /// 取得政治面貌(ZZMM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_ZZMM_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -957,13 +839,18 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_ZZMM_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_ZZMM("LX", "0003", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "ZZMM")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_UserStatus
-        /// <summary>
-        /// 根据指定条件取得用户状态(UserStatus)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_UserStatus(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -1046,12 +933,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_UserStatus
-        /// <summary>
-        /// 取得用户状态(UserStatus)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_UserStatus(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -1062,12 +943,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_UserStatus_AdvanceSearch
-        /// <summary>
-        /// 取得用户状态(UserStatus)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_UserStatus_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -1078,16 +953,21 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_UserStatus_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_UserStatus("LX", "0102", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "UserStatus")).ToList();
+        }
+
         
         #endregion
 
         #region 修改任意字段
-        //=====================================================================
-        //  FunctionName : ModifyAnyField
-        /// <summary>
-        /// 修改一个字段的值
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyAnyField()
         {
             T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
@@ -1097,12 +977,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
         #endregion
 
         #region 统计任意字段
-        //=====================================================================
-        //  FunctionName : CountAnyField
-        /// <summary>
-        /// 统计操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountAnyField()
         {
             T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
@@ -1112,12 +986,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
         #endregion
 
         #region AJAX相关方法
-        //=====================================================================
-        //  FunctionName : AJAX_QuerySingle
-        /// <summary>
-        /// AJAX调用的读取指定记录指定字段的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QuerySingle(string strFieldName, string strFieldValue, string strReturnFieldName)
         {
             string strReturn = string.Empty;
@@ -1243,12 +1111,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_QueryDataSet
-        /// <summary>
-        /// AJAX调用的读取记录集的XML代码的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QueryDataSet(string strFieldName, string strFieldValue)
         {
             string strReturn = string.Empty;
@@ -1374,12 +1236,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Modify
-        /// <summary>
-        /// AJAX调用的更新方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Modify(string strFieldName, string strFieldValue, string strObjectID)
         {
             bool boolReturn = false;
@@ -1511,12 +1367,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Delete
-        /// <summary>
-        /// AJAX调用的删除方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Delete(string strObjectID)
         {
             bool boolReturn = false;
@@ -1552,12 +1402,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_IsExist
-        /// <summary>
-        /// AJAX调用的存在方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_IsExist(string strFieldName, string strFieldValue)
         {
             bool boolReturn = false;
@@ -1687,13 +1531,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return boolReturn;
         }
 
-        
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override void RaiseCallbackEvent(string eventArgument)
         {
             try
@@ -1764,12 +1601,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             }
         }
 
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override string GetCallbackResult()
         {
             return strAJAXReturnValue;
@@ -1778,12 +1609,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
 
         #region 验证数据
 
-        //=====================================================================
-        //  FunctionName : ValidateObjectID
-        /// <summary>
-        /// 数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateObjectID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1853,12 +1678,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateUserID
-        /// <summary>
-        /// 用户编号数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateUserID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1928,12 +1747,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateUserLoginName
-        /// <summary>
-        /// 用户名数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateUserLoginName(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2003,12 +1816,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateUserGroupID
-        /// <summary>
-        /// 用户组数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateUserGroupID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2078,12 +1885,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateUserGroupIDBatch
-        /// <summary>
-        /// 用户组Batch数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateUserGroupIDBatch(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2121,12 +1922,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateSubjectID
-        /// <summary>
-        /// 所属单位数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSubjectID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2196,12 +1991,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSubjectIDBatch
-        /// <summary>
-        /// 所属单位Batch数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSubjectIDBatch(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2239,12 +2028,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateUserNickName
-        /// <summary>
-        /// 姓名数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateUserNickName(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2314,12 +2097,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidatePassword
-        /// <summary>
-        /// 密码数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidatePassword(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2389,12 +2166,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXB
-        /// <summary>
-        /// 性别数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXB(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2464,12 +2235,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXBBatch
-        /// <summary>
-        /// 性别Batch数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXBBatch(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2507,12 +2272,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateMZ
-        /// <summary>
-        /// 民族数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateMZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2582,12 +2341,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateMZBatch
-        /// <summary>
-        /// 民族Batch数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateMZBatch(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2625,12 +2378,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateZZMM
-        /// <summary>
-        /// 政治面貌数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateZZMM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2700,12 +2447,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateZZMMBatch
-        /// <summary>
-        /// 政治面貌Batch数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateZZMMBatch(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2743,12 +2484,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateSFZH
-        /// <summary>
-        /// 身份证号数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSFZH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2818,12 +2553,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSJH
-        /// <summary>
-        /// 手机数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSJH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2893,12 +2622,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateBGDH
-        /// <summary>
-        /// 办公电话数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateBGDH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2968,12 +2691,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateJTDH
-        /// <summary>
-        /// 家庭电话数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateJTDH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3043,12 +2760,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateEmail
-        /// <summary>
-        /// Email数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateEmail(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3118,12 +2829,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateQQH
-        /// <summary>
-        /// QQ数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateQQH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3193,12 +2898,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLoginTime
-        /// <summary>
-        /// 登录时间数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLoginTime(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3268,12 +2967,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLastLoginIP
-        /// <summary>
-        /// 登录IP数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLastLoginIP(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3343,12 +3036,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLastLoginDate
-        /// <summary>
-        /// 上次时间数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLastLoginDate(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3418,12 +3105,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLoginTimes
-        /// <summary>
-        /// 登录次数数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLoginTimes(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3493,12 +3174,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateUserStatus
-        /// <summary>
-        /// 用户状态数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateUserStatus(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3568,12 +3243,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : Validatevcode
-        /// <summary>
-        /// 验证码数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData Validatevcode(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3643,12 +3312,6 @@ namespace RICH.Common.BM.T_PM_UserInfo
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : Validatelcode
-        /// <summary>
-        /// 登录码数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData Validatelcode(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3729,23 +3392,11 @@ namespace RICH.Common.BM.T_PM_UserInfo
         #endregion    
 
         #region 相关表批量操作
-        //=====================================================================
-        //  FunctionName : RelatedTableAddBatch()
-        /// <summary>
-        /// 相关表批量添加
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableAddBatch()
         {
 
         }
         
-        //=====================================================================
-        //  FunctionName : RelatedTableModifyBatch()
-        /// <summary>
-        /// 相关表批量修改
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableModifyBatch()
         {
 

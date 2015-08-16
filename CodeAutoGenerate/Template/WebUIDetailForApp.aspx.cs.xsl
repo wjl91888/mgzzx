@@ -54,15 +54,7 @@ namespace App
             if (AccessPermission)
             {
         <xsl:for-each select="/NewDataSet/CustomPermissionFieldConfig">
-            <xsl:if test="CustomPermissionType = 'SearchPage'">
-                <xsl:if test="Hidden = 'true'">
-                    if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
-                    {
-                    <xsl:value-of select="FieldName"/>Caption.Visible = false;
-                    <xsl:value-of select="FieldName"/>Content.Visible = false;
-                    }</xsl:if>
-            </xsl:if>
-            <xsl:if test="CustomPermissionType = 'AddPage'">
+            <xsl:if test="CustomPermissionType = 'DetailPage'">
                 <xsl:if test="Hidden = 'true'">
                     if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
                     {

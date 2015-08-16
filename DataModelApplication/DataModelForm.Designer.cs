@@ -194,6 +194,7 @@
             this.IsAppList = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.AppListColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsAppFilter = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.AppFilterRemarkName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsAppDetail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.AppDetailCaptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppDetailContentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -782,6 +783,7 @@
             this.IsAppList,
             this.AppListColumn,
             this.IsAppFilter,
+            this.AppFilterRemarkName,
             this.IsAppDetail,
             this.AppDetailCaptionColumn,
             this.AppDetailContentColumn,
@@ -2069,6 +2071,11 @@
             this.IsAppFilter.Name = "IsAppFilter";
             this.IsAppFilter.Width = 60;
             // 
+            // AppFilterRemarkName
+            // 
+            this.AppFilterRemarkName.HeaderText = "AppFilterRemarkName";
+            this.AppFilterRemarkName.Name = "AppFilterRemarkName";
+            // 
             // IsAppDetail
             // 
             this.IsAppDetail.HeaderText = "IsAppDetail";
@@ -3142,6 +3149,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAppList;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppListColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAppFilter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppFilterRemarkName;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAppDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppDetailCaptionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppDetailContentColumn;

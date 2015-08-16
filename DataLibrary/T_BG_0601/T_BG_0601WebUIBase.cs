@@ -2,7 +2,6 @@
 FileName:T_BG_0601WebUIBase.cs
 ******************************************************/
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.UI;
@@ -12,6 +11,7 @@ using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
 using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.T_BG_0601
 {
@@ -38,35 +38,14 @@ namespace RICH.Common.BM.T_BG_0601
         #endregion
 
         #region 变量定义
-        /// <summary>
-        /// 数据实体对象
-        /// </summary>
         protected T_BG_0601ApplicationData appData;
-        /// <summary>
-        /// 消息信息
-        /// </summary>
         protected string strMessageInfo = string.Empty;
-        /// <summary>
-        /// 消息参数
-        /// </summary>
         protected string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-        /// <summary>
-        /// AJAX操作返回值
-        /// </summary>
         protected string strAJAXReturnValue = string.Empty;
-        /// <summary>
-        /// 弹出消息信息
-        /// </summary>
         protected string strPopupMessageInfo = string.Empty;
         #endregion
 
         #region 数据操作方法
-        //=====================================================================
-        //  FunctionName : AddRecord
-        /// <summary>
-        /// 添加记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void AddRecord()
         {
             if (GetAddInputParameter())
@@ -92,12 +71,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : ModifyRecord
-        /// <summary>
-        /// 修改记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyRecord()
         {
             if (GetModifyInputParameter())
@@ -115,12 +88,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : QueryRecord
-        /// <summary>
-        /// 查询记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void QueryRecord()
         {
             if (GetQueryInputParameter())
@@ -137,12 +104,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : DeleteRecord
-        /// <summary>
-        /// 删除记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void DeleteRecord()
         {
             if (GetDeleteInputParameter())
@@ -161,12 +122,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : CountRecord
-        /// <summary>
-        /// 统计记录数操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountRecord()
         {
             if (GetCountInputParameter())
@@ -183,12 +138,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetCountInputParameter
-        /// <summary>
-        /// 得到统计记录数用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
         protected virtual Boolean GetCountInputParameter()
         {
             Boolean boolReturn = true;
@@ -271,12 +220,6 @@ namespace RICH.Common.BM.T_BG_0601
         #endregion
 
         #region 页面控件相关方法
-        //=====================================================================
-        //  FunctionName : btnAddConfirm_Click
-        /// <summary>
-        /// 确认添加按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnAddConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -285,12 +228,6 @@ namespace RICH.Common.BM.T_BG_0601
             AddRecord();
         }
         
-        //=====================================================================
-        //  FunctionName : btnModifyConfirm_Click
-        /// <summary>
-        /// 确认修改按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnModifyConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -300,12 +237,6 @@ namespace RICH.Common.BM.T_BG_0601
             ModifyRecord();
         }
 
-        //=====================================================================
-        //  FunctionName : btnOperate_Click
-        /// <summary>
-        /// 操作选中记录控件Click事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnOperate_Click(object sender, EventArgs e)
         {
             switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
@@ -325,12 +256,6 @@ namespace RICH.Common.BM.T_BG_0601
 
         #region 取得数据源
 
-        //=====================================================================
-        //  FunctionName : GetTree_FBLM
-        /// <summary>
-        /// 根据指定条件取得发布栏目(FBLM)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_FBLM(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -413,12 +338,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FBLM
-        /// <summary>
-        /// 取得发布栏目(FBLM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FBLM(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -429,12 +348,6 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FBLM_AdvanceSearch
-        /// <summary>
-        /// 取得发布栏目(FBLM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FBLM_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -445,23 +358,18 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
-        protected virtual List<Triples<string, string, string>> GetList_FBLM_AdvanceSearch()
+        protected virtual List<Triples<string, string, string>> GetList_FBLM_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
             dsReturn.Tables.Add("T_BG_0602");
             dsReturn.Tables["T_BG_0602"].Columns.Add("LMH");
             dsReturn.Tables["T_BG_0602"].Columns.Add("LMM");
-            GetTree_FBLM("null", "null", true, "SJLMH", null, ref dsReturn, 0, true, false);
+            GetTree_FBLM("null", "null", true, "SJLMH", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
                     select new Triples<string, string, string>(GetValue(dr["LMH"]), GetValue(dr["LMM"]), "FBLM")).ToList();
         }
+
         
-        //=====================================================================
-        //  FunctionName : GetSubItem_FBLM
-        /// <summary>
-        /// 取得发布栏目(FBLM)指定条件的子项目信息
-        /// </summary>
-        //=====================================================================
         protected virtual String GetSubItem_FBLM(String strSJLMH, bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             System.Text.StringBuilder sbReturn = new System.Text.StringBuilder(string.Empty);
@@ -482,12 +390,6 @@ namespace RICH.Common.BM.T_BG_0601
             return sbReturn.ToString();
         }
         
-        //=====================================================================
-        //  FunctionName : GetTree_FBBM
-        /// <summary>
-        /// 根据指定条件取得发布部门(FBBM)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_FBBM(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -570,12 +472,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FBBM
-        /// <summary>
-        /// 取得发布部门(FBBM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FBBM(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -586,12 +482,6 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FBBM_AdvanceSearch
-        /// <summary>
-        /// 取得发布部门(FBBM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FBBM_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -614,12 +504,6 @@ namespace RICH.Common.BM.T_BG_0601
         }
 
         
-        //=====================================================================
-        //  FunctionName : GetSubItem_FBBM
-        /// <summary>
-        /// 取得发布部门(FBBM)指定条件的子项目信息
-        /// </summary>
-        //=====================================================================
         protected virtual String GetSubItem_FBBM(String strSJDWBH, bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             System.Text.StringBuilder sbReturn = new System.Text.StringBuilder(string.Empty);
@@ -640,12 +524,6 @@ namespace RICH.Common.BM.T_BG_0601
             return sbReturn.ToString();
         }
         
-        //=====================================================================
-        //  FunctionName : GetTree_XXLX
-        /// <summary>
-        /// 根据指定条件取得信息类型(XXLX)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_XXLX(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -728,12 +606,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_XXLX
-        /// <summary>
-        /// 取得信息类型(XXLX)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_XXLX(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -744,12 +616,6 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_XXLX_AdvanceSearch
-        /// <summary>
-        /// 取得信息类型(XXLX)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_XXLX_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -760,13 +626,18 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_XXLX_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_XXLX("LX", "0101", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "XXLX")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_XXZT
-        /// <summary>
-        /// 根据指定条件取得信息状态(XXZT)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_XXZT(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -849,12 +720,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_XXZT
-        /// <summary>
-        /// 取得信息状态(XXZT)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_XXZT(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -865,12 +730,6 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_XXZT_AdvanceSearch
-        /// <summary>
-        /// 取得信息状态(XXZT)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_XXZT_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -881,13 +740,18 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_XXZT_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_XXZT("LX", "0102", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "XXZT")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_IsTop
-        /// <summary>
-        /// 根据指定条件取得是否置顶(IsTop)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_IsTop(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -970,12 +834,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_IsTop
-        /// <summary>
-        /// 取得是否置顶(IsTop)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_IsTop(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -986,12 +844,6 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_IsTop_AdvanceSearch
-        /// <summary>
-        /// 取得是否置顶(IsTop)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_IsTop_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -1002,13 +854,18 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_IsTop_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_IsTop("LX", "0004", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "IsTop")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_IsBest
-        /// <summary>
-        /// 根据指定条件取得推荐(IsBest)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_IsBest(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -1091,12 +948,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_IsBest
-        /// <summary>
-        /// 取得推荐(IsBest)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_IsBest(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -1107,12 +958,6 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_IsBest_AdvanceSearch
-        /// <summary>
-        /// 取得推荐(IsBest)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_IsBest_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -1123,13 +968,18 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_IsBest_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_IsBest("LX", "0004", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "IsBest")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_FBRJGH
-        /// <summary>
-        /// 根据指定条件取得发布人(FBRJGH)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_FBRJGH(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -1212,12 +1062,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FBRJGH
-        /// <summary>
-        /// 取得发布人(FBRJGH)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FBRJGH(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -1228,12 +1072,6 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_FBRJGH_AdvanceSearch
-        /// <summary>
-        /// 取得发布人(FBRJGH)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_FBRJGH_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -1244,16 +1082,21 @@ namespace RICH.Common.BM.T_BG_0601
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_FBRJGH_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_PM_UserInfo");
+            dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserID");
+            dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserNickName");
+            GetTree_FBRJGH("null", "null", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["UserID"]), GetValue(dr["UserNickName"]), "FBRJGH")).ToList();
+        }
+
         
         #endregion
 
         #region 修改任意字段
-        //=====================================================================
-        //  FunctionName : ModifyAnyField
-        /// <summary>
-        /// 修改一个字段的值
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyAnyField()
         {
             T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
@@ -1263,12 +1106,6 @@ namespace RICH.Common.BM.T_BG_0601
         #endregion
 
         #region 统计任意字段
-        //=====================================================================
-        //  FunctionName : CountAnyField
-        /// <summary>
-        /// 统计操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountAnyField()
         {
             T_BG_0601ApplicationLogic instanceT_BG_0601ApplicationLogic
@@ -1278,12 +1115,6 @@ namespace RICH.Common.BM.T_BG_0601
         #endregion
 
         #region AJAX相关方法
-        //=====================================================================
-        //  FunctionName : AJAX_QuerySingle
-        /// <summary>
-        /// AJAX调用的读取指定记录指定字段的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QuerySingle(string strFieldName, string strFieldValue, string strReturnFieldName)
         {
             string strReturn = string.Empty;
@@ -1381,12 +1212,6 @@ namespace RICH.Common.BM.T_BG_0601
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_QueryDataSet
-        /// <summary>
-        /// AJAX调用的读取记录集的XML代码的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QueryDataSet(string strFieldName, string strFieldValue)
         {
             string strReturn = string.Empty;
@@ -1484,12 +1309,6 @@ namespace RICH.Common.BM.T_BG_0601
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Modify
-        /// <summary>
-        /// AJAX调用的更新方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Modify(string strFieldName, string strFieldValue, string strObjectID)
         {
             bool boolReturn = false;
@@ -1593,12 +1412,6 @@ namespace RICH.Common.BM.T_BG_0601
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Delete
-        /// <summary>
-        /// AJAX调用的删除方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Delete(string strObjectID)
         {
             bool boolReturn = false;
@@ -1634,12 +1447,6 @@ namespace RICH.Common.BM.T_BG_0601
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_IsExist
-        /// <summary>
-        /// AJAX调用的存在方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_IsExist(string strFieldName, string strFieldValue)
         {
             bool boolReturn = false;
@@ -1741,13 +1548,6 @@ namespace RICH.Common.BM.T_BG_0601
             return boolReturn;
         }
 
-        
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override void RaiseCallbackEvent(string eventArgument)
         {
             try
@@ -1818,12 +1618,6 @@ namespace RICH.Common.BM.T_BG_0601
             }
         }
 
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override string GetCallbackResult()
         {
             return strAJAXReturnValue;
@@ -1832,12 +1626,6 @@ namespace RICH.Common.BM.T_BG_0601
 
         #region 验证数据
 
-        //=====================================================================
-        //  FunctionName : ValidateObjectID
-        /// <summary>
-        /// 数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateObjectID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1907,12 +1695,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFBH
-        /// <summary>
-        /// 发布号数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1982,12 +1764,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateBT
-        /// <summary>
-        /// 标题数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateBT(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2057,12 +1833,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLanguageID
-        /// <summary>
-        /// 语言数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLanguageID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2132,12 +1902,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFBLM
-        /// <summary>
-        /// 发布栏目数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBLM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2207,12 +1971,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFBLMBatch
-        /// <summary>
-        /// 发布栏目Batch数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBLMBatch(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2250,12 +2008,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateFBBM
-        /// <summary>
-        /// 发布部门数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBBM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2325,12 +2077,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFBZT
-        /// <summary>
-        /// 发布专题数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBZT(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2400,12 +2146,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXXLX
-        /// <summary>
-        /// 信息类型数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXXLX(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2475,12 +2215,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXXTPDZ
-        /// <summary>
-        /// 信息图片数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXXTPDZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2550,12 +2284,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXXNR
-        /// <summary>
-        /// 信息内容数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXXNR(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2625,12 +2353,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFJXZDZ
-        /// <summary>
-        /// 附件数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFJXZDZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2700,12 +2422,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidatePZRJGH
-        /// <summary>
-        /// 批准人数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidatePZRJGH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2775,12 +2491,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXXZT
-        /// <summary>
-        /// 信息状态数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXXZT(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2850,12 +2560,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateIsTop
-        /// <summary>
-        /// 是否置顶数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateIsTop(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -2925,12 +2629,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateTopSort
-        /// <summary>
-        /// 置顶序号数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateTopSort(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3000,12 +2698,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateIsBest
-        /// <summary>
-        /// 推荐数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateIsBest(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3075,12 +2767,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateYXSJRQ
-        /// <summary>
-        /// 有效时间数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateYXSJRQ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3150,12 +2836,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFBRJGH
-        /// <summary>
-        /// 发布人数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBRJGH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3225,12 +2905,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFBSJRQ
-        /// <summary>
-        /// 发布时间数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBSJRQ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3300,12 +2974,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateFBSJRQ
-        /// <summary>
-        /// 发布时间Begin数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBSJRQBegin(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3375,12 +3043,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
 
-        //=====================================================================
-        //  FunctionName : ValidateFBSJRQ
-        /// <summary>
-        /// 发布时间End数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBSJRQEnd(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3450,12 +3112,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
         
-        //=====================================================================
-        //  FunctionName : ValidateFBIP
-        /// <summary>
-        /// 发布IP数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateFBIP(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3525,12 +3181,6 @@ namespace RICH.Common.BM.T_BG_0601
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLLCS
-        /// <summary>
-        /// 浏览次数数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLLCS(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -3611,23 +3261,11 @@ namespace RICH.Common.BM.T_BG_0601
         #endregion    
 
         #region 相关表批量操作
-        //=====================================================================
-        //  FunctionName : RelatedTableAddBatch()
-        /// <summary>
-        /// 相关表批量添加
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableAddBatch()
         {
 
         }
         
-        //=====================================================================
-        //  FunctionName : RelatedTableModifyBatch()
-        /// <summary>
-        /// 相关表批量修改
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableModifyBatch()
         {
 

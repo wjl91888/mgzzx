@@ -1591,74 +1591,74 @@ BEGIN
     SET @ConditionText = '( [dbo].[T_PM_UserInfo].ObjectID IS NULL '
     
     IF @ObjectID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[ObjectID] LIKE '''+CAST(@ObjectID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[ObjectID] = '''+CAST(@ObjectID AS nvarchar(100))+''' '
+            
     IF @UserID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserID] LIKE '''+CAST(@UserID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserID] = '''+CAST(@UserID AS nvarchar(100))+''' '
+            
     IF @UserLoginName IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserLoginName] LIKE '''+CAST(@UserLoginName AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserLoginName] LIKE ''%'+CAST(@UserLoginName AS nvarchar(100))+'%'' '
+            
     IF @UserGroupID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserGroupID] LIKE '''+CAST(@UserGroupID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserGroupID] = '''+CAST(@UserGroupID AS nvarchar(100))+''' '
+            
     IF @SubjectID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[SubjectID] LIKE '''+CAST(@SubjectID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[SubjectID] = '''+CAST(@SubjectID AS nvarchar(100))+''' '
+            
     IF @UserNickName IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserNickName] LIKE '''+CAST(@UserNickName AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserNickName] LIKE ''%'+CAST(@UserNickName AS nvarchar(100))+'%'' '
+            
     IF @Password IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[Password] LIKE '''+CAST(@Password AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[Password] = '''+CAST(@Password AS nvarchar(100))+''' '
+            
     IF @XB IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[XB] LIKE '''+CAST(@XB AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[XB] = '''+CAST(@XB AS nvarchar(100))+''' '
+            
     IF @MZ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[MZ] LIKE '''+CAST(@MZ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[MZ] = '''+CAST(@MZ AS nvarchar(100))+''' '
+            
     IF @ZZMM IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[ZZMM] LIKE '''+CAST(@ZZMM AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[ZZMM] = '''+CAST(@ZZMM AS nvarchar(100))+''' '
+            
     IF @SFZH IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[SFZH] LIKE '''+CAST(@SFZH AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[SFZH] = '''+CAST(@SFZH AS nvarchar(100))+''' '
+            
     IF @SJH IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[SJH] LIKE '''+CAST(@SJH AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[SJH] LIKE ''%'+CAST(@SJH AS nvarchar(100))+'%'' '
+            
     IF @BGDH IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[BGDH] LIKE '''+CAST(@BGDH AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[BGDH] = '''+CAST(@BGDH AS nvarchar(100))+''' '
+            
     IF @JTDH IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[JTDH] LIKE '''+CAST(@JTDH AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[JTDH] = '''+CAST(@JTDH AS nvarchar(100))+''' '
+            
     IF @Email IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[Email] LIKE '''+CAST(@Email AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[Email] LIKE ''%'+CAST(@Email AS nvarchar(100))+'%'' '
+            
     IF @QQH IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[QQH] LIKE '''+CAST(@QQH AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[QQH] LIKE ''%'+CAST(@QQH AS nvarchar(100))+'%'' '
+            
     IF @LoginTime IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[LoginTime] LIKE '''+CAST(@LoginTime AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[LoginTime] = '''+CAST(@LoginTime AS nvarchar(100))+''' '
+            
     IF @LastLoginIP IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[LastLoginIP] LIKE '''+CAST(@LastLoginIP AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[LastLoginIP] = '''+CAST(@LastLoginIP AS nvarchar(100))+''' '
+            
     IF @LastLoginDate IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[LastLoginDate] LIKE '''+CAST(@LastLoginDate AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[LastLoginDate] = '''+CAST(@LastLoginDate AS nvarchar(100))+''' '
+            
     IF @LoginTimes IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[LoginTimes] LIKE '''+CAST(@LoginTimes AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[LoginTimes] = '''+CAST(@LoginTimes AS nvarchar(100))+''' '
+            
     IF @UserStatus IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserStatus] LIKE '''+CAST(@UserStatus AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[UserStatus] = '''+CAST(@UserStatus AS nvarchar(100))+''' '
+            
     IF @vcode IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[vcode] LIKE '''+CAST(@vcode AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[vcode] = '''+CAST(@vcode AS nvarchar(100))+''' '
+            
     IF @lcode IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[lcode] LIKE '''+CAST(@lcode AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserInfo].[lcode] = '''+CAST(@lcode AS nvarchar(100))+''' '
+            
     --一对一相关表查询条件
     
     SET @ConditionText = @ConditionText + ')'

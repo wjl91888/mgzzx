@@ -49,41 +49,6 @@ namespace App
             if (AccessPermission)
             {
         
-                    if(CustomPermission == WFBD_PURVIEW_ID)
-                    {
-                    FBHCaption.Visible = false;
-                    FBHContent.Visible = false;
-                    }
-                    if(CustomPermission == WFBD_PURVIEW_ID)
-                    {
-                    XXZTCaption.Visible = false;
-                    XXZTContent.Visible = false;
-                    }
-                    if(CustomPermission == WFBD_PURVIEW_ID)
-                    {
-                    IsTopCaption.Visible = false;
-                    IsTopContent.Visible = false;
-                    }
-                    if(CustomPermission == WFBD_PURVIEW_ID)
-                    {
-                    TopSortCaption.Visible = false;
-                    TopSortContent.Visible = false;
-                    }
-                    if(CustomPermission == WFBD_PURVIEW_ID)
-                    {
-                    IsBestCaption.Visible = false;
-                    IsBestContent.Visible = false;
-                    }
-                    if(CustomPermission == WFBD_PURVIEW_ID)
-                    {
-                    FBRJGHCaption.Visible = false;
-                    FBRJGHContent.Visible = false;
-                    }
-                    if(CustomPermission == WFBD_PURVIEW_ID)
-                    {
-                    FBIPCaption.Visible = false;
-                    FBIPContent.Visible = false;
-                    }
             }
         }
     }

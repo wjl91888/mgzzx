@@ -3,12 +3,15 @@ FileName:T_BG_0601WebUIBase.cs
 ******************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.T_BG_0601
 {
@@ -363,7 +366,7 @@ namespace RICH.Common.BM.T_BG_0601
             dsReturn.Tables["T_BG_0602"].Columns.Add("LMM");
             GetTree_FBLM("null", "null", true, "SJLMH", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["LMH"]), GetValue(dr["LMM"]), "FBLM")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["LMH"]), GetValue(dr["LMM"]), "FBLM")).ToList();
         }
 
         
@@ -497,7 +500,7 @@ namespace RICH.Common.BM.T_BG_0601
             dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWMC");
             GetTree_FBBM("null", "null", true, "SJDWBH", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["DWBH"]), GetValue(dr["DWMC"]), "FBBM")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["DWBH"]), GetValue(dr["DWMC"]), "FBBM")).ToList();
         }
 
         
@@ -631,7 +634,7 @@ namespace RICH.Common.BM.T_BG_0601
             dsReturn.Tables["Dictionary"].Columns.Add("MC");
             GetTree_XXLX("LX", "0101", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["DM"]), GetValue(dr["MC"]), "XXLX")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "XXLX")).ToList();
         }
 
         
@@ -745,7 +748,7 @@ namespace RICH.Common.BM.T_BG_0601
             dsReturn.Tables["Dictionary"].Columns.Add("MC");
             GetTree_XXZT("LX", "0102", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["DM"]), GetValue(dr["MC"]), "XXZT")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "XXZT")).ToList();
         }
 
         
@@ -859,7 +862,7 @@ namespace RICH.Common.BM.T_BG_0601
             dsReturn.Tables["Dictionary"].Columns.Add("MC");
             GetTree_IsTop("LX", "0004", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["DM"]), GetValue(dr["MC"]), "IsTop")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "IsTop")).ToList();
         }
 
         
@@ -973,7 +976,7 @@ namespace RICH.Common.BM.T_BG_0601
             dsReturn.Tables["Dictionary"].Columns.Add("MC");
             GetTree_IsBest("LX", "0004", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["DM"]), GetValue(dr["MC"]), "IsBest")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "IsBest")).ToList();
         }
 
         
@@ -1087,7 +1090,7 @@ namespace RICH.Common.BM.T_BG_0601
             dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserNickName");
             GetTree_FBRJGH("null", "null", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
             return (from DataRow dr in dsReturn.Tables[0].Rows
-                    select new <Triples<string, string, string>>(GetValue(dr["UserID"]), GetValue(dr["UserNickName"]), "FBRJGH")).ToList();
+                    select new Triples<string, string, string>(GetValue(dr["UserID"]), GetValue(dr["UserNickName"]), "FBRJGH")).ToList();
         }
 
         

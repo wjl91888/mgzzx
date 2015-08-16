@@ -1197,94 +1197,94 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                 LoginTimes.Enabled = false;
                 
             }
-	
-				if(CustomPermission == TXL_PURVIEW_ID)
-				{
+    
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
                 UserID_Area.Visible = false;
-				}
-				if(CustomPermission == TXL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
                 UserLoginName_Area.Visible = false;
-				}
-				if(CustomPermission == TXL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
                 UserGroupID_Area.Visible = false;
-				}
-				if(CustomPermission == TXL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
                 SFZH_Area.Visible = false;
-				}
-				if(CustomPermission == TXL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
                 LoginTime_Area.Visible = false;
-				}
-				if(CustomPermission == TXL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
                 LastLoginIP_Area.Visible = false;
-				}
-				if(CustomPermission == TXL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
                 LastLoginDate_Area.Visible = false;
-				}
-				if(CustomPermission == TXL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
                 LoginTimes_Area.Visible = false;
-				}
-				if(CustomPermission == TXL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
                 UserStatus_Area.Visible = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 UserID.Enabled = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 UserLoginName.Enabled = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 UserGroupID.Enabled = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 SFZH.Enabled = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 LoginTime_Area.Visible = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 LastLoginIP_Area.Visible = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 LastLoginDate_Area.Visible = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 LoginTimes_Area.Visible = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 UserStatus_Area.Visible = false;
-				}
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                }
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                 vcode_Area.Visible = false;
-				}
+                }
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new T_PM_UserInfoApplicationData();
-	
-				if(CustomPermission == GRZL_PURVIEW_ID)
-				{
+                appData = new T_PM_UserInfoApplicationData();
+    
+                if(CustomPermission == GRZL_PURVIEW_ID)
+                {
                     appData.ObjectID = CurrentUserInfo.ObjectID;
-				}
+                }
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

@@ -143,7 +143,7 @@
                                       
                                             <div id = "LoginTime" runat = "server" >
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LoginTime"), null) + Convert.ToChar(38).ToString() +"nbsp;"%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LoginTime"), "yy-MM-dd HH:mm:ss") + Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                            </div>
                                       
@@ -155,7 +155,7 @@
                                       
                                             <div id = "LastLoginDate" runat = "server" >
                                         
-                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LastLoginDate"), null) + Convert.ToChar(38).ToString() +"nbsp;"%>
+                                    <%# GetValue(DataBinder.Eval(Container.DataItem, "LastLoginDate"), "yy-MM-dd HH:mm:ss") + Convert.ToChar(38).ToString() +"nbsp;"%>
                                                 
                                            </div>
                                       

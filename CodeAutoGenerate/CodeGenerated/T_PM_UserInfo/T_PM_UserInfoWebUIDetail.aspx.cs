@@ -69,7 +69,7 @@ public partial class T_PM_UserInfoWebUIDetail : RICH.Common.BM.T_PM_UserInfo.T_P
                 string strLogTypeID = "A10";
                 strMessageParam[0] = (string)Session[ConstantsManager.SESSION_USER_LOGIN_NAME];
                 strMessageParam[1] = "用户信息";
-                strMessageParam[2] = drTemp["UserLoginName"].ToString();
+                strMessageParam[2] = drTemp["UserNickName"].ToString();
                 string strLogContent = MessageManager.GetMessageInfo(MessageManager.LOG_MSGID_0012, strMessageParam);
                 RICH.Common.LM.LogLibrary.LogWrite(strLogTypeID, strLogContent, null, drTemp["ObjectID"].ToString(), null);
                 //记录日志结束

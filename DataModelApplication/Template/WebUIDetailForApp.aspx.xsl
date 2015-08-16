@@ -25,27 +25,29 @@
 ]]>
     <xsl:for-each select="/NewDataSet/RecordInfo">
         <xsl:if test="IsShowDetail = 'true'">
-<![CDATA[            <div id="]]><xsl:value-of select="FieldName"/><![CDATA[Caption" runat="server" class="fontbold col-xs-]]><xsl:value-of select="AppDetailCaptionColumn"/><![CDATA[ paddingleft0">]]><xsl:value-of select="FieldRemark"/><![CDATA[</div>]]>
-<![CDATA[            <div id="]]><xsl:value-of select="FieldName"/><![CDATA[Content" runat="server" class="col-xs-]]><xsl:value-of select="AppDetailContentColumn"/><![CDATA[">]]>
+<![CDATA[            <div id="]]><xsl:value-of select="FieldName"/><![CDATA[Container" runat="server" class="row">]]>
+<![CDATA[                <div id="]]><xsl:value-of select="FieldName"/><![CDATA[Caption" runat="server" class="fontbold col-xs-]]><xsl:value-of select="AppDetailCaptionColumn"/><![CDATA[ paddingleft0">]]><xsl:value-of select="FieldRemark"/><![CDATA[</div>]]>
+<![CDATA[                <div id="]]><xsl:value-of select="FieldName"/><![CDATA[Content" runat="server" class="col-xs-]]><xsl:value-of select="AppDetailContentColumn"/><![CDATA[">]]>
         <xsl:if test="IsDataBind = 'true'">
-<![CDATA[                <%# DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/>_<xsl:value-of select="DataBindTableName"/>_<xsl:value-of select="DataBindTextField"/><![CDATA[")%>]]>
+<![CDATA[                    <%# DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/>_<xsl:value-of select="DataBindTableName"/>_<xsl:value-of select="DataBindTextField"/><![CDATA[")%>]]>
         </xsl:if>
         <xsl:if test="IsDataBind = 'false'">
             <xsl:choose>
                 <xsl:when test="ControlType = '图片上传'">
-<![CDATA[                <%# DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA[") == DBNull.Value ? "" : "<img class='img-responsive' src='" + DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA[") + "' />"%>]]>
+<![CDATA[                    <%# DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA[") == DBNull.Value ? "" : "<img class='img-responsive' src='" + DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA[") + "' />"%>]]>
                 </xsl:when>
                 <xsl:when test="ControlTypeName = 'FilesList'">
-<![CDATA[                <control:FilesList ID="]]><xsl:value-of select="FieldName"/><![CDATA[" runat="server" CssClass="input" ReadOnly="true" Text='<%# DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA[")%>'></control:FilesList>]]>
+<![CDATA[                    <control:FilesList ID="]]><xsl:value-of select="FieldName"/><![CDATA[" runat="server" CssClass="input" ReadOnly="true" Text='<%# DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA[")%>'></control:FilesList>]]>
                 </xsl:when>
                 <xsl:when test="DBType = 'Image'">
-<![CDATA[                <img class='img-responsive' src='<%# "]]><xsl:value-of select="/NewDataSet/TableName"/><![CDATA[WebUIImage.aspx?ObjectID=" + DataBinder.Eval(Container.DataItem, "ObjectID") + AndChar + "ImageField=]]><xsl:value-of select="FieldName"/><![CDATA["%>'  />]]>
+<![CDATA[                    <img class='img-responsive' src='<%# "]]><xsl:value-of select="/NewDataSet/TableName"/><![CDATA[WebUIImage.aspx?ObjectID=" + DataBinder.Eval(Container.DataItem, "ObjectID") + AndChar + "ImageField=]]><xsl:value-of select="FieldName"/><![CDATA["%>'  />]]>
                 </xsl:when>
                 <xsl:otherwise>
-<![CDATA[                <%# GetValue(DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA["), ]]><xsl:value-of select="DisplayFormatString"/><![CDATA[)%>]]>
+<![CDATA[                    <%# GetValue(DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA["), ]]><xsl:value-of select="DisplayFormatString"/><![CDATA[)%>]]>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
+<![CDATA[                </div>]]>
 <![CDATA[            </div>]]>
         </xsl:if>
     </xsl:for-each>
