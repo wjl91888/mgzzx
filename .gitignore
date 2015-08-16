@@ -571,3 +571,7 @@ DataModelApplication/obj/Debug/DataModelApplication.csproj.GenerateResource.Cach
 DataModelApplication/obj/Debug/DataModelApplication.csprojResolveAssemblyReference.cache
 WebApp.Tests/obj/Debug/WebApp.Tests.csprojResolveAssemblyReference.cache
 WebApp/obj/Debug/WebApp.csprojResolveAssemblyReference.cache
+CodeAutoGenerate/DataModelApplication.vshost.application
+CodeAutoGenerate/DataModelApplication.vshost.exe
+CodeAutoGenerate/DataModelApplication.vshost.exe.config
+CodeAutoGenerate/DataModelApplication.vshost.exe.manifest
