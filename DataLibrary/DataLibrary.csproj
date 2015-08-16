@@ -256,7 +256,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\website_org\DataLibraryBase\DataLibraryBase.csproj">
+    <ProjectReference Include="..\DataLibraryBase\DataLibraryBase.csproj">
       <Project>{53705C01-D554-4539-8B0A-7101BAACB6B3}</Project>
       <Name>DataLibraryBase</Name>
     </ProjectReference>
