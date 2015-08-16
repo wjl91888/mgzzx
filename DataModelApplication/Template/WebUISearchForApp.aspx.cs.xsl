@@ -47,23 +47,12 @@ namespace App
 <![CDATA[
         protected void InitFilterData()
         {
-            var dataSourceCollection = new List<Pair<string, List<Triples<string, string, string>>>>();
-]]>
+            var dataSourceCollection = new List<Pair<string, List<Triples<string, string, string>>>>();]]>
     <xsl:for-each select="/NewDataSet/RecordInfo">
-        <xsl:if test="IsAppFilter = 'true'">
-            <xsl:if test="IsAdvanceSearch = 'true'">
-                <xsl:if test="IsDataBind = 'true'">
-                    <xsl:choose>
-                      <xsl:when test="AppFilterRemarkName = ''">
-<![CDATA[            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("]]><xsl:value-of select="FieldRemark"/><![CDATA[", GetList_]]><xsl:value-of select="FieldName"/><![CDATA[_AdvanceSearch()));]]>
-                      </xsl:when>
-                      <xsl:otherwise>
+        <xsl:if test="IsAppFilter = 'true'"><xsl:if test="IsAdvanceSearch = 'true'"><xsl:if test="IsDataBind = 'true'">
 <![CDATA[            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("]]><xsl:value-of select="AppFilterRemarkName"/><![CDATA[", GetList_]]><xsl:value-of select="FieldName"/><![CDATA[_AdvanceSearch()));]]>
-                      </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:if></xsl:if></xsl:if></xsl:for-each>
-<![CDATA[
-            NavList.DataSource = dataSourceCollection;
+                    </xsl:if></xsl:if></xsl:if></xsl:for-each>
+<![CDATA[            NavList.DataSource = dataSourceCollection;
         }
 ]]>
         protected void AjaxManager_AjaxRequest(object sender, AjaxRequestEventArgs e)
@@ -180,13 +169,7 @@ namespace App
 </xsl:for-each>
             if (!string.IsNullOrWhiteSpace(Request["SearchKeywords"]))
             {
-    <xsl:for-each select="/NewDataSet/RecordInfo">
-        <xsl:if test="IsAppFilter = 'true'">
-            <xsl:if test="IsAdvanceSearch = 'true'">
-                <xsl:if test="IsDataBind = 'true'">
-                appData.<xsl:value-of select="FieldName"/> = Convert.ToString(Request["SearchKeywords"]);
-                </xsl:if></xsl:if></xsl:if></xsl:for-each>
-                ViewState["QueryType"] = "OR";
+                appData.<xsl:value-of select="/NewDataSet/TitleField"/> = Convert.ToString(Request["SearchKeywords"]);
             }
 
             if (!DataValidateManager.ValidateIsNull(ViewState["QueryType"]))

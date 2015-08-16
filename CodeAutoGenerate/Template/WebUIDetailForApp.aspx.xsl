@@ -21,11 +21,10 @@
             <div class="page-header">
                 <h4>
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="/NewDataSet/TitleField"/><![CDATA["), null)%></h4>
-            </div>
-]]>
+            </div>]]>
     <xsl:for-each select="/NewDataSet/RecordInfo">
         <xsl:if test="IsShowDetail = 'true'">
-<![CDATA[            <div id="]]><xsl:value-of select="FieldName"/><![CDATA[Container" runat="server" class="row">]]>
+<![CDATA[            <div id="]]><xsl:value-of select="FieldName"/><![CDATA[Container" runat="server" Visible="false" class="row">]]>
 <![CDATA[                <div id="]]><xsl:value-of select="FieldName"/><![CDATA[Caption" runat="server" class="fontbold col-xs-]]><xsl:value-of select="AppDetailCaptionColumn"/><![CDATA[ paddingleft0">]]><xsl:value-of select="FieldRemark"/><![CDATA[</div>]]>
 <![CDATA[                <div id="]]><xsl:value-of select="FieldName"/><![CDATA[Content" runat="server" class="col-xs-]]><xsl:value-of select="AppDetailContentColumn"/><![CDATA[">]]>
         <xsl:if test="IsDataBind = 'true'">

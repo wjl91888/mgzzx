@@ -112,6 +112,7 @@ namespace  RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>
             db.AddOutParameter(cmdProc, "@RecordCount", DbType.Int32, 4);
             // 对存储过程参数赋值
             db.SetParameterValue(cmdProc, "@QueryType", AppData.QueryType);
+            db.SetParameterValue(cmdProc, "@QueryKeywords", AppData.QueryKeywords);
             <xsl:for-each select="/NewDataSet/RecordInfo">
               <xsl:choose>
                 <xsl:when test="IsRangeSearch = 'true'">

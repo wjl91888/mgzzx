@@ -5,6 +5,7 @@
 <xsl:template match="/">
 using System;
 using System.Data;
+using System.Web.UI.WebControls;
 using RICH.Common;
 using RICH.Common.BM.<xsl:value-of select="/NewDataSet/TableName"/>;
 using Telerik.Web.UI;
@@ -53,16 +54,22 @@ namespace App
         {
             if (AccessPermission)
             {
+                foreach (RepeaterItem item in rptDetail.Items)
+                {
         <xsl:for-each select="/NewDataSet/CustomPermissionFieldConfig">
-            <xsl:if test="CustomPermissionType = 'DetailPage'">
-                <xsl:if test="Hidden = 'true'">
+            <xsl:if test="CustomPermissionType = 'SearchPage'">
+                <xsl:if test="View = 'true'">
                     if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
                     {
-                    <xsl:value-of select="FieldName"/>Caption.Visible = false;
-                    <xsl:value-of select="FieldName"/>Content.Visible = false;
-                    }</xsl:if>
-            </xsl:if>
-        </xsl:for-each>
+                        var <xsl:value-of select="FieldName"/>Control = item.FindControl("<xsl:value-of select="FieldName"/>Container");
+                        if (<xsl:value-of select="FieldName"/>Control != null) 
+                            <xsl:value-of select="FieldName"/>Control.Visible = true;
+                    }</xsl:if></xsl:if></xsl:for-each>
+                }
+            }
+            else
+            {
+                rptDetail.Visible = false;
             }
         }
     }

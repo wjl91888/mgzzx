@@ -139,11 +139,11 @@ namespace RICH.Common.Base.WebUI
                         MessageContent = string.Empty;
                     }
                 }
-                CheckPermission();
-                if (!IsPostBack)
-                {
-                    ProcessUIControlsStatus();
-                }
+            }
+            CheckPermission();
+            if (!IsPostBack)
+            {
+                ProcessUIControlsStatus();
             }
         }
 

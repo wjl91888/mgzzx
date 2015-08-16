@@ -1,4 +1,4 @@
 ﻿.fontbold {font-weight:bold !important;}
 .paddingleft0 { padding-left:0 !important; }
 .paddingright0 { padding-right:0 !important; }
-#AppDetailPage div { margin-bottom: 4px; }
+#AppDetailPage div { margin-bottom: 4px; padding-left:10px; padding-right:10px; }

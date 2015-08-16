@@ -233,8 +233,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -327,8 +327,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>true</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -429,8 +429,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>true</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -529,10 +529,10 @@
     <IsListSort>true</IsListSort>
     <IsAppList>false</IsAppList>
     <AppListColumn>4</AppListColumn>
-    <IsAppFilter>true</IsAppFilter>
+    <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -638,12 +638,13 @@
     <IsList>true</IsList>
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>true</IsListSort>
-    <IsAppList>false</IsAppList>
-    <AppListColumn>4</AppListColumn>
+    <IsAppList>true</IsAppList>
+    <AppListColumn>6</AppListColumn>
     <IsAppFilter>true</IsAppFilter>
+    <AppFilterRemarkName>部门</AppFilterRemarkName>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -752,8 +753,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>true</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -854,8 +855,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -948,8 +949,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1058,8 +1059,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1168,8 +1169,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1278,8 +1279,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1377,11 +1378,11 @@
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>true</IsAppList>
-    <AppListColumn>4</AppListColumn>
+    <AppListColumn>6</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1478,12 +1479,12 @@
     <IsList>true</IsList>
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
-    <IsAppList>true</IsAppList>
-    <AppListColumn>4</AppListColumn>
+    <IsAppList>false</IsAppList>
+    <AppListColumn>6</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1580,12 +1581,12 @@
     <IsList>true</IsList>
     <IsDefaultList>false</IsDefaultList>
     <IsListSort>false</IsListSort>
-    <IsAppList>true</IsAppList>
-    <AppListColumn>4</AppListColumn>
+    <IsAppList>false</IsAppList>
+    <AppListColumn>6</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1683,11 +1684,11 @@
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>false</IsListSort>
     <IsAppList>true</IsAppList>
-    <AppListColumn>4</AppListColumn>
+    <AppListColumn>12</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1784,12 +1785,12 @@
     <IsList>true</IsList>
     <IsDefaultList>true</IsDefaultList>
     <IsListSort>false</IsListSort>
-    <IsAppList>true</IsAppList>
-    <AppListColumn>4</AppListColumn>
+    <IsAppList>false</IsAppList>
+    <AppListColumn>6</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1890,8 +1891,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1992,8 +1993,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2094,8 +2095,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2196,8 +2197,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2298,8 +2299,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2401,8 +2402,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2495,8 +2496,8 @@
     <AppListColumn>4</AppListColumn>
     <IsAppFilter>false</IsAppFilter>
     <IsAppDetail>false</IsAppDetail>
-    <AppDetailCaptionColumn>4</AppDetailCaptionColumn>
-    <AppDetailContentColumn>8</AppDetailContentColumn>
+    <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
+    <AppDetailContentColumn>9</AppDetailContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2584,272 +2585,6 @@
     <CustomPermissionRemark>个人资料</CustomPermissionRemark>
   </CustomPermissionConfig>
   <CustomPermissionConfig />
-  <CustomPermissionConfig />
-  <CustomPermissionConfig />
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>ObjectID</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>UserID</FieldName>
-    <Hidden>true</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>UserLoginName</FieldName>
-    <Hidden>true</Hidden>
-    <View>false</View>
-    <NoSearch>true</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>UserGroupID</FieldName>
-    <Hidden>true</Hidden>
-    <View>false</View>
-    <NoSearch>true</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>SubjectID</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>UserNickName</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>Password</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>XB</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>true</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>MZ</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>true</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>ZZMM</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>true</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>SFZH</FieldName>
-    <Hidden>true</Hidden>
-    <View>false</View>
-    <NoSearch>true</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>SJH</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>BGDH</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>JTDH</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>Email</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>QQH</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>LoginTime</FieldName>
-    <Hidden>true</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>LastLoginIP</FieldName>
-    <Hidden>true</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>LastLoginDate</FieldName>
-    <Hidden>true</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>LoginTimes</FieldName>
-    <Hidden>true</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>UserStatus</FieldName>
-    <Hidden>true</Hidden>
-    <View>false</View>
-    <NoSearch>true</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
-  <CustomPermissionFieldConfig>
-    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
-    <CustomPermissionType>SearchPage</CustomPermissionType>
-    <CustomPermissionID>51</CustomPermissionID>
-    <CustomPermissionName>TXL</CustomPermissionName>
-    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
-    <FieldName>vcode</FieldName>
-    <Hidden>false</Hidden>
-    <View>false</View>
-    <NoSearch>false</NoSearch>
-    <Condition>false</Condition>
-  </CustomPermissionFieldConfig>
   <CustomPermissionFieldConfig>
     <CustomPermissionTemplate>WebUIAdd.aspx.cs.xsl</CustomPermissionTemplate>
     <CustomPermissionType>AddPage</CustomPermissionType>
@@ -3111,6 +2846,270 @@
     <CustomPermissionRemark>个人资料</CustomPermissionRemark>
     <FieldName>vcode</FieldName>
     <Hidden>true</Hidden>
+    <View>false</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>ObjectID</FieldName>
+    <Hidden>false</Hidden>
+    <View>false</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>UserID</FieldName>
+    <Hidden>true</Hidden>
+    <View>true</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>UserLoginName</FieldName>
+    <Hidden>true</Hidden>
+    <View>false</View>
+    <NoSearch>true</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>UserGroupID</FieldName>
+    <Hidden>true</Hidden>
+    <View>false</View>
+    <NoSearch>true</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>SubjectID</FieldName>
+    <Hidden>false</Hidden>
+    <View>true</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>UserNickName</FieldName>
+    <Hidden>false</Hidden>
+    <View>true</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>Password</FieldName>
+    <Hidden>false</Hidden>
+    <View>false</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>XB</FieldName>
+    <Hidden>false</Hidden>
+    <View>true</View>
+    <NoSearch>true</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>MZ</FieldName>
+    <Hidden>false</Hidden>
+    <View>false</View>
+    <NoSearch>true</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>ZZMM</FieldName>
+    <Hidden>false</Hidden>
+    <View>false</View>
+    <NoSearch>true</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>SFZH</FieldName>
+    <Hidden>true</Hidden>
+    <View>false</View>
+    <NoSearch>true</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>SJH</FieldName>
+    <Hidden>false</Hidden>
+    <View>true</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>BGDH</FieldName>
+    <Hidden>false</Hidden>
+    <View>true</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>JTDH</FieldName>
+    <Hidden>false</Hidden>
+    <View>true</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>Email</FieldName>
+    <Hidden>false</Hidden>
+    <View>true</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>QQH</FieldName>
+    <Hidden>false</Hidden>
+    <View>true</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>LoginTime</FieldName>
+    <Hidden>true</Hidden>
+    <View>false</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>LastLoginIP</FieldName>
+    <Hidden>true</Hidden>
+    <View>false</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>LastLoginDate</FieldName>
+    <Hidden>true</Hidden>
+    <View>false</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>LoginTimes</FieldName>
+    <Hidden>true</Hidden>
+    <View>false</View>
+    <NoSearch>false</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>UserStatus</FieldName>
+    <Hidden>true</Hidden>
+    <View>false</View>
+    <NoSearch>true</NoSearch>
+    <Condition>false</Condition>
+  </CustomPermissionFieldConfig>
+  <CustomPermissionFieldConfig>
+    <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
+    <CustomPermissionType>SearchPage</CustomPermissionType>
+    <CustomPermissionID>51</CustomPermissionID>
+    <CustomPermissionName>TXL</CustomPermissionName>
+    <CustomPermissionRemark>通讯录</CustomPermissionRemark>
+    <FieldName>vcode</FieldName>
+    <Hidden>false</Hidden>
     <View>false</View>
     <NoSearch>false</NoSearch>
     <Condition>false</Condition>

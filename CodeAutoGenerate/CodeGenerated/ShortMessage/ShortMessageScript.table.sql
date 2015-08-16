@@ -6,7 +6,7 @@ CREATE TABLE [dbo].[ShortMessage](
         
           ,[DXXLX] [NVarChar] (2) NULL
         
-          ,[DXXNR] [NText]  NULL
+          ,[DXXNR] [NVarChar] (4000) NULL
         
           ,[DXXFJ] [NVarChar] (255) NULL
         

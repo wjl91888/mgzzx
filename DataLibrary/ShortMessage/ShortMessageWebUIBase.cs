@@ -1298,14 +1298,14 @@ namespace RICH.Common.BM.ShortMessage
                 validateData.Nullable = boolNullable;
                 validateData.Exist = boolExist;
                 validateData.Parameters[0] = "内容";
-                validateData.Parameters[1] = "null";
-                validateData.Parameters[2] = "null";
+                validateData.Parameters[1] = "0";
+                validateData.Parameters[2] = "4000";
 
                 // 空验证
                 if (DataValidateManager.ValidateIsNull(validateData.Value) == false)
                 {
                     // 数值格式验证
-                    if (DataValidateManager.ValidateStringFormat(validateData.Value, null, null) == false)
+                    if (DataValidateManager.ValidateStringFormat(validateData.Value, 0, 4000) == false)
                     {
                         validateData.Message = MessageManager.GetMessageInfo(MessageManager.ERR_MSGID_0023, validateData.Parameters);
                         validateData.Result = false;

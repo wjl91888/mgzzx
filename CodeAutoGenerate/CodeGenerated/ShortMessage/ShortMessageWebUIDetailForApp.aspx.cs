@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Web.UI.WebControls;
 using RICH.Common;
 using RICH.Common.BM.ShortMessage;
 using Telerik.Web.UI;
@@ -48,7 +49,14 @@ namespace App
         {
             if (AccessPermission)
             {
+                foreach (RepeaterItem item in rptDetail.Items)
+                {
         
+                }
+            }
+            else
+            {
+                rptDetail.Visible = false;
             }
         }
     }

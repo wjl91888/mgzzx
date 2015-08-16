@@ -46,10 +46,7 @@ namespace App
 
     
             dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("À¸Ä¿", GetList_FBLM_AdvanceSearch()));
-                      
             dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("²¿ÃÅ", GetList_FBBM_AdvanceSearch()));
-                      
-
             NavList.DataSource = dataSourceCollection;
         }
 
@@ -129,12 +126,7 @@ namespace App
       
             if (!string.IsNullOrWhiteSpace(Request["SearchKeywords"]))
             {
-    
-                appData.FBLM = Convert.ToString(Request["SearchKeywords"]);
-                
-                appData.FBBM = Convert.ToString(Request["SearchKeywords"]);
-                
-                ViewState["QueryType"] = "OR";
+                appData.BT = Convert.ToString(Request["SearchKeywords"]);
             }
 
             if (!DataValidateManager.ValidateIsNull(ViewState["QueryType"]))

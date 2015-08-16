@@ -9,7 +9,7 @@ CREATE   PROCEDURE [dbo].[SP_InsertShortMessage]
 @ObjectID UniqueIdentifier 
 ,@DXXBT NVarChar (100)
 ,@DXXLX NVarChar (2)  = NULL
-,@DXXNR NText   = NULL
+,@DXXNR NVarChar (4000)  = NULL
 ,@DXXFJ NVarChar (255)  = NULL
 ,@FSSJ DateTime   = NULL
 ,@FSR NVarChar (50)  = NULL
@@ -27,6 +27,8 @@ IF @DXXBT IS NULL
     SET @DXXBT = NULL
 IF @DXXLX IS NULL
     SET @DXXLX = NULL
+IF @DXXNR IS NULL
+    SET @DXXNR = NULL
 IF @DXXFJ IS NULL
     SET @DXXFJ = NULL
 IF @FSSJ IS NULL
@@ -151,9 +153,9 @@ CREATE   PROCEDURE [dbo].[SP_UpdateShortMessageByAnyCondition]
 , @DXXLXValue NVarChar(2) = NULL
 , @DXXLXBatch nvarchar(1000) = NULL
 
-, @DXXNR nvarchar(100) = NULL
+, @DXXNR NVarChar(4000) = NULL
         
-, @DXXNRValue NText = NULL
+, @DXXNRValue NVarChar(4000) = NULL
 , @DXXNRBatch nvarchar(1000) = NULL
 
 , @DXXFJ NVarChar(255) = NULL
@@ -483,7 +485,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateShortMessageByObjectID]
 @ObjectID nvarchar(50) = NULL
 ,@DXXBT NVarChar(100) = NULL
 ,@DXXLX NVarChar(2) = NULL
-,@DXXNR NText = NULL
+,@DXXNR NVarChar(4000) = NULL
 ,@DXXFJ NVarChar(255) = NULL
 ,@FSSJ DateTime = NULL
 ,@FSR NVarChar(50) = NULL
@@ -538,7 +540,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateShortMessageByKey]
 @ObjectID nvarchar(50) = NULL
 ,@DXXBT NVarChar(100) = NULL
 ,@DXXLX NVarChar(2) = NULL
-,@DXXNR NText = NULL
+,@DXXNR NVarChar(4000) = NULL
 ,@DXXFJ NVarChar(255) = NULL
 ,@FSSJ DateTime = NULL
 ,@FSR NVarChar(50) = NULL
@@ -688,7 +690,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateShortMessageByObjectIDBatch]
 
 ,@DXXLX NVarChar(2) = NULL
 
-,@DXXNR NText = NULL
+,@DXXNR NVarChar(4000) = NULL
 
 ,@DXXFJ NVarChar(255) = NULL
 
@@ -903,7 +905,7 @@ CREATE   PROCEDURE [dbo].[SP_SelectShortMessageByAnyCondition]
         
 , @DXXLXBatch nvarchar(4000) = NULL
 
-, @DXXNR nvarchar(100) = NULL
+, @DXXNR NVarChar(4000) = NULL
         
 , @DXXNRBatch nvarchar(4000) = NULL
 
@@ -1097,6 +1099,8 @@ BEGIN
         
       , [dbo].[ShortMessage].[DXXLX]
         
+      , [dbo].[ShortMessage].[DXXNR]
+        
       , [dbo].[ShortMessage].[DXXFJ]
         
       , [dbo].[ShortMessage].[FSSJ]
@@ -1177,6 +1181,11 @@ IF @DXXBTBatch IS NOT NULL
 IF @DXXLXBatch IS NOT NULL
   SET @FromText = @FromText + '
       INNER JOIN [dbo].F_SplitStr('''+CAST(@DXXLXBatch AS nvarchar(4000))+''', '','') AS ShortMessage_DXXLX_Batch ON '','' + [dbo].[ShortMessage].[DXXLX] + '','' LIKE ''%,'' + ShortMessage_DXXLX_Batch.col +'',%''
+'
+    
+IF @DXXNRBatch IS NOT NULL
+  SET @FromText = @FromText + '
+      INNER JOIN [dbo].F_SplitStr('''+CAST(@DXXNRBatch AS nvarchar(4000))+''', '','') AS ShortMessage_DXXNR_Batch ON '','' + [dbo].[ShortMessage].[DXXNR] + '','' LIKE ''%,'' + ShortMessage_DXXNR_Batch.col +'',%''
 '
     
 IF @DXXFJBatch IS NOT NULL

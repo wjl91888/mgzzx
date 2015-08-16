@@ -17,36 +17,35 @@
                 <h4>
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "BT"), null)%></h4>
             </div>
-
     
-            <div id="BTContainer" runat="server" class="row">
-                <div id="BTCaption" runat="server" class="fontbold col-xs-4 paddingleft0">标题</div>
-                <div id="BTContent" runat="server" class="col-xs-8">
+            <div id="BTContainer" runat="server" Visible="false" class="row">
+                <div id="BTCaption" runat="server" class="fontbold col-xs-3 paddingleft0">标题</div>
+                <div id="BTContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "BT"), null)%>
                 
                 </div>
             </div>
         
-            <div id="FBLMContainer" runat="server" class="row">
-                <div id="FBLMCaption" runat="server" class="fontbold col-xs-4 paddingleft0">发布栏目</div>
-                <div id="FBLMContent" runat="server" class="col-xs-8">
+            <div id="FBLMContainer" runat="server" Visible="false" class="row">
+                <div id="FBLMCaption" runat="server" class="fontbold col-xs-3 paddingleft0">发布栏目</div>
+                <div id="FBLMContent" runat="server" class="col-xs-9">
         
                     <%# DataBinder.Eval(Container.DataItem, "FBLM_T_BG_0602_LMM")%>
         
                 </div>
             </div>
         
-            <div id="FBBMContainer" runat="server" class="row">
-                <div id="FBBMCaption" runat="server" class="fontbold col-xs-4 paddingleft0">发布部门</div>
-                <div id="FBBMContent" runat="server" class="col-xs-8">
+            <div id="FBBMContainer" runat="server" Visible="false" class="row">
+                <div id="FBBMCaption" runat="server" class="fontbold col-xs-3 paddingleft0">发布部门</div>
+                <div id="FBBMContent" runat="server" class="col-xs-9">
         
                     <%# DataBinder.Eval(Container.DataItem, "FBBM_T_BM_DWXX_DWMC")%>
         
                 </div>
             </div>
         
-            <div id="XXTPDZContainer" runat="server" class="row">
+            <div id="XXTPDZContainer" runat="server" Visible="false" class="row">
                 <div id="XXTPDZCaption" runat="server" class="fontbold col-xs-12 paddingleft0">信息图片</div>
                 <div id="XXTPDZContent" runat="server" class="col-xs-12">
         
@@ -55,7 +54,7 @@
                 </div>
             </div>
         
-            <div id="XXNRContainer" runat="server" class="row">
+            <div id="XXNRContainer" runat="server" Visible="false" class="row">
                 <div id="XXNRCaption" runat="server" class="fontbold col-xs-12 paddingleft0">信息内容</div>
                 <div id="XXNRContent" runat="server" class="col-xs-12">
         
@@ -64,7 +63,7 @@
                 </div>
             </div>
         
-            <div id="FJXZDZContainer" runat="server" class="row">
+            <div id="FJXZDZContainer" runat="server" Visible="false" class="row">
                 <div id="FJXZDZCaption" runat="server" class="fontbold col-xs-12 paddingleft0">附件</div>
                 <div id="FJXZDZContent" runat="server" class="col-xs-12">
         
@@ -73,27 +72,27 @@
                 </div>
             </div>
         
-            <div id="FBRJGHContainer" runat="server" class="row">
-                <div id="FBRJGHCaption" runat="server" class="fontbold col-xs-4 paddingleft0">发布人</div>
-                <div id="FBRJGHContent" runat="server" class="col-xs-8">
+            <div id="FBRJGHContainer" runat="server" Visible="false" class="row">
+                <div id="FBRJGHCaption" runat="server" class="fontbold col-xs-3 paddingleft0">发布人</div>
+                <div id="FBRJGHContent" runat="server" class="col-xs-9">
         
                     <%# DataBinder.Eval(Container.DataItem, "FBRJGH_T_PM_UserInfo_UserNickName")%>
         
                 </div>
             </div>
         
-            <div id="FBSJRQContainer" runat="server" class="row">
-                <div id="FBSJRQCaption" runat="server" class="fontbold col-xs-4 paddingleft0">发布时间</div>
-                <div id="FBSJRQContent" runat="server" class="col-xs-8">
+            <div id="FBSJRQContainer" runat="server" Visible="false" class="row">
+                <div id="FBSJRQCaption" runat="server" class="fontbold col-xs-3 paddingleft0">发布时间</div>
+                <div id="FBSJRQContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "FBSJRQ"), "yy-MM-dd")%>
                 
                 </div>
             </div>
         
-            <div id="FBIPContainer" runat="server" class="row">
-                <div id="FBIPCaption" runat="server" class="fontbold col-xs-4 paddingleft0">发布IP</div>
-                <div id="FBIPContent" runat="server" class="col-xs-8">
+            <div id="FBIPContainer" runat="server" Visible="false" class="row">
+                <div id="FBIPCaption" runat="server" class="fontbold col-xs-3 paddingleft0">发布IP</div>
+                <div id="FBIPContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "FBIP"), null)%>
                 

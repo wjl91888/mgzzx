@@ -45,7 +45,6 @@ namespace App
             var dataSourceCollection = new List<Pair<string, List<Triples<string, string, string>>>>();
 
     
-
             NavList.DataSource = dataSourceCollection;
         }
 
@@ -96,8 +95,7 @@ namespace App
       
             if (!string.IsNullOrWhiteSpace(Request["SearchKeywords"]))
             {
-    
-                ViewState["QueryType"] = "OR";
+                appData.XM = Convert.ToString(Request["SearchKeywords"]);
             }
 
             if (!DataValidateManager.ValidateIsNull(ViewState["QueryType"]))

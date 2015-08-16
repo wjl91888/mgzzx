@@ -5,11 +5,13 @@
 <xsl:template match="/">
 <![CDATA[
 <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/AppBasePage.master" EnableEventValidation="false" AutoEventWireup="true" CodeFile="]]><xsl:value-of select="/NewDataSet/TableName"/><![CDATA[WebUISearch.aspx.cs" Inherits="App.]]><xsl:value-of select="/NewDataSet/TableName"/><![CDATA[WebUISearch" %>
+<%@ Import Namespace="RICH.Common" %>
 <%@ Register Assembly="CustomWebControls" Namespace="CustomWebControls" TagPrefix="RICH" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 <%@ Register TagPrefix="control" TagName="ComboTreeView" Src="~/Control/ComboTreeViewControl.ascx" %>
 <%@ Register TagPrefix="control" TagName="TreeView" Src="~/Control/TreeViewControl.ascx" %>
 <%@ Register TagPrefix="control" TagName="Nav" Src="~/Control/PageNavControl.ascx" %>
+<%@ Register TagPrefix="control" TagName="FilesList" Src="~/Control/UploadFilesControlForApp.ascx" %>
 <asp:Content ID="ContentHeaderTitle" ContentPlaceHolderID="HeadTitleContentPlaceHolder" runat="server"></asp:Content><asp:Content ID="ContentHeader" ContentPlaceHolderID="HeaderContentPlaceHolder" runat="server">
 </asp:Content>
 <asp:Content ID="TopNavContainer" ContentPlaceHolderID="TopNavContainerPlaceHolder" runat="server">
@@ -80,12 +82,11 @@
 <asp:Repeater ID="rptList" runat="server">
         <ItemTemplate>
             <div class="list-group" style="margin:0 0 5px 0;">
-                <a href=']]><xsl:value-of select="/NewDataSet/TableName"/><![CDATA[WebUIDetail.aspx?ObjectID=<%# GetValue(DataBinder.Eval(Container.DataItem, "ObjectID"), null)%>' class="list-group-item">
-]]>
-<![CDATA[                    <h4 class="list-group-item-heading">]]>
-<![CDATA[                        <%# GetValue(DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="/NewDataSet/TitleField"/><![CDATA["), null)%></h4>]]>
+                <div class="list-group-item">]]>
+<![CDATA[                    <a href='<%# "]]><xsl:value-of select="/NewDataSet/TableName"/><![CDATA[WebUIDetail.aspx?p={0}{1}ObjectID={2}".FormatInvariantCulture(this.Page.Request["p"], AndChar ,GetValue(DataBinder.Eval(Container.DataItem, "ObjectID"), null))%>'><h4 class="list-group-item-heading">]]>
+<![CDATA[                        <%# GetValue(DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="/NewDataSet/TitleField"/><![CDATA["), null)%></h4></a>]]>
     <xsl:for-each select="/NewDataSet/RecordInfo">
-        <xsl:sort data-type="text" order="descending" select="IsList"/>
+        <xsl:sort data-type="text" order="descending" select="IsAppList"/>
         <xsl:if test="IsAppList = 'true'">
 <![CDATA[                    <h6 class="col-sm-]]><xsl:value-of select="AppListColumn"/><![CDATA[ col-xs-]]><xsl:value-of select="AppListColumn"/><![CDATA[" style="margin:0;">]]>
                                         <xsl:if test="IsDataBind = 'true'">
@@ -93,9 +94,14 @@
                                         </xsl:if>
                                         <xsl:if test="IsDataBind = 'false'">
                                             <xsl:choose>
-                                                <xsl:when test="ControlType = '文件上传'">
-                                                </xsl:when>
                                                 <xsl:when test="ControlType = '图片上传'">
+<![CDATA[                        <%# DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA[") == DBNull.Value ? "" : "<img class='img-responsive' src='" + DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA[") + "' />"%>]]>
+                                                </xsl:when>
+                                                <xsl:when test="ControlTypeName = 'FilesList'">
+<![CDATA[                        <control:FilesList ID="]]><xsl:value-of select="FieldName"/><![CDATA[" runat="server" CssClass="input" ReadOnly="true" Text='<%# DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA[")%>'></control:FilesList>]]>
+                                                </xsl:when>
+                                                <xsl:when test="DBType = 'Image'">
+<![CDATA[                        <img class='img-responsive' src='<%# "]]><xsl:value-of select="/NewDataSet/TableName"/><![CDATA[WebUIImage.aspx?ObjectID=" + DataBinder.Eval(Container.DataItem, "ObjectID") + AndChar + "ImageField=]]><xsl:value-of select="FieldName"/><![CDATA["%>'  />]]>
                                                 </xsl:when>
                                                 <xsl:otherwise>
 <![CDATA[                        <%# GetValue(DataBinder.Eval(Container.DataItem, "]]><xsl:value-of select="FieldName"/><![CDATA["), ]]><xsl:value-of select="DisplayFormatString"/><![CDATA[)%>]]>
@@ -108,7 +114,7 @@
 <![CDATA[
                     <div style="clear: both;margin:0;padding:0;">
                     </div>
-                </a>
+                </div>
             </div>
         </ItemTemplate>
     </asp:Repeater>

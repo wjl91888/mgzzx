@@ -277,6 +277,7 @@
     </Content>
     <Content Include="Template\WebUIDetailForApp.aspx.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Template\WebUIDetailForApp.aspx.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

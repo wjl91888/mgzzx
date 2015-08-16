@@ -45,11 +45,7 @@ namespace App
             var dataSourceCollection = new List<Pair<string, List<Triples<string, string, string>>>>();
 
     
-            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("", GetList_UserGroupID_AdvanceSearch()));
-                      
-            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("", GetList_SubjectID_AdvanceSearch()));
-                      
-
+            dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("≤ø√≈", GetList_SubjectID_AdvanceSearch()));
             NavList.DataSource = dataSourceCollection;
         }
 
@@ -77,15 +73,6 @@ namespace App
                 if (!validateData.IsNull)
                 {
                     appData.UserLoginName = Convert.ToString(validateData.Value.ToString());
-                }
-            }
-      
-            validateData = ValidateUserGroupIDBatch(Request["UserGroupID"], true, false);
-            if (validateData.Result)
-            {
-                if (!validateData.IsNull)
-                {
-                    appData.UserGroupIDBatch = Convert.ToString(validateData.Value.ToString());
                 }
             }
       
@@ -119,12 +106,7 @@ namespace App
       
             if (!string.IsNullOrWhiteSpace(Request["SearchKeywords"]))
             {
-    
-                appData.UserGroupID = Convert.ToString(Request["SearchKeywords"]);
-                
-                appData.SubjectID = Convert.ToString(Request["SearchKeywords"]);
-                
-                ViewState["QueryType"] = "OR";
+                appData.UserNickName = Convert.ToString(Request["SearchKeywords"]);
             }
 
             if (!DataValidateManager.ValidateIsNull(ViewState["QueryType"]))

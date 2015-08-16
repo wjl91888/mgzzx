@@ -191,6 +191,7 @@ CREATE   PROCEDURE [dbo].[SP_Update<xsl:value-of select="/NewDataSet/TableName"/
 , @<xsl:value-of select="FieldName"/>Batch<xsl:value-of select="' '"/>nvarchar(1000) = NULL
 </xsl:for-each>
 , @QueryType nvarchar(50) = 'AND'
+, @QueryKeywords nvarchar(50) = NULL
 , @RecordCount int Output
 
 AS

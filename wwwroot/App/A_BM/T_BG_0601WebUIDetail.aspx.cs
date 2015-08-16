@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Web.UI.WebControls;
 using RICH.Common;
 using RICH.Common.BM.T_BG_0601;
 using Telerik.Web.UI;
@@ -48,7 +49,32 @@ namespace App
         {
             if (AccessPermission)
             {
+                foreach (RepeaterItem item in rptDetail.Items)
+                {
         
+                    if(CustomPermission == WFBD_PURVIEW_ID)
+                    {
+                        var FBLMControl = item.FindControl("FBLMContainer");
+                        if (FBLMControl != null) 
+                            FBLMControl.Visible = true;
+                    }
+                    if(CustomPermission == WFBD_PURVIEW_ID)
+                    {
+                        var FBBMControl = item.FindControl("FBBMContainer");
+                        if (FBBMControl != null) 
+                            FBBMControl.Visible = true;
+                    }
+                    if(CustomPermission == WFBD_PURVIEW_ID)
+                    {
+                        var FBRJGHControl = item.FindControl("FBRJGHContainer");
+                        if (FBRJGHControl != null) 
+                            FBRJGHControl.Visible = true;
+                    }
+                }
+            }
+            else
+            {
+                rptDetail.Visible = false;
             }
         }
     }

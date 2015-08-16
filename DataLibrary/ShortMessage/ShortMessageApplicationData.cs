@@ -406,7 +406,7 @@ namespace RICH.Common.BM.ShortMessage
                               SqlDbType.UniqueIdentifier
                               ,SqlDbType.NVarChar
                               ,SqlDbType.NVarChar
-                              ,SqlDbType.NText
+                              ,SqlDbType.NVarChar
                               ,SqlDbType.NVarChar
                               ,SqlDbType.DateTime
                               ,SqlDbType.NVarChar

@@ -1198,42 +1198,6 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                 
             }
     
-                if(CustomPermission == TXL_PURVIEW_ID)
-                {
-                UserID_Area.Visible = false;
-                }
-                if(CustomPermission == TXL_PURVIEW_ID)
-                {
-                UserLoginName_Area.Visible = false;
-                }
-                if(CustomPermission == TXL_PURVIEW_ID)
-                {
-                UserGroupID_Area.Visible = false;
-                }
-                if(CustomPermission == TXL_PURVIEW_ID)
-                {
-                SFZH_Area.Visible = false;
-                }
-                if(CustomPermission == TXL_PURVIEW_ID)
-                {
-                LoginTime_Area.Visible = false;
-                }
-                if(CustomPermission == TXL_PURVIEW_ID)
-                {
-                LastLoginIP_Area.Visible = false;
-                }
-                if(CustomPermission == TXL_PURVIEW_ID)
-                {
-                LastLoginDate_Area.Visible = false;
-                }
-                if(CustomPermission == TXL_PURVIEW_ID)
-                {
-                LoginTimes_Area.Visible = false;
-                }
-                if(CustomPermission == TXL_PURVIEW_ID)
-                {
-                UserStatus_Area.Visible = false;
-                }
                 if(CustomPermission == GRZL_PURVIEW_ID)
                 {
                 UserID.Enabled = false;
@@ -1273,6 +1237,78 @@ T_PM_UserInfoApplicationLogic instanceT_PM_UserInfoApplicationLogic
                 if(CustomPermission == GRZL_PURVIEW_ID)
                 {
                 vcode_Area.Visible = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                UserID_Area.Visible = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                UserID.Enabled = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                UserLoginName_Area.Visible = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                UserGroupID_Area.Visible = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                SubjectID.Enabled = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                UserNickName.Enabled = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                XB.Enabled = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                SFZH_Area.Visible = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                SJH.Enabled = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                BGDH.Enabled = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                JTDH.Enabled = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                Email.Enabled = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                QQH.Enabled = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                LoginTime_Area.Visible = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                LastLoginIP_Area.Visible = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                LastLoginDate_Area.Visible = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                LoginTimes_Area.Visible = false;
+                }
+                if(CustomPermission == TXL_PURVIEW_ID)
+                {
+                UserStatus_Area.Visible = false;
                 }
         }
     }
