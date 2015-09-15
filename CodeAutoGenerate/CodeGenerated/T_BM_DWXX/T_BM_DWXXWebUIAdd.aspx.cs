@@ -791,14 +791,14 @@ T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
                 SJ.Enabled = false;
                 
             }
-	
+    
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new T_BM_DWXXApplicationData();
-	
+                appData = new T_BM_DWXXApplicationData();
+    
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

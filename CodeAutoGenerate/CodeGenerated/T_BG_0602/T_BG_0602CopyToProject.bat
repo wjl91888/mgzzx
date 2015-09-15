@@ -12,7 +12,13 @@ copy T_BG_0602WebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BG_0602WebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BG_0602WebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BG_0602WebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
-@ECHO 开始复制T_BG_0602类文件
+copy T_BG_0602WebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BG_0602WebUIDetail.aspx
+copy T_BG_0602WebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BG_0602WebUIDetail.aspx.cs
+copy T_BG_0602WebUIImage.aspx ..\..\..\wwwroot\App\A_BM\
+copy T_BG_0602WebUIImage.aspx.cs ..\..\..\wwwroot\App\A_BM\
+copy T_BG_0602WebUISearchForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BG_0602WebUISearch.aspx
+copy T_BG_0602WebUISearchForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BG_0602WebUISearch.aspx.cs
+    @ECHO 开始复制T_BG_0602类文件
 IF NOT EXIST ..\..\..\DataLibrary\T_BG_0602 MD ..\..\..\DataLibrary\T_BG_0602
 copy T_BG_0602ApplicationData.cs ..\..\..\DataLibrary\T_BG_0602\
 IF NOT EXIST ..\..\..\DataLibrary\T_BG_0602\T_BG_0602ApplicationLogic.cs copy T_BG_0602ApplicationLogic.cs ..\..\..\DataLibrary\T_BG_0602\

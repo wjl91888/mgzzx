@@ -3,12 +3,15 @@ FileName:DictionaryTypeWebUIBase.cs
 ******************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.DictionaryType
 {
@@ -27,35 +30,14 @@ namespace RICH.Common.BM.DictionaryType
         #endregion
 
         #region 变量定义
-        /// <summary>
-        /// 数据实体对象
-        /// </summary>
         protected DictionaryTypeApplicationData appData;
-        /// <summary>
-        /// 消息信息
-        /// </summary>
         protected string strMessageInfo = string.Empty;
-        /// <summary>
-        /// 消息参数
-        /// </summary>
         protected string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-        /// <summary>
-        /// AJAX操作返回值
-        /// </summary>
         protected string strAJAXReturnValue = string.Empty;
-        /// <summary>
-        /// 弹出消息信息
-        /// </summary>
         protected string strPopupMessageInfo = string.Empty;
         #endregion
 
         #region 数据操作方法
-        //=====================================================================
-        //  FunctionName : AddRecord
-        /// <summary>
-        /// 添加记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void AddRecord()
         {
             if (GetAddInputParameter())
@@ -81,12 +63,6 @@ namespace RICH.Common.BM.DictionaryType
             }
         }
 
-        //=====================================================================
-        //  FunctionName : ModifyRecord
-        /// <summary>
-        /// 修改记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyRecord()
         {
             if (GetModifyInputParameter())
@@ -104,12 +80,6 @@ namespace RICH.Common.BM.DictionaryType
             }
         }
 
-        //=====================================================================
-        //  FunctionName : QueryRecord
-        /// <summary>
-        /// 查询记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void QueryRecord()
         {
             if (GetQueryInputParameter())
@@ -126,12 +96,6 @@ namespace RICH.Common.BM.DictionaryType
             }
         }
 
-        //=====================================================================
-        //  FunctionName : DeleteRecord
-        /// <summary>
-        /// 删除记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void DeleteRecord()
         {
             if (GetDeleteInputParameter())
@@ -150,12 +114,6 @@ namespace RICH.Common.BM.DictionaryType
             }
         }
 
-        //=====================================================================
-        //  FunctionName : CountRecord
-        /// <summary>
-        /// 统计记录数操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountRecord()
         {
             if (GetCountInputParameter())
@@ -172,12 +130,6 @@ namespace RICH.Common.BM.DictionaryType
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetCountInputParameter
-        /// <summary>
-        /// 得到统计记录数用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
         protected virtual Boolean GetCountInputParameter()
         {
             Boolean boolReturn = true;
@@ -260,12 +212,6 @@ namespace RICH.Common.BM.DictionaryType
         #endregion
 
         #region 页面控件相关方法
-        //=====================================================================
-        //  FunctionName : btnAddConfirm_Click
-        /// <summary>
-        /// 确认添加按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnAddConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -274,12 +220,6 @@ namespace RICH.Common.BM.DictionaryType
             AddRecord();
         }
         
-        //=====================================================================
-        //  FunctionName : btnModifyConfirm_Click
-        /// <summary>
-        /// 确认修改按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnModifyConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -289,12 +229,6 @@ namespace RICH.Common.BM.DictionaryType
             ModifyRecord();
         }
 
-        //=====================================================================
-        //  FunctionName : btnOperate_Click
-        /// <summary>
-        /// 操作选中记录控件Click事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnOperate_Click(object sender, EventArgs e)
         {
             switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
@@ -317,12 +251,6 @@ namespace RICH.Common.BM.DictionaryType
         #endregion
 
         #region 修改任意字段
-        //=====================================================================
-        //  FunctionName : ModifyAnyField
-        /// <summary>
-        /// 修改一个字段的值
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyAnyField()
         {
             DictionaryTypeApplicationLogic instanceDictionaryTypeApplicationLogic
@@ -332,12 +260,6 @@ namespace RICH.Common.BM.DictionaryType
         #endregion
 
         #region 统计任意字段
-        //=====================================================================
-        //  FunctionName : CountAnyField
-        /// <summary>
-        /// 统计操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountAnyField()
         {
             DictionaryTypeApplicationLogic instanceDictionaryTypeApplicationLogic
@@ -347,12 +269,6 @@ namespace RICH.Common.BM.DictionaryType
         #endregion
 
         #region AJAX相关方法
-        //=====================================================================
-        //  FunctionName : AJAX_QuerySingle
-        /// <summary>
-        /// AJAX调用的读取指定记录指定字段的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QuerySingle(string strFieldName, string strFieldValue, string strReturnFieldName)
         {
             string strReturn = string.Empty;
@@ -402,12 +318,6 @@ namespace RICH.Common.BM.DictionaryType
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_QueryDataSet
-        /// <summary>
-        /// AJAX调用的读取记录集的XML代码的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QueryDataSet(string strFieldName, string strFieldValue)
         {
             string strReturn = string.Empty;
@@ -457,12 +367,6 @@ namespace RICH.Common.BM.DictionaryType
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Modify
-        /// <summary>
-        /// AJAX调用的更新方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Modify(string strFieldName, string strFieldValue, string strObjectID)
         {
             bool boolReturn = false;
@@ -518,12 +422,6 @@ namespace RICH.Common.BM.DictionaryType
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Delete
-        /// <summary>
-        /// AJAX调用的删除方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Delete(string strObjectID)
         {
             bool boolReturn = false;
@@ -559,12 +457,6 @@ namespace RICH.Common.BM.DictionaryType
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_IsExist
-        /// <summary>
-        /// AJAX调用的存在方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_IsExist(string strFieldName, string strFieldValue)
         {
             bool boolReturn = false;
@@ -618,13 +510,6 @@ namespace RICH.Common.BM.DictionaryType
             return boolReturn;
         }
 
-        
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override void RaiseCallbackEvent(string eventArgument)
         {
             try
@@ -695,12 +580,6 @@ namespace RICH.Common.BM.DictionaryType
             }
         }
 
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override string GetCallbackResult()
         {
             return strAJAXReturnValue;
@@ -709,12 +588,6 @@ namespace RICH.Common.BM.DictionaryType
 
         #region 验证数据
 
-        //=====================================================================
-        //  FunctionName : ValidateObjectID
-        /// <summary>
-        /// 数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateObjectID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -784,12 +657,6 @@ namespace RICH.Common.BM.DictionaryType
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDM
-        /// <summary>
-        /// 类型代码数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -859,12 +726,6 @@ namespace RICH.Common.BM.DictionaryType
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateMC
-        /// <summary>
-        /// 类型名称数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateMC(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -934,12 +795,6 @@ namespace RICH.Common.BM.DictionaryType
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSM
-        /// <summary>
-        /// 说明数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1020,23 +875,11 @@ namespace RICH.Common.BM.DictionaryType
         #endregion    
 
         #region 相关表批量操作
-        //=====================================================================
-        //  FunctionName : RelatedTableAddBatch()
-        /// <summary>
-        /// 相关表批量添加
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableAddBatch()
         {
 
         }
         
-        //=====================================================================
-        //  FunctionName : RelatedTableModifyBatch()
-        /// <summary>
-        /// 相关表批量修改
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableModifyBatch()
         {
 

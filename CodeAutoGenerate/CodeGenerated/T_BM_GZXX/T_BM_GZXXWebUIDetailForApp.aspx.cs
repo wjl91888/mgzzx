@@ -52,6 +52,14 @@ namespace App
                 foreach (RepeaterItem item in rptDetail.Items)
                 {
         
+                    if(CustomPermission == WDGZ_PURVIEW_ID)
+                    {
+                        var TJSJControl = item.FindControl("TJSJContainer");
+                        if (TJSJControl != null) 
+                        {
+                            TJSJControl.Visible = false;
+                        }
+                    }
                 }
             }
             else

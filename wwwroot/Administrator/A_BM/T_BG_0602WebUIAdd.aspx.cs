@@ -211,7 +211,7 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 
         if (LMTP.Upload())
         {
-		    appData.LMTP = LMTP.Text;
+            appData.LMTP = LMTP.Text;
         }
         else
         {
@@ -386,7 +386,7 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
                 
         if (LMTP.Upload())
         {
-		    appData.LMTP = LMTP.Text;
+            appData.LMTP = LMTP.Text;
         }
         else
         {
@@ -757,14 +757,14 @@ T_BG_0602ApplicationLogic instanceT_BG_0602ApplicationLogic
                 WBURL.Enabled = false;
                 
             }
-	
+    
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new T_BG_0602ApplicationData();
-	
+                appData = new T_BG_0602ApplicationData();
+    
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

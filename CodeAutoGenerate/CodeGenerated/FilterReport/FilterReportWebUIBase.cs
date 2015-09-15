@@ -3,12 +3,15 @@ FileName:FilterReportWebUIBase.cs
 ******************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.FilterReport
 {
@@ -27,35 +30,14 @@ namespace RICH.Common.BM.FilterReport
         #endregion
 
         #region 变量定义
-        /// <summary>
-        /// 数据实体对象
-        /// </summary>
         protected FilterReportApplicationData appData;
-        /// <summary>
-        /// 消息信息
-        /// </summary>
         protected string strMessageInfo = string.Empty;
-        /// <summary>
-        /// 消息参数
-        /// </summary>
         protected string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-        /// <summary>
-        /// AJAX操作返回值
-        /// </summary>
         protected string strAJAXReturnValue = string.Empty;
-        /// <summary>
-        /// 弹出消息信息
-        /// </summary>
         protected string strPopupMessageInfo = string.Empty;
         #endregion
 
         #region 数据操作方法
-        //=====================================================================
-        //  FunctionName : AddRecord
-        /// <summary>
-        /// 添加记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void AddRecord()
         {
             if (GetAddInputParameter())
@@ -81,12 +63,6 @@ namespace RICH.Common.BM.FilterReport
             }
         }
 
-        //=====================================================================
-        //  FunctionName : ModifyRecord
-        /// <summary>
-        /// 修改记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyRecord()
         {
             if (GetModifyInputParameter())
@@ -104,12 +80,6 @@ namespace RICH.Common.BM.FilterReport
             }
         }
 
-        //=====================================================================
-        //  FunctionName : QueryRecord
-        /// <summary>
-        /// 查询记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void QueryRecord()
         {
             if (GetQueryInputParameter())
@@ -126,12 +96,6 @@ namespace RICH.Common.BM.FilterReport
             }
         }
 
-        //=====================================================================
-        //  FunctionName : DeleteRecord
-        /// <summary>
-        /// 删除记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void DeleteRecord()
         {
             if (GetDeleteInputParameter())
@@ -150,12 +114,6 @@ namespace RICH.Common.BM.FilterReport
             }
         }
 
-        //=====================================================================
-        //  FunctionName : CountRecord
-        /// <summary>
-        /// 统计记录数操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountRecord()
         {
             if (GetCountInputParameter())
@@ -172,12 +130,6 @@ namespace RICH.Common.BM.FilterReport
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetCountInputParameter
-        /// <summary>
-        /// 得到统计记录数用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
         protected virtual Boolean GetCountInputParameter()
         {
             Boolean boolReturn = true;
@@ -260,12 +212,6 @@ namespace RICH.Common.BM.FilterReport
         #endregion
 
         #region 页面控件相关方法
-        //=====================================================================
-        //  FunctionName : btnAddConfirm_Click
-        /// <summary>
-        /// 确认添加按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnAddConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -274,12 +220,6 @@ namespace RICH.Common.BM.FilterReport
             AddRecord();
         }
         
-        //=====================================================================
-        //  FunctionName : btnModifyConfirm_Click
-        /// <summary>
-        /// 确认修改按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnModifyConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -289,12 +229,6 @@ namespace RICH.Common.BM.FilterReport
             ModifyRecord();
         }
 
-        //=====================================================================
-        //  FunctionName : btnOperate_Click
-        /// <summary>
-        /// 操作选中记录控件Click事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnOperate_Click(object sender, EventArgs e)
         {
             switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
@@ -314,12 +248,6 @@ namespace RICH.Common.BM.FilterReport
 
         #region 取得数据源
 
-        //=====================================================================
-        //  FunctionName : GetTree_UserID
-        /// <summary>
-        /// 根据指定条件取得用户编号(UserID)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_UserID(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -402,12 +330,6 @@ namespace RICH.Common.BM.FilterReport
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_UserID
-        /// <summary>
-        /// 取得用户编号(UserID)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_UserID(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -418,12 +340,6 @@ namespace RICH.Common.BM.FilterReport
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_UserID_AdvanceSearch
-        /// <summary>
-        /// 取得用户编号(UserID)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_UserID_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -434,13 +350,18 @@ namespace RICH.Common.BM.FilterReport
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_UserID_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_PM_UserInfo");
+            dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserID");
+            dsReturn.Tables["T_PM_UserInfo"].Columns.Add("UserLoginName");
+            GetTree_UserID("null", "null", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["UserID"]), GetValue(dr["UserLoginName"]), "UserID")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_GXBG
-        /// <summary>
-        /// 根据指定条件取得共享报告(GXBG)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_GXBG(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -523,12 +444,6 @@ namespace RICH.Common.BM.FilterReport
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_GXBG
-        /// <summary>
-        /// 取得共享报告(GXBG)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_GXBG(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -539,12 +454,6 @@ namespace RICH.Common.BM.FilterReport
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_GXBG_AdvanceSearch
-        /// <summary>
-        /// 取得共享报告(GXBG)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_GXBG_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -555,13 +464,18 @@ namespace RICH.Common.BM.FilterReport
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_GXBG_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_GXBG("LX", "0004", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "GXBG")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_XTBG
-        /// <summary>
-        /// 根据指定条件取得系统报告(XTBG)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_XTBG(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -644,12 +558,6 @@ namespace RICH.Common.BM.FilterReport
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_XTBG
-        /// <summary>
-        /// 取得系统报告(XTBG)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_XTBG(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -660,12 +568,6 @@ namespace RICH.Common.BM.FilterReport
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_XTBG_AdvanceSearch
-        /// <summary>
-        /// 取得系统报告(XTBG)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_XTBG_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -676,16 +578,21 @@ namespace RICH.Common.BM.FilterReport
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_XTBG_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_XTBG("LX", "0004", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "XTBG")).ToList();
+        }
+
         
         #endregion
 
         #region 修改任意字段
-        //=====================================================================
-        //  FunctionName : ModifyAnyField
-        /// <summary>
-        /// 修改一个字段的值
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyAnyField()
         {
             FilterReportApplicationLogic instanceFilterReportApplicationLogic
@@ -695,12 +602,6 @@ namespace RICH.Common.BM.FilterReport
         #endregion
 
         #region 统计任意字段
-        //=====================================================================
-        //  FunctionName : CountAnyField
-        /// <summary>
-        /// 统计操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountAnyField()
         {
             FilterReportApplicationLogic instanceFilterReportApplicationLogic
@@ -710,12 +611,6 @@ namespace RICH.Common.BM.FilterReport
         #endregion
 
         #region AJAX相关方法
-        //=====================================================================
-        //  FunctionName : AJAX_QuerySingle
-        /// <summary>
-        /// AJAX调用的读取指定记录指定字段的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QuerySingle(string strFieldName, string strFieldValue, string strReturnFieldName)
         {
             string strReturn = string.Empty;
@@ -781,12 +676,6 @@ namespace RICH.Common.BM.FilterReport
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_QueryDataSet
-        /// <summary>
-        /// AJAX调用的读取记录集的XML代码的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QueryDataSet(string strFieldName, string strFieldValue)
         {
             string strReturn = string.Empty;
@@ -852,12 +741,6 @@ namespace RICH.Common.BM.FilterReport
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Modify
-        /// <summary>
-        /// AJAX调用的更新方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Modify(string strFieldName, string strFieldValue, string strObjectID)
         {
             bool boolReturn = false;
@@ -929,12 +812,6 @@ namespace RICH.Common.BM.FilterReport
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Delete
-        /// <summary>
-        /// AJAX调用的删除方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Delete(string strObjectID)
         {
             bool boolReturn = false;
@@ -970,12 +847,6 @@ namespace RICH.Common.BM.FilterReport
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_IsExist
-        /// <summary>
-        /// AJAX调用的存在方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_IsExist(string strFieldName, string strFieldValue)
         {
             bool boolReturn = false;
@@ -1045,13 +916,6 @@ namespace RICH.Common.BM.FilterReport
             return boolReturn;
         }
 
-        
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override void RaiseCallbackEvent(string eventArgument)
         {
             try
@@ -1122,12 +986,6 @@ namespace RICH.Common.BM.FilterReport
             }
         }
 
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override string GetCallbackResult()
         {
             return strAJAXReturnValue;
@@ -1136,12 +994,6 @@ namespace RICH.Common.BM.FilterReport
 
         #region 验证数据
 
-        //=====================================================================
-        //  FunctionName : ValidateObjectID
-        /// <summary>
-        /// 数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateObjectID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1211,12 +1063,6 @@ namespace RICH.Common.BM.FilterReport
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateBGMC
-        /// <summary>
-        /// 报表名称数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateBGMC(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1286,12 +1132,6 @@ namespace RICH.Common.BM.FilterReport
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateUserID
-        /// <summary>
-        /// 用户编号数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateUserID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1361,12 +1201,6 @@ namespace RICH.Common.BM.FilterReport
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateBGLX
-        /// <summary>
-        /// 报告类型数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateBGLX(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1436,12 +1270,6 @@ namespace RICH.Common.BM.FilterReport
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateGXBG
-        /// <summary>
-        /// 共享报告数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateGXBG(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1511,12 +1339,6 @@ namespace RICH.Common.BM.FilterReport
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateXTBG
-        /// <summary>
-        /// 系统报告数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateXTBG(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1586,12 +1408,6 @@ namespace RICH.Common.BM.FilterReport
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateBGCXTJ
-        /// <summary>
-        /// 报告条件数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateBGCXTJ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1661,12 +1477,6 @@ namespace RICH.Common.BM.FilterReport
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateBGCJSJ
-        /// <summary>
-        /// 创建时间数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateBGCJSJ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1747,23 +1557,11 @@ namespace RICH.Common.BM.FilterReport
         #endregion    
 
         #region 相关表批量操作
-        //=====================================================================
-        //  FunctionName : RelatedTableAddBatch()
-        /// <summary>
-        /// 相关表批量添加
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableAddBatch()
         {
 
         }
         
-        //=====================================================================
-        //  FunctionName : RelatedTableModifyBatch()
-        /// <summary>
-        /// 相关表批量修改
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableModifyBatch()
         {
 

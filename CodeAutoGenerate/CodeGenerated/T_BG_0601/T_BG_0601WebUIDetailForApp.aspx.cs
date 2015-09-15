@@ -54,21 +54,59 @@ namespace App
         
                     if(CustomPermission == WFBD_PURVIEW_ID)
                     {
-                        var FBLMControl = item.FindControl("FBLMContainer");
-                        if (FBLMControl != null) 
-                            FBLMControl.Visible = true;
+                        var FBHControl = item.FindControl("FBHContainer");
+                        if (FBHControl != null) 
+                        {
+                            FBHControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == WFBD_PURVIEW_ID)
                     {
-                        var FBBMControl = item.FindControl("FBBMContainer");
-                        if (FBBMControl != null) 
-                            FBBMControl.Visible = true;
+                        var XXZTControl = item.FindControl("XXZTContainer");
+                        if (XXZTControl != null) 
+                        {
+                            XXZTControl.Visible = false;
+                        }
+                    }
+                    if(CustomPermission == WFBD_PURVIEW_ID)
+                    {
+                        var IsTopControl = item.FindControl("IsTopContainer");
+                        if (IsTopControl != null) 
+                        {
+                            IsTopControl.Visible = false;
+                        }
+                    }
+                    if(CustomPermission == WFBD_PURVIEW_ID)
+                    {
+                        var TopSortControl = item.FindControl("TopSortContainer");
+                        if (TopSortControl != null) 
+                        {
+                            TopSortControl.Visible = false;
+                        }
+                    }
+                    if(CustomPermission == WFBD_PURVIEW_ID)
+                    {
+                        var IsBestControl = item.FindControl("IsBestContainer");
+                        if (IsBestControl != null) 
+                        {
+                            IsBestControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == WFBD_PURVIEW_ID)
                     {
                         var FBRJGHControl = item.FindControl("FBRJGHContainer");
                         if (FBRJGHControl != null) 
-                            FBRJGHControl.Visible = true;
+                        {
+                            FBRJGHControl.Visible = false;
+                        }
+                    }
+                    if(CustomPermission == WFBD_PURVIEW_ID)
+                    {
+                        var FBIPControl = item.FindControl("FBIPContainer");
+                        if (FBIPControl != null) 
+                        {
+                            FBIPControl.Visible = false;
+                        }
                     }
                 }
             }

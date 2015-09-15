@@ -3,12 +3,15 @@ FileName:DictionaryWebUIBase.cs
 ******************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.Dictionary
 {
@@ -27,35 +30,14 @@ namespace RICH.Common.BM.Dictionary
         #endregion
 
         #region 变量定义
-        /// <summary>
-        /// 数据实体对象
-        /// </summary>
         protected DictionaryApplicationData appData;
-        /// <summary>
-        /// 消息信息
-        /// </summary>
         protected string strMessageInfo = string.Empty;
-        /// <summary>
-        /// 消息参数
-        /// </summary>
         protected string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-        /// <summary>
-        /// AJAX操作返回值
-        /// </summary>
         protected string strAJAXReturnValue = string.Empty;
-        /// <summary>
-        /// 弹出消息信息
-        /// </summary>
         protected string strPopupMessageInfo = string.Empty;
         #endregion
 
         #region 数据操作方法
-        //=====================================================================
-        //  FunctionName : AddRecord
-        /// <summary>
-        /// 添加记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void AddRecord()
         {
             if (GetAddInputParameter())
@@ -81,12 +63,6 @@ namespace RICH.Common.BM.Dictionary
             }
         }
 
-        //=====================================================================
-        //  FunctionName : ModifyRecord
-        /// <summary>
-        /// 修改记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyRecord()
         {
             if (GetModifyInputParameter())
@@ -104,12 +80,6 @@ namespace RICH.Common.BM.Dictionary
             }
         }
 
-        //=====================================================================
-        //  FunctionName : QueryRecord
-        /// <summary>
-        /// 查询记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void QueryRecord()
         {
             if (GetQueryInputParameter())
@@ -126,12 +96,6 @@ namespace RICH.Common.BM.Dictionary
             }
         }
 
-        //=====================================================================
-        //  FunctionName : DeleteRecord
-        /// <summary>
-        /// 删除记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void DeleteRecord()
         {
             if (GetDeleteInputParameter())
@@ -150,12 +114,6 @@ namespace RICH.Common.BM.Dictionary
             }
         }
 
-        //=====================================================================
-        //  FunctionName : CountRecord
-        /// <summary>
-        /// 统计记录数操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountRecord()
         {
             if (GetCountInputParameter())
@@ -172,12 +130,6 @@ namespace RICH.Common.BM.Dictionary
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetCountInputParameter
-        /// <summary>
-        /// 得到统计记录数用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
         protected virtual Boolean GetCountInputParameter()
         {
             Boolean boolReturn = true;
@@ -260,12 +212,6 @@ namespace RICH.Common.BM.Dictionary
         #endregion
 
         #region 页面控件相关方法
-        //=====================================================================
-        //  FunctionName : btnAddConfirm_Click
-        /// <summary>
-        /// 确认添加按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnAddConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -274,12 +220,6 @@ namespace RICH.Common.BM.Dictionary
             AddRecord();
         }
         
-        //=====================================================================
-        //  FunctionName : btnModifyConfirm_Click
-        /// <summary>
-        /// 确认修改按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnModifyConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -289,12 +229,6 @@ namespace RICH.Common.BM.Dictionary
             ModifyRecord();
         }
 
-        //=====================================================================
-        //  FunctionName : btnOperate_Click
-        /// <summary>
-        /// 操作选中记录控件Click事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnOperate_Click(object sender, EventArgs e)
         {
             switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
@@ -314,12 +248,6 @@ namespace RICH.Common.BM.Dictionary
 
         #region 取得数据源
 
-        //=====================================================================
-        //  FunctionName : GetTree_LX
-        /// <summary>
-        /// 根据指定条件取得类型(LX)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_LX(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -409,12 +337,6 @@ namespace RICH.Common.BM.Dictionary
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_LX
-        /// <summary>
-        /// 取得类型(LX)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_LX(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -425,12 +347,6 @@ namespace RICH.Common.BM.Dictionary
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_LX_AdvanceSearch
-        /// <summary>
-        /// 取得类型(LX)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_LX_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -441,13 +357,18 @@ namespace RICH.Common.BM.Dictionary
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_LX_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("DictionaryType");
+            dsReturn.Tables["DictionaryType"].Columns.Add("DM");
+            dsReturn.Tables["DictionaryType"].Columns.Add("MC");
+            GetTree_LX("null", "null", true, "null", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "LX")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetTree_SJDM
-        /// <summary>
-        /// 根据指定条件取得上级代码(SJDM)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_SJDM(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -530,12 +451,6 @@ namespace RICH.Common.BM.Dictionary
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_SJDM
-        /// <summary>
-        /// 取得上级代码(SJDM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_SJDM(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -546,12 +461,6 @@ namespace RICH.Common.BM.Dictionary
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_SJDM_AdvanceSearch
-        /// <summary>
-        /// 取得上级代码(SJDM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_SJDM_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -562,13 +471,18 @@ namespace RICH.Common.BM.Dictionary
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_SJDM_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("Dictionary");
+            dsReturn.Tables["Dictionary"].Columns.Add("DM");
+            dsReturn.Tables["Dictionary"].Columns.Add("MC");
+            GetTree_SJDM("null", "null", true, "SJDM", "null", ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DM"]), GetValue(dr["MC"]), "SJDM")).ToList();
+        }
+
         
-        //=====================================================================
-        //  FunctionName : GetSubItem_SJDM
-        /// <summary>
-        /// 取得上级代码(SJDM)指定条件的子项目信息
-        /// </summary>
-        //=====================================================================
         protected virtual String GetSubItem_SJDM(String strSJDM, bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             System.Text.StringBuilder sbReturn = new System.Text.StringBuilder(string.Empty);
@@ -589,12 +503,6 @@ namespace RICH.Common.BM.Dictionary
             return sbReturn.ToString();
         }
         
-        //=====================================================================
-        //  FunctionName : GetDataSource_SJDM
-        /// <summary>
-        /// 取得指定条件的上级代码(SJDM)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_SJDM(string strFieldName, string strFieldValue, bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -608,12 +516,6 @@ namespace RICH.Common.BM.Dictionary
         #endregion
 
         #region 修改任意字段
-        //=====================================================================
-        //  FunctionName : ModifyAnyField
-        /// <summary>
-        /// 修改一个字段的值
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyAnyField()
         {
             DictionaryApplicationLogic instanceDictionaryApplicationLogic
@@ -623,12 +525,6 @@ namespace RICH.Common.BM.Dictionary
         #endregion
 
         #region 统计任意字段
-        //=====================================================================
-        //  FunctionName : CountAnyField
-        /// <summary>
-        /// 统计操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountAnyField()
         {
             DictionaryApplicationLogic instanceDictionaryApplicationLogic
@@ -638,12 +534,6 @@ namespace RICH.Common.BM.Dictionary
         #endregion
 
         #region AJAX相关方法
-        //=====================================================================
-        //  FunctionName : AJAX_QuerySingle
-        /// <summary>
-        /// AJAX调用的读取指定记录指定字段的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QuerySingle(string strFieldName, string strFieldValue, string strReturnFieldName)
         {
             string strReturn = string.Empty;
@@ -701,12 +591,6 @@ namespace RICH.Common.BM.Dictionary
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_QueryDataSet
-        /// <summary>
-        /// AJAX调用的读取记录集的XML代码的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QueryDataSet(string strFieldName, string strFieldValue)
         {
             string strReturn = string.Empty;
@@ -764,12 +648,6 @@ namespace RICH.Common.BM.Dictionary
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Modify
-        /// <summary>
-        /// AJAX调用的更新方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Modify(string strFieldName, string strFieldValue, string strObjectID)
         {
             bool boolReturn = false;
@@ -833,12 +711,6 @@ namespace RICH.Common.BM.Dictionary
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Delete
-        /// <summary>
-        /// AJAX调用的删除方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Delete(string strObjectID)
         {
             bool boolReturn = false;
@@ -874,12 +746,6 @@ namespace RICH.Common.BM.Dictionary
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_IsExist
-        /// <summary>
-        /// AJAX调用的存在方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_IsExist(string strFieldName, string strFieldValue)
         {
             bool boolReturn = false;
@@ -941,13 +807,6 @@ namespace RICH.Common.BM.Dictionary
             return boolReturn;
         }
 
-        
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override void RaiseCallbackEvent(string eventArgument)
         {
             try
@@ -1018,12 +877,6 @@ namespace RICH.Common.BM.Dictionary
             }
         }
 
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override string GetCallbackResult()
         {
             return strAJAXReturnValue;
@@ -1032,12 +885,6 @@ namespace RICH.Common.BM.Dictionary
 
         #region 验证数据
 
-        //=====================================================================
-        //  FunctionName : ValidateObjectID
-        /// <summary>
-        /// 数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateObjectID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1107,12 +954,6 @@ namespace RICH.Common.BM.Dictionary
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDM
-        /// <summary>
-        /// 代码数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1182,12 +1023,6 @@ namespace RICH.Common.BM.Dictionary
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLX
-        /// <summary>
-        /// 类型数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLX(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1257,12 +1092,6 @@ namespace RICH.Common.BM.Dictionary
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateMC
-        /// <summary>
-        /// 名称数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateMC(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1332,12 +1161,6 @@ namespace RICH.Common.BM.Dictionary
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSJDM
-        /// <summary>
-        /// 上级代码数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSJDM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1407,12 +1230,6 @@ namespace RICH.Common.BM.Dictionary
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSM
-        /// <summary>
-        /// 说明数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1493,23 +1310,11 @@ namespace RICH.Common.BM.Dictionary
         #endregion    
 
         #region 相关表批量操作
-        //=====================================================================
-        //  FunctionName : RelatedTableAddBatch()
-        /// <summary>
-        /// 相关表批量添加
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableAddBatch()
         {
 
         }
         
-        //=====================================================================
-        //  FunctionName : RelatedTableModifyBatch()
-        /// <summary>
-        /// 相关表批量修改
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableModifyBatch()
         {
 

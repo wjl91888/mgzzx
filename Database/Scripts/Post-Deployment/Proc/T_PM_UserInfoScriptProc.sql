@@ -277,6 +277,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateT_PM_UserInfoByAnyCondition]
 , @lcodeBatch nvarchar(1000) = NULL
 
 , @QueryType nvarchar(50) = 'AND'
+, @QueryKeywords nvarchar(50) = NULL
 , @RecordCount int Output
 
 AS

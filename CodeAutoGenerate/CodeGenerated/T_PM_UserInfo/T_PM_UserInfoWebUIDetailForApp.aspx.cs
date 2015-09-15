@@ -56,55 +56,73 @@ namespace App
                     {
                         var UserIDControl = item.FindControl("UserIDContainer");
                         if (UserIDControl != null) 
-                            UserIDControl.Visible = true;
+                        {
+                            UserIDControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == TXL_PURVIEW_ID)
                     {
-                        var SubjectIDControl = item.FindControl("SubjectIDContainer");
-                        if (SubjectIDControl != null) 
-                            SubjectIDControl.Visible = true;
+                        var UserLoginNameControl = item.FindControl("UserLoginNameContainer");
+                        if (UserLoginNameControl != null) 
+                        {
+                            UserLoginNameControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == TXL_PURVIEW_ID)
                     {
-                        var UserNickNameControl = item.FindControl("UserNickNameContainer");
-                        if (UserNickNameControl != null) 
-                            UserNickNameControl.Visible = true;
+                        var UserGroupIDControl = item.FindControl("UserGroupIDContainer");
+                        if (UserGroupIDControl != null) 
+                        {
+                            UserGroupIDControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == TXL_PURVIEW_ID)
                     {
-                        var XBControl = item.FindControl("XBContainer");
-                        if (XBControl != null) 
-                            XBControl.Visible = true;
+                        var SFZHControl = item.FindControl("SFZHContainer");
+                        if (SFZHControl != null) 
+                        {
+                            SFZHControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == TXL_PURVIEW_ID)
                     {
-                        var SJHControl = item.FindControl("SJHContainer");
-                        if (SJHControl != null) 
-                            SJHControl.Visible = true;
+                        var LoginTimeControl = item.FindControl("LoginTimeContainer");
+                        if (LoginTimeControl != null) 
+                        {
+                            LoginTimeControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == TXL_PURVIEW_ID)
                     {
-                        var BGDHControl = item.FindControl("BGDHContainer");
-                        if (BGDHControl != null) 
-                            BGDHControl.Visible = true;
+                        var LastLoginIPControl = item.FindControl("LastLoginIPContainer");
+                        if (LastLoginIPControl != null) 
+                        {
+                            LastLoginIPControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == TXL_PURVIEW_ID)
                     {
-                        var JTDHControl = item.FindControl("JTDHContainer");
-                        if (JTDHControl != null) 
-                            JTDHControl.Visible = true;
+                        var LastLoginDateControl = item.FindControl("LastLoginDateContainer");
+                        if (LastLoginDateControl != null) 
+                        {
+                            LastLoginDateControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == TXL_PURVIEW_ID)
                     {
-                        var EmailControl = item.FindControl("EmailContainer");
-                        if (EmailControl != null) 
-                            EmailControl.Visible = true;
+                        var LoginTimesControl = item.FindControl("LoginTimesContainer");
+                        if (LoginTimesControl != null) 
+                        {
+                            LoginTimesControl.Visible = false;
+                        }
                     }
                     if(CustomPermission == TXL_PURVIEW_ID)
                     {
-                        var QQHControl = item.FindControl("QQHContainer");
-                        if (QQHControl != null) 
-                            QQHControl.Visible = true;
+                        var UserStatusControl = item.FindControl("UserStatusContainer");
+                        if (UserStatusControl != null) 
+                        {
+                            UserStatusControl.Visible = false;
+                        }
                     }
                 }
             }

@@ -43,7 +43,6 @@ namespace App
         protected void InitFilterData()
         {
             var dataSourceCollection = new List<Pair<string, List<Triples<string, string, string>>>>();
-
     
             NavList.DataSource = dataSourceCollection;
         }

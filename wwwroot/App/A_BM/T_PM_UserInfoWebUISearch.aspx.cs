@@ -43,9 +43,9 @@ namespace App
         protected void InitFilterData()
         {
             var dataSourceCollection = new List<Pair<string, List<Triples<string, string, string>>>>();
-
     
             dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("≤ø√≈", GetList_SubjectID_AdvanceSearch()));
+                    
             NavList.DataSource = dataSourceCollection;
         }
 

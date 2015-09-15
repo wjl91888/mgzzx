@@ -3,12 +3,15 @@ FileName:T_BM_DWXXWebUIBase.cs
 ******************************************************/
 using System;
 using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using RICH.Common.Base.ApplicationData;
 using RICH.Common.Base.WebUI;
 using RICH.Common.LM;
+using RICH.Common.Utilities;
+using System.Collections.Generic;
 
 namespace RICH.Common.BM.T_BM_DWXX
 {
@@ -27,35 +30,14 @@ namespace RICH.Common.BM.T_BM_DWXX
         #endregion
 
         #region 变量定义
-        /// <summary>
-        /// 数据实体对象
-        /// </summary>
         protected T_BM_DWXXApplicationData appData;
-        /// <summary>
-        /// 消息信息
-        /// </summary>
         protected string strMessageInfo = string.Empty;
-        /// <summary>
-        /// 消息参数
-        /// </summary>
         protected string[] strMessageParam = { string.Empty, string.Empty, string.Empty, string.Empty };
-        /// <summary>
-        /// AJAX操作返回值
-        /// </summary>
         protected string strAJAXReturnValue = string.Empty;
-        /// <summary>
-        /// 弹出消息信息
-        /// </summary>
         protected string strPopupMessageInfo = string.Empty;
         #endregion
 
         #region 数据操作方法
-        //=====================================================================
-        //  FunctionName : AddRecord
-        /// <summary>
-        /// 添加记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void AddRecord()
         {
             if (GetAddInputParameter())
@@ -81,12 +63,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : ModifyRecord
-        /// <summary>
-        /// 修改记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyRecord()
         {
             if (GetModifyInputParameter())
@@ -104,12 +80,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : QueryRecord
-        /// <summary>
-        /// 查询记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void QueryRecord()
         {
             if (GetQueryInputParameter())
@@ -126,12 +96,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : DeleteRecord
-        /// <summary>
-        /// 删除记录操作
-        /// </summary>
-        //=====================================================================
         protected virtual void DeleteRecord()
         {
             if (GetDeleteInputParameter())
@@ -150,12 +114,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : CountRecord
-        /// <summary>
-        /// 统计记录数操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountRecord()
         {
             if (GetCountInputParameter())
@@ -172,12 +130,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetCountInputParameter
-        /// <summary>
-        /// 得到统计记录数用户输入参数操作（通过Request对象）
-        /// </summary>
-        //=====================================================================
         protected virtual Boolean GetCountInputParameter()
         {
             Boolean boolReturn = true;
@@ -260,12 +212,6 @@ namespace RICH.Common.BM.T_BM_DWXX
         #endregion
 
         #region 页面控件相关方法
-        //=====================================================================
-        //  FunctionName : btnAddConfirm_Click
-        /// <summary>
-        /// 确认添加按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnAddConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -274,12 +220,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             AddRecord();
         }
         
-        //=====================================================================
-        //  FunctionName : btnModifyConfirm_Click
-        /// <summary>
-        /// 确认修改按钮事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnModifyConfirm_Click(object sender, EventArgs e)
         {
             Session[ConstantsManager.SESSION_REDIRECT_PAGE] = CURRENT_PATH + "/" + WEBUI_SEARCH_FILENAME;
@@ -289,12 +229,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             ModifyRecord();
         }
 
-        //=====================================================================
-        //  FunctionName : btnOperate_Click
-        /// <summary>
-        /// 操作选中记录控件Click事件
-        /// </summary>
-        //=====================================================================
         protected virtual void btnOperate_Click(object sender, EventArgs e)
         {
             switch (Request["ctl00$MainContentPlaceHolder$ddlOperation"].ToLower())
@@ -314,12 +248,6 @@ namespace RICH.Common.BM.T_BM_DWXX
 
         #region 取得数据源
 
-        //=====================================================================
-        //  FunctionName : GetTree_SJDWBH
-        /// <summary>
-        /// 根据指定条件取得上级单位(SJDWBH)数据源
-        /// </summary>
-        //=====================================================================
         protected  virtual void GetTree_SJDWBH(
             string strFieldName, string strFieldValue, bool boolIsTreeStyle,
             string strParentName, string strParent, ref DataSet dsReturn, int intLevel, bool isDisplayExistItem = false, bool displayTextIncludeCode = false
@@ -402,12 +330,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_SJDWBH
-        /// <summary>
-        /// 取得上级单位(SJDWBH)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_SJDWBH(bool isDisplayExistItem = false, bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -418,12 +340,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return dsReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : GetDataSource_SJDWBH_AdvanceSearch
-        /// <summary>
-        /// 取得上级单位(SJDWBH)数据源
-        /// </summary>
-        //=====================================================================
         protected virtual object GetDataSource_SJDWBH_AdvanceSearch(bool displayTextIncludeCode = false)
         {
             DataSet dsReturn = new DataSet();
@@ -434,16 +350,21 @@ namespace RICH.Common.BM.T_BM_DWXX
             return dsReturn;
         }
 
+        protected virtual List<Triples<string, string, string>> GetList_SJDWBH_AdvanceSearch(bool displayTextIncludeCode = false)
+        {
+            DataSet dsReturn = new DataSet();
+            dsReturn.Tables.Add("T_BM_DWXX");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWBH");
+            dsReturn.Tables["T_BM_DWXX"].Columns.Add("DWMC");
+            GetTree_SJDWBH("null", "null", true, "SJDWBH", null, ref dsReturn, 0, true, displayTextIncludeCode);
+            return (from DataRow dr in dsReturn.Tables[0].Rows
+                    select new Triples<string, string, string>(GetValue(dr["DWBH"]), GetValue(dr["DWMC"]), "SJDWBH")).ToList();
+        }
+
         
         #endregion
 
         #region 修改任意字段
-        //=====================================================================
-        //  FunctionName : ModifyAnyField
-        /// <summary>
-        /// 修改一个字段的值
-        /// </summary>
-        //=====================================================================
         protected virtual void ModifyAnyField()
         {
             T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
@@ -453,12 +374,6 @@ namespace RICH.Common.BM.T_BM_DWXX
         #endregion
 
         #region 统计任意字段
-        //=====================================================================
-        //  FunctionName : CountAnyField
-        /// <summary>
-        /// 统计操作
-        /// </summary>
-        //=====================================================================
         protected virtual void CountAnyField()
         {
             T_BM_DWXXApplicationLogic instanceT_BM_DWXXApplicationLogic
@@ -468,12 +383,6 @@ namespace RICH.Common.BM.T_BM_DWXX
         #endregion
 
         #region AJAX相关方法
-        //=====================================================================
-        //  FunctionName : AJAX_QuerySingle
-        /// <summary>
-        /// AJAX调用的读取指定记录指定字段的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QuerySingle(string strFieldName, string strFieldValue, string strReturnFieldName)
         {
             string strReturn = string.Empty;
@@ -551,12 +460,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_QueryDataSet
-        /// <summary>
-        /// AJAX调用的读取记录集的XML代码的方法
-        /// </summary>
-        //=====================================================================
         protected virtual string AJAX_QueryDataSet(string strFieldName, string strFieldValue)
         {
             string strReturn = string.Empty;
@@ -634,12 +537,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return strReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Modify
-        /// <summary>
-        /// AJAX调用的更新方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Modify(string strFieldName, string strFieldValue, string strObjectID)
         {
             bool boolReturn = false;
@@ -723,12 +620,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_Delete
-        /// <summary>
-        /// AJAX调用的删除方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_Delete(string strObjectID)
         {
             bool boolReturn = false;
@@ -764,12 +655,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return boolReturn;
         }
 
-        //=====================================================================
-        //  FunctionName : AJAX_IsExist
-        /// <summary>
-        /// AJAX调用的存在方法
-        /// </summary>
-        //=====================================================================
         protected virtual bool AJAX_IsExist(string strFieldName, string strFieldValue)
         {
             bool boolReturn = false;
@@ -851,13 +736,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return boolReturn;
         }
 
-        
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override void RaiseCallbackEvent(string eventArgument)
         {
             try
@@ -928,12 +806,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             }
         }
 
-        //=====================================================================
-        //  FunctionName : RaiseCallbackEvent
-        /// <summary>
-        /// 实现接口方法RaiseCallbackEvent
-        /// </summary>
-        //=====================================================================
         public override string GetCallbackResult()
         {
             return strAJAXReturnValue;
@@ -942,12 +814,6 @@ namespace RICH.Common.BM.T_BM_DWXX
 
         #region 验证数据
 
-        //=====================================================================
-        //  FunctionName : ValidateObjectID
-        /// <summary>
-        /// 数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateObjectID(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1017,12 +883,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDWBH
-        /// <summary>
-        /// 单位编号数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDWBH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1092,12 +952,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDWMC
-        /// <summary>
-        /// 单位名称数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDWMC(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1167,12 +1021,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSJDWBH
-        /// <summary>
-        /// 上级单位数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSJDWBH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1242,12 +1090,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateDZ
-        /// <summary>
-        /// 地址数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateDZ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1317,12 +1159,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateYB
-        /// <summary>
-        /// 邮编数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateYB(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1392,12 +1228,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLXBM
-        /// <summary>
-        /// 联系部门数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLXBM(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1467,12 +1297,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLXDH
-        /// <summary>
-        /// 联系电话数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLXDH(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1542,12 +1366,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateEmail
-        /// <summary>
-        /// Email数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateEmail(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1617,12 +1435,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateLXR
-        /// <summary>
-        /// 联系人数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateLXR(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1692,12 +1504,6 @@ namespace RICH.Common.BM.T_BM_DWXX
             return validateData;
         }
     
-        //=====================================================================
-        //  FunctionName : ValidateSJ
-        /// <summary>
-        /// 手机数值验证方法
-        /// </summary>
-        //=====================================================================        
         protected virtual ValidateData ValidateSJ(object objValidateData, bool boolNullable, bool boolExist)
         {
             ValidateData validateData = new ValidateData();
@@ -1778,23 +1584,11 @@ namespace RICH.Common.BM.T_BM_DWXX
         #endregion    
 
         #region 相关表批量操作
-        //=====================================================================
-        //  FunctionName : RelatedTableAddBatch()
-        /// <summary>
-        /// 相关表批量添加
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableAddBatch()
         {
 
         }
         
-        //=====================================================================
-        //  FunctionName : RelatedTableModifyBatch()
-        /// <summary>
-        /// 相关表批量修改
-        /// </summary>
-        //=====================================================================
         protected virtual void RelatedTableModifyBatch()
         {
 

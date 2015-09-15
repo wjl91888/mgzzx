@@ -180,6 +180,12 @@ namespace RICH.Common.BM.T_PM_UserGroupInfo
         public String QueryField { get; set; }
 
         /// <summary>
+        /// 查询关键字QueryKeywords
+        /// </summary>
+        /// <value>QueryKeywords</value>
+        public String QueryKeywords { get; set; }
+
+        /// <summary>
         /// 查询排序方式Sort
         /// </summary>
         /// <value>Sort</value>

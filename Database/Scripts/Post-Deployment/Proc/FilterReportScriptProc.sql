@@ -124,6 +124,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateFilterReportByAnyCondition]
 , @BGCJSJBatch nvarchar(1000) = NULL
 
 , @QueryType nvarchar(50) = 'AND'
+, @QueryKeywords nvarchar(50) = NULL
 , @RecordCount int Output
 
 AS
@@ -770,29 +771,29 @@ BEGIN
     SET @ConditionText = '( [dbo].[FilterReport].ObjectID IS NULL '
     
     IF @ObjectID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[ObjectID] LIKE '''+CAST(@ObjectID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[ObjectID] = '''+CAST(@ObjectID AS nvarchar(100))+''' '
+            
     IF @BGMC IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[BGMC] LIKE '''+CAST(@BGMC AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[BGMC] LIKE ''%'+CAST(@BGMC AS nvarchar(100))+'%'' '
+            
     IF @UserID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[UserID] LIKE '''+CAST(@UserID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[UserID] = '''+CAST(@UserID AS nvarchar(100))+''' '
+            
     IF @BGLX IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[BGLX] LIKE '''+CAST(@BGLX AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[BGLX] = '''+CAST(@BGLX AS nvarchar(100))+''' '
+            
     IF @GXBG IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[GXBG] LIKE '''+CAST(@GXBG AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[GXBG] = '''+CAST(@GXBG AS nvarchar(100))+''' '
+            
     IF @XTBG IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[XTBG] LIKE '''+CAST(@XTBG AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[XTBG] = '''+CAST(@XTBG AS nvarchar(100))+''' '
+            
     IF @BGCXTJ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[BGCXTJ] LIKE '''+CAST(@BGCXTJ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[BGCXTJ] = '''+CAST(@BGCXTJ AS nvarchar(100))+''' '
+            
     IF @BGCJSJ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[BGCJSJ] LIKE '''+CAST(@BGCJSJ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[FilterReport].[BGCJSJ] = '''+CAST(@BGCJSJ AS nvarchar(100))+''' '
+            
     --一对一相关表查询条件
     
     SET @ConditionText = @ConditionText + ')'

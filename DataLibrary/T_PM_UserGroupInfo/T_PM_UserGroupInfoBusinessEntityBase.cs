@@ -123,6 +123,7 @@ namespace  RICH.Common.BM.T_PM_UserGroupInfo
             db.AddOutParameter(cmdProc, "@RecordCount", DbType.Int32, 4);
             // 对存储过程参数赋值
             db.SetParameterValue(cmdProc, "@QueryType", AppData.QueryType);
+            db.SetParameterValue(cmdProc, "@QueryKeywords", AppData.QueryKeywords);
             
             db.SetParameterValue(cmdProc, "@ObjectID", AppData.ObjectID);
             db.SetParameterValue(cmdProc, "@ObjectIDBatch", AppData.ObjectIDBatch);

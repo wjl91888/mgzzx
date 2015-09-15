@@ -18,7 +18,7 @@
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "UserNickName"), null)%></h4>
             </div>
     
-            <div id="UserIDContainer" runat="server" Visible="false" class="row">
+            <div id="UserIDContainer" runat="server" class="row">
                 <div id="UserIDCaption" runat="server" class="fontbold col-xs-3 paddingleft0">用户编号</div>
                 <div id="UserIDContent" runat="server" class="col-xs-9">
         
@@ -27,7 +27,7 @@
                 </div>
             </div>
         
-            <div id="UserLoginNameContainer" runat="server" Visible="false" class="row">
+            <div id="UserLoginNameContainer" runat="server" class="row">
                 <div id="UserLoginNameCaption" runat="server" class="fontbold col-xs-3 paddingleft0">用户名</div>
                 <div id="UserLoginNameContent" runat="server" class="col-xs-9">
         
@@ -36,7 +36,7 @@
                 </div>
             </div>
         
-            <div id="UserGroupIDContainer" runat="server" Visible="false" class="row">
+            <div id="UserGroupIDContainer" runat="server" class="row">
                 <div id="UserGroupIDCaption" runat="server" class="fontbold col-xs-3 paddingleft0">用户组</div>
                 <div id="UserGroupIDContent" runat="server" class="col-xs-9">
         
@@ -45,7 +45,7 @@
                 </div>
             </div>
         
-            <div id="SubjectIDContainer" runat="server" Visible="false" class="row">
+            <div id="SubjectIDContainer" runat="server" class="row">
                 <div id="SubjectIDCaption" runat="server" class="fontbold col-xs-3 paddingleft0">所属单位</div>
                 <div id="SubjectIDContent" runat="server" class="col-xs-9">
         
@@ -54,7 +54,7 @@
                 </div>
             </div>
         
-            <div id="UserNickNameContainer" runat="server" Visible="false" class="row">
+            <div id="UserNickNameContainer" runat="server" class="row">
                 <div id="UserNickNameCaption" runat="server" class="fontbold col-xs-3 paddingleft0">姓名</div>
                 <div id="UserNickNameContent" runat="server" class="col-xs-9">
         
@@ -63,7 +63,7 @@
                 </div>
             </div>
         
-            <div id="XBContainer" runat="server" Visible="false" class="row">
+            <div id="XBContainer" runat="server" class="row">
                 <div id="XBCaption" runat="server" class="fontbold col-xs-3 paddingleft0">性别</div>
                 <div id="XBContent" runat="server" class="col-xs-9">
         
@@ -72,7 +72,7 @@
                 </div>
             </div>
         
-            <div id="MZContainer" runat="server" Visible="false" class="row">
+            <div id="MZContainer" runat="server" class="row">
                 <div id="MZCaption" runat="server" class="fontbold col-xs-3 paddingleft0">民族</div>
                 <div id="MZContent" runat="server" class="col-xs-9">
         
@@ -81,7 +81,7 @@
                 </div>
             </div>
         
-            <div id="ZZMMContainer" runat="server" Visible="false" class="row">
+            <div id="ZZMMContainer" runat="server" class="row">
                 <div id="ZZMMCaption" runat="server" class="fontbold col-xs-3 paddingleft0">政治面貌</div>
                 <div id="ZZMMContent" runat="server" class="col-xs-9">
         
@@ -90,7 +90,7 @@
                 </div>
             </div>
         
-            <div id="SFZHContainer" runat="server" Visible="false" class="row">
+            <div id="SFZHContainer" runat="server" class="row">
                 <div id="SFZHCaption" runat="server" class="fontbold col-xs-3 paddingleft0">身份证号</div>
                 <div id="SFZHContent" runat="server" class="col-xs-9">
         
@@ -99,7 +99,7 @@
                 </div>
             </div>
         
-            <div id="SJHContainer" runat="server" Visible="false" class="row">
+            <div id="SJHContainer" runat="server" class="row">
                 <div id="SJHCaption" runat="server" class="fontbold col-xs-3 paddingleft0">手机</div>
                 <div id="SJHContent" runat="server" class="col-xs-9">
         
@@ -108,7 +108,7 @@
                 </div>
             </div>
         
-            <div id="BGDHContainer" runat="server" Visible="false" class="row">
+            <div id="BGDHContainer" runat="server" class="row">
                 <div id="BGDHCaption" runat="server" class="fontbold col-xs-3 paddingleft0">办公电话</div>
                 <div id="BGDHContent" runat="server" class="col-xs-9">
         
@@ -117,7 +117,7 @@
                 </div>
             </div>
         
-            <div id="JTDHContainer" runat="server" Visible="false" class="row">
+            <div id="JTDHContainer" runat="server" class="row">
                 <div id="JTDHCaption" runat="server" class="fontbold col-xs-3 paddingleft0">家庭电话</div>
                 <div id="JTDHContent" runat="server" class="col-xs-9">
         
@@ -126,7 +126,7 @@
                 </div>
             </div>
         
-            <div id="EmailContainer" runat="server" Visible="false" class="row">
+            <div id="EmailContainer" runat="server" class="row">
                 <div id="EmailCaption" runat="server" class="fontbold col-xs-3 paddingleft0">Email</div>
                 <div id="EmailContent" runat="server" class="col-xs-9">
         
@@ -135,7 +135,7 @@
                 </div>
             </div>
         
-            <div id="QQHContainer" runat="server" Visible="false" class="row">
+            <div id="QQHContainer" runat="server" class="row">
                 <div id="QQHCaption" runat="server" class="fontbold col-xs-3 paddingleft0">QQ</div>
                 <div id="QQHContent" runat="server" class="col-xs-9">
         
@@ -144,7 +144,7 @@
                 </div>
             </div>
         
-            <div id="LoginTimeContainer" runat="server" Visible="false" class="row">
+            <div id="LoginTimeContainer" runat="server" class="row">
                 <div id="LoginTimeCaption" runat="server" class="fontbold col-xs-3 paddingleft0">登录时间</div>
                 <div id="LoginTimeContent" runat="server" class="col-xs-9">
         
@@ -153,7 +153,7 @@
                 </div>
             </div>
         
-            <div id="LastLoginIPContainer" runat="server" Visible="false" class="row">
+            <div id="LastLoginIPContainer" runat="server" class="row">
                 <div id="LastLoginIPCaption" runat="server" class="fontbold col-xs-3 paddingleft0">登录IP</div>
                 <div id="LastLoginIPContent" runat="server" class="col-xs-9">
         
@@ -162,7 +162,7 @@
                 </div>
             </div>
         
-            <div id="LastLoginDateContainer" runat="server" Visible="false" class="row">
+            <div id="LastLoginDateContainer" runat="server" class="row">
                 <div id="LastLoginDateCaption" runat="server" class="fontbold col-xs-3 paddingleft0">上次时间</div>
                 <div id="LastLoginDateContent" runat="server" class="col-xs-9">
         
@@ -171,7 +171,7 @@
                 </div>
             </div>
         
-            <div id="LoginTimesContainer" runat="server" Visible="false" class="row">
+            <div id="LoginTimesContainer" runat="server" class="row">
                 <div id="LoginTimesCaption" runat="server" class="fontbold col-xs-3 paddingleft0">登录次数</div>
                 <div id="LoginTimesContent" runat="server" class="col-xs-9">
         

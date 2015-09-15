@@ -12,7 +12,13 @@ copy T_BM_DWXXWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BM_DWXXWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BM_DWXXWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BM_DWXXWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
-@ECHO 开始复制T_BM_DWXX类文件
+copy T_BM_DWXXWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BM_DWXXWebUIDetail.aspx
+copy T_BM_DWXXWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BM_DWXXWebUIDetail.aspx.cs
+copy T_BM_DWXXWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\
+copy T_BM_DWXXWebUIImage.aspx.cs ..\..\..\wwwroot\App\A_BM\
+copy T_BM_DWXXWebUISearchForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BM_DWXXWebUISearch.aspx
+copy T_BM_DWXXWebUISearchForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BM_DWXXWebUISearch.aspx.cs
+    @ECHO 开始复制T_BM_DWXX类文件
 IF NOT EXIST ..\..\..\DataLibrary\T_BM_DWXX MD ..\..\..\DataLibrary\T_BM_DWXX
 copy T_BM_DWXXApplicationData.cs ..\..\..\DataLibrary\T_BM_DWXX\
 IF NOT EXIST ..\..\..\DataLibrary\T_BM_DWXX\T_BM_DWXXApplicationLogic.cs copy T_BM_DWXXApplicationLogic.cs ..\..\..\DataLibrary\T_BM_DWXX\

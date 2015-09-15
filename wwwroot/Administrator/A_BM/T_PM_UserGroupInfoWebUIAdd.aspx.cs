@@ -577,14 +577,14 @@ UpdateDate.Text = DateTime.Now.ToString();
                 UpdateDate.Enabled = false;
                 
             }
-	
+    
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new T_PM_UserGroupInfoApplicationData();
-	
+                appData = new T_PM_UserGroupInfoApplicationData();
+    
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

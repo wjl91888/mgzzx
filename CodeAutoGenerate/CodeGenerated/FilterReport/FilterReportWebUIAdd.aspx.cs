@@ -642,14 +642,14 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 BGCJSJ.Enabled = false;
                 
             }
-	
+    
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new FilterReportApplicationData();
-	
+                appData = new FilterReportApplicationData();
+    
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

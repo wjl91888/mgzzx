@@ -151,6 +151,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateT_BM_DWXXByAnyCondition]
 , @SJBatch nvarchar(1000) = NULL
 
 , @QueryType nvarchar(50) = 'AND'
+, @QueryKeywords nvarchar(50) = NULL
 , @RecordCount int Output
 
 AS
@@ -921,38 +922,38 @@ BEGIN
     SET @ConditionText = '( [dbo].[T_BM_DWXX].ObjectID IS NULL '
     
     IF @ObjectID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[ObjectID] LIKE '''+CAST(@ObjectID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[ObjectID] = '''+CAST(@ObjectID AS nvarchar(100))+''' '
+            
     IF @DWBH IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[DWBH] LIKE '''+CAST(@DWBH AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[DWBH] = '''+CAST(@DWBH AS nvarchar(100))+''' '
+            
     IF @DWMC IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[DWMC] LIKE '''+CAST(@DWMC AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[DWMC] LIKE ''%'+CAST(@DWMC AS nvarchar(100))+'%'' '
+            
     IF @SJDWBH IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[SJDWBH] LIKE '''+CAST(@SJDWBH AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[SJDWBH] = '''+CAST(@SJDWBH AS nvarchar(100))+''' '
+            
     IF @DZ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[DZ] LIKE '''+CAST(@DZ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[DZ] LIKE ''%'+CAST(@DZ AS nvarchar(100))+'%'' '
+            
     IF @YB IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[YB] LIKE '''+CAST(@YB AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[YB] = '''+CAST(@YB AS nvarchar(100))+''' '
+            
     IF @LXBM IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[LXBM] LIKE '''+CAST(@LXBM AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[LXBM] = '''+CAST(@LXBM AS nvarchar(100))+''' '
+            
     IF @LXDH IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[LXDH] LIKE '''+CAST(@LXDH AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[LXDH] = '''+CAST(@LXDH AS nvarchar(100))+''' '
+            
     IF @Email IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[Email] LIKE '''+CAST(@Email AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[Email] = '''+CAST(@Email AS nvarchar(100))+''' '
+            
     IF @LXR IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[LXR] LIKE '''+CAST(@LXR AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[LXR] LIKE ''%'+CAST(@LXR AS nvarchar(100))+'%'' '
+            
     IF @SJ IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[SJ] LIKE '''+CAST(@SJ AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_BM_DWXX].[SJ] = '''+CAST(@SJ AS nvarchar(100))+''' '
+            
     --一对一相关表查询条件
     
     SET @ConditionText = @ConditionText + ')'

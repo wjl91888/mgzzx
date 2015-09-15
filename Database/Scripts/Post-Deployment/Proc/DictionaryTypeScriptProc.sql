@@ -81,6 +81,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateDictionaryTypeByAnyCondition]
 , @SMBatch nvarchar(1000) = NULL
 
 , @QueryType nvarchar(50) = 'AND'
+, @QueryKeywords nvarchar(50) = NULL
 , @RecordCount int Output
 
 AS
@@ -543,17 +544,17 @@ BEGIN
     SET @ConditionText = '( [dbo].[DictionaryType].ObjectID IS NULL '
     
     IF @ObjectID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[DictionaryType].[ObjectID] LIKE '''+CAST(@ObjectID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[DictionaryType].[ObjectID] = '''+CAST(@ObjectID AS nvarchar(100))+''' '
+            
     IF @DM IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[DictionaryType].[DM] LIKE '''+CAST(@DM AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[DictionaryType].[DM] = '''+CAST(@DM AS nvarchar(100))+''' '
+            
     IF @MC IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[DictionaryType].[MC] LIKE '''+CAST(@MC AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[DictionaryType].[MC] = '''+CAST(@MC AS nvarchar(100))+''' '
+            
     IF @SM IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[DictionaryType].[SM] LIKE '''+CAST(@SM AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[DictionaryType].[SM] = '''+CAST(@SM AS nvarchar(100))+''' '
+            
     --一对一相关表查询条件
     
     SET @ConditionText = @ConditionText + ')'

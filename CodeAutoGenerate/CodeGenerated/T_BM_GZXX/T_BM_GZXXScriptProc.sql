@@ -424,6 +424,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateT_BM_GZXXByAnyCondition]
 , @TJSJBatch nvarchar(1000) = NULL
 
 , @QueryType nvarchar(50) = 'AND'
+, @QueryKeywords nvarchar(50) = NULL
 , @RecordCount int Output
 
 AS

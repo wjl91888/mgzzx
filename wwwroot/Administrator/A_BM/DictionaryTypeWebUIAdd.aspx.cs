@@ -474,14 +474,14 @@ ObjectID.Text = GetValue(appData.ResultSet.Tables[0].Rows[0]["ObjectID"]);
                 SM.Enabled = false;
                 
             }
-	
+    
         }
     }
     
     protected override string GetObjectID()
     {
-		        appData = new DictionaryTypeApplicationData();
-	
+                appData = new DictionaryTypeApplicationData();
+    
                 appData.OPCode = RICH.Common.Base.ApplicationData.ApplicationDataBase.OPType.ALL;
                 appData.PageSize = 1;
                 appData.CurrentPage = 1;

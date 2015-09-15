@@ -12,7 +12,13 @@ copy DictionaryWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy DictionaryWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy DictionaryWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy DictionaryWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
-@ECHO 开始复制Dictionary类文件
+copy DictionaryWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\DictionaryWebUIDetail.aspx
+copy DictionaryWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\DictionaryWebUIDetail.aspx.cs
+copy DictionaryWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\
+copy DictionaryWebUIImage.aspx.cs ..\..\..\wwwroot\App\A_BM\
+copy DictionaryWebUISearchForApp.aspx ..\..\..\wwwroot\App\A_BM\DictionaryWebUISearch.aspx
+copy DictionaryWebUISearchForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\DictionaryWebUISearch.aspx.cs
+    @ECHO 开始复制Dictionary类文件
 IF NOT EXIST ..\..\..\DataLibrary\Dictionary MD ..\..\..\DataLibrary\Dictionary
 copy DictionaryApplicationData.cs ..\..\..\DataLibrary\Dictionary\
 IF NOT EXIST ..\..\..\DataLibrary\Dictionary\DictionaryApplicationLogic.cs copy DictionaryApplicationLogic.cs ..\..\..\DataLibrary\Dictionary\

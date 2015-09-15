@@ -18,7 +18,7 @@
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "DXXBT"), null)%></h4>
             </div>
     
-            <div id="DXXBTContainer" runat="server" Visible="false" class="row">
+            <div id="DXXBTContainer" runat="server" class="row">
                 <div id="DXXBTCaption" runat="server" class="fontbold col-xs-3 paddingleft0">标题</div>
                 <div id="DXXBTContent" runat="server" class="col-xs-9">
         
@@ -27,7 +27,7 @@
                 </div>
             </div>
         
-            <div id="DXXNRContainer" runat="server" Visible="false" class="row">
+            <div id="DXXNRContainer" runat="server" class="row">
                 <div id="DXXNRCaption" runat="server" class="fontbold col-xs-12 paddingleft0">内容</div>
                 <div id="DXXNRContent" runat="server" class="col-xs-12">
         
@@ -36,7 +36,7 @@
                 </div>
             </div>
         
-            <div id="DXXFJContainer" runat="server" Visible="false" class="row">
+            <div id="DXXFJContainer" runat="server" class="row">
                 <div id="DXXFJCaption" runat="server" class="fontbold col-xs-12 paddingleft0">附件</div>
                 <div id="DXXFJContent" runat="server" class="col-xs-12">
         
@@ -45,7 +45,7 @@
                 </div>
             </div>
         
-            <div id="FSSJContainer" runat="server" Visible="false" class="row">
+            <div id="FSSJContainer" runat="server" class="row">
                 <div id="FSSJCaption" runat="server" class="fontbold col-xs-3 paddingleft0">发送时间</div>
                 <div id="FSSJContent" runat="server" class="col-xs-9">
         
@@ -54,7 +54,7 @@
                 </div>
             </div>
         
-            <div id="FSRContainer" runat="server" Visible="false" class="row">
+            <div id="FSRContainer" runat="server" class="row">
                 <div id="FSRCaption" runat="server" class="fontbold col-xs-3 paddingleft0">发送人</div>
                 <div id="FSRContent" runat="server" class="col-xs-9">
         
@@ -63,7 +63,7 @@
                 </div>
             </div>
         
-            <div id="FSBMContainer" runat="server" Visible="false" class="row">
+            <div id="FSBMContainer" runat="server" class="row">
                 <div id="FSBMCaption" runat="server" class="fontbold col-xs-3 paddingleft0">发送部门</div>
                 <div id="FSBMContent" runat="server" class="col-xs-9">
         
@@ -72,7 +72,7 @@
                 </div>
             </div>
         
-            <div id="JSRContainer" runat="server" Visible="false" class="row">
+            <div id="JSRContainer" runat="server" class="row">
                 <div id="JSRCaption" runat="server" class="fontbold col-xs-3 paddingleft0">接收人</div>
                 <div id="JSRContent" runat="server" class="col-xs-9">
         

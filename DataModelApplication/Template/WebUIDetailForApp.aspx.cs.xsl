@@ -58,12 +58,14 @@ namespace App
                 {
         <xsl:for-each select="/NewDataSet/CustomPermissionFieldConfig">
             <xsl:if test="CustomPermissionType = 'SearchPage'">
-                <xsl:if test="View = 'true'">
+                <xsl:if test="Hidden = 'true'">
                     if(CustomPermission == <xsl:value-of select="CustomPermissionName"/>_PURVIEW_ID)
                     {
                         var <xsl:value-of select="FieldName"/>Control = item.FindControl("<xsl:value-of select="FieldName"/>Container");
                         if (<xsl:value-of select="FieldName"/>Control != null) 
-                            <xsl:value-of select="FieldName"/>Control.Visible = true;
+                        {
+                            <xsl:value-of select="FieldName"/>Control.Visible = false;
+                        }
                     }</xsl:if></xsl:if></xsl:for-each>
                 }
             }

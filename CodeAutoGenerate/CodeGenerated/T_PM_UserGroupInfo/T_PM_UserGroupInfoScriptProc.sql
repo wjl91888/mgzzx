@@ -114,6 +114,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateT_PM_UserGroupInfoByAnyCondition]
 , @UpdateDateBatch nvarchar(1000) = NULL
 
 , @QueryType nvarchar(50) = 'AND'
+, @QueryKeywords nvarchar(50) = NULL
 , @RecordCount int Output
 
 AS
@@ -716,26 +717,26 @@ BEGIN
     SET @ConditionText = '( [dbo].[T_PM_UserGroupInfo].ObjectID IS NULL '
     
     IF @ObjectID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[ObjectID] LIKE '''+CAST(@ObjectID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[ObjectID] = '''+CAST(@ObjectID AS nvarchar(100))+''' '
+            
     IF @UserGroupID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UserGroupID] LIKE '''+CAST(@UserGroupID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UserGroupID] = '''+CAST(@UserGroupID AS nvarchar(100))+''' '
+            
     IF @UserGroupName IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UserGroupName] LIKE '''+CAST(@UserGroupName AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UserGroupName] LIKE ''%'+CAST(@UserGroupName AS nvarchar(100))+'%'' '
+            
     IF @UserGroupContent IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UserGroupContent] LIKE '''+CAST(@UserGroupContent AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UserGroupContent] LIKE ''%'+CAST(@UserGroupContent AS nvarchar(100))+'%'' '
+            
     IF @UserGroupRemark IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UserGroupRemark] LIKE '''+CAST(@UserGroupRemark AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UserGroupRemark] LIKE ''%'+CAST(@UserGroupRemark AS nvarchar(100))+'%'' '
+            
     IF @DefaultPage IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[DefaultPage] LIKE '''+CAST(@DefaultPage AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[DefaultPage] = '''+CAST(@DefaultPage AS nvarchar(100))+''' '
+            
     IF @UpdateDate IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UpdateDate] LIKE '''+CAST(@UpdateDate AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[T_PM_UserGroupInfo].[UpdateDate] = '''+CAST(@UpdateDate AS nvarchar(100))+''' '
+            
     --一对一相关表查询条件
     
     SET @ConditionText = @ConditionText + ')'

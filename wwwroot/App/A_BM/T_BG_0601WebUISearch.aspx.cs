@@ -43,10 +43,11 @@ namespace App
         protected void InitFilterData()
         {
             var dataSourceCollection = new List<Pair<string, List<Triples<string, string, string>>>>();
-
     
             dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("À¸Ä¿", GetList_FBLM_AdvanceSearch()));
+                    
             dataSourceCollection.Add(new Pair<string, List<Triples<string, string, string>>>("²¿ÃÅ", GetList_FBBM_AdvanceSearch()));
+                    
             NavList.DataSource = dataSourceCollection;
         }
 

@@ -101,6 +101,7 @@ CREATE   PROCEDURE [dbo].[SP_UpdateDictionaryByAnyCondition]
 , @SMBatch nvarchar(1000) = NULL
 
 , @QueryType nvarchar(50) = 'AND'
+, @QueryKeywords nvarchar(50) = NULL
 , @RecordCount int Output
 
 AS
@@ -659,23 +660,23 @@ BEGIN
     SET @ConditionText = '( [dbo].[Dictionary].ObjectID IS NULL '
     
     IF @ObjectID IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[ObjectID] LIKE '''+CAST(@ObjectID AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[ObjectID] = '''+CAST(@ObjectID AS nvarchar(100))+''' '
+            
     IF @DM IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[DM] LIKE '''+CAST(@DM AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[DM] = '''+CAST(@DM AS nvarchar(100))+''' '
+            
     IF @LX IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[LX] LIKE '''+CAST(@LX AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[LX] = '''+CAST(@LX AS nvarchar(100))+''' '
+            
     IF @MC IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[MC] LIKE '''+CAST(@MC AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[MC] = '''+CAST(@MC AS nvarchar(100))+''' '
+            
     IF @SJDM IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[SJDM] LIKE '''+CAST(@SJDM AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[SJDM] = '''+CAST(@SJDM AS nvarchar(100))+''' '
+            
     IF @SM IS NOT NULL
-      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[SM] LIKE '''+CAST(@SM AS nvarchar(100))+'%'' '
-        
+      SET @ConditionText = @ConditionText + ' OR [dbo].[Dictionary].[SM] = '''+CAST(@SM AS nvarchar(100))+''' '
+            
     --一对一相关表查询条件
     
     SET @ConditionText = @ConditionText + ')'
