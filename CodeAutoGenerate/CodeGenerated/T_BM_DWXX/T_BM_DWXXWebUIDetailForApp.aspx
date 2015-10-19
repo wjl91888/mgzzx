@@ -19,8 +19,8 @@
             </div>
     
             <div id="DWBHContainer" runat="server" class="row">
-                <div id="DWBHCaption" runat="server" class="fontbold col-xs- paddingleft0">单位编号</div>
-                <div id="DWBHContent" runat="server" class="col-xs-">
+                <div id="DWBHCaption" runat="server" class="fontbold col-xs-3 paddingleft0">单位编号</div>
+                <div id="DWBHContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "DWBH"), null)%>
                 
@@ -28,8 +28,8 @@
             </div>
         
             <div id="DWMCContainer" runat="server" class="row">
-                <div id="DWMCCaption" runat="server" class="fontbold col-xs- paddingleft0">单位名称</div>
-                <div id="DWMCContent" runat="server" class="col-xs-">
+                <div id="DWMCCaption" runat="server" class="fontbold col-xs-3 paddingleft0">单位名称</div>
+                <div id="DWMCContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "DWMC"), null)%>
                 
@@ -37,8 +37,8 @@
             </div>
         
             <div id="SJDWBHContainer" runat="server" class="row">
-                <div id="SJDWBHCaption" runat="server" class="fontbold col-xs- paddingleft0">上级单位</div>
-                <div id="SJDWBHContent" runat="server" class="col-xs-">
+                <div id="SJDWBHCaption" runat="server" class="fontbold col-xs-3 paddingleft0">上级单位</div>
+                <div id="SJDWBHContent" runat="server" class="col-xs-9">
         
                     <%# DataBinder.Eval(Container.DataItem, "SJDWBH_T_BM_DWXX_DWMC")%>
         
@@ -46,8 +46,8 @@
             </div>
         
             <div id="DZContainer" runat="server" class="row">
-                <div id="DZCaption" runat="server" class="fontbold col-xs- paddingleft0">地址</div>
-                <div id="DZContent" runat="server" class="col-xs-">
+                <div id="DZCaption" runat="server" class="fontbold col-xs-3 paddingleft0">地址</div>
+                <div id="DZContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "DZ"), null)%>
                 
@@ -55,8 +55,8 @@
             </div>
         
             <div id="YBContainer" runat="server" class="row">
-                <div id="YBCaption" runat="server" class="fontbold col-xs- paddingleft0">邮编</div>
-                <div id="YBContent" runat="server" class="col-xs-">
+                <div id="YBCaption" runat="server" class="fontbold col-xs-3 paddingleft0">邮编</div>
+                <div id="YBContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "YB"), null)%>
                 
@@ -64,8 +64,8 @@
             </div>
         
             <div id="LXBMContainer" runat="server" class="row">
-                <div id="LXBMCaption" runat="server" class="fontbold col-xs- paddingleft0">联系部门</div>
-                <div id="LXBMContent" runat="server" class="col-xs-">
+                <div id="LXBMCaption" runat="server" class="fontbold col-xs-3 paddingleft0">联系部门</div>
+                <div id="LXBMContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "LXBM"), null)%>
                 
@@ -73,8 +73,8 @@
             </div>
         
             <div id="LXDHContainer" runat="server" class="row">
-                <div id="LXDHCaption" runat="server" class="fontbold col-xs- paddingleft0">联系电话</div>
-                <div id="LXDHContent" runat="server" class="col-xs-">
+                <div id="LXDHCaption" runat="server" class="fontbold col-xs-3 paddingleft0">联系电话</div>
+                <div id="LXDHContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "LXDH"), null)%>
                 
@@ -82,8 +82,8 @@
             </div>
         
             <div id="EmailContainer" runat="server" class="row">
-                <div id="EmailCaption" runat="server" class="fontbold col-xs- paddingleft0">Email</div>
-                <div id="EmailContent" runat="server" class="col-xs-">
+                <div id="EmailCaption" runat="server" class="fontbold col-xs-3 paddingleft0">Email</div>
+                <div id="EmailContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "Email"), null)%>
                 
@@ -91,8 +91,8 @@
             </div>
         
             <div id="LXRContainer" runat="server" class="row">
-                <div id="LXRCaption" runat="server" class="fontbold col-xs- paddingleft0">联系人</div>
-                <div id="LXRContent" runat="server" class="col-xs-">
+                <div id="LXRCaption" runat="server" class="fontbold col-xs-3 paddingleft0">联系人</div>
+                <div id="LXRContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "LXR"), null)%>
                 
@@ -100,8 +100,8 @@
             </div>
         
             <div id="SJContainer" runat="server" class="row">
-                <div id="SJCaption" runat="server" class="fontbold col-xs- paddingleft0">手机</div>
-                <div id="SJContent" runat="server" class="col-xs-">
+                <div id="SJCaption" runat="server" class="fontbold col-xs-3 paddingleft0">手机</div>
+                <div id="SJContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "SJ"), null)%>
                 
@@ -112,6 +112,16 @@
         </ItemTemplate>
     </asp:Repeater>
 </div>
+</asp:Content>
+<asp:Content ID="PageNavContainer" ContentPlaceHolderID="PageNavContainerPlaceHolder" runat="server">
+    <ul id="PageInfo" runat="server" class="nav  navbar-default">
+        <li class="col-sm-3 col-xs-3 text-center" style="padding-right: 0px !important; padding-left: 0px !important;">
+            <input type="button" id ="btnEditItem" runat ="server" value="修改" class="btn btn-default navbar-btn" />
+        </li>
+        <li class="col-sm-3 col-xs-3 text-center" style="padding-right: 0px !important; padding-left: 0px !important;"></li>
+        <li class="col-sm-3 col-xs-3 text-center" style="padding-right: 0px !important; padding-left: 0px !important;"></li>
+        <li class="col-sm-3 col-xs-3 text-center" style="padding-right: 0px !important; padding-left: 0px !important;"></li>
+    </ul>
 </asp:Content>
 
 

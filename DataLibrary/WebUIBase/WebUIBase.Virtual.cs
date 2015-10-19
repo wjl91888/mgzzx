@@ -49,7 +49,105 @@ namespace RICH.Common.Base.WebUI
 
         protected virtual void ProcessUIControlsStatus()
         {
-            if (MainContentPlaceHolder != null)
+            // for App
+            if (MainContainerPlaceHolder != null &&  PageNavContainerPlaceHolder != null)
+            {
+                var txtObjectIDItem = (TextBox)MainContainerPlaceHolder.FindControl("ObjectID");
+                if (txtObjectIDItem != null)
+                {
+                    txtObjectIDItem.Text = ObjectID;
+                }
+                var btnAddItem = (HtmlInputButton)MainContainerPlaceHolder.FindControl("btnAddItem");
+                if (btnAddItem != null)
+                {
+                    btnAddItem.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIAddAccessPurviewID());
+                    btnAddItem.Attributes.Add("onclick",
+                                               this.IsMobileDevice()
+                                                   ? RedirectJsCode.FormatInvariantCulture(GetAddPageUrl())
+                                                   : OpenWindowJsCode.FormatInvariantCulture(GetAddPageUrl()));
+                }
+                var btnEditItem = (HtmlInputButton)PageNavContainerPlaceHolder.FindControl("btnEditItem");
+                if (btnEditItem != null)
+                {
+                    btnEditItem.Visible = !EditMode && !AddMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIModifyAccessPurviewID());
+                    btnEditItem.Attributes.Add("onclick",
+                                               this.IsMobileDevice()
+                                                   ? RedirectJsCode.FormatInvariantCulture(GetEditPageUrl(ObjectID))
+                                                   : OpenWindowJsCode.FormatInvariantCulture(GetEditPageUrl(ObjectID)));
+                }
+                #region add page
+                if (CurrentPageFileName.Equals(WEBUI_ADD_FILENAME, StringComparison.OrdinalIgnoreCase))
+                {
+                    var ControlContainer = MainContainerPlaceHolder.FindControl("ControlContainer");
+                    var btnAddConfirm = PageNavContainerPlaceHolder.FindControl("btnAddConfirm");
+                    if (btnEditItem != null)
+                    {
+                        btnEditItem.Visible = btnEditItem.Visible && AccessPermission;
+                        btnEditItem.Attributes.Add("onclick", "window.location='{0}';".FormatInvariantCulture(GetEditPageUrl(ObjectID)));
+                    }
+                    if (ControlContainer != null)
+                    {
+                        ControlContainer.Visible = AccessPermission;
+                    }
+                    if (btnAddConfirm != null)
+                    {
+                        btnAddConfirm.Visible = (CopyMode || AddMode || EditMode) && AccessPermission;
+                    }
+                }
+                #endregion add page
+
+                #region search page
+                if (CurrentPageFileName.Equals(WEBUI_SEARCH_FILENAME, StringComparison.OrdinalIgnoreCase))
+                {
+                    var PageTitle = MainContainerPlaceHolder.FindControl("PageTitle") as Literal;
+                    if (PageTitle != null)
+                    {
+                        PageTitle.Text = PageHeaderTitle;
+                    }
+                    if (!AccessPermission)
+                    {
+                        var advancesearchpage = MainContainerPlaceHolder.FindControl("advancesearchpage");
+                        if (advancesearchpage != null)
+                        {
+                            advancesearchpage.Visible = false;
+                        }
+                        var SearchPageTopButtonBar = MainContainerPlaceHolder.FindControl("SearchPageTopButtonBar");
+                        if (SearchPageTopButtonBar != null)
+                        {
+                            SearchPageTopButtonBar.Visible = false;
+                        }
+                        var SearchPageTopToolBar = MainContainerPlaceHolder.FindControl("SearchPageTopToolBar");
+                        if (SearchPageTopToolBar != null)
+                        {
+                            SearchPageTopToolBar.Visible = false;
+                        }
+                        var ListControl = MainContainerPlaceHolder.FindControl("ListControl");
+                        if (ListControl != null)
+                        {
+                            ListControl.Visible = false;
+                        }
+                    }
+                }
+                #endregion search page
+
+                #region detail page
+                if (CurrentPageFileName.Equals(WEBUI_DETAIL_FILENAME, StringComparison.OrdinalIgnoreCase))
+                {
+                    if (btnEditItem != null)
+                    {
+                        btnEditItem.Visible = btnEditItem.Visible && AccessPermission;
+                        btnEditItem.Attributes.Add("onclick", "window.location='{0}';".FormatInvariantCulture(GetEditPageUrl(ObjectID)));
+                    }
+                    var ControlContainer = MainContainerPlaceHolder.FindControl("ControlContainer");
+                    if (ControlContainer != null)
+                    {
+                        ControlContainer.Visible = AccessPermission;
+                    }
+                }
+                #endregion detail page
+            }
+            // for Web
+            else if (MainContentPlaceHolder != null)
             {
                 var txtObjectIDItem = (TextBox)MainContentPlaceHolder.FindControl("ObjectID");
                 if (txtObjectIDItem != null)
@@ -60,13 +158,19 @@ namespace RICH.Common.Base.WebUI
                 if (btnAddItem != null)
                 {
                     btnAddItem.Visible = SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIAddAccessPurviewID());
-                    btnAddItem.Attributes.Add("onclick", OpenWindowJsCode.FormatInvariantCulture(GetAddPageUrl()));
+                    btnAddItem.Attributes.Add("onclick",
+                                               this.IsMobileDevice()
+                                                   ? RedirectJsCode.FormatInvariantCulture(GetAddPageUrl())
+                                                   : OpenWindowJsCode.FormatInvariantCulture(GetAddPageUrl()));
                 }
                 var btnEditItem = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnEditItem");
                 if (btnEditItem != null)
                 {
                     btnEditItem.Visible = !EditMode && !AddMode && SystemValidateLibrary.ValidateUserPurview(currentUserInfo.UserID, currentUserInfo.UserGroupID, GetWebUIModifyAccessPurviewID());
-                    btnEditItem.Attributes.Add("onclick", OpenWindowJsCode.FormatInvariantCulture(GetEditPageUrl(ObjectID)));
+                    btnEditItem.Attributes.Add("onclick",
+                                               this.IsMobileDevice()
+                                                   ? RedirectJsCode.FormatInvariantCulture(GetEditPageUrl(ObjectID))
+                                                   : OpenWindowJsCode.FormatInvariantCulture(GetEditPageUrl(ObjectID)));
                 }
                 var btnCopyItem = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnCopyItem");
                 var btnImportFromDoc = (HtmlInputButton)MainContentPlaceHolder.FindControl("btnImportFromDoc");

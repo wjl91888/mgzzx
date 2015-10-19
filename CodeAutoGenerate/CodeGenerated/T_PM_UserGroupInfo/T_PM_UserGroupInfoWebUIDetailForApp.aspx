@@ -19,8 +19,8 @@
             </div>
     
             <div id="UserGroupIDContainer" runat="server" class="row">
-                <div id="UserGroupIDCaption" runat="server" class="fontbold col-xs- paddingleft0">用户组编号</div>
-                <div id="UserGroupIDContent" runat="server" class="col-xs-">
+                <div id="UserGroupIDCaption" runat="server" class="fontbold col-xs-3 paddingleft0">用户组编号</div>
+                <div id="UserGroupIDContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "UserGroupID"), null)%>
                 
@@ -28,8 +28,8 @@
             </div>
         
             <div id="UserGroupNameContainer" runat="server" class="row">
-                <div id="UserGroupNameCaption" runat="server" class="fontbold col-xs- paddingleft0">用户组名称</div>
-                <div id="UserGroupNameContent" runat="server" class="col-xs-">
+                <div id="UserGroupNameCaption" runat="server" class="fontbold col-xs-3 paddingleft0">用户组名称</div>
+                <div id="UserGroupNameContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "UserGroupName"), null)%>
                 
@@ -37,8 +37,8 @@
             </div>
         
             <div id="UserGroupContentContainer" runat="server" class="row">
-                <div id="UserGroupContentCaption" runat="server" class="fontbold col-xs- paddingleft0">内容</div>
-                <div id="UserGroupContentContent" runat="server" class="col-xs-">
+                <div id="UserGroupContentCaption" runat="server" class="fontbold col-xs-3 paddingleft0">内容</div>
+                <div id="UserGroupContentContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "UserGroupContent"), null)%>
                 
@@ -46,8 +46,8 @@
             </div>
         
             <div id="UserGroupRemarkContainer" runat="server" class="row">
-                <div id="UserGroupRemarkCaption" runat="server" class="fontbold col-xs- paddingleft0">备注</div>
-                <div id="UserGroupRemarkContent" runat="server" class="col-xs-">
+                <div id="UserGroupRemarkCaption" runat="server" class="fontbold col-xs-3 paddingleft0">备注</div>
+                <div id="UserGroupRemarkContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "UserGroupRemark"), null)%>
                 
@@ -55,8 +55,8 @@
             </div>
         
             <div id="DefaultPageContainer" runat="server" class="row">
-                <div id="DefaultPageCaption" runat="server" class="fontbold col-xs- paddingleft0">系统默认页</div>
-                <div id="DefaultPageContent" runat="server" class="col-xs-">
+                <div id="DefaultPageCaption" runat="server" class="fontbold col-xs-3 paddingleft0">系统默认页</div>
+                <div id="DefaultPageContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "DefaultPage"), null)%>
                 
@@ -64,8 +64,8 @@
             </div>
         
             <div id="UpdateDateContainer" runat="server" class="row">
-                <div id="UpdateDateCaption" runat="server" class="fontbold col-xs- paddingleft0">更新时间</div>
-                <div id="UpdateDateContent" runat="server" class="col-xs-">
+                <div id="UpdateDateCaption" runat="server" class="fontbold col-xs-3 paddingleft0">更新时间</div>
+                <div id="UpdateDateContent" runat="server" class="col-xs-9">
         
                     <%# GetValue(DataBinder.Eval(Container.DataItem, "UpdateDate"), null)%>
                 
@@ -76,6 +76,16 @@
         </ItemTemplate>
     </asp:Repeater>
 </div>
+</asp:Content>
+<asp:Content ID="PageNavContainer" ContentPlaceHolderID="PageNavContainerPlaceHolder" runat="server">
+    <ul id="PageInfo" runat="server" class="nav  navbar-default">
+        <li class="col-sm-3 col-xs-3 text-center" style="padding-right: 0px !important; padding-left: 0px !important;">
+            <input type="button" id ="btnEditItem" runat ="server" value="修改" class="btn btn-default navbar-btn" />
+        </li>
+        <li class="col-sm-3 col-xs-3 text-center" style="padding-right: 0px !important; padding-left: 0px !important;"></li>
+        <li class="col-sm-3 col-xs-3 text-center" style="padding-right: 0px !important; padding-left: 0px !important;"></li>
+        <li class="col-sm-3 col-xs-3 text-center" style="padding-right: 0px !important; padding-left: 0px !important;"></li>
+    </ul>
 </asp:Content>
 
 

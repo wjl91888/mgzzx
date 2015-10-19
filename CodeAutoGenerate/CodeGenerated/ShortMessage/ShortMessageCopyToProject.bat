@@ -12,6 +12,8 @@ copy ShortMessageWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy ShortMessageWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy ShortMessageWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy ShortMessageWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
+copy ShortMessageWebUIAddForApp.aspx ..\..\..\wwwroot\App\A_BM\ShortMessageWebUIAdd.aspx
+copy ShortMessageWebUIAddForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\ShortMessageWebUIAdd.aspx.cs
 copy ShortMessageWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\ShortMessageWebUIDetail.aspx
 copy ShortMessageWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\ShortMessageWebUIDetail.aspx.cs
 copy ShortMessageWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\

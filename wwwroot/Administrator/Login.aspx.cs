@@ -34,7 +34,9 @@ public partial class Administrator_Login : Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_SAVE_LOGIN_STATUS]))
+        if (!DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_SAVE_LOGIN_STATUS])
+            && !DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_USER_LOGIN_NAME])
+            && !DataValidateManager.ValidateIsNull(Request.Cookies[ConstantsManager.COOKIE_PASSWORD]))
         {
             txtUserLoginName.Text = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_USER_LOGIN_NAME].Value);
             txtPassword.Text = Server.UrlDecode(Request.Cookies[ConstantsManager.COOKIE_PASSWORD].Value);

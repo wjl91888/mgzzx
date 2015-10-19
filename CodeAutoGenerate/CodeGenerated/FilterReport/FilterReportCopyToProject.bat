@@ -12,6 +12,8 @@ copy FilterReportWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy FilterReportWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy FilterReportWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy FilterReportWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
+copy FilterReportWebUIAddForApp.aspx ..\..\..\wwwroot\App\A_BM\FilterReportWebUIAdd.aspx
+copy FilterReportWebUIAddForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\FilterReportWebUIAdd.aspx.cs
 copy FilterReportWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\FilterReportWebUIDetail.aspx
 copy FilterReportWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\FilterReportWebUIDetail.aspx.cs
 copy FilterReportWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\

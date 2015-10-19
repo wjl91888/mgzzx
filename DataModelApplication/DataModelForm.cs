@@ -519,6 +519,8 @@ namespace DataModelApplication
                     sbSqlText.Append(" '4' AS [AppListColumn],");
                     sbSqlText.Append(" '3' AS [AppDetailCaptionColumn],");
                     sbSqlText.Append(" '9' AS [AppDetailContentColumn],");
+                    sbSqlText.Append(" '3' AS [AppAddCaptionColumn],");
+                    sbSqlText.Append(" '9' AS [AppAddContentColumn],");
                     sbSqlText.Append(" CAST(CASE WHEN F.[keyno] > 0 THEN 1 ELSE 0 END AS bit) AS [IsPrimaryKey]");
                     sbSqlText.Append(" FROM [" + strDatabaseName + "].[dbo].[syscolumns] AS A");
                     sbSqlText.Append(" INNER JOIN [" + strDatabaseName + "].[dbo].[sysobjects] AS B");

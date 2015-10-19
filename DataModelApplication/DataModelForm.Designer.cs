@@ -198,6 +198,8 @@
             this.IsAppDetail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.AppDetailCaptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppDetailContentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppAddCaptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppAddContentColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsSearch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IsAdvanceSearch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PrefixMatch = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -787,6 +789,8 @@
             this.IsAppDetail,
             this.AppDetailCaptionColumn,
             this.AppDetailContentColumn,
+            this.AppAddCaptionColumn,
+            this.AppAddContentColumn,
             this.IsSearch,
             this.IsAdvanceSearch,
             this.PrefixMatch,
@@ -2094,6 +2098,18 @@
             this.AppDetailContentColumn.Name = "AppDetailContentColumn";
             this.AppDetailContentColumn.Width = 60;
             // 
+            // AppAddCaptionColumn
+            // 
+            this.AppAddCaptionColumn.HeaderText = "AppAddCaptionColumn";
+            this.AppAddCaptionColumn.Name = "AppAddCaptionColumn";
+            this.AppAddCaptionColumn.Width = 60;
+            // 
+            // AppAddContentColumn
+            // 
+            this.AppAddContentColumn.HeaderText = "AppAddContentColumn";
+            this.AppAddContentColumn.Name = "AppAddContentColumn";
+            this.AppAddContentColumn.Width = 60;
+            // 
             // IsSearch
             // 
             this.IsSearch.HeaderText = "简单查询";
@@ -3153,6 +3169,8 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAppDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppDetailCaptionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AppDetailContentColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppAddCaptionColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppAddContentColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsSearch;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsAdvanceSearch;
         private System.Windows.Forms.DataGridViewCheckBoxColumn PrefixMatch;

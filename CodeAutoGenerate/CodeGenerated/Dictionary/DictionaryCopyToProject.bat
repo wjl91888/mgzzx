@@ -12,6 +12,8 @@ copy DictionaryWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy DictionaryWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy DictionaryWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy DictionaryWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
+copy DictionaryWebUIAddForApp.aspx ..\..\..\wwwroot\App\A_BM\DictionaryWebUIAdd.aspx
+copy DictionaryWebUIAddForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\DictionaryWebUIAdd.aspx.cs
 copy DictionaryWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\DictionaryWebUIDetail.aspx
 copy DictionaryWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\DictionaryWebUIDetail.aspx.cs
 copy DictionaryWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\

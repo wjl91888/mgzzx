@@ -12,6 +12,8 @@ copy T_PM_UserInfoWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_PM_UserInfoWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy T_PM_UserInfoWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_PM_UserInfoWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
+copy T_PM_UserInfoWebUIAddForApp.aspx ..\..\..\wwwroot\App\A_BM\T_PM_UserInfoWebUIAdd.aspx
+copy T_PM_UserInfoWebUIAddForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_PM_UserInfoWebUIAdd.aspx.cs
 copy T_PM_UserInfoWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\T_PM_UserInfoWebUIDetail.aspx
 copy T_PM_UserInfoWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_PM_UserInfoWebUIDetail.aspx.cs
 copy T_PM_UserInfoWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\

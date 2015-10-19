@@ -29,6 +29,8 @@
                 <xs:element name="IsAppDetail" type="xs:boolean" minOccurs="0" />
                 <xs:element name="AppDetailCaptionColumn" type="xs:string" minOccurs="0" />
                 <xs:element name="AppDetailContentColumn" type="xs:string" minOccurs="0" />
+                <xs:element name="AppAddCaptionColumn" type="xs:string" minOccurs="0" />
+                <xs:element name="AppAddContentColumn" type="xs:string" minOccurs="0" />
                 <xs:element name="IsSearch" type="xs:boolean" minOccurs="0" />
                 <xs:element name="IsAdvanceSearch" type="xs:boolean" minOccurs="0" />
                 <xs:element name="PrefixMatch" type="xs:boolean" minOccurs="0" />
@@ -235,6 +237,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -329,6 +333,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -431,6 +437,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -533,6 +541,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -645,6 +655,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -755,6 +767,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -857,6 +871,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -951,6 +967,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1061,6 +1079,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1171,6 +1191,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1281,6 +1303,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1383,6 +1407,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1485,6 +1511,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1587,6 +1615,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1689,6 +1719,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1791,6 +1823,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1893,6 +1927,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1995,6 +2031,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2097,6 +2135,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2199,6 +2239,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2301,6 +2343,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2404,6 +2448,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -2498,6 +2544,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>

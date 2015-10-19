@@ -1,5 +1,5 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeFile="AppBasePage.master.cs"
-    Inherits="AppBasePage_BasePage" EnableViewState="false" %>
+    Inherits="AppBasePage_BasePage" EnableViewState="true" %>
 
 <%@ Register TagPrefix="control" TagName="Nav" Src="~/Control/CommonNavControl.ascx" %>
 <!DOCTYPE html>

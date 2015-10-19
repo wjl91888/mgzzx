@@ -12,6 +12,8 @@ copy T_BG_0601WebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BG_0601WebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BG_0601WebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BG_0601WebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
+copy T_BG_0601WebUIAddForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BG_0601WebUIAdd.aspx
+copy T_BG_0601WebUIAddForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BG_0601WebUIAdd.aspx.cs
 copy T_BG_0601WebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BG_0601WebUIDetail.aspx
 copy T_BG_0601WebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BG_0601WebUIDetail.aspx.cs
 copy T_BG_0601WebUIImage.aspx ..\..\..\wwwroot\App\A_BM\

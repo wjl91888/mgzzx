@@ -17,6 +17,8 @@ copy <xsl:value-of select="/NewDataSet/TableName"/>WebUISearch.aspx <xsl:value-o
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUISearch.aspx.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\Administrator\A_BM\
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIStatistic.aspx <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\Administrator\A_BM\
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIStatistic.aspx.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\Administrator\A_BM\
+copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIAddForApp.aspx <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\<xsl:value-of select="/NewDataSet/TableName"/>WebUIAdd.aspx
+copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIAddForApp.aspx.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\<xsl:value-of select="/NewDataSet/TableName"/>WebUIAdd.aspx.cs
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIDetailForApp.aspx <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\<xsl:value-of select="/NewDataSet/TableName"/>WebUIDetail.aspx
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIDetailForApp.aspx.cs <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\<xsl:value-of select="/NewDataSet/TableName"/>WebUIDetail.aspx.cs
 copy <xsl:value-of select="/NewDataSet/TableName"/>WebUIImage.aspx <xsl:value-of select="/NewDataSet/ProjectPath"/>\wwwroot\App\A_BM\

@@ -2,3 +2,35 @@
 .paddingleft0 { padding-left:0 !important; }
 .paddingright0 { padding-right:0 !important; }
 #AppDetailPage div { margin-bottom: 4px; padding-left:10px; padding-right:10px; }
+
+/* Message Box */
+div.messagebox .messagebody
+{
+    border: 1px solid #ffe58a;
+    background: #fff3c8;
+    display: inline-block;
+    width: 99.6%;
+    color: #000;
+    margin: 0 0 0 1px; /*    position:fixed;     _position:absolute;     bottom:0px;     _bottom:0px;     _margin-top:expression(this.style.pixelHeight+document.documentElement.scrollTop);*/
+}
+
+div.messagebox .messagebody div
+{
+    min-height: 30px;
+    display: inline-block;
+    background-color: transparent;
+    margin: 15px 0 0px 0;
+    height: auto;
+    width: 100%;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+div.messagebox .messagebody div div
+{
+    min-height: 18px;
+    margin: 0;
+    text-align: center !important;
+    font-weight: bold;
+    float: left;
+}

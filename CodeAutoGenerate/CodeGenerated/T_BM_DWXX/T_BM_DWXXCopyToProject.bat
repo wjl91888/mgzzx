@@ -12,6 +12,8 @@ copy T_BM_DWXXWebUISearch.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BM_DWXXWebUISearch.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BM_DWXXWebUIStatistic.aspx ..\..\..\wwwroot\Administrator\A_BM\
 copy T_BM_DWXXWebUIStatistic.aspx.cs ..\..\..\wwwroot\Administrator\A_BM\
+copy T_BM_DWXXWebUIAddForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BM_DWXXWebUIAdd.aspx
+copy T_BM_DWXXWebUIAddForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BM_DWXXWebUIAdd.aspx.cs
 copy T_BM_DWXXWebUIDetailForApp.aspx ..\..\..\wwwroot\App\A_BM\T_BM_DWXXWebUIDetail.aspx
 copy T_BM_DWXXWebUIDetailForApp.aspx.cs ..\..\..\wwwroot\App\A_BM\T_BM_DWXXWebUIDetail.aspx.cs
 copy T_BM_DWXXWebUIImage.aspx ..\..\..\wwwroot\App\A_BM\

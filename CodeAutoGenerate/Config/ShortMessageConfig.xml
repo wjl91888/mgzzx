@@ -29,6 +29,8 @@
                 <xs:element name="IsAppDetail" type="xs:boolean" minOccurs="0" />
                 <xs:element name="AppDetailCaptionColumn" type="xs:string" minOccurs="0" />
                 <xs:element name="AppDetailContentColumn" type="xs:string" minOccurs="0" />
+                <xs:element name="AppAddCaptionColumn" type="xs:string" minOccurs="0" />
+                <xs:element name="AppAddContentColumn" type="xs:string" minOccurs="0" />
                 <xs:element name="IsSearch" type="xs:boolean" minOccurs="0" />
                 <xs:element name="IsAdvanceSearch" type="xs:boolean" minOccurs="0" />
                 <xs:element name="PrefixMatch" type="xs:boolean" minOccurs="0" />
@@ -167,6 +169,13 @@
           </xs:element>
           <xs:element name="CustomOperateConfig">
             <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CustomOperateName" type="xs:string" minOccurs="0" />
+                <xs:element name="CustomOperateFile" type="xs:string" minOccurs="0" />
+                <xs:element name="CustomOperateParamOne" type="xs:string" minOccurs="0" />
+                <xs:element name="CustomOperateParamTwo" type="xs:string" minOccurs="0" />
+                <xs:element name="CustomOperateParamThree" type="xs:string" minOccurs="0" />
+              </xs:sequence>
             </xs:complexType>
           </xs:element>
           <xs:element name="CustomConditionConfig">
@@ -235,6 +244,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -329,6 +340,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -431,6 +444,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -527,6 +542,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>12</AppDetailCaptionColumn>
     <AppDetailContentColumn>12</AppDetailContentColumn>
+    <AppAddCaptionColumn>12</AppAddCaptionColumn>
+    <AppAddContentColumn>12</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -629,6 +646,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>12</AppDetailCaptionColumn>
     <AppDetailContentColumn>12</AppDetailContentColumn>
+    <AppAddCaptionColumn>12</AppAddCaptionColumn>
+    <AppAddContentColumn>12</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -731,6 +750,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -834,6 +855,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -945,6 +968,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1056,6 +1081,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1151,6 +1178,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>true</IsSearch>
     <IsAdvanceSearch>true</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1261,6 +1290,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1356,6 +1387,8 @@
     <IsAppDetail>false</IsAppDetail>
     <AppDetailCaptionColumn>3</AppDetailCaptionColumn>
     <AppDetailContentColumn>9</AppDetailContentColumn>
+    <AppAddCaptionColumn>3</AppAddCaptionColumn>
+    <AppAddContentColumn>9</AppAddContentColumn>
     <IsSearch>false</IsSearch>
     <IsAdvanceSearch>false</IsAdvanceSearch>
     <PrefixMatch>false</PrefixMatch>
@@ -1428,6 +1461,12 @@
     <IsFromDoc>false</IsFromDoc>
     <IsFromDataSet>false</IsFromDataSet>
   </RecordInfo>
+  <CustomOperateConfig>
+    <CustomOperateName>回复</CustomOperateName>
+    <CustomOperateFile>/App/A_BM/ShortMessageWebUIAdd.aspx</CustomOperateFile>
+    <CustomOperateParamOne>JSR</CustomOperateParamOne>
+  </CustomOperateConfig>
+  <CustomOperateConfig />
   <CustomPermissionConfig>
     <CustomPermissionTemplate>WebUISearch.aspx.cs.xsl</CustomPermissionTemplate>
     <CustomPermissionType>SearchPage</CustomPermissionType>

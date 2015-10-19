@@ -128,11 +128,12 @@ namespace RICH.Common.Base.WebUI
 
         protected virtual void Page_PreRender(object sender, EventArgs e)
         {
-            if (MainContentPlaceHolder != null)
+            if (MainContentPlaceHolder != null || MainContainerPlaceHolder != null)
             {
+                var placeHolder = (MainContentPlaceHolder ?? MainContainerPlaceHolder);
                 if (!DataValidateManager.ValidateIsNull(MessageContent))
                 {
-                    var lb = (Literal)MainContentPlaceHolder.FindControl("MessageBox");
+                    var lb = (Literal)placeHolder.FindControl("MessageBox");
                     if (lb != null)
                     {
                         lb.Text = string.Format("<div class='messagebox'><div class='messagebody'><div>{0}</div></div></div>", MessageContent);

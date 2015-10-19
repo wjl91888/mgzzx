@@ -259,6 +259,7 @@
     </Content>
     <Content Include="Template\ApplicationData.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Template\ApplicationLogic.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -271,9 +272,17 @@
     </Content>
     <Content Include="Template\BusinessEntityBase.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Template\Contants.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIAddForApp.aspx.cs.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\WebUIAddForApp.aspx.xsl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Template\WebUIDetailForApp.aspx.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -281,9 +290,11 @@
     </Content>
     <Content Include="Template\WebUIDetailForApp.aspx.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Template\WebUISearchForApp.aspx.cs.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Template\WebUISearchForApp.aspx.xsl">
       <SubType>Designer</SubType>
@@ -300,6 +311,7 @@
     </Content>
     <Content Include="Template\ScriptProc.sql.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Template\ScriptUpdateField.sql.xsl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
